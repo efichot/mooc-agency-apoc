@@ -8,6 +8,8 @@ import fontawesome from '@fortawesome/fontawesome';
 import Introduction from '../views/Introduction';
 // import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import solid from '@fortawesome/fontawesome-free-solid';
+import { Helmet } from 'react-helmet';
+
 //import PropTypes from 'prop-types';
 
 fontawesome.library.add(solid);
@@ -29,7 +31,10 @@ export default class App extends React.Component {
   render() {
     return (
       <MyProvider>
-        <BrowserRouter>
+        <Helmet>
+          <title>APOC Serious Game</title>
+        </Helmet>
+        <BrowserRouter basename="/mooc-agency-apoc">
           <div className="master__outer-container">
             <Header />
             <MenuMobile />
