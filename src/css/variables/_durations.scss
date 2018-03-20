@@ -1,0 +1,7 @@
+
+:root {
+  --duration: 0.25s;
+
+  --menuMobileTogglingFactor: var(--hamburgerTransDurationFactor);
+  --menuMobileTogglingDuration: calc(var(--hamburgerTransDurationFactor) * var(--duration));
+}

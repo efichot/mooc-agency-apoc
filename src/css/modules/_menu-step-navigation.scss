@@ -1,0 +1,90 @@
+.menu-step-navigation {
+  position: fixed;
+  width: calc(var(--innerContentPaddingX) * 0.9);
+  padding: 5px;
+  /* top: calc(var(--headerHeight) - var(--menuTopHeight) + var(--menuTopPaddingTop)); */
+  bottom: 0;
+  height: 450px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  color: var(--defaultTextColor);
+  font-size: var(--defaultFontSize);
+  text-transform: uppercase;
+
+  &__button > * {
+    margin-top: 10px;
+    height: 75px;
+    box-shadow: 2px 1px 1px var(--shadow);
+  }
+
+  &__frame {
+    border-radius: 10px;
+    background-color: var(--menuStepNavigationBg);
+    padding: 10px;
+    box-shadow: 2px 1px 1px var(--shadow);
+  }
+
+  &__title {
+    font-size: 0.875rem;
+  }
+
+  /*------------------------------------*/
+  /*SCORE*/
+  /*------------------------------------*/
+  /* &__score {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &--stars {
+      display: flex;
+      justify-content: center;
+
+      .star {
+        &.isEmpty {
+          color: var(--menuStepNavigationStarEmpty);
+        }
+        &.isFull {
+          color: var(--menuStepNavigationStarFull);
+        }
+      }
+      
+    }
+  } */
+
+  /*------------------------------------*/
+  /*STEP*/
+  /*------------------------------------*/
+
+  &__step {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    > * {
+      padding-bottom: 15px;
+      padding-top: 15px;
+    }
+    
+    &--bullet {
+      color: var(--menuStepNavigationBullet);
+      margin-right: 5px;
+    }
+
+    &--content {
+      border-bottom: 1px dotted var(--menuStepNavigationBorder);
+      flex-grow: 1;
+      &.last-step {
+        border: none
+      }
+    }
+
+    &--durations {
+      font-size: 0.55rem;
+    }
+  }
+
+}

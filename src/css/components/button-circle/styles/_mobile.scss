@@ -1,0 +1,13 @@
+.button-circle {
+  height: var(--buttonCircleRadius);
+  width: var(--buttonCircleRadius);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
+
+@media all and (max-width: $mobile-width) {
+  
+} 

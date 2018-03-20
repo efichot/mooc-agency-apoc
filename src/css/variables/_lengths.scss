@@ -1,0 +1,36 @@
+/*------------------------------------*/
+    /*SCSS VARIABLES*/
+/*------------------------------------*/
+
+$min-width: 250px;
+$mobile-width: 500px;
+$tab-width: 700px;
+$desktop-width: 100px;
+$xl-screen-width: 1400px;
+
+
+/*------------------------------------*/
+    /*CSS VARIABLES*/
+/*------------------------------------*/
+
+:root {
+
+
+  /****** GLOBAL **********/
+  --masterWidth: 1200px;
+  --innerContentWidth: 800px;
+  --innerContentPaddingX: calc((var(--masterWidth) - var(--innerContentWidth)) / 2);
+
+
+  /************ HEADER ************/
+  --headerHeight: 320px;
+  --headerContentHeight: 130px;
+  --avatarWidth: 120px;
+  --avatarHeight: 100%;
+
+  /************ MENU-TOP **************/
+  --menuTopHeight: 160px;
+  --menuTopWidth: var(--innerContentWidth);
+  --menuTopPaddingTop: calc(var(--menuTopHeight) / 2);
+  --menuTopItemHeight: 50px;
+}
