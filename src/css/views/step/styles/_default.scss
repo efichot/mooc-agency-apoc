@@ -1,0 +1,9 @@
+
+.step {
+  @extend %flex-column-top-left;
+  justify-content: flex-between;
+
+  > * {
+    width: 100%;
+  }
+}

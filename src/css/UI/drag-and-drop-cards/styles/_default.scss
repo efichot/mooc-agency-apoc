@@ -1,0 +1,30 @@
+.drag-card {
+  @include equalSides(50px);
+  background-color: red;
+  border: 1px solid #000;
+}
+
+.drop-cards-start {
+  @extend %flex-row-center-center;
+  justify-content: space-between;
+  width: 100%;
+  .drop-card {
+    background-color: gray;
+  }
+}
+
+.drop-cards-end {
+  @extend %flex-row-center-center;
+  justify-content: space-between;
+  width: 100%;
+  .drop-card {
+    background-color: green;
+  }
+}
+
+
+.drop-card {
+  @include equalSides(100px);
+  border: 1px solid #000;
+  @extend %flex-row-center-center;
+}

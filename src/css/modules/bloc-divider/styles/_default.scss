@@ -1,0 +1,10 @@
+
+.bloc-divider {
+  height: 10px;
+  width: 100%;
+  background: var(--dividerBgColor);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, var(--masterBgColor), var(--dividerBgColor));  
+  background: linear-gradient(to bottom, var(--masterBgColor), var(--dividerBgColor));
+  // background: black;
+
+}

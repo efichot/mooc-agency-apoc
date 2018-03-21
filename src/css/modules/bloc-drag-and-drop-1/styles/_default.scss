@@ -1,0 +1,8 @@
+.bloc-drag-and-drop-1 {
+  @extend %flex-column-center-center;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid #000;
+  height: 500px;
+
+}

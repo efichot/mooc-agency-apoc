@@ -1,0 +1,13 @@
+.button-primary {
+  padding: 15px 20px;
+  
+  color: var(--white);
+  font-size: var(--defaultFontSize);
+  text-transform: uppercase;
+
+  cursor: pointer;
+  text-align: center;
+
+  background: var(--buttonPrimaryDefaultColor);
+  border-radius: 10px;
+}

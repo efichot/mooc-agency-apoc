@@ -1,0 +1,421 @@
+
+@mixin equalSides($size) {
+  width: $size;
+  height: $size;
+}
+
+/*------------------------------------*/
+/*BACKGROUND PICTURES*/
+/*------------------------------------*/
+
+%background-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+%background-contains {
+  background-size: contains;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+
+/*------------------------------------*/
+/*FLEXBOXES - ROW*/
+/*------------------------------------*/
+
+/*------/-------/-------//
+/       /       /       //
+/       /       /   X   //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-row-top-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+/*------/-------/-------//
+/       /       /       //
+/       /   X   /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-row-top-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/*------/-------/-------//
+/       /       /       //
+/   X   /       /      //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-row-top-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/*------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /   X   //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-row-center-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+/*------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /   X   /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+
+
+%flex-row-center-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/*------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/   X   /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-row-center-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+/*------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /   X   //
+/       /       /       //
+/-------/-------/-------*/
+
+
+%flex-row-bottom-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+
+/*------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /   X   /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-row-bottom-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+
+/*------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/   X   /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-row-bottom-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+
+
+/*------------------------------------*/
+/*FLEXBOXES - COLUMN*/
+/*------------------------------------*/
+
+/*------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/   X   /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-column-bottom-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+/*------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/   X   /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-column-center-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/*------/-------/-------//
+/       /       /       //
+/   X   /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-column-top-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/*------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /   X   /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-column-bottom-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+/*------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /   X   /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+
+
+%flex-column-center-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*------/-------/-------//
+/       /       /       //
+/       /   X   /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-column-top-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+/*------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /   X   //
+/       /       /       //
+/-------/-------/-------*/
+
+
+%flex-column-bottom-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+
+/*------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /   X   //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-column-center-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/*------/-------/-------//
+/       /       /       //
+/       /       /   X   //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------//
+/       /       /       //
+/       /       /       //
+/       /       /       //
+/-------/-------/-------*/
+
+%flex-column-top-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
