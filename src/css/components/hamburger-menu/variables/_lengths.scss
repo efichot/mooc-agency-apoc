@@ -1,8 +1,0 @@
-
-:root {
-
-  --hamburgerWidth: calc(var(--buttonCircleRadius) / 3);
-  --hamburgerLineHeight: 2px;
-  --hamburgerHeight: calc(var(--buttonCircleRadius) / 3);
-  --hamburgerLineSpacing: calc((var(--hamburgerHeight) - 3 * var(--hamburgerLineHeight)) / 2);
-}
