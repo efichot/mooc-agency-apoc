@@ -10,4 +10,6 @@
 
   background: var(--buttonPrimaryDefaultColor);
   border-radius: 10px;
+
+  @extend %flex-row-center-center;
 }

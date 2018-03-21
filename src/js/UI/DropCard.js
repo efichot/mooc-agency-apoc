@@ -1,4 +1,6 @@
 import React from 'react';
+import { Droppable } from 'react-beautiful-dnd';
+
 //import PropTypes from 'prop-types';
 
 export default class DropCard extends React.Component {
@@ -8,7 +10,15 @@ export default class DropCard extends React.Component {
   //}
 
   render() {
-    return <div className={`drop-card`}>{this.props.children}</div>;
+    return (
+      <Droppable droppableId={this.props.id}>
+        {(provided, snapshot) => (
+          <div className={`drop-card`} ref={provided.innerRef}>
+            {this.props.children}
+          </div>
+        )}
+      </Droppable>
+    );
   }
 }
 

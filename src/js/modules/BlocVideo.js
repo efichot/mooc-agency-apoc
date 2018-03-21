@@ -1,5 +1,6 @@
 import React from 'react';
 import BlocHeader from './BlocHeader';
+import BlocDescription from './BlocDescription';
 // import Iframe from 'react-iframe';
 import Player from '@vimeo/player';
 
@@ -24,20 +25,13 @@ export default class BlocVideo extends React.Component {
   }
 
   render() {
-    this.props.firstDescription.__html = this.props.firstDescription.__html
-      .replace(/\r\n/g, '<br />')
-      .replace(/[\r\n]/g, '<br />');
-    this.props.secondDescription.__html = this.props.secondDescription.__html
-      .replace(/\r\n/g, '<br />')
-      .replace(/[\r\n]/g, '<br />');
-
     return (
       <div className={`bloc-video bloc`}>
         <BlocHeader type="video" duration={this.state.durationInMinutes} />
         <span className="bloc__name">{this.props.name}</span>
-        <span
-          className="bloc__first-description"
-          dangerouslySetInnerHTML={this.props.firstDescription}
+        <BlocDescription
+          classes="bloc__first-description"
+          description={this.props.firstDescription}
         />
         <div className="bloc__video--container">
           <iframe
@@ -57,9 +51,9 @@ export default class BlocVideo extends React.Component {
             frameBorder="0"
           />
         </div>
-        <span
-          className="bloc__second-description"
-          dangerouslySetInnerHTML={this.props.secondDescription}
+        <BlocDescription
+          classes="bloc__second-description"
+          description={this.props.secondDescription}
         />
       </div>
     );

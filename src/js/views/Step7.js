@@ -12,8 +12,8 @@ export default class Step7 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showMarketActions: true,
-      showMarketObligatary: false,
+      showMarketActions: false,
+      showMarketObligatary: true,
       showMarketMonetary: false
     };
 

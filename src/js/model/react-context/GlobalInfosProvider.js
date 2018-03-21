@@ -5,14 +5,6 @@ import menuTop from '../static/menuTop';
 import step7 from '../static/step7';
 //import PropTypes from 'prop-types';
 
-const keyGame = Object.keys(step7).filter(
-  key =>
-    step7[`${key}`].linkWithBlocSubMenu1ButtonPosition &&
-    step7[`${key}`].linkWithBlocSubMenu1ButtonPosition === 1
-);
-
-const dataGame = step7[keyGame];
-
 const GlobalInfosContext = React.createContext('globalInfos');
 
 class GlobalInfosProvider extends React.Component {
@@ -20,7 +12,7 @@ class GlobalInfosProvider extends React.Component {
     userInfos,
     stepNavigation,
     menuTop,
-    dataGame
+    step7
   };
 
   render() {

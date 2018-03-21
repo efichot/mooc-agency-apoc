@@ -1,6 +1,7 @@
 import React from 'react';
 import video from '../../assets/img/icons/view.png';
-//import PropTypes from 'prop-types';
+import horloge from '../../assets/img/icons/horloge.png';
+import PropTypes from 'prop-types';
 
 export default class BlocHeader extends React.Component {
   //constructor(props) {
@@ -9,8 +10,11 @@ export default class BlocHeader extends React.Component {
   //}
 
   render() {
-    const picType = this.props.type === 'video' ? video : '';
-    const name = this.props.type === 'video' ? 'Vidéo' : 'Autre';
+    const picType =
+      this.props.type === 'video'
+        ? video
+        : this.props.type === 'horloge' ? horloge : '';
+    const name = this.props.type === 'video' ? 'Vidéo' : this.props.name;
 
     return (
       <div className=" bloc-header">
@@ -29,4 +33,8 @@ export default class BlocHeader extends React.Component {
   }
 }
 
-BlocHeader.propTypes = {};
+BlocHeader.propTypes = {
+  type: PropTypes.string.isRequired,
+  duration: PropTypes.number.isRequired,
+  name: PropTypes.string
+};
