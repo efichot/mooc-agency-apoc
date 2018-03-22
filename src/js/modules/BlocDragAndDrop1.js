@@ -1,28 +1,24 @@
 import React from 'react';
-// import DropOrDragCardContainer from '../UI/DropOrDragCardContainer';
 import DragCard from '../UI/DragCard';
 import DropCard from '../UI/DropCard';
-// import { DragAndDropContext } from '../model/react-context/DragAndDropProvider';
-// import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
-import { DragDropContext } from 'react-beautiful-dnd';
+import PopupBlue from '../UI/PopupBlue';
+import ButtonPrimary from '../UI/ButtonPrimary';
 import BlocHeader from '../modules/BlocHeader';
 import BlocDescription from './BlocDescription';
 //import PropTypes from 'prop-types';
 
-export const ItemTypes = {
-  KNIGHT: 'knight'
-};
-
 class BlocDragAndDrop1 extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      cardInPosition: {}
+    };
 
     this.renderDropCard = this.renderDropCard.bind(this);
     this.renderDragCard = this.renderDragCard.bind(this);
-    this.onDragStart = this.onDragStart.bind(this);
-    this.onDragUpdate = this.onDragUpdate.bind(this);
-    this.onDragEnd = this.onDragEnd.bind(this);
+    this.handleSolutionChecking = this.handleSolutionChecking.bind(this);
+    this.checkAnswers = this.checkAnswers.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   renderDropCard(dropStartOrEnd, dropPosition, dragCards) {
@@ -40,7 +36,14 @@ class BlocDragAndDrop1 extends React.Component {
     });
 
     return (
-      <DropCard id={dropCoordinatesAsString} key={dropCoordinatesAsString}>
+      <DropCard
+        id={dropCoordinatesAsString}
+        key={dropCoordinatesAsString}
+        endPosition={dropPosition}
+        reset={this.state.reset}
+        startOrEnd={dropStartOrEnd}
+        dragCard={this.handleSolutionChecking}
+      >
         {cardToShow}
       </DropCard>
     );
@@ -61,22 +64,65 @@ class BlocDragAndDrop1 extends React.Component {
           index={dragCoordinatesAsString}
           content={dragCard.content}
           type={'bloc-drag-and-drop-1'}
+          startPosition={dragCard.startPosition}
+          endPosition={dragCard.endPosition}
         />
       );
     }
   }
 
-  onDragStart() {
-    /*...*/
-  }
-  onDragUpdate() {
-    /*...*/
-  }
-  onDragEnd() {
-    // the only one that is required
+  handleSolutionChecking(bool, position) {
+    const cardInPositionStateCopy = this.state.cardInPosition;
+    cardInPositionStateCopy[`${position}`] = bool;
+    this.setState({ cardInPosition: cardInPositionStateCopy });
+    this.setState({ reset: false });
+    this.setState({ victoryMessage: undefined });
   }
 
-  handleDropCardClick(dropStartOrEnd, dropPosition) {}
+  checkAnswers() {
+    if (
+      Object.keys(this.state.cardInPosition).length < this.state.cardCounter
+    ) {
+      this.setState({
+        victoryMessage: `Vous n'avez pas rempli toutes les cases.`
+      });
+      window.setTimeout(() => {
+        this.setState({ victoryMessage: undefined });
+      }, 4000);
+      return;
+    }
+    const falseAnswers = Object.keys(this.state.cardInPosition).filter(
+      card => !this.state.cardInPosition[`${card}`]
+    );
+    if (falseAnswers.length === 0) {
+      this.setState({ victoryMessage: 'Bravo, vous avez réussi !' });
+      return;
+    } else {
+      this.setState({
+        victoryMessage: `Ce n'est pas la bonne réponse... réessayez !`
+      });
+      return;
+    }
+  }
+
+  reset() {
+    this.setState({ reset: true });
+    this.setState({ victoryMessage: undefined });
+    this.setState({ cardInPosition: {} });
+  }
+
+  componentDidMount() {
+    const solutions = {};
+    let cardCounter = 0;
+    this.props.context.cards.forEach(card => {
+      if (card.endPosition) {
+        solutions[`${card.startPosition}`] = card.endPosition;
+        cardCounter++;
+      }
+    });
+
+    this.setState({ solutions, cardCounter });
+  }
 
   render() {
     const {
@@ -96,30 +142,33 @@ class BlocDragAndDrop1 extends React.Component {
           description={firstDescription}
         />
         <div className="bloc-drag-and-drop-1__cards">
-          <DragDropContext
-            onDragStart={this.onDragStart}
-            onDragUpdate={this.onDragUpdate}
-            onDragEnd={this.onDragEnd}
-          >
-            <React.Fragment>
-              <div className="drop-cards-start">
-                {cards.map((onlyForIndex, indexDrop) =>
-                  this.renderDropCard('start', indexDrop + 1, cards)
+          <React.Fragment>
+            <div className="drop-cards-start">
+              {cards.map((onlyForIndex, indexDrop) =>
+                this.renderDropCard('start', indexDrop + 1, cards)
+              )}
+            </div>
+            <div className="risk-scale">
+              <span className="risk-low">Moins de risque</span>
+              {this.state.victoryMessage && (
+                <PopupBlue>
+                  <span className="">{this.state.victoryMessage}</span>
+                </PopupBlue>
+              )}
+              <span className="risk-high">Plus de risque</span>
+            </div>
+            <div className="drop-cards-end">
+              {cards
+                .filter(card => card.content.isDraggable)
+                .map((card, indexDrop) =>
+                  this.renderDropCard('end', indexDrop + 1, cards)
                 )}
-              </div>
-              <div className="risk-scale">
-                <span className="risk-low">Moins de risque</span>
-                <span className="risk-high">Plus de risque</span>
-              </div>
-              <div className="drop-cards-end">
-                {cards
-                  .filter(card => card.content.isDraggable)
-                  .map((card, indexDrop) =>
-                    this.renderDropCard('end', indexDrop + 1, cards)
-                  )}
-              </div>
-            </React.Fragment>
-          </DragDropContext>
+            </div>
+          </React.Fragment>
+        </div>
+        <div className="bloc-drag-and-drop-1__buttons">
+          <ButtonPrimary name="Recommencer" onclick={this.reset} />
+          <ButtonPrimary name="Valider" onclick={this.checkAnswers} />
         </div>
       </div>
     );

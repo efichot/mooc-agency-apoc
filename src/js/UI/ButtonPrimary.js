@@ -33,5 +33,6 @@ export default class ButtonPrimary extends React.Component {
 ButtonPrimary.propTypes = {
   name: PropTypes.string.isRequired,
   classes: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
+  onclick: PropTypes.func
 };

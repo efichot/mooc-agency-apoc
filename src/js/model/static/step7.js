@@ -398,7 +398,7 @@ const step7 = {
       {
         color: 'white',
         startPosition: 2,
-        /*endPosition: 3,*/
+        endPosition: 3,
         currentPosition: {
           dragStartOrEnd: 'start',
           position: 2
@@ -418,7 +418,7 @@ const step7 = {
       {
         color: 'white',
         startPosition: 3,
-        /*endPosition: 3,*/
+        endPosition: 1,
         currentPosition: {
           dragStartOrEnd: 'start',
           position: 3
@@ -457,7 +457,7 @@ const step7 = {
       {
         color: 'white',
         startPosition: 5,
-        /*endPosition: 3,*/
+        endPosition: 4,
         currentPosition: {
           dragStartOrEnd: 'start',
           position: 5
@@ -477,7 +477,7 @@ const step7 = {
       {
         color: 'white',
         startPosition: 6,
-        /*endPosition: 3,*/
+        endPosition: 2,
         currentPosition: {
           dragStartOrEnd: 'start',
           position: 6
