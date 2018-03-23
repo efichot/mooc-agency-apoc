@@ -1,7 +1,7 @@
 import React from 'react';
 import step7 from '../static/step7';
 
-const DragAndDropContext = React.createContext('dragAndDropStep7Actions');
+const DragAndDropContext = React.createContext('dragAndDropStep7_01');
 
 const keyGame = Object.keys(step7).filter(
   key =>
