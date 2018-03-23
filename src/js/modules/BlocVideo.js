@@ -3,6 +3,7 @@ import BlocHeader from './BlocHeader';
 import BlocDescription from './BlocDescription';
 // import Iframe from 'react-iframe';
 import Player from '@vimeo/player';
+import PropTypes from 'prop-types';
 
 export default class BlocVideo extends React.Component {
   constructor(props) {
@@ -25,21 +26,28 @@ export default class BlocVideo extends React.Component {
   }
 
   render() {
+    const {
+      name,
+      firstDescription,
+      videoUrl,
+      secondDescription
+    } = this.props.context;
+
     return (
       <div className={`bloc-video bloc`}>
         <BlocHeader type="video" duration={this.state.durationInMinutes} />
-        <span className="bloc__name">{this.props.name}</span>
+        <span className="bloc__name">{name}</span>
         <BlocDescription
           classes="bloc__first-description"
-          description={this.props.firstDescription}
+          description={firstDescription}
         />
         <div className="bloc__video--container">
           <iframe
             ref={vid => {
               this.video = vid;
             }}
-            title={this.props.name}
-            src={`${this.props.videoUrl}`}
+            title={name}
+            src={`${videoUrl}`}
             className="video bloc__video"
             position="relative"
             display="block"
@@ -51,13 +59,17 @@ export default class BlocVideo extends React.Component {
             frameBorder="0"
           />
         </div>
-        <BlocDescription
-          classes="bloc__second-description"
-          description={this.props.secondDescription}
-        />
+        {secondDescription && (
+          <BlocDescription
+            classes="bloc__second-description"
+            description={secondDescription}
+          />
+        )}
       </div>
     );
   }
 }
 
-BlocVideo.propTypes = {};
+BlocVideo.propTypes = {
+  context: PropTypes.object
+};

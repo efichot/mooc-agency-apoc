@@ -96,6 +96,7 @@ class BlocDragAndDrop1 extends React.Component {
     );
     if (falseAnswers.length === 0) {
       this.setState({ victoryMessage: 'Bravo, vous avez réussi !' });
+      this.props.gameIsFinished(true);
       return;
     } else {
       this.setState({

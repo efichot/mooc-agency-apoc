@@ -11,13 +11,19 @@ export default class ButtonPrimary extends React.Component {
   }
 
   handleClick(e) {
-    this.props.onclick && this.props.onclick();
+    this.props.onclick &&
+      (this.props.answer
+        ? this.props.onclick(this.props.answer)
+        : this.props.onclick(e));
   }
 
   render() {
     return (
       <div
-        className={`button button-primary ${this.props.classes}`}
+        id={this.props.id}
+        className={`button button-primary ${
+          this.props.classes ? this.props.classes : ''
+        }`}
         onClick={this.handleClick}
         style={{
           backgroundColor:
@@ -34,5 +40,6 @@ ButtonPrimary.propTypes = {
   name: PropTypes.string.isRequired,
   classes: PropTypes.string,
   color: PropTypes.string,
-  onclick: PropTypes.func
+  onclick: PropTypes.func,
+  answer: PropTypes.number
 };

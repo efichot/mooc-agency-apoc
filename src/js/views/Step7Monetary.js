@@ -1,58 +1,56 @@
 import React from 'react';
 import BlocDescription from '../modules/BlocDescription';
 import BlocEnSavoirPlusType1 from '../modules/BlocEnSavoirPlusType1';
+import BlocQCMType1 from '../modules/BlocQCMType1';
+import BlocVideo from '../modules/BlocVideo';
+import BlocDivider from '../modules/BlocDivider';
+import ButtonPrimary from '../UI/ButtonPrimary';
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 //import PropTypes from 'prop-types';
 
 export default class Step7Monetary extends React.Component {
-  //constructor(props) {
-  //super(props);
-  //this.state = {};
-  //}
+  constructor(props) {
+    super(props);
+    this.state = {
+      showNextModule: false
+    };
+
+    this.handleShowNextModule = this.handleShowNextModule.bind(this);
+  }
+
+  handleShowNextModule(e) {
+    this.setState({ showNextModule: true });
+  }
 
   render() {
     return (
       <div className={`step step7-obligations`}>
         <GlobalInfosContext.Consumer>
           {context => {
-            let step7ActionsDataGames = {};
-            Object.keys(context.state.step7)
-              .filter(key => {
-                return (
-                  context.state.step7[`${key}`]
-                    .linkWithBlocSubMenu1ButtonPosition &&
-                  context.state.step7[`${key}`]
-                    .linkWithBlocSubMenu1ButtonPosition === 3
-                );
-              })
-              .forEach(key => {
-                step7ActionsDataGames[`${key}`] = context.state.step7[`${key}`];
-              });
-
-            let step7Description;
-            let step7EnSavoirPlus;
-
-            Object.keys(step7ActionsDataGames).forEach(module => {
-              if (
-                step7ActionsDataGames[`${module}`].modulType ===
-                'bloc-description'
-              ) {
-                step7Description = step7ActionsDataGames[`${module}`];
-              } else if (
-                step7ActionsDataGames[`${module}`].modulType ===
-                'bloc-en-savoir-plus-type-1'
-              ) {
-                step7EnSavoirPlus = step7ActionsDataGames[`${module}`];
-              }
-            });
-
             return (
               <React.Fragment>
                 <BlocDescription
-                  description={step7Description.description}
+                  description={context.state.step7.module10.description}
                   padding
                 />
-                <BlocEnSavoirPlusType1 context={step7EnSavoirPlus} />
+                <BlocEnSavoirPlusType1 context={context.state.step7.module11} />
+                <BlocDivider context={context.state.step7.module12} />
+                <BlocQCMType1
+                  context={context.state.step7.module13}
+                  gameIsFinished={this.handleShowNextModule}
+                />
+                {this.state.showNextModule && (
+                  <BlocDivider context={context.state.step7.module14} />
+                )}
+                {this.state.showNextModule && (
+                  <BlocVideo context={context.state.step7.module15} />
+                )}
+                {this.state.showNextModule && (
+                  <ButtonPrimary name="Poursuivre vers la vidéo des 3 marchés et le quiz de fin d'étape" />
+                )}
+                {this.state.showNextModule && (
+                  <ButtonPrimary name="Entrer sur le forum" />
+                )}
               </React.Fragment>
             );
           }}

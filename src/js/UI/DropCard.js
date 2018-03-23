@@ -37,6 +37,7 @@ export default class DropCard extends React.Component {
 
   handleDrop(event) {
     const data = event.dataTransfer.getData('drag-card');
+    console.log(data);
     this.setState({
       title: data.split('+++')[0],
       subtitle: data.split('+++')[1]
@@ -57,7 +58,8 @@ export default class DropCard extends React.Component {
         {this.props.startOrEnd === 'end' &&
           this.state.title && <span className="title">{this.state.title}</span>}
         {this.props.startOrEnd === 'end' &&
-          this.state.subtitle && (
+          this.state.subtitle &&
+          this.state.subtitle !== 'undefined' && (
             <span className="subtitle">{this.state.subtitle}</span>
           )}
         {this.props.children}

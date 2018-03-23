@@ -8,7 +8,26 @@ export default class Step8 extends React.Component {
   //}
 
   render() {
-    return <div className="" />;
+    return (
+      <div>
+        <iframe
+          title="step8-iframe-1"
+          style={{
+            display: 'block',
+            margin: 'auto',
+            marginBottom: ' 0px',
+            border: 'none',
+            marginLeft: '0px'
+          }}
+          width="709"
+          height="5000"
+          src="/etape5/etape5/index.html"
+          id="frame1"
+          align="middle"
+          scrolling="no"
+        />
+      </div>
+    );
   }
 }
 

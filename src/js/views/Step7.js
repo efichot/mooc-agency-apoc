@@ -1,5 +1,6 @@
 import React from 'react';
 import BlocVideo from '../modules/BlocVideo';
+import BlocStepTopContent from '../modules/BlocStepTopContent';
 import BlocDivider from '../modules/BlocDivider';
 import BlocSubMenu1 from '../modules/BlocSubMenu1';
 import step7 from '../model/static/step7';
@@ -12,7 +13,7 @@ export default class Step7 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showMarketActions: false,
+      showMarketActions: true,
       showMarketObligatary: false,
       showMarketMonetary: false
     };
@@ -35,19 +36,9 @@ export default class Step7 extends React.Component {
   render() {
     return (
       <div className="step step7">
-        <BlocVideo
-          name={step7.module1.name}
-          firstDescription={step7.module1.firstDescription}
-          videoUrl={step7.module1.videoUrl}
-          secondDescription={step7.module1.secondDescription}
-        />
+        <BlocStepTopContent step={step7} />
         <BlocDivider />
-        <BlocVideo
-          name={step7.module3.name}
-          firstDescription={step7.module3.firstDescription}
-          videoUrl={step7.module3.videoUrl}
-          secondDescription={step7.module3.secondDescription}
-        />
+        <BlocVideo context={step7.module3} />
         <BlocSubMenu1
           description={step7.module4.description}
           buttons={step7.module4.buttons}
