@@ -1,0 +1,9 @@
+.bloc-pie-chart-play {
+  width: 100%;
+
+  &__buttons {
+    width: 100%;
+    @extend %flex-row-center-center;
+
+  }
+}

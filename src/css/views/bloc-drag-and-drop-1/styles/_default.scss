@@ -1,0 +1,41 @@
+.bloc-drag-and-drop-1 {
+
+  .risk-scale {
+    @extend %flex-row-center-center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    width: 100%;
+    margin: 10px 0;
+    height: 140px;
+
+    .popup-blue {
+      text-transform: initial;
+      max-width: 400px;
+      text-align: center;
+    }
+  }
+
+  &__cards {
+    @extend %flex-column-center-center;
+    justify-content: space-between;
+    width: 100%;
+
+    .drop-cards-end.finished > * {
+      background-color: var(--blocUpAndDownButtonBgActive);
+      border: 2px solid var(--blocUpAndDownButtonBorderFinished);
+      box-shadow: none;
+
+    }
+  }
+
+  &__buttons {
+    width: 100%;
+    @extend %flex-row-center-right;
+    // justify-content: space-around;
+
+    > * {
+      flex-basis: 150px;
+      margin-right: 50px;
+    }
+  }
+}

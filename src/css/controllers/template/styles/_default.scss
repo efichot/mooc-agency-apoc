@@ -1,0 +1,5 @@
+
+.step {
+  @extend %flex-column-left-top;
+  justify-content: flex-between;
+}

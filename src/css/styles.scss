@@ -9,10 +9,13 @@
 @import "UI/button-circle/styles";
 @import "UI/button-primary/styles";
 @import "UI/button-QCM-type-1/styles";
+@import "UI/button-quiz/styles";
 @import "UI/hamburger-menu/styles";
 @import "UI/card-content-type-1/styles";
 @import "UI/drag-and-drop-cards/styles";
 @import "UI/popup-blue/styles";
+@import "UI/pie-chart/styles";
+@import "UI/button-double-arrow/styles";
 
 @import "base";
 
@@ -21,8 +24,6 @@
 @import "views/menu-mobile/styles";
 @import "views/menu-step-navigation/styles";
 @import "views/user-game-infos/styles";
-@import "views/bloc-drag-and-drop-1/styles";
-@import "views/bloc-QCM-type-1/styles";
 
 @import "views/bloc/styles";
 @import "views/bloc-step/styles";
@@ -32,6 +33,12 @@
 @import "views/bloc-video/styles";
 @import "views/bloc-sub-menu-1/styles";
 @import "views/bloc-en-savoir-plus-type-1/styles";
+@import "views/bloc-up-and-down-type-1/styles";
+@import "views/bloc-drag-and-drop-1/styles";
+@import "views/bloc-QCM-type-1/styles";
+@import "views/bloc-quiz/styles";
+@import "views/bloc-simulator/styles";
+@import "views/bloc-pie-chart-play/styles";
 
 @import "controllers/introduction/styles";
 @import "controllers/step/styles";

@@ -1,0 +1,38 @@
+
+.bloc-QCM-type-1 {
+
+  &__cards {
+    @extend %flex-row-center-left;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    > * {
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+  }
+
+
+  &__validate {
+    margin-left: auto;
+    width: 200px;
+  }
+
+
+  &__answer-and-popup {
+    @extend %flex-row-center-center;
+    justify-content: space-between;
+    width: 100%;
+
+    > .popup-blue {
+      flex-grow: 0;
+      width: 300px;
+      margin-right: 40px;
+    }
+    
+  }
+
+
+
+}

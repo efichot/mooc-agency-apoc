@@ -1,0 +1,23 @@
+
+.step {
+  @extend %flex-column-top-left;
+  justify-content: flex-between;
+  margin-bottom: 60vh;
+
+  > * {
+    width: 100%;
+  }
+
+  &__synthese {
+    @extend %flex-column-top-left;
+     .button {
+      width: 200px;
+      margin-left: auto;
+      margin-bottom: 5px;
+    }
+
+    .bloc-sub-menu-1 {
+      margin-top: 50px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+
+.bloc-simulator {
+
+  &__link {
+      margin-left: auto;
+      margin-right: auto;
+    &--picture {
+      width: 75%;
+    }
+    &--button {
+
+    }
+  }
+
+  &__background-img {
+    width: 100%;
+    height: 500px;
+    @extend %background-contain;
+  }
+
+}

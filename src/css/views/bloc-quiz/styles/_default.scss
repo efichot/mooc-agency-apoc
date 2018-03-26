@@ -1,0 +1,44 @@
+
+.bloc-quiz {
+
+  &__answers {
+    @extend %flex-row-center-left;
+    justify-content: flex-start;
+    flex-wrap: no-wrap;
+    width: 100%;
+    height: 100%;
+    > * {
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+  }
+
+
+  &__validate {
+    margin-left: auto;
+    width: 200px;
+  }
+
+  .popup-blue {
+
+    &__explication {
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__victory-message {
+      position: absolute;
+      right: -10px;
+      top: 10px;
+      flex-grow: 0;
+      width: 200px;
+      height: 75px;
+      padding: 15px;
+      margin-right: 40px;
+      text-align: center;
+    }
+  }
+
+}
+

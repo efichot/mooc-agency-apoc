@@ -1,0 +1,28 @@
+
+.user-game-infos {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+
+  
+
+  &__score {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &--stars {
+      display: flex;
+      justify-content: center;
+
+      .star {
+        &.isEmpty {
+          color: var(--menuStepNavigationStarEmpty);
+        }
+        &.isFull {
+          color: var(--menuStepNavigationStarFull);
+        }
+      }
+      
+    }
+  }
+}

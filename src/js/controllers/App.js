@@ -42,7 +42,7 @@ export default class App extends React.Component {
         <Helmet>
           <title>APOC Serious Game</title>
         </Helmet>
-        <BrowserRouter basename="/mooc-agency-apoc">
+        <BrowserRouter basename={`${process.env.REACT_APP_BASENAME}`}>
           <div className="master__outer-container">
             <Header />
             <MenuMobile />

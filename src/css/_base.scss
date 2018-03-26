@@ -20,6 +20,10 @@ html, body, #root {
   background-color: var(--bodyBgColor);
 }
 
+br {
+  margin: 0 !important;
+}
+
 .master {
   &__outer-container {
     position: relative;

@@ -1,0 +1,27 @@
+
+.bloc-video {
+
+  &__video {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100% !important;
+    height: 100% !important;
+    padding: var(--videoMargin);
+    background-color: var(--white);
+
+    &--container {
+      margin-top: var(--videoMargin);
+      margin-bottom: var(--videoMargin);
+      width: calc(var(--masterWidth) - 2 * var(--innerContentPaddingX) - 100px - 4 * var(--videoMargin));
+      height: calc((var(--masterWidth) - 2 * var(--innerContentPaddingX) - 100px - 2 * var(--videoMargin)) * 0.5625);
+      // padding-top: 56.25%;
+
+      position: relative;
+      background-color: red;
+      
+    }
+  }
+}

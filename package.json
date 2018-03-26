@@ -2,7 +2,7 @@
   "name": "apoc",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://myname.github.io/mooc-agency-apoc",
+  "homepage": "/arnaud_apoc/APOCamundi/interface/home/",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.4",
     "@fortawesome/fontawesome-free-brands": "^5.0.8",
@@ -11,6 +11,7 @@
     "@fortawesome/react-fontawesome": "^0.0.17",
     "@vimeo/player": "^2.3.1",
     "ajv": "^6.3.0",
+    "dotenv": "^5.0.1",
     "husky": "^0.14.3",
     "jquery": "^3.3.1",
     "lint-staged": "^7.0.0",
@@ -26,7 +27,9 @@
     "react-helmet": "^5.2.0",
     "react-iframe": "^1.1.0",
     "react-router": "^4.2.0",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "react-svg-piechart": "^2.0.3",
+    "react-timeout": "^1.1.1"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
