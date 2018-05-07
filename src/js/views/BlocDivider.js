@@ -1,15 +1,20 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-export default class BlocDivider extends React.Component {
-  //constructor(props) {
-  //super(props);
-  //this.state = {};
-  //}
+import Fade from '../transitions/Fade';
 
+class BlocDivider extends React.Component {
   render() {
-    return <div className={`bloc-divider`} />;
+    return <Fade in={this.props.in} classProps={`bloc-divider`} />;
   }
 }
 
-BlocDivider.propTypes = {};
+BlocDivider.propTypes = {
+  in: PropTypes.bool
+};
+
+BlocDivider.defaultProps = {
+  in: false
+};
+
+export default BlocDivider;

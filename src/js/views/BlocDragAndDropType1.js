@@ -1,33 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import DragCard from './UI/DragCard';
 import DropCard from './UI/DropCard';
 import PopupBlue from './UI/PopupBlue';
 import ButtonPrimary from './UI/ButtonPrimary';
 import BlocHeader from '../views/BlocHeader';
 import BlocDescription from './BlocDescription';
-import PropTypes from 'prop-types';
 import ReactTimeout from 'react-timeout';
+import Fade from '../transitions/Fade';
 
 class BlocDragAndDropType1 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cardInPosition: {},
-      reset: false,
-      victoryMessage: undefined,
-      solutions: {},
-      cardCounter: 0,
-      gameIsFinished: false
-    };
+  state = {
+    cardInPosition: {},
+    reset: false,
+    victoryMessage: undefined,
+    solutions: {},
+    cardCounter: 0,
+    gameIsFinished: false
+  };
 
-    this.renderDropCard = this.renderDropCard.bind(this);
-    this.renderDragCard = this.renderDragCard.bind(this);
-    this.handleSolutionChecking = this.handleSolutionChecking.bind(this);
-    this.checkAnswers = this.checkAnswers.bind(this);
-    this.reset = this.reset.bind(this);
-  }
-
-  renderDropCard(dropStartOrEnd, dropPosition, dragCards) {
+  renderDropCard = (dropStartOrEnd, dropPosition, dragCards) => {
     const dropCoordinatesAsString = `droppable-${dropStartOrEnd}-${dropPosition}`;
     let cardToShow;
 
@@ -53,9 +46,9 @@ class BlocDragAndDropType1 extends React.Component {
         {cardToShow}
       </DropCard>
     );
-  }
+  };
 
-  renderDragCard(dropStartOrEnd, dropPosition, dragCard) {
+  renderDragCard = (dropStartOrEnd, dropPosition, dragCard) => {
     /*const [dragStartOrEnd, dragPosition] = [
       dragCard.currentPosition.dragStartOrEnd,
       dragCard.currentPosition.position
@@ -70,7 +63,6 @@ class BlocDragAndDropType1 extends React.Component {
         <DragCard
           color={dragCard.color}
           id={dragCoordinatesAsString}
-          index={dragCoordinatesAsString}
           content={dragCard.content}
           type={'bloc-drag-and-drop-1'}
           startPosition={dragCard.startPosition}
@@ -78,18 +70,18 @@ class BlocDragAndDropType1 extends React.Component {
         />
       );
     }
-  }
+  };
 
-  handleSolutionChecking(bool, position) {
+  handleSolutionChecking = (bool, position) => {
     const cardInPositionStateCopy = this.state.cardInPosition;
     cardInPositionStateCopy[`${position}`] = bool;
     this.setState({ cardInPosition: cardInPositionStateCopy });
     this.setState({ reset: false });
     this.setState({ gameIsFinished: false });
     this.setState({ victoryMessage: undefined });
-  }
+  };
 
-  checkAnswers() {
+  checkAnswers = () => {
     if (
       Object.keys(this.state.cardInPosition).length < this.state.cardCounter
     ) {
@@ -107,7 +99,7 @@ class BlocDragAndDropType1 extends React.Component {
     if (falseAnswers.length === 0) {
       this.setState({ victoryMessage: 'Bravo, vous avez réussi !' });
       this.setState({ gameIsFinished: true });
-      this.props.gameIsFinished(this.state.gameIsFinished);
+      this.props.gameIsFinished(this.props.module);
       return;
     } else {
       this.setState({
@@ -115,19 +107,19 @@ class BlocDragAndDropType1 extends React.Component {
       });
       return;
     }
-  }
+  };
 
-  reset() {
+  reset = () => {
     this.setState({ reset: true });
     this.setState({ victoryMessage: undefined });
     this.setState({ cardInPosition: {} });
     this.setState({ gameIsFinished: false });
-  }
+  };
 
   componentDidMount() {
     const solutions = {};
     let cardCounter = 0;
-    this.props.context.cards.forEach(card => {
+    this.props.cards.forEach(card => {
       if (card.endPosition) {
         solutions[`${card.startPosition}`] = card.endPosition;
         cardCounter++;
@@ -135,6 +127,7 @@ class BlocDragAndDropType1 extends React.Component {
     });
 
     this.setState({ solutions, cardCounter });
+    this.setState({ in: true });
   }
 
   render() {
@@ -145,16 +138,16 @@ class BlocDragAndDropType1 extends React.Component {
       chapter,
       title,
       firstDescription
-    } = this.props.context;
+    } = this.props;
 
     return (
-      <div className={`bloc bloc-drag-and-drop-1`}>
+      <Fade classProps={`bloc bloc-drag-and-drop-1`} in={this.props.in}>
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
         )}
         <span className="bloc__name">{title}</span>
         <BlocDescription
-          classes="bloc__first-description"
+          classProps="bloc__first-description"
           description={firstDescription}
         />
         <div className="bloc-drag-and-drop-1__cards">
@@ -187,17 +180,31 @@ class BlocDragAndDropType1 extends React.Component {
           </React.Fragment>
         </div>
         <div className="bloc-drag-and-drop-1__buttons">
-          <ButtonPrimary name="Recommencer" onclick={this.reset} />
-          <ButtonPrimary name="Valider" onclick={this.checkAnswers} />
+          <ButtonPrimary name="Recommencer" onClick={this.reset} />
+          <ButtonPrimary name="Valider" onClick={this.checkAnswers} />
         </div>
-      </div>
+      </Fade>
     );
   }
 }
 
 BlocDragAndDropType1.propTypes = {
-  context: PropTypes.object.isRequired,
-  gameIsFinished: PropTypes.func
+  in: PropTypes.bool,
+  module: PropTypes.string,
+  noChapter: PropTypes.bool,
+  cards: PropTypes.array.isRequired,
+  duration: PropTypes.number,
+  chapter: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  firstDescription: PropTypes.object.isRequired,
+  gameIsFinished: PropTypes.func.isRequired
+};
+
+BlocDragAndDropType1.defaultProps = {
+  in: false,
+  module: 'drag-and-drop',
+  noChapter: false,
+  duration: 0
 };
 
 export default ReactTimeout(BlocDragAndDropType1);

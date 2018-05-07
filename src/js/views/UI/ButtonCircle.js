@@ -1,28 +1,31 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-export default class ButtonCircle extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+class ButtonCircle extends React.Component {
+  state = {};
 
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
+  handleClick = e => {
     this.props.onclick();
-  }
+  };
 
   render() {
+    const { classProps } = this.props;
+
     return (
-      <div
-        className={`button-circle ${this.props.class}`}
-        onClick={this.handleClick}
-      >
+      <div className={`button-circle ${classProps}`} onClick={this.handleClick}>
         {this.props.children}
       </div>
     );
   }
 }
 
-ButtonCircle.propTypes = {};
+ButtonCircle.propTypes = {
+  classProps: PropTypes.string,
+  onClick: PropTypes.func.isRequired
+};
+
+ButtonCircle.defaultProps = {
+  classProps: ''
+};
+
+export default ButtonCircle;

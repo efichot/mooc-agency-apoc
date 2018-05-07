@@ -7,7 +7,7 @@ const stepNavigation = {
   intro: {
     part: 'all',
     name: 'introduction',
-    description: `Frédéric Dubois vous présente ce parcours inédit créé pour les salariés du Groupe ADP . Cliquez sur la vidéo. 
+    description: `Frédéric Dubois vous présente ce parcours inédit créé pour les salariés du Groupe ADP. Cliquez sur la vidéo. 
 Attention à ne pas utiliser les flèches « page précédente » et « suivante » du navigateur !`,
     visible: true,
     videoUrl: 'https://player.vimeo.com/video/259824721'

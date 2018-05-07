@@ -2,29 +2,24 @@ import React from 'react';
 import ButtonPrimary from './ButtonPrimary';
 import button_down_right from '../../../assets/img/icons/button-down-right.svg';
 import button_up_left from '../../../assets/img/icons/button-up-left.svg';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-export default class ButtonWithDoubleArrow extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+class ButtonWithDoubleArrow extends React.Component {
+  state = {};
 
-    this.handleArrowClick = this.handleArrowClick.bind(this);
-  }
-
-  handleArrowClick(e) {
-    this.props.click(e.target.dataset.plusorminus, this.props.attachedName);
-  }
+  handleArrowClick = e => {
+    this.props.onClick(e.target.dataset.plusorminus, this.props.attachedName);
+  };
 
   render() {
-    const { button } = this.props;
+    const { button, value } = this.props;
 
     return (
       <div className="button-double-arrow">
         <ButtonPrimary
-          classes="button-double-arrow__button"
+          classProps="button-double-arrow__button"
           name={button.name}
-          value={this.props.value}
+          value={value}
           color={button.color}
         />
         <div className="button-double-arrow__arrows">
@@ -46,4 +41,14 @@ export default class ButtonWithDoubleArrow extends React.Component {
   }
 }
 
-ButtonWithDoubleArrow.propTypes = {};
+ButtonWithDoubleArrow.propTypes = {
+  attachedName: PropTypes.string.isRequired,
+  button: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired
+};
+
+ButtonWithDoubleArrow.defaultProps = {};
+
+export default ButtonWithDoubleArrow;

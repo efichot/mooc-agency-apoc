@@ -1,15 +1,12 @@
 import React from 'react';
+/*import PropTypes from 'prop-types';*/
 import { Link } from 'react-router-dom';
+
 import MenuTop from './MenuTop';
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 
-//import PropTypes from 'prop-types';
-
-export default class Header extends React.Component {
-  //constructor(props) {
-  //super(props);
-  //this.state = {};
-  //}
+class Header extends React.Component {
+  state = {};
 
   render() {
     return (
@@ -52,3 +49,7 @@ export default class Header extends React.Component {
 }
 
 Header.propTypes = {};
+
+Header.defaultProps = {};
+
+export default Header;

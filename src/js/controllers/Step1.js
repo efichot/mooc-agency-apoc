@@ -1,6 +1,9 @@
 import React from 'react';
-import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+/*import PropTypes from 'prop-types';*/
 import { Link } from 'react-router-dom';
+
+import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+import Fade from '../transitions/Fade';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocVideo from '../views/BlocVideo';
 import BlocDivider from '../views/BlocDivider';
@@ -8,30 +11,18 @@ import BlocSimulatorsExternalLink from '../views/BlocSimulatorsExternalLink';
 import BlocPieChartPlay from '../views/BlocPieChartPlay';
 import BlocText from '../views/BlocText';
 import BlocDragAndDropType1 from '../views/BlocDragAndDropType1';
-/*import Step103 from './Step103';
-import Step101 from './Step101';
-import Step102 from './Step102';*/
 import ButtonPrimary from '../views/UI/ButtonPrimary';
 import BlocDescription from '../views/BlocDescription';
 import BlocQuiz from '../views/BlocQuiz';
-//import PropTypes from 'prop-types';
 
-export default class Step1 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showNextModule: 1,
-      showSynthese: false,
-      showQuiz: false
-    };
+class Step1 extends React.Component {
+  state = {
+    showNextModule: 0,
+    showSynthese: false,
+    showQuiz: false
+  };
 
-    this.changeMarketToShow = this.changeMarketToShow.bind(this);
-    this.handleShowSynthese = this.handleShowSynthese.bind(this);
-    this.handleShowQuiz = this.handleShowQuiz.bind(this);
-    this.handleShowNextModule = this.handleShowNextModule.bind(this);
-  }
-
-  changeMarketToShow(marketToShow) {
+  changeMarketToShow = marketToShow => {
     const stateCopy = { ...this.state };
 
     Object.keys(stateCopy).forEach(stateAction => {
@@ -40,70 +31,77 @@ export default class Step1 extends React.Component {
         : (stateCopy[`${stateAction}`] = false);
     });
     this.setState(stateCopy);
-  }
+  };
 
-  handleShowSynthese(bool) {
-    this.setState({ showSynthese: bool });
-  }
-
-  handleShowQuiz() {
+  handleShowQuiz = () => {
     Object.keys(this.state).forEach(key => {
       this.setState({ [key]: false });
     });
     this.setState({ showQuiz: true });
-  }
+  };
 
-  handleShowNextModule() {
-    this.setState({ showNextModule: this.state.showNextModule + 1 });
-    if (this.state.showNextModule > 0) {
-      this.handleShowSynthese(true);
+  handleShowNextModule = module => {
+    if (module === 'pie-chart') {
+      if (this.state.showNextModule > 0) {
+        return;
+      }
+      this.setState({ showNextModule: 1 });
+      this.setState({ showSynthese: true });
+    } else if (module === 'drag-and-drop') {
+      if (this.state.showNextModule > 0) {
+        return;
+      }
+      this.setState({ showNextModule: 2 });
     }
-  }
+  };
 
   render() {
+    const { showSynthese, showQuiz, showNextModule } = this.state;
+
+    const stepInStep0 = showNextModule > 0;
+    const stepInStep1 = showNextModule > 1;
+
     return (
-      <div className="step step1">
+      <Fade classProps="step step1" in>
         <GlobalInfosContext.Consumer>
           {context => {
             const step1 = context.state.step1;
-            if (!this.state.showQuiz) {
+            if (!showQuiz) {
               return (
                 <React.Fragment>
-                  <BlocStepTopContent step={step1} />
-                  <BlocDivider />
-                  <BlocSimulatorsExternalLink context={step1.module_02} />
-                  <BlocSimulatorsExternalLink context={step1.module_03} />
-                  <BlocDivider />
-                  <BlocPieChartPlay context={step1.module_04} />
-                  {this.state.showNextModule > 0 && (
-                    <React.Fragment>
-                      <BlocDivider />
-                      <BlocText context={step1.module_05} />
-                      <BlocVideo context={step1.module_06} />
-                      <BlocVideo context={step1.module_07} />
-                      <BlocVideo context={step1.module_08} />
-                      <BlocDivider />
-                      <BlocDragAndDropType1
-                        context={step1.module_09}
-                        gameIsFinished={this.handleShowNextModule}
-                      />
-                    </React.Fragment>
-                  )}
-                  {this.state.showNextModule > 1 && (
-                    <React.Fragment>
-                      <BlocDivider />
-                      <BlocVideo context={step1.module_10} />
-                    </React.Fragment>
-                  )}
-                  {this.state.showSynthese && (
+                  <BlocStepTopContent in step={step1} />
+                  <BlocDivider in />
+                  <BlocSimulatorsExternalLink in {...step1.module_02} />
+                  <BlocSimulatorsExternalLink in {...step1.module_03} />
+                  <BlocDivider in />
+                  <BlocPieChartPlay
+                    in
+                    {...step1.module_04}
+                    gameIsFinished={this.handleShowNextModule}
+                  />
+                  <BlocDivider in={stepInStep0} />
+                  <BlocText in={stepInStep0} {...step1.module_05} />
+                  <BlocVideo in={stepInStep0} {...step1.module_06} />
+                  <BlocVideo in={stepInStep0} {...step1.module_07} />
+                  <BlocVideo in={stepInStep0} {...step1.module_08} />
+                  <BlocDivider in={stepInStep0} />
+                  <BlocDragAndDropType1
+                    in={stepInStep0}
+                    {...step1.module_09}
+                    gameIsFinished={this.handleShowNextModule}
+                  />
+                  <BlocDivider in={stepInStep1} />
+                  <BlocVideo in={stepInStep1} {...step1.module_10} />
+                  {showSynthese && (
                     <div className="step1__synthese step__synthese">
                       <span className="bloc__name">{step1.module_11.name}</span>
                       <BlocDescription
+                        in
                         description={step1.module_11.description}
                       />
                       <ButtonPrimary
                         name={step1.module_11.button_1}
-                        onclick={this.handleShowQuiz}
+                        onClick={this.handleShowQuiz}
                       />
                       <Link to="#" className="button">
                         <ButtonPrimary name={step1.module_11.button_2} />
@@ -116,15 +114,19 @@ export default class Step1 extends React.Component {
               return (
                 <React.Fragment>
                   <BlocDivider />
-                  <BlocQuiz context={step1.module_12} />
+                  <BlocQuiz {...step1.module_12} />
                 </React.Fragment>
               );
             }
           }}
         </GlobalInfosContext.Consumer>
-      </div>
+      </Fade>
     );
   }
 }
 
 Step1.propTypes = {};
+
+Step1.defaultProps = {};
+
+export default Step1;

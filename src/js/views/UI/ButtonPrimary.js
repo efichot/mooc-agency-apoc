@@ -2,37 +2,32 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default class ButtonPrimary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+class ButtonPrimary extends React.Component {
+  state = {};
 
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
-    this.props.onclick &&
-      (this.props.answer
-        ? this.props.onclick(this.props.answer)
-        : this.props.onclick(e));
-  }
+  handleClick = e => {
+    !this.props.onClick
+      ? e.preventDefault()
+      : this.props.answer
+        ? this.props.onClick(this.props.answer)
+        : this.props.onClick(e);
+  };
 
   render() {
+    const { id, classProps, color, name, value } = this.props;
+
     return (
       <div
-        id={this.props.id}
-        className={`button button-primary ${
-          this.props.classes ? this.props.classes : ''
-        }`}
+        id={id}
+        className={`button button-primary ${classProps}`}
         onClick={this.handleClick}
         style={{
-          backgroundColor:
-            this.props.color || 'var(--buttonPrimaryDefaultColor)'
+          backgroundColor: color
         }}
       >
-        {this.props.name}
+        {name}
         <br />
-        {this.props.value && this.props.value}
+        {value !== undefined && value}
       </div>
     );
   }
@@ -40,9 +35,21 @@ export default class ButtonPrimary extends React.Component {
 
 ButtonPrimary.propTypes = {
   name: PropTypes.string.isRequired,
-  subname: PropTypes.string.isRequired,
-  classes: PropTypes.string,
+  onClick: PropTypes.func,
+  value: PropTypes.string,
+  subname: PropTypes.string,
+  classProps: PropTypes.string,
   color: PropTypes.string,
-  onclick: PropTypes.func,
   answer: PropTypes.number
 };
+
+ButtonPrimary.defaultProps = {
+  classProps: '',
+  subname: '',
+  color: 'var(--buttonPrimaryDefaultColor)',
+  answer: null,
+  value: undefined,
+  onClick: undefined
+};
+
+export default ButtonPrimary;

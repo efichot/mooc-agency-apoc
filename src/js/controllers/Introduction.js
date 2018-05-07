@@ -1,22 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import UserGameInfos from '../views/UserGameInfos';
 import ChapterPresentation from '../views/ChapterPresentation';
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
-//import PropTypes from 'prop-types';
+import Fade from '../transitions/Fade';
 
-export default class Introduction extends React.Component {
-  //constructor(props) {
-  //super(props);
-  //this.state = {};
-  //}
+class Introduction extends React.Component {
+  state = {};
 
   render() {
     return (
-      <div className={`introduction`}>
-        <UserGameInfos class={`introduction`} big={true} />
+      <Fade in={this.props.in} classProps={`introduction`}>
+        <UserGameInfos classProps={`introduction`} big />
+
         <GlobalInfosContext.Consumer>
           {context => {
-            console.log(context);
             return (
               <React.Fragment>
                 {Object.keys(context.state.stepNavigation)
@@ -29,8 +28,9 @@ export default class Introduction extends React.Component {
                   )
                   .map((key, i) => (
                     <ChapterPresentation
+                      in
                       key={i}
-                      classes={`introduction`}
+                      classProps={`introduction`}
                       name={context.state.stepNavigation[`${key}`].name}
                       videoUrl={context.state.stepNavigation[`${key}`].videoUrl}
                       description={
@@ -54,9 +54,19 @@ export default class Introduction extends React.Component {
             );
           }}
         </GlobalInfosContext.Consumer>
-      </div>
+      </Fade>
     );
   }
 }
 
-Introduction.propTypes = {};
+Introduction.propTypes = {
+  in: PropTypes.bool,
+  showPart1: PropTypes.bool
+};
+
+Introduction.defaultProps = {
+  in: false,
+  showPart1: false
+};
+
+export default Introduction;

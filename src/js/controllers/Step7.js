@@ -1,6 +1,8 @@
 import React from 'react';
-import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
+import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocVideo from '../views/BlocVideo';
 import BlocDivider from '../views/BlocDivider';
@@ -11,25 +13,18 @@ import Step702 from './Step702';
 import ButtonPrimary from '../views/UI/ButtonPrimary';
 import BlocDescription from '../views/BlocDescription';
 import BlocQuiz from '../views/BlocQuiz';
-//import PropTypes from 'prop-types';
+import Fade from '../transitions/Fade';
 
-export default class Step7 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      show_01: false,
-      show_02: false,
-      show_03: false,
-      showSynthese: false,
-      showQuiz: true
-    };
+class Step7 extends React.Component {
+  state = {
+    show_01: false,
+    show_02: false,
+    show_03: false,
+    showSynthese: false,
+    showQuiz: false
+  };
 
-    this.changeMarketToShow = this.changeMarketToShow.bind(this);
-    this.handleShowSynthese = this.handleShowSynthese.bind(this);
-    this.handleShowQuiz = this.handleShowQuiz.bind(this);
-  }
-
-  changeMarketToShow(marketToShow) {
+  changeMarketToShow = marketToShow => {
     const stateCopy = { ...this.state };
 
     Object.keys(stateCopy).forEach(stateAction => {
@@ -38,84 +33,87 @@ export default class Step7 extends React.Component {
         : (stateCopy[`${stateAction}`] = false);
     });
     this.setState(stateCopy);
-  }
+  };
 
-  handleShowSynthese(bool) {
+  handleShowSynthese = bool => {
     this.setState({ showSynthese: bool });
-  }
+  };
 
-  handleShowQuiz() {
+  handleShowQuiz = e => {
     Object.keys(this.state).forEach(key => {
       this.setState({ [key]: false });
     });
     this.setState({ showQuiz: true });
-  }
+  };
+
+  handleClickSecondPrimaryButton = data => {};
 
   render() {
+    const { show_01, show_02, show_03, showSynthese, showQuiz } = this.state;
+
+    const isStep7 = this.props.match.path === '/step7';
+
     return (
-      <div className="step step7">
+      <Fade classProps="step step7" in={isStep7}>
         <GlobalInfosContext.Consumer>
           {context => {
             const step7 = context.state.step7;
-            if (!this.state.showQuiz) {
+            if (!showQuiz) {
               return (
                 <React.Fragment>
-                  <BlocStepTopContent step={step7} />
-                  <BlocDivider />
-                  <BlocVideo context={step7.module_02} />
+                  <BlocStepTopContent step={step7} in={isStep7} />
+                  <BlocDivider in={isStep7} />
+                  <BlocVideo in={isStep7} {...step7.module_02} />
                   <BlocSubMenu1
-                    context={step7.module_03}
-                    click={this.handleClick}
+                    {...step7.module_03}
+                    in={isStep7}
                     action={this.changeMarketToShow}
                   />
-                  {this.state.show_01 && (
-                    <Step701
-                      context={step7}
-                      endOfModules={this.handleShowSynthese}
-                    />
-                  )}
-                  {this.state.show_02 && (
-                    <Step702
-                      context={step7}
-                      endOfModules={this.handleShowSynthese}
-                    />
-                  )}
-                  {this.state.show_03 && (
-                    <Step703
-                      context={step7}
-                      endOfModules={this.handleShowSynthese}
-                    />
-                  )}
-                  {this.state.showSynthese && (
+                  <Step701
+                    in={show_01}
+                    context={step7}
+                    endOfModules={this.handleShowSynthese}
+                  />
+                  <Step702
+                    in={show_02}
+                    context={step7}
+                    endOfModules={this.handleShowSynthese}
+                  />
+                  <Step703
+                    in={show_03}
+                    context={step7}
+                    endOfModules={this.handleShowSynthese}
+                  />
+
+                  {showSynthese && (
                     <div className="step7__synthese step__synthese">
                       <span className="bloc__name">{step7.module_07.name}</span>
-                      {this.state.show_01 && (
-                        <BlocDescription
-                          description={step7.module_07.description_1}
-                        />
-                      )}
-                      {this.state.show_02 && (
-                        <BlocDescription
-                          description={step7.module_07.description_2}
-                        />
-                      )}
-                      {this.state.show_03 && (
-                        <BlocDescription
-                          description={step7.module_07.description_3}
-                        />
-                      )}
+                      <BlocDescription
+                        in={show_01}
+                        description={step7.module_07.description_1}
+                      />
+                      <BlocDescription
+                        in={show_02}
+                        description={step7.module_07.description_2}
+                      />
+                      <BlocDescription
+                        in={show_03}
+                        description={step7.module_07.description_3}
+                      />
                       <BlocSubMenu1
-                        context={step7.module_03}
-                        click={this.handleClick}
+                        {...step7.module_03}
                         action={this.changeMarketToShow}
                         noDescription
                       />
                       <ButtonPrimary
                         name={step7.module_07.button_1}
-                        onclick={this.handleShowQuiz}
+                        onClick={this.handleShowQuiz}
                       />
                       <Link to="#" className="button">
-                        <ButtonPrimary name={step7.module_07.button_2} />
+                        <ButtonPrimary
+                          name={step7.module_07.button_2}
+                          onClick={this.handleClickSecondPrimaryButton}
+                        />
                       </Link>
                     </div>
                   )}
@@ -124,17 +122,25 @@ export default class Step7 extends React.Component {
             } else {
               return (
                 <React.Fragment>
-                  <BlocVideo context={step7.module_08} />
-                  <BlocDivider />
-                  <BlocQuiz context={step7.module_09} />
+                  <BlocVideo in {...step7.module_08} />
+                  <BlocDivider in />
+                  <BlocQuiz in {...step7.module_09} />
                 </React.Fragment>
               );
             }
           }}
         </GlobalInfosContext.Consumer>
-      </div>
+      </Fade>
     );
   }
 }
 
-Step7.propTypes = {};
+Step7.propTypes = {
+  in: PropTypes.bool
+};
+
+Step7.defaultProps = {
+  in: false
+};
+
+export default Step7;

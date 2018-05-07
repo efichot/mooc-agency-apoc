@@ -1,12 +1,9 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import draggableIcon from '../../../assets/img/icons/button-finger.svg';
 
-export default class CardContentType1 extends React.Component {
-  //constructor(props) {
-  //super(props);
-  //this.state = {};
-  //}
+class CardContentType1 extends React.Component {
+  super = {};
 
   render() {
     const {
@@ -17,7 +14,7 @@ export default class CardContentType1 extends React.Component {
       image,
       list,
       legend
-    } = this.props.content;
+    } = this.props;
 
     return (
       <div className={`card-content__type-1 ${bigBorder ? 'big-border' : ''}`}>
@@ -62,4 +59,20 @@ export default class CardContentType1 extends React.Component {
   }
 }
 
-CardContentType1.propTypes = {};
+CardContentType1.propTypes = {
+  bigBorder: PropTypes.bool,
+  isDraggable: PropTypes.bool,
+  cardTitle: PropTypes.string.isRequired,
+  cardSubTitle: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  list: PropTypes.array.isRequired,
+  legend: PropTypes.array.isRequired
+};
+
+CardContentType1.defaultProps = {
+  bigBorder: false,
+  isDraggable: false,
+  image: ''
+};
+
+export default CardContentType1;

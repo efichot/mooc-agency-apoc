@@ -1,29 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ButtonWithArrow from './UI/ButtonWithArrow';
 import BlocDescription from './BlocDescription';
+import Fade from '../transitions/Fade';
 
-//import PropTypes from 'prop-types';
+class BlocSubMenu1 extends React.Component {
+  state = {};
 
-export default class BlocSubMenu1 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-
-    this.handleButtonClick = this.handleButtonClick.bind(this);
-  }
-
-  handleButtonClick(changeMarketToShow) {
+  handleButtonClick = changeMarketToShow => {
     this.props.action(changeMarketToShow);
-  }
+  };
 
   render() {
-    const { description, buttons } = this.props.context;
+    const { description, buttons } = this.props;
 
     return (
-      <div className={`bloc-sub-menu-1 bloc`}>
+      <Fade classProps={`bloc-sub-menu-1 bloc`} in={this.props.in}>
         {!this.props.noDescription && (
           <BlocDescription
-            classes="bloc-sub-menu-1__description"
+            classProps="bloc-sub-menu-1__description"
             description={description}
           />
         )}
@@ -33,14 +28,27 @@ export default class BlocSubMenu1 extends React.Component {
               <ButtonWithArrow
                 key={button.action}
                 button={button}
-                click={this.handleButtonClick}
+                onClick={this.handleButtonClick}
               />
             );
           })}
         </div>
-      </div>
+      </Fade>
     );
   }
 }
 
-BlocSubMenu1.propTypes = {};
+BlocSubMenu1.propTypes = {
+  in: PropTypes.bool,
+  action: PropTypes.func.isRequired,
+  description: PropTypes.object.isRequired,
+  buttons: PropTypes.array.isRequired,
+  noDescription: PropTypes.bool
+};
+
+BlocSubMenu1.defaultProps = {
+  in: false,
+  noDescription: false
+};
+
+export default BlocSubMenu1;

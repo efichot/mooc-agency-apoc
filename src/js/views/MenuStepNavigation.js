@@ -1,42 +1,40 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
 import ButtonPrimary from './UI/ButtonPrimary';
 import UserGameInfos from './UserGameInfos';
 import stepNavigation from '../model/static/stepNavigation';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import PropTypes from 'prop-types';
 
-export default class MenuStepNavigation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      score: 0.75,
-      progression: 0.87,
-      rank: 53
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+class MenuStepNavigation extends React.Component {
+  state = {
+    score: 0.75,
+    progression: 0.87,
+    rank: 53
+  };
 
-  handleClick() {
-    this.props.changeShownPart();
-  }
+  handleClick = e => {
+    this.props.changeShownPart(e);
+  };
 
   render() {
+    const { showPart1 } = this.props;
+
     return (
       <div className="menu-step-navigation">
         <div className="menu-step-navigation__frame">
           <div className="menu-step-navigation__title">
             <span>
-              {this.props.showPart1
+              {showPart1
                 ? stepNavigation.toggleParts.part2
                 : stepNavigation.toggleParts.part1}
             </span>
           </div>
-          <UserGameInfos class={`menu-step-navigation`} big={false} />
+          <UserGameInfos classProps={`menu-step-navigation`} />
           {Object.keys(stepNavigation)
             .filter(
-              key =>
-                stepNavigation[`${key}`].part === (this.props.showPart1 ? 1 : 2)
+              key => stepNavigation[`${key}`].part === (showPart1 ? 1 : 2)
             )
             .map((key, i, stepsFiltered) => {
               return (
@@ -66,13 +64,13 @@ export default class MenuStepNavigation extends React.Component {
         </div>
         <Link to="/">
           <ButtonPrimary
-            classes={`menu-step-navigation__button`}
+            classProps={`menu-step-navigation__button`}
             name={
-              this.props.showPart1
+              showPart1
                 ? `Poursuivre vers ${stepNavigation.toggleParts.part2}`
                 : `Revenir à ${stepNavigation.toggleParts.part1}`
             }
-            onclick={this.handleClick}
+            onClick={this.handleClick}
           />
         </Link>
       </div>
@@ -81,5 +79,10 @@ export default class MenuStepNavigation extends React.Component {
 }
 
 MenuStepNavigation.propTypes = {
-  showPart1: PropTypes.bool.isRequired
+  showPart1: PropTypes.bool.isRequired,
+  changeShownPart: PropTypes.func.isRequired
 };
+
+MenuStepNavigation.defaultProps = {};
+
+export default MenuStepNavigation;

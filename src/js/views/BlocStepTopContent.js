@@ -1,30 +1,34 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import BlocStep from '../views/BlocStep';
 import BlocTitle from '../views/BlocTitle';
 import BlocVideo from '../views/BlocVideo';
-import PropTypes from 'prop-types';
+import Fade from '../transitions/Fade';
 
-export default class BlocStepTopContent extends React.Component {
-  //constructor(props) {
-  //super(props);
-  //this.state = {};
-  //}
-
+class BlocStepTopContent extends React.Component {
   render() {
+    const { step, videoInIframe } = this.props;
+
     return (
-      <React.Fragment>
-        <BlocStep step={this.props.step.linkStep} />
-        {!this.props.videoInIframe && (
-          <BlocTitle title={this.props.step.title} />
-        )}
-        {!this.props.videoInIframe && (
-          <BlocVideo context={this.props.step.module_01} />
-        )}
-      </React.Fragment>
+      <Fade in={this.props.in}>
+        <BlocStep step={step.linkStep} />
+        {!videoInIframe && <BlocTitle title={step.title} />}
+        {!videoInIframe && <BlocVideo in {...step.module_01} />}
+      </Fade>
     );
   }
 }
 
 BlocStepTopContent.propTypes = {
-  step: PropTypes.object.isRequired
+  in: PropTypes.bool,
+  step: PropTypes.object.isRequired,
+  videoInIframe: PropTypes.bool
 };
+
+BlocStepTopContent.defaultProps = {
+  in: false,
+  videoInIframe: false
+};
+
+export default BlocStepTopContent;

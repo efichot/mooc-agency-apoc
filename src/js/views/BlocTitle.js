@@ -1,21 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Fade from '../transitions/Fade';
 
-export default class BlocTitle extends React.Component {
-  //constructor(props) {
-  //super(props);
-  //this.state = {};
-  //}
-
+class BlocTitle extends React.Component {
   render() {
     return (
-      <div className={`bloc bloc-title`}>
+      <Fade in={this.props.in} classProps={`bloc bloc-title`}>
         <span>{this.props.title}</span>
-      </div>
+      </Fade>
     );
   }
 }
 
 BlocTitle.propTypes = {
+  in: PropTypes.bool,
   title: PropTypes.string.isRequired
 };
+
+BlocTitle.defaultProps = {
+  in: true
+};
+
+export default BlocTitle;

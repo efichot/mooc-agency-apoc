@@ -1,37 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
-import PropTypes from 'prop-types';
 
-export default class UserGameInfos extends React.Component {
+class UserGameInfos extends React.Component {
+  state = {};
+
   render() {
+    const { classProps, big } = this.props;
+
     return (
-      <div className={`${this.props.class}__user-game-infos user-game-infos`}>
+      <div className={`${classProps}__user-game-infos user-game-infos`}>
         <GlobalInfosContext.Consumer>
           {context => (
             <React.Fragment>
               <div
-                className={`user-game-infos__progression ${
-                  this.props.class
-                }__user-game-infos__progression`}
+                className={`user-game-infos__progression ${classProps}__user-game-infos__progression`}
               >
-                <span className="title">
-                  Progression{this.props.big ? '' : ': '}
-                </span>
+                <span className="title">Progression{big ? '' : ': '}</span>
                 <span className="value">
                   {context.state.userInfos.progression * 100}%
                 </span>
               </div>
               <div
-                className={`user-game-infos__score ${
-                  this.props.class
-                }__user-game-infos__score`}
+                className={`user-game-infos__score ${classProps}__user-game-infos__score`}
               >
-                <span className="title">Score{this.props.big ? '' : ': '}</span>
+                <span className="title">Score{big ? '' : ': '}</span>
                 <div
-                  className={`user-game-infos__score--stars ${
-                    this.props.class
-                  }__user-game-infos__score--stars`}
+                  className={`user-game-infos__score--stars ${classProps}__user-game-infos__score--stars`}
                 >
                   {[1, 2, 3, 4, 5].map((key, index) => {
                     return (
@@ -49,15 +45,13 @@ export default class UserGameInfos extends React.Component {
                   })}
                 </div>
               </div>
-              {!this.props.big ? (
-                <div className={`${this.props.class}__user-game-infos__rank`}>
+              {!big ? (
+                <div className={`${classProps}__user-game-infos__rank`}>
                   <span className="title">Rang: </span>
                   <span className="value">{context.state.userInfos.rank}e</span>
                 </div>
               ) : (
-                <div
-                  className={`${this.props.class}__user-game-infos__ranking`}
-                >
+                <div className={`${classProps}__user-game-infos__ranking`}>
                   <span className="title">Classement</span>
                   <span className={`rank rank-1`}>1 - Amundidi</span>
                   <span className={`rank rank-2`}>2 - Florianrabasse</span>
@@ -80,6 +74,12 @@ export default class UserGameInfos extends React.Component {
 }
 
 UserGameInfos.propTypes = {
-  class: PropTypes.string.isRequired,
-  big: PropTypes.bool.isRequired
+  classProps: PropTypes.string.isRequired,
+  big: PropTypes.bool
 };
+
+UserGameInfos.defaultProps = {
+  big: false
+};
+
+export default UserGameInfos;

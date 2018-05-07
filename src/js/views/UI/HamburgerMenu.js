@@ -1,25 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import ButtonCircle from './ButtonCircle';
-//import PropTypes from 'prop-types';
 
-export default class HamburgerMenu extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: false
-    };
+class HamburgerMenu extends React.Component {
+  state = {
+    active: false
+  };
 
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
+  handleClick = e => {
     this.setState({ active: !this.state.active });
-    this.props.onclick();
-  }
+    this.props.onClick(e);
+  };
 
   render() {
     return (
-      <ButtonCircle class="hamburger-menu-container" onclick={this.handleClick}>
+      <ButtonCircle
+        classProps="hamburger-menu-container"
+        onClick={this.handleClick}
+      >
         <div className={`hamburger-menu${this.state.active ? ' active' : ''}`}>
           <span className="span" />
           <span className="span" />
@@ -31,4 +30,10 @@ export default class HamburgerMenu extends React.Component {
   }
 }
 
-HamburgerMenu.propTypes = {};
+HamburgerMenu.propTypes = {
+  onClick: PropTypes.func.isRequired
+};
+
+HamburgerMenu.defaultProps = {};
+
+export default HamburgerMenu;

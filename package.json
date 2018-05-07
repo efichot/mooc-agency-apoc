@@ -2,7 +2,7 @@
   "name": "apoc",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/arnaud_apoc/APOCamundi/interface/home/",
+  "homepage": "%REACT_APP_BASENAME%",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.4",
     "@fortawesome/fontawesome-free-brands": "^5.0.8",
@@ -29,7 +29,8 @@
     "react-router": "^4.2.0",
     "react-scripts": "1.1.1",
     "react-svg-piechart": "^2.0.3",
-    "react-timeout": "^1.1.1"
+    "react-timeout": "^1.1.1",
+    "react-transition-group": "^2.2.1"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [

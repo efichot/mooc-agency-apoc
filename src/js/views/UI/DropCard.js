@@ -1,66 +1,66 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-//import PropTypes from 'prop-types';
-
-function contains(list, value) {
+const contains = (list, value) => {
   for (let i = 0; i < list.length; ++i) {
     if (list[i] === value) return true;
   }
   return false;
-}
+};
 
-export default class DropCard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: null,
-      subtitle: null
-    };
+class DropCard extends React.Component {
+  state = {
+    title: null,
+    subtitle: null
+  };
 
-    this.handleDragOver = this.handleDragOver.bind(this);
-    this.handleDrop = this.handleDrop.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps, nextState) {
+  static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.reset) {
-      this.setState({ title: null, subtitle: null });
+      return {
+        title: null,
+        subtitle: null
+      };
     }
+    return prevState;
   }
 
-  handleDragOver(event) {
+  handleDragOver = event => {
     const isDragCard = contains(event.dataTransfer.types, 'drag-card');
     const isEndDropCard = this.props.startOrEnd === 'end';
     if (isDragCard && isEndDropCard) {
       event.preventDefault();
     }
-  }
+  };
 
-  handleDrop(event) {
+  handleDrop = async event => {
     const data = event.dataTransfer.getData('drag-card');
-    /*console.log(data);*/
-    this.setState({
+    await this.setState({
       title: data.split('+++')[0],
       subtitle: data.split('+++')[1]
     });
     parseInt(data.split('+++')[2], 10) === parseInt(this.props.endPosition, 10)
       ? this.props.dragCard(true, this.props.endPosition)
       : this.props.dragCard(false, this.props.endPosition);
-    event.preventDefault();
-  }
+    /*event.preventDefault();*/
+  };
 
   render() {
+    const { startOrEnd } = this.props;
+
+    const { title, subtitle } = this.state;
+
     return (
       <div
         className={`drop-card`}
         onDragOver={this.handleDragOver}
         onDrop={this.handleDrop}
       >
-        {this.props.startOrEnd === 'end' &&
-          this.state.title && <span className="title">{this.state.title}</span>}
-        {this.props.startOrEnd === 'end' &&
-          this.state.subtitle &&
-          this.state.subtitle !== 'undefined' && (
-            <span className="subtitle">{this.state.subtitle}</span>
+        {startOrEnd === 'end' &&
+          title && <span className="title">{title}</span>}
+        {startOrEnd === 'end' &&
+          subtitle &&
+          subtitle !== 'undefined' && (
+            <span className="subtitle">{subtitle}</span>
           )}
         {this.props.children}
       </div>
@@ -68,4 +68,18 @@ export default class DropCard extends React.Component {
   }
 }
 
-DropCard.propTypes = {};
+DropCard.propTypes = {
+  id: PropTypes.string,
+  endPosition: PropTypes.number.isRequired,
+  reset: PropTypes.bool,
+  startOrEnd: PropTypes.string,
+  dragCard: PropTypes.func.isRequired
+};
+
+DropCard.defaultProps = {
+  id: '',
+  reset: false,
+  startOrEnd: ''
+};
+
+export default DropCard;

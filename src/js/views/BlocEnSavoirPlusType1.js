@@ -1,29 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import BlocHeader from '../views/BlocHeader';
 import BlocDescription from './BlocDescription';
 import ButtonPrimary from './UI/ButtonPrimary';
 import PopupBlue from './UI/PopupBlue';
+import Fade from '../transitions/Fade';
+
 import arrowDown from '../../assets/img/icons/arrow-down.svg';
 
-export default class BlocEnSavoirPlusType1 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hideCard: true,
-      showCard: 1
-    };
-  }
+class BlocEnSavoirPlusType1 extends React.Component {
+  state = {
+    hideCard: true,
+    showCard: 1
+  };
 
-  showCard(card) {
+  showCard = card => {
     this.setState({ showCard: card.startPosition, hideCard: false });
-  }
+  };
 
-  hideCards(card) {
+  hideCards = card => {
     this.setState({ showCard: card.startPosition, hideCard: true });
-  }
+  };
 
-  render() {
+  render = () => {
     const {
       noChapter,
       cards,
@@ -31,16 +31,19 @@ export default class BlocEnSavoirPlusType1 extends React.Component {
       chapter,
       title,
       firstDescription
-    } = this.props.context;
+    } = this.props;
 
     return (
-      <div className={`bloc bloc-en-savoir-plus bloc-en-savoir-plus-type-1`}>
+      <Fade
+        in={this.props.in}
+        classProps={`bloc bloc-en-savoir-plus bloc-en-savoir-plus-type-1`}
+      >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
         )}
         <span className="bloc__name">{title}</span>
         <BlocDescription
-          classes="bloc__first-description"
+          classProps="bloc__first-description"
           description={firstDescription}
         />
         <div className="bloc-en-savoir-plus-type-1__cards">
@@ -65,7 +68,7 @@ export default class BlocEnSavoirPlusType1 extends React.Component {
             })}
           </div>
           <PopupBlue
-            classes="bloc-en-savoir-plus-type-1__cards--to-show"
+            classProps="bloc-en-savoir-plus-type-1__cards--to-show"
             hideCard={this.state.hideCard}
           >
             <span className="card-title">
@@ -81,11 +84,25 @@ export default class BlocEnSavoirPlusType1 extends React.Component {
             </p>
           </PopupBlue>
         </div>
-      </div>
+      </Fade>
     );
-  }
+  };
 }
 
 BlocEnSavoirPlusType1.propTypes = {
-  context: PropTypes.object.isRequired
+  in: PropTypes.bool,
+  noChapter: PropTypes.bool,
+  duration: PropTypes.number,
+  cards: PropTypes.array.isRequired,
+  chapter: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  firstDescription: PropTypes.object.isRequired
 };
+
+BlocEnSavoirPlusType1.defaultProps = {
+  in: false,
+  noChapter: false,
+  duration: 0
+};
+
+export default BlocEnSavoirPlusType1;

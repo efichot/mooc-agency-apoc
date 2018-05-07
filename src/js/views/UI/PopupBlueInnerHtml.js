@@ -1,14 +1,11 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-export default class PopupBlue extends React.Component {
-  //constructor(props) {
-  //super(props);
-  //this.state = {};
-  //}
+class PopupBlueInnerHtml extends React.Component {
+  state = {};
 
   render() {
-    const { description, classes, hideCard } = this.props;
+    const { description, classProps, hideCard } = this.props;
 
     if (description.__html) {
       description.__html = description.__html
@@ -17,7 +14,7 @@ export default class PopupBlue extends React.Component {
 
       return (
         <div
-          className={`${classes ? classes : ''} popup-blue`}
+          className={`${classProps} popup-blue`}
           style={{ opacity: hideCard ? 0 : 1 }}
           dangerouslySetInnerHTML={description}
         />
@@ -25,7 +22,7 @@ export default class PopupBlue extends React.Component {
     } else {
       return (
         <div
-          className={`${classes ? classes : ''} popup-blue`}
+          className={`${classProps} popup-blue`}
           style={{ opacity: hideCard ? 0 : 1 }}
         >
           {description.replace(/\r\n/g, '<br />').replace(/[\r\n]/g, '<br />')}
@@ -35,4 +32,15 @@ export default class PopupBlue extends React.Component {
   }
 }
 
-PopupBlue.propTypes = {};
+PopupBlueInnerHtml.propTypes = {
+  hideCard: PropTypes.bool,
+  classProps: PropTypes.string,
+  description: PropTypes.object.isRequired
+};
+
+PopupBlueInnerHtml.defaultProps = {
+  hideCard: false,
+  classProps: ''
+};
+
+export default PopupBlueInnerHtml;

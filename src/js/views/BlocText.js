@@ -1,17 +1,11 @@
 import React from 'react';
-import BlocHeader from './BlocHeader';
-import BlocDescription from './BlocDescription';
-// import Iframe from 'react-iframe';
 import PropTypes from 'prop-types';
 
-export default class BlocText extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      durationInMinutes: 1
-    };
-  }
+import BlocHeader from './BlocHeader';
+import BlocDescription from './BlocDescription';
+import Fade from '../transitions/Fade';
 
+class BlocText extends React.Component {
   render() {
     const {
       noChapter,
@@ -22,31 +16,47 @@ export default class BlocText extends React.Component {
       duration,
       firstDescription,
       secondDescription
-    } = this.props.context;
+    } = this.props;
 
     return (
-      <div className={`bloc-video bloc`}>
+      <Fade classProps={`bloc-video bloc`} in={this.props.in}>
         {!noChapter && (
           <BlocHeader type={iconType} duration={duration} name={chapter} />
         )}
-        <span className={`bloc__name${secondary ? ' secondary' : ''}`}>
-          {name}
-        </span>
+        <span className={`bloc__name${secondary}`}>{name}</span>
         <BlocDescription
-          classes="bloc__first-description"
+          classProps="bloc__first-description"
           description={firstDescription}
         />
         {secondDescription && (
           <BlocDescription
-            classes="bloc__second-description"
+            classProps="bloc__second-description"
             description={secondDescription}
           />
         )}
-      </div>
+      </Fade>
     );
   }
 }
 
 BlocText.propTypes = {
-  context: PropTypes.object
+  in: PropTypes.bool,
+  noChapter: PropTypes.bool,
+  iconType: PropTypes.string.isRequired,
+  chapter: PropTypes.string.isRequired,
+  secondary: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  duration: PropTypes.number,
+  firstDescription: PropTypes.object.isRequired,
+  secondDescription: PropTypes.object
 };
+
+BlocText.defaultProps = {
+  in: false,
+  noChapter: false,
+  duration: 0,
+  secondary: '',
+  secondDescription: undefined
+};
+
+export default BlocText;

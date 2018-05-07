@@ -1,30 +1,30 @@
 import React from 'react';
-import HamburgerMenu from './UI/HamburgerMenu';
-import ButtonCircle from './UI/ButtonCircle';
-import menuTop from '../model/static/menuTop';
+/*import PropTypes from 'prop-types';*/
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
-//import PropTypes from 'prop-types';
+import HamburgerMenu from './UI/HamburgerMenu';
+import ButtonCircle from './UI/ButtonCircle';
+import menuTop from '../model/static/menuTop';
 
-export default class MenuMobile extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isVisible: false
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+class MenuMobile extends React.Component {
+  state = {
+    isVisible: false
+  };
 
-  handleClick() {
+  handleClick = () => {
     this.setState({ isVisible: !this.state.isVisible });
-  }
+  };
+
+  handleButtonClick = e => {
+    e.preventDefault();
+  };
 
   render() {
     return (
       <div className="menu-mobile">
         <div className="menu-mobile__item active">
-          <HamburgerMenu onclick={this.handleClick} />
+          <HamburgerMenu onClick={this.handleClick} />
           <div className="menu-mobile__item--description">
             <span className={`menu-mobile__item--title menu-item-title`} />
             <span className={`menu-mobile__item--subtitle menu-item-subtitle`}>
@@ -43,7 +43,8 @@ export default class MenuMobile extends React.Component {
               }`}
             >
               <ButtonCircle
-                class={`menu-mobile__item--icon button-circle__${i + 1}`}
+                classProps={`menu-mobile__item--icon button-circle__${i + 1}`}
+                onClick={this.handleButtonClick}
               >
                 <FontAwesomeIcon icon={menuTop[`${menu}`].icon} />
               </ButtonCircle>
@@ -70,3 +71,7 @@ export default class MenuMobile extends React.Component {
 }
 
 MenuMobile.propTypes = {};
+
+MenuMobile.defaultProps = {};
+
+export default MenuMobile;

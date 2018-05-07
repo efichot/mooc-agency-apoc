@@ -1,28 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Player from '@vimeo/player';
+// import Iframe from 'react-iframe';
+
 import BlocHeader from './BlocHeader';
 import BlocDescription from './BlocDescription';
-// import Iframe from 'react-iframe';
-import Player from '@vimeo/player';
-import PropTypes from 'prop-types';
+import Fade from '../transitions/Fade';
 
-export default class BlocVideo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      durationInMinutes: 1
-    };
-  }
+class BlocVideo extends React.Component {
+  state = {
+    durationInMinutes: 1
+  };
+
+  video = React.createRef();
 
   componentDidMount() {
-    const player = new Player(this.video);
-    player
-      .getDuration()
-      .then(duration => {
-        this.setState({ durationInMinutes: Math.ceil(duration / 60) });
-      })
-      .catch(error => {
-        console.error('no duration for the video');
-      });
+    if (this.props.in) {
+      const player = new Player(this.video.current);
+      player
+        .getDuration()
+        .then(duration => {
+          this.setState({ durationInMinutes: Math.ceil(duration / 60) });
+        })
+        .catch(error => {
+          console.error('no duration for the video');
+        });
+    }
   }
 
   render() {
@@ -33,10 +36,10 @@ export default class BlocVideo extends React.Component {
       firstDescription,
       videoUrl,
       secondDescription
-    } = this.props.context;
+    } = this.props;
 
     return (
-      <div className={`bloc-video bloc`}>
+      <Fade classProps={`bloc-video bloc`} in={this.props.in}>
         {!noChapter && (
           <BlocHeader type="video" duration={this.state.durationInMinutes} />
         )}
@@ -45,15 +48,13 @@ export default class BlocVideo extends React.Component {
         </span>
         {firstDescription && (
           <BlocDescription
-            classes="bloc__first-description"
+            classProps="bloc__first-description"
             description={firstDescription}
           />
         )}
         <div className="bloc-video__video--container">
           <iframe
-            ref={vid => {
-              this.video = vid;
-            }}
+            ref={this.video}
             title={name}
             src={`${videoUrl}`}
             className="video bloc-video__video"
@@ -69,15 +70,32 @@ export default class BlocVideo extends React.Component {
         </div>
         {secondDescription && (
           <BlocDescription
-            classes="bloc__second-description"
+            classProps="bloc__second-description"
             description={secondDescription}
           />
         )}
-      </div>
+      </Fade>
     );
   }
 }
 
 BlocVideo.propTypes = {
-  context: PropTypes.object
+  in: PropTypes.bool,
+  noChapter: PropTypes.bool,
+  secondary: PropTypes.bool,
+  name: PropTypes.string,
+  firstDescription: PropTypes.object,
+  videoUrl: PropTypes.string.isRequired,
+  secondDescription: PropTypes.object
 };
+
+BlocVideo.defaultProps = {
+  in: false,
+  name: '',
+  noChapter: false,
+  secondary: false,
+  firstDescription: undefined,
+  secondDescription: undefined
+};
+
+export default BlocVideo;

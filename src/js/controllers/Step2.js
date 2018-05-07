@@ -1,25 +1,25 @@
+/******* TODO *********/
+
 import React from 'react';
+/*import PropTypes from 'prop-types';*/
+
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 import BlocStepTopContent from '../views/BlocStepTopContent';
+import Fade from '../transitions/Fade';
 
-//import PropTypes from 'prop-types';
-
-export default class Step2 extends React.Component {
-  //constructor(props) {
-  //super(props);
-  //this.state = {};
-  //}
+class Step2 extends React.Component {
+  state = {};
 
   render() {
     return (
-      <div className="">
+      <Fade classProps={``}>
         <GlobalInfosContext.Consumer>
           {context => {
             const step2 = context.state.step2;
             return (
               <React.Fragment>
                 <BlocStepTopContent step={step2} videoInIframe />
-                <iframe
+                {/*<iframe
                   title="step2-iframe-1"
                   style={{
                     display: 'block',
@@ -36,14 +36,18 @@ export default class Step2 extends React.Component {
                   id="IndexFrame1"
                   align="middle"
                   scrolling="no"
-                />
+                />*/}
               </React.Fragment>
             );
           }}
         </GlobalInfosContext.Consumer>
-      </div>
+      </Fade>
     );
   }
 }
 
 Step2.propTypes = {};
+
+Step2.defaultProps = {};
+
+export default Step2;

@@ -1,45 +1,39 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import ReactTimeout from 'react-timeout';
+
 import BlocHeader from './BlocHeader';
 import BlocDescription from './BlocDescription';
 import ButtonPrimary from './UI/ButtonPrimary';
 import PopupBlue from './UI/PopupBlue';
 import PopupBlueInnerHtml from './UI/PopupBlueInnerHtml';
-import PropTypes from 'prop-types';
-import ReactTimeout from 'react-timeout';
+import Fade from '../transitions/Fade';
 
 const popupVictoryMessage = `Bravo ! C'est la bonne réponse.`;
 const popupDefeatMessage = `Ce n'est pas la bonne réponse. Réessayez !`;
 
 class BlocQuiz extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonActive: null,
-      currentQuestion: 1,
-      victoryMessage: undefined,
-      gameIsFinished: false,
-      correctAnswer: null,
-      help: false,
-      questions: {},
-      timeout: null
-    };
+  state = {
+    buttonActive: null,
+    currentQuestion: 1,
+    victoryMessage: undefined,
+    gameIsFinished: false,
+    correctAnswer: null,
+    help: false,
+    questions: {},
+    timeout: null
+  };
 
-    this.handleClick = this.handleClick.bind(this);
-    this.handleValidate = this.handleValidate.bind(this);
-    this.showNextQuestion = this.showNextQuestion.bind(this);
-    this.setTheCorrectAnswer = this.setTheCorrectAnswer.bind(this);
-  }
-
-  handleClick(answer) {
+  handleClick = answer => {
     if (this.state.victoryMessage === popupVictoryMessage) {
       return;
     }
     this.setState({ buttonActive: answer });
     this.setState({ victoryMessage: null });
     this.setState({ gameIsFinished: false });
-  }
+  };
 
-  handleValidate(e) {
+  handleValidate = e => {
     this.setState({ help: true });
     this.props.clearTimeout(this.state.timeout);
     if (this.state.buttonActive === this.state.correctAnswer) {
@@ -55,9 +49,9 @@ class BlocQuiz extends React.Component {
       }, 2000);
       this.setState({ timeout });
     }
-  }
+  };
 
-  showNextQuestion() {
+  showNextQuestion = () => {
     if (this.state.currentQuestion < Object.keys(this.state.questions).length) {
       this.setState({ currentQuestion: this.state.currentQuestion + 1 });
       this.setTheCorrectAnswer(
@@ -67,9 +61,9 @@ class BlocQuiz extends React.Component {
     this.setState({ victoryMessage: undefined });
     this.setState({ buttonActive: null });
     this.setState({ help: false });
-  }
+  };
 
-  setTheCorrectAnswer(question) {
+  setTheCorrectAnswer = question => {
     let correctAnswer = null;
     question.answers.forEach((answer, index) => {
       if (correctAnswer !== null) {
@@ -84,30 +78,30 @@ class BlocQuiz extends React.Component {
     });
 
     this.setState({ correctAnswer });
-  }
+  };
 
   componentWillMount() {
-    this.setState({ questions: this.props.context.questions });
+    this.setState({ questions: this.props.questions });
     this.setTheCorrectAnswer(
-      this.props.context.questions[`question_${this.state.currentQuestion}`]
+      this.props.questions[`question_${this.state.currentQuestion}`]
     );
   }
 
   render() {
-    const { noChapter, duration, chapter, name } = this.props.context;
+    const { noChapter, duration, chapter, name } = this.props;
     const { questions, currentQuestion } = this.state;
     const { question, answers, explication } = questions[
       `question_${currentQuestion}`
     ];
 
     return (
-      <div className={`bloc bloc-quiz`}>
+      <Fade classProps={`bloc bloc-quiz`} in={this.props.in}>
         {!noChapter && (
           <BlocHeader type="chrono" duration={duration} name={chapter} />
         )}
         <span className="bloc__name">{name}</span>
         <BlocDescription
-          classes="bloc__first-description"
+          classProps="bloc__first-description"
           description={question}
         />
         <div className="bloc-quiz__answers">
@@ -117,21 +111,21 @@ class BlocQuiz extends React.Component {
                 key={index}
                 id={`QCM_question_1_answer_${index}`}
                 name={answer.content}
-                classes={`button-quiz${
+                classProps={`button-quiz${
                   this.state.buttonActive === index + 1 ? ' active' : ''
                 }${
                   this.state.victoryMessage === popupVictoryMessage
                     ? ' finished'
                     : ''
                 }`}
-                onclick={this.handleClick}
+                onClick={this.handleClick}
                 answer={index + 1}
               />
             );
           })}
         </div>
         {this.state.victoryMessage && (
-          <PopupBlue classes={`popup-blue__victory-message`}>
+          <PopupBlue classProps={`popup-blue__victory-message`}>
             <span>{this.state.victoryMessage}</span>
           </PopupBlue>
         )}
@@ -141,8 +135,8 @@ class BlocQuiz extends React.Component {
               ? 'suivant'
               : 'valider'
           }
-          onclick={this.handleValidate}
-          classes={`bloc-quiz__validate`}
+          onClick={this.handleValidate}
+          classProps={`bloc-quiz__validate`}
         />
         {this.state.help && (
           <PopupBlueInnerHtml
@@ -150,14 +144,25 @@ class BlocQuiz extends React.Component {
             description={explication}
           />
         )}
-      </div>
+      </Fade>
     );
   }
 }
 
 BlocQuiz.propTypes = {
-  context: PropTypes.object.isRequired,
-  gameIsFinished: PropTypes.func
+  in: PropTypes.bool,
+  noChapter: PropTypes.bool,
+  duration: PropTypes.number,
+  questions: PropTypes.object.isRequired,
+  description: PropTypes.object.isRequired,
+  chapter: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
+};
+
+BlocQuiz.defaultProps = {
+  in: false,
+  noChapter: false,
+  duration: 0
 };
 
 export default ReactTimeout(BlocQuiz);

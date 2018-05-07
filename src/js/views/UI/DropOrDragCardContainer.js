@@ -3,16 +3,8 @@ import DragCard from './DragCard';
 import DropCard from './DropCard';
 import PropTypes from 'prop-types';
 
-export default class DropOrDragCardContainer extends React.Component {
-  //constructor(props) {
-  //super(props);
-  //this.state = {};
-  //}
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+class DropOrDragCardContainer extends React.Component {
+  state = {};
 
   render() {
     const {
@@ -36,3 +28,7 @@ DropOrDragCardContainer.propTypes = {
   connectDropTarget: PropTypes.func.isRequired,
   isOver: PropTypes.bool.isRequired
 };
+
+DropOrDragCardContainer.defaultProps = {};
+
+export default DropOrDragCardContainer;

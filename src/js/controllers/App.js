@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import Header from '../views/Header';
+import { Helmet } from 'react-helmet';
+
 import { GlobalInfosProvider } from '../model/react-context/GlobalInfosProvider';
+import Header from '../views/Header';
 import MenuMobile from '../views/MenuMobile';
 import MenuStepNavigation from '../views/MenuStepNavigation';
-import fontawesome from '@fortawesome/fontawesome';
 import Introduction from './Introduction';
 import Step1 from './Step1';
 import Step2 from './Step2';
@@ -14,27 +15,21 @@ import Step5 from './Step5';
 import Step6 from './Step6';
 import Step7 from './Step7';
 import Step8 from './Step8';
-// import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import solid from '@fortawesome/fontawesome-free-solid';
-import { Helmet } from 'react-helmet';
+import Fade from '../transitions/Fade';
 
-//import PropTypes from 'prop-types';
+import fontawesome from '@fortawesome/fontawesome';
+import solid from '@fortawesome/fontawesome-free-solid';
 
 fontawesome.library.add(solid);
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showPart1: true
-    };
+class App extends React.Component {
+  state = {
+    showPart1: true
+  };
 
-    this.changeShownPart = this.changeShownPart.bind(this);
-  }
-
-  changeShownPart() {
+  changeShownPart = () => {
     this.setState({ showPart1: !this.state.showPart1 });
-  }
+  };
 
   render() {
     return (
@@ -43,7 +38,7 @@ export default class App extends React.Component {
           <title>APOC Serious Game</title>
         </Helmet>
         <BrowserRouter basename={`${process.env.REACT_APP_BASENAME}`}>
-          <div className="master__outer-container">
+          <Fade in classProps="master__outer-container">
             <Header />
             <MenuMobile />
             <MenuStepNavigation
@@ -56,24 +51,24 @@ export default class App extends React.Component {
                 <Route
                   path="/intro"
                   render={() => (
-                    <Introduction showPart1={this.state.showPart1} />
+                    <Introduction showPart1={this.state.showPart1} in />
                   )}
                 />
-                <Route path="/step1" render={() => <Step1 />} />
-                <Route path="/step2" render={() => <Step2 />} />
-                <Route path="/step3" render={() => <Step3 />} />
-                <Route path="/step4" render={() => <Step4 />} />
-                <Route path="/step5" render={() => <Step5 />} />
-                <Route path="/step6" render={() => <Step6 />} />
-                <Route path="/step7" render={() => <Step7 />} />
-                <Route path="/step8" render={() => <Step8 />} />
+                <Route path="/step1" render={route => <Step1 {...route} />} />
+                <Route path="/step2" render={route => <Step2 {...route} />} />
+                <Route path="/step3" render={route => <Step3 {...route} />} />
+                <Route path="/step4" render={route => <Step4 {...route} />} />
+                <Route path="/step5" render={route => <Step5 {...route} />} />
+                <Route path="/step6" render={route => <Step6 {...route} />} />
+                <Route path="/step7" render={route => <Step7 {...route} />} />
+                <Route path="/step8" render={route => <Step8 {...route} />} />
               </Switch>
             </div>
-          </div>
+          </Fade>
         </BrowserRouter>
       </GlobalInfosProvider>
     );
   }
 }
 
-App.propTypes = {};
+export default App;

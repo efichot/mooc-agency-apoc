@@ -1,22 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Fade from '../transitions/Fade';
 
-export default class BlocStep extends React.Component {
-  //constructor(props) {
-  //super(props);
-  //this.state = {};
-  //}
-
+class BlocStep extends React.Component {
   render() {
     return (
-      <div className={`bloc bloc-step`}>
+      <Fade in={this.props.in} classProps={`bloc bloc-step`}>
         <span className="step-title">Étape</span>
         <span>{this.props.step}</span>
-      </div>
+      </Fade>
     );
   }
 }
 
 BlocStep.propTypes = {
+  in: PropTypes.bool,
   step: PropTypes.number.isRequired
 };
+
+BlocStep.defaultProps = {
+  in: true
+};
+
+export default BlocStep;

@@ -1,15 +1,12 @@
 import React from 'react';
-import menuTop from '../model/static/menuTop';
+/*import PropTypes from 'prop-types';*/
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
-//import PropTypes from 'prop-types';
+import menuTop from '../model/static/menuTop';
 
-export default class componentName extends React.Component {
-  //constructor(props) {
-  //super(props);
-  //this.state = {};
-  //}
+class MenuTop extends React.Component {
+  state = {};
 
   render() {
     return (
@@ -55,4 +52,8 @@ export default class componentName extends React.Component {
   }
 }
 
-componentName.propTypes = {};
+MenuTop.propTypes = {};
+
+MenuTop.defaultProps = {};
+
+export default MenuTop;

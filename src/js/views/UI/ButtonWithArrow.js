@@ -1,19 +1,14 @@
 import React from 'react';
-import video from '../../../assets/img/icons/button-arrow-right.svg';
+import button_arrow_right from '../../../assets/img/icons/button-arrow-right.svg';
 import ButtonPrimary from './ButtonPrimary';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-export default class ButtonWithArrow extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+class ButtonWithArrow extends React.Component {
+  state = {};
 
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.props.click(this.props.button.action);
-  }
+  handleClick = () => {
+    this.props.onClick(this.props.button.action);
+  };
 
   render() {
     const { button } = this.props;
@@ -21,17 +16,24 @@ export default class ButtonWithArrow extends React.Component {
     return (
       <div className="bloc-sub-menu-1__group" onClick={this.handleClick}>
         <ButtonPrimary
-          classes="bloc-sub-menu-1__button"
+          classProps="bloc-sub-menu-1__button"
           name={button.name}
           color={button.color}
         />
         <div
           className="bloc-sub-menu-1__arrow"
-          style={{ backgroundImage: `url(${video})` }}
+          style={{ backgroundImage: `url(${button_arrow_right})` }}
         />
       </div>
     );
   }
 }
 
-ButtonWithArrow.propTypes = {};
+ButtonWithArrow.propTypes = {
+  button: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired
+};
+
+ButtonWithArrow.defaultProps = {};
+
+export default ButtonWithArrow;

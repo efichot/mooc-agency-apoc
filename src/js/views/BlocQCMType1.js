@@ -1,33 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import BlocHeader from './BlocHeader';
 import BlocDescription from './BlocDescription';
 import CardContentType1 from './UI/CardContentType1';
 import ButtonPrimary from './UI/ButtonPrimary';
 import PopupBlue from './UI/PopupBlue';
-import PropTypes from 'prop-types';
+import Fade from '../transitions/Fade';
 
-export default class BlocQCMType1 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // buttonActive: ,
-      victoryMessage: undefined,
-      gameIsFinished: false,
-      correctAnswer: 0
-    };
+class BlocQCMType1 extends React.Component {
+  state = {
+    victoryMessage: undefined,
+    gameIsFinished: false,
+    correctAnswer: 0
+  };
 
-    this.handleClick = this.handleClick.bind(this);
-    this.handleValidate = this.handleValidate.bind(this);
-  }
-
-  handleClick(answer) {
+  handleClick = answer => {
     console.log(answer);
     this.setState({ buttonActive: answer });
     this.setState({ victoryMessage: null });
     this.setState({ gameIsFinished: false });
-  }
+  };
 
-  handleValidate(e) {
+  handleValidate = e => {
     if (this.state.buttonActive === this.state.correctAnswer) {
       this.setState({ victoryMessage: `Bravo ! C'est la bonne réponse.` });
       this.setState({ gameIsFinished: true });
@@ -37,10 +32,10 @@ export default class BlocQCMType1 extends React.Component {
         victoryMessage: `Ce n'est pas la bonne réponse. Réessayez !`
       });
     }
-  }
+  };
 
   componentDidMount() {
-    this.props.context.answers.forEach((answer, index) => {
+    this.props.answers.forEach((answer, index) => {
       if (this.state.correctAnswer > 0) {
         return;
       } else if (answer.correctAnswer) {
@@ -60,10 +55,10 @@ export default class BlocQCMType1 extends React.Component {
       question,
       cards,
       answers
-    } = this.props.context;
+    } = this.props;
 
     return (
-      <div className={`bloc bloc-QCM-type-1`}>
+      <Fade classProps={`bloc bloc-QCM-type-1`} in={this.props.in}>
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
         )}
@@ -71,15 +66,12 @@ export default class BlocQCMType1 extends React.Component {
         <div className="bloc-QCM-type-1__cards">
           {cards.map(card => {
             return (
-              <CardContentType1
-                key={card.startPosition}
-                content={card.content}
-              />
+              <CardContentType1 key={card.startPosition} {...card.content} />
             );
           })}
         </div>
         <BlocDescription
-          classes="bloc__first-description"
+          classProps="bloc__first-description"
           description={question}
         />
         <div className="bloc-QCM-type-1__answer-and-popup">
@@ -90,10 +82,10 @@ export default class BlocQCMType1 extends React.Component {
                   key={index}
                   id={`QCM_question_1_answer_${index}`}
                   name={answer.content}
-                  classes={`button-QCM-type-1${
+                  classProps={`button-QCM-type-1${
                     this.state.buttonActive === index + 1 ? ' active' : ''
                   }${this.state.gameIsFinished ? ' finished' : ''}`}
-                  onclick={this.handleClick}
+                  onClick={this.handleClick}
                   answer={index + 1}
                 />
               );
@@ -107,15 +99,30 @@ export default class BlocQCMType1 extends React.Component {
         </div>
         <ButtonPrimary
           name="valider"
-          onclick={this.handleValidate}
-          classes={`bloc-QCM-type-1__validate`}
+          onClick={this.handleValidate}
+          classProps={`bloc-QCM-type-1__validate`}
         />
-      </div>
+      </Fade>
     );
   }
 }
 
 BlocQCMType1.propTypes = {
-  context: PropTypes.object.isRequired,
+  in: PropTypes.bool,
+  noChapter: PropTypes.bool,
+  duration: PropTypes.number,
+  chapter: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  question: PropTypes.object.isRequired,
+  cards: PropTypes.array.isRequired,
+  answers: PropTypes.array.isRequired,
   gameIsFinished: PropTypes.func
 };
+
+BlocQCMType1.defaultProps = {
+  in: false,
+  noChapter: false,
+  duration: 0
+};
+
+export default BlocQCMType1;

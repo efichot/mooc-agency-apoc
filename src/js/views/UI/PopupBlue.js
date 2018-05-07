@@ -1,17 +1,16 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-export default class PopupBlue extends React.Component {
-  //constructor(props) {
-  //super(props);
-  //this.state = {};
-  //}
+class PopupBlue extends React.Component {
+  state = {};
 
   render() {
+    const { hideCard, classProps } = this.props;
+
     return (
       <div
-        className={`${this.props.classes ? this.props.classes : ''} popup-blue`}
-        style={{ opacity: this.props.hideCard ? 0 : 1 }}
+        className={`${classProps} popup-blue`}
+        style={{ opacity: hideCard ? 0 : 1 }}
       >
         {this.props.children}
       </div>
@@ -19,4 +18,14 @@ export default class PopupBlue extends React.Component {
   }
 }
 
-PopupBlue.propTypes = {};
+PopupBlue.propTypes = {
+  classProps: PropTypes.string.isRequired,
+  hideCard: PropTypes.bool.isRequired
+};
+
+PopupBlue.defaultProps = {
+  hideCard: false,
+  classProps: ''
+};
+
+export default PopupBlue;

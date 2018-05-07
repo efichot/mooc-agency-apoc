@@ -1,40 +1,35 @@
 import React from 'react';
-import ButtonPrimary from './UI/ButtonPrimary';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Iframe from 'react-iframe';
-// import ReactPlayer from 'react-player';
 
-//import PropTypes from 'prop-types';
+import ButtonPrimary from './UI/ButtonPrimary';
+import Fade from '../transitions/Fade';
 
-export default class ChapterPresentation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+class ChapterPresentation extends React.Component {
+  state = {};
 
   render() {
+    const { classProps, name, description, button, videoUrl } = this.props;
+
     return (
-      <div
-        className={`${
-          this.props.classes
-        }__chapter-presentation chapter-presentation`}
+      <Fade
+        in={this.props.in}
+        classProps={`${classProps}__chapter-presentation chapter-presentation`}
       >
         <div className="left-column">
-          <span className="title">{this.props.name}</span>
-          <p className="description">{this.props.description}</p>
-          {this.props.button && (
-            <Link to={this.props.button.link}>
-              <ButtonPrimary
-                name={this.props.button.name}
-                classes={this.props.button.classes}
-              />
+          <span className="title">{name}</span>
+          <p className="description">{description}</p>
+          {button && (
+            <Link to={button.link}>
+              <ButtonPrimary name={button.name} classProps={button.classes} />
             </Link>
           )}
         </div>
         <div className="right-column video-wrapper">
           <Iframe
-            title={this.props.name}
-            url={`${this.props.videoUrl}`}
+            title={name}
+            url={`${videoUrl}`}
             className="video"
             position="relative"
             display="block"
@@ -46,9 +41,25 @@ export default class ChapterPresentation extends React.Component {
             }}
           />
         </div>
-      </div>
+      </Fade>
     );
   }
 }
 
-ChapterPresentation.propTypes = {};
+ChapterPresentation.propTypes = {
+  in: PropTypes.bool,
+  name: PropTypes.string.isRequired,
+  videoUrl: PropTypes.string.isRequired,
+  classProps: PropTypes.string,
+  description: PropTypes.string,
+  button: PropTypes.object
+};
+
+ChapterPresentation.defaultProps = {
+  in: false,
+  classProps: '',
+  description: '',
+  button: undefined
+};
+
+export default ChapterPresentation;

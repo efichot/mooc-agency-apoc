@@ -4,6 +4,13 @@
   &__buttons {
     width: 100%;
     @extend %flex-row-center-center;
+    
+    .button-primary {
+      cursor: default;
+    }
 
+    .button-double-arrow__arrows {
+      cursor: pointer;
+    }
   }
 }

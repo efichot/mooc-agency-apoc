@@ -1,6 +1,52 @@
+@font-face {
+  font-family: 'Helvetica Neue LT Std 55 Roman';
+  font-style: normal;
+  font-weight: normal;
+  src: local('HelveticaNeueLTStd-Roman'), url('../assets/font/HelveticaNeueLTStd-Roman.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Helvetica Neue LT Std 75 Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('HelveticaNeueLTStd-Roman'), url('../assets/font/Helvetica Neue LT Std 75 Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue LT Std 107 Extra Black Condensed';
+  font-style: normal;
+  font-weight: bold;
+  src: local('HelveticaNeueLTStd-XBlkC'), url('../assets/font/HelveticaNeueLTStd-XBlkCn.otf') format('opentype');
+}
+@font-face {font-family: "Helvetica Neue LT Std 93 Black Extended";
+  font-style: normal;
+  font-weight: bold;
+  src: local('Helvetica Neue LT Std 93 Black Extended'), url('../assets/font/Helvetica Neue LT Std 93 Black Extended.otf') format('opentype');
+}
+
+@font-face {font-family: "Helvetica Neue LT Com 73 Bold Extended V1";
+font-style: normal;
+  font-weight: lighter;
+  src: local('Helvetica Neue LT Com 73 Bold Extended V1'), url('../assets/font/Helvetica Neue LT Com 73 Bold Extended V1.otf') format('opentype');
+}
+
+@font-face {font-family: "Helvetica Neue LT Std 63 Medium Extended";
+font-style: normal;
+  font-weight: lighter;
+  src: local('Helvetica Neue LT Std 63 Medium Extended'), url('../assets/font/Helvetica Neue LT Std 63 Medium Extended.otf') format('opentype');
+}
+
+@font-face {
+font-family: 'Helvetica Neue LT Std 75 Bold';
+font-style: normal;
+font-weight: normal;
+src: local('HelveticaNeueLTStd-Bd'), url('../assets/font/HelveticaNeueLTStd-Bd.otf') format('opentype');
+}
+
+
+
 
 :root {
-  --defaultFontFamily: "Helvetica Neue LT Std 55 Roman", "Helvetica", sans-serif;
+  --defaultFontFamily: 'Helvetica Neue LT Std 55 Roman', "Helvetica", sans-serif;
   --defaultFontFamily2: "Helvetica Neue", "Helvetica", Arial, sans-serif;
   --defaultFontSize: 0.75rem;
   /******* HEADER *********/

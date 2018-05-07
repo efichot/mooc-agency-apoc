@@ -9,7 +9,7 @@ const module_04_blocPicChartPlay = {
   chapter: 'Jeu des diagrammes',
   name: `Composition d'un fonds`,
   description: {
-    __html: `Composez votre fonds selon l’allocation d’actifs qui vous a été indiquée précédemment ou telle que vous l’imaginez, à l’aide des boutons . 
+    __html: `Composez votre fonds selon l’allocation d’actifs qui vous a été indiquée précédemment ou telle que vous l’imaginez, à l’aide des boutons. 
 
 Au-delà des classes d’actifs « actions », « obligataire » et « monétaire » abordées précédemment, un nouveau type d’actif vous est proposé : les titres de l’entreprise. 
 Il s’agit des actions ou des obligations de votre entreprise que vous pouvez acquérir dans le cadre d’opérations d’actionnariat salarié qui seraient mises en place. 

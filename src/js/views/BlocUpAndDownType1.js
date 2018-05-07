@@ -1,30 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import PopupBlue from './UI/PopupBlue';
 import ButtonPrimary from './UI/ButtonPrimary';
 import BlocHeader from '../views/BlocHeader';
 import BlocDescription from './BlocDescription';
+import Fade from '../transitions/Fade';
+
 import button_down_right from '../../assets/img/icons/button-down-right.svg';
 import button_up_left from '../../assets/img/icons/button-up-left.svg';
-import PropTypes from 'prop-types';
 
-export default class BlocUpAndDownType1 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      reset: false,
-      victoryMessage: undefined,
-      solutions: {},
-      positions: {},
-      cardCounter: 0,
-      gameIsFinished: false
-    };
+class BlocUpAndDownType1 extends React.Component {
+  state = {
+    reset: false,
+    victoryMessage: undefined,
+    solutions: {},
+    positions: {},
+    cardCounter: 0,
+    gameIsFinished: false
+  };
 
-    this.handleArrowClick = this.handleArrowClick.bind(this);
-    this.checkAnswers = this.checkAnswers.bind(this);
-    this.reset = this.reset.bind(this);
-  }
-
-  handleArrowClick(e) {
+  handleArrowClick = e => {
     this.setState({ reset: false });
     this.setState({ victoryMessage: undefined });
     this.setState({ gameIsFinished: false });
@@ -50,9 +46,9 @@ export default class BlocUpAndDownType1 extends React.Component {
         this.setState({ positions: positionsCopy });
       }
     }
-  }
+  };
 
-  checkAnswers() {
+  checkAnswers = () => {
     const falseAnswers = Object.keys(this.state.positions).filter(
       index =>
         this.state.positions[`${index}`] !==
@@ -69,7 +65,7 @@ export default class BlocUpAndDownType1 extends React.Component {
       });
       return;
     }
-  }
+  };
 
   reset() {
     this.setState({ reset: true });
@@ -81,11 +77,10 @@ export default class BlocUpAndDownType1 extends React.Component {
     const solutions = {};
     const positions = {};
     let cardCounter = 0;
-    this.props.context.cards.forEach(card => {
+    this.props.cards.forEach(card => {
       if (card.endPosition) {
         solutions[`${card.startPosition}`] = card.endPosition;
-        positions[`${card.startPosition}`] =
-          this.props.context.cards.length - 1;
+        positions[`${card.startPosition}`] = this.props.cards.length - 1;
         cardCounter++;
       }
     });
@@ -101,16 +96,16 @@ export default class BlocUpAndDownType1 extends React.Component {
       chapter,
       name,
       firstDescription
-    } = this.props.context;
+    } = this.props;
 
     return (
-      <div className={`bloc bloc-up-and-down-type-1`}>
+      <Fade classProps={`bloc bloc-up-and-down-type-1`} in={this.props.in}>
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
         )}
         <span className="bloc__name">{name}</span>
         <BlocDescription
-          classes="bloc__first-description"
+          classProps="bloc__first-description"
           description={firstDescription}
         />
         <span className="legend legend-high">Plus de performance</span>
@@ -203,20 +198,34 @@ export default class BlocUpAndDownType1 extends React.Component {
         </div>
 
         <div className="bloc-up-and-down-type-1__buttons">
-          <ButtonPrimary name="Recommencer" onclick={this.reset} />
+          <ButtonPrimary name="Recommencer" onClick={this.reset} />
           {this.state.victoryMessage && (
             <PopupBlue>
               <span className="">{this.state.victoryMessage}</span>
             </PopupBlue>
           )}
-          <ButtonPrimary name="Valider" onclick={this.checkAnswers} />
+          <ButtonPrimary name="Valider" onClick={this.checkAnswers} />
         </div>
-      </div>
+      </Fade>
     );
   }
 }
 
 BlocUpAndDownType1.propTypes = {
-  context: PropTypes.object.isRequired,
-  gameIsFinished: PropTypes.func
+  in: PropTypes.bool,
+  noChapter: PropTypes.bool,
+  cards: PropTypes.array.isRequired,
+  duration: PropTypes.number,
+  chapter: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  firstDescription: PropTypes.object.isRequired,
+  gameIsFinished: PropTypes.func.isRequired
 };
+
+BlocUpAndDownType1.defaultProps = {
+  in: false,
+  noChapter: false,
+  duration: 0
+};
+
+export default BlocUpAndDownType1;

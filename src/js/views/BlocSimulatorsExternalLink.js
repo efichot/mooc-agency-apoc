@@ -1,17 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import BlocHeader from './BlocHeader';
 import BlocDescription from './BlocDescription';
 import ButtonPrimary from '../views/UI/ButtonPrimary';
-// import Iframe from 'react-iframe';
-import PropTypes from 'prop-types';
+import Fade from '../transitions/Fade';
 
-export default class BlocSimulatorsExternalLink extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      durationInMinutes: 1
-    };
-  }
+class BlocSimulatorsExternalLink extends React.Component {
+  state = {
+    durationInMinutes: 1
+  };
 
   render() {
     const {
@@ -24,17 +22,17 @@ export default class BlocSimulatorsExternalLink extends React.Component {
       secondDescription,
       button,
       link
-    } = this.props.context;
+    } = this.props;
 
     return (
-      <div className={`bloc-simulator bloc`}>
+      <Fade in={this.props.in} classProps={`bloc-simulator bloc`}>
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
         )}
         <span className="bloc__name">{name}</span>
         {firstDescription && (
           <BlocDescription
-            classes="bloc__first-description"
+            classProps="bloc__first-description"
             description={firstDescription}
           />
         )}
@@ -59,15 +57,34 @@ export default class BlocSimulatorsExternalLink extends React.Component {
         </a>
         {secondDescription && (
           <BlocDescription
-            classes="bloc__second-description"
+            classProps="bloc__second-description"
             description={secondDescription}
           />
         )}
-      </div>
+      </Fade>
     );
   }
 }
 
 BlocSimulatorsExternalLink.propTypes = {
-  context: PropTypes.object
+  in: PropTypes.bool,
+  noChapter: PropTypes.bool,
+  name: PropTypes.string.isRequired,
+  duration: PropTypes.number,
+  chapter: PropTypes.string,
+  firstDescription: PropTypes.object.isRequired,
+  backgroundImage: PropTypes.string.isRequired,
+  secondDescription: PropTypes.object,
+  button: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired
 };
+
+BlocSimulatorsExternalLink.defaultProps = {
+  in: false,
+  noChapter: false,
+  secondDescription: undefined,
+  chapter: '',
+  duration: 0
+};
+
+export default BlocSimulatorsExternalLink;
