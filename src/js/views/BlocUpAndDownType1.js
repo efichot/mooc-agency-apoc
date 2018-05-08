@@ -90,6 +90,7 @@ class BlocUpAndDownType1 extends React.Component {
 
   render() {
     const {
+      modulType,
       noChapter,
       cards,
       duration,
@@ -105,6 +106,7 @@ class BlocUpAndDownType1 extends React.Component {
         )}
         <span className="bloc__name">{name}</span>
         <BlocDescription
+          modulType={modulType}
           classProps="bloc__first-description"
           description={firstDescription}
         />
@@ -213,13 +215,28 @@ class BlocUpAndDownType1 extends React.Component {
 
 BlocUpAndDownType1.propTypes = {
   in: PropTypes.bool,
-  noChapter: PropTypes.bool,
-  cards: PropTypes.array.isRequired,
-  duration: PropTypes.number,
-  chapter: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  gameIsFinished: PropTypes.func.isRequired,
+
+  /***************** DATA ******************/
+
+  modulType: PropTypes.string.isRequired,
   firstDescription: PropTypes.object.isRequired,
-  gameIsFinished: PropTypes.func.isRequired
+  noChapter: PropTypes.bool,
+  chapter: PropTypes.string.isRequired,
+  duration: PropTypes.number,
+  name: PropTypes.string.isRequired,
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      color: PropTypes.string.isRequired,
+      startPosition: PropTypes.number.isRequired,
+      endPosition: PropTypes.number.isRequired,
+      content: PropTypes.shape({
+        isDraggable: PropTypes.bool.isRequired,
+        cardTitle: PropTypes.string.isRequired,
+        cardSubTitle: PropTypes.string
+      }).isRequired
+    }).isRequired
+  ).isRequired
 };
 
 BlocUpAndDownType1.defaultProps = {

@@ -30,9 +30,10 @@ class BlocVideo extends React.Component {
 
   render() {
     const {
+      modulType,
+      name,
       noChapter,
       secondary,
-      name,
       firstDescription,
       videoUrl,
       secondDescription
@@ -48,6 +49,7 @@ class BlocVideo extends React.Component {
         </span>
         {firstDescription && (
           <BlocDescription
+            modulType={modulType}
             classProps="bloc__first-description"
             description={firstDescription}
           />
@@ -70,6 +72,7 @@ class BlocVideo extends React.Component {
         </div>
         {secondDescription && (
           <BlocDescription
+            modulType={modulType}
             classProps="bloc__second-description"
             description={secondDescription}
           />
@@ -81,17 +84,24 @@ class BlocVideo extends React.Component {
 
 BlocVideo.propTypes = {
   in: PropTypes.bool,
+
+  /***************** DATA ******************/
+
+  modulType: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  videoUrl: PropTypes.string.isRequired,
+
   noChapter: PropTypes.bool,
   secondary: PropTypes.bool,
-  name: PropTypes.string,
-  firstDescription: PropTypes.object,
-  videoUrl: PropTypes.string.isRequired,
-  secondDescription: PropTypes.object
+  firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
+  secondDescription: PropTypes.shape({ __html: PropTypes.string.isRequired })
 };
 
 BlocVideo.defaultProps = {
   in: false,
-  name: '',
+
+  /***************** DATA ******************/
+
   noChapter: false,
   secondary: false,
   firstDescription: undefined,

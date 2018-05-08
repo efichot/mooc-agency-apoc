@@ -3,7 +3,7 @@ import moduleTypes from '../moduleTypes';
 const module_04_06_blocUpAndDownType1 = {
   /*position: 6,*/
   modulType: moduleTypes.blocUpAndDownType1,
-  linkWithBlocSubMenu1ButtonPosition: 1,
+  /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   firstDescription: {
     __html: `Faites de même pour les portefeuilles précédemment classés sur l’axe horizontal du risque à l’aide du bouton. 
         En cas de doute, visionnez à nouveau la dernière minute de la vidéo ci-dessus. `

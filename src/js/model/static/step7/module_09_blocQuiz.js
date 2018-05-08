@@ -12,8 +12,9 @@ const module_09_blocQuiz = {
     Votre score est déterminé par le nombre de bonnes réponses.
     Seul votre classement dépend de votre rapidité à bien répondre.`
   },
-  questions: {
-    question_1: {
+  questions: [
+    {
+      questionNumber: 1,
       question: {
         __html: `1 - À quoi mesure-t-on le degré de risque d’un titre quand on investit?`
       },
@@ -35,7 +36,8 @@ const module_09_blocQuiz = {
         __html: `Plus le prix ou le cours d’un titre est volatile, plus le titre est risqué. L’évaluation de son prix ou de son cours est alors difficile à anticiper pour l’investisseur, à la hausse comme à la baisse. L’investisseur qui prend beaucoup de risque, peut gagner beaucoup mais aussi perdre beaucoup, et inversement.`
       }
     },
-    question_2: {
+    {
+      questionNumber: 2,
       question: {
         __html: `2 - À la sortie d’une crise économique, sur quel secteur un gérant a-t-il plutôt intérêt à investir?`
       },
@@ -57,7 +59,8 @@ const module_09_blocQuiz = {
         __html: `La construction fait partie des secteurs cycliques qui ont tendance à amplifier les mouvements économiques. À la sortie d’une crise, leurs titres ont tendance à surperformer tandis que les titres des secteurs défensifs comme le luxe ou l’agroalimentaire ont tendance à sous-performer.`
       }
     },
-    question_3: {
+    {
+      questionNumber: 3,
       question: {
         __html: `3 - Que mesurent les agences de notation?`
       },
@@ -81,7 +84,8 @@ const module_09_blocQuiz = {
         __html: `Les agences de notation évaluent la capacité des emprunteurs (État, collectivités locales ou entreprises) à rembourser le capital et les intérêts de leurs dettes à un instant et sur une période donnés. Elles émettent des notes à court terme (dettes à moins d’un an) et à long terme (dettes à plus d’un an).`
       }
     },
-    question_4: {
+    {
+      questionNumber: 4,
       question: {
         __html: `4 - De ces trois obligations d’État laquelle a tendance à être la plus volatile ?`
       },
@@ -103,7 +107,8 @@ const module_09_blocQuiz = {
         __html: `Plus l’échéance de l’obligation est éloignée, moins la visibilité est grande pour l’investisseur et plus le titre est risqué donc volatile.`
       }
     },
-    question_5: {
+    {
+      questionNumber: 5,
       question: {
         __html: `5 - Pourquoi le monétaire est-il considéré comme la classe d’actif la moins risquée ?`
       },
@@ -125,7 +130,8 @@ const module_09_blocQuiz = {
         __html: `Les titres monétaires ayant la durée la plus faible (inférieure à un an), ils présentent pour l’investisseur une forte visibilité et donc le risque le plus faible.`
       }
     },
-    question_6: {
+    {
+      questionNumber: 6,
       question: {
         __html: `6 - Que fait le gérant pour limiter le risque du portefeuille ?`
       },
@@ -147,7 +153,8 @@ const module_09_blocQuiz = {
         __html: `Plus un portefeuille est investi sur un nombre important de titres et donc diversifié, moins il est risqué, et inversement. D’où l’intérêt de la gestion collective qui permet à l’épargnant d’avoir accès à une gestion diversifiée que ses montants de placement ou sa connaissance des marchés financiers ne lui permettent de réaliser à titre individuel.`
       }
     },
-    question_7: {
+    {
+      questionNumber: 7,
       question: {
         __html: `7 - Que fait le gérant pour améliorer la performance du portefeuille ?`
       },
@@ -169,7 +176,8 @@ const module_09_blocQuiz = {
         __html: `En fonction de la conjoncture, le gérant peut arbitrer entre secteurs cycliques, défensifs et financier, mais aussi à l’intérieur d’un même secteur où l’exposition géographique de l’entreprise peut notamment être un élément de différentiation boursière entre les titres.`
       }
     },
-    question_8: {
+    {
+      questionNumber: 8,
       question: {
         __html: `8 - Qu’appelle-t-on le risque crédit ?`
       },
@@ -191,7 +199,8 @@ const module_09_blocQuiz = {
         __html: `C’est le seul cas où l’investisseur peut perdre le versement des intérêts et le capital investi. Le risque crédit permet de distinguer deux obligations de même durée émises par deux émetteurs différents.`
       }
     },
-    question_9: {
+    {
+      questionNumber: 9,
       question: {
         __html: `9 - Que fait le cours d’une obligation ou d’un titre monétaire en cas de hausse des taux du marché ?`
       },
@@ -213,7 +222,8 @@ const module_09_blocQuiz = {
         __html: `Il baisse car cela signifie que le rendement qui justifiait ce prix, devient moins intéressant par rapport aux nouveaux taux proposés sur le marché. Ce mécanisme obéit à une logique d’arbitrage.`
       }
     },
-    question_10: {
+    {
+      questionNumber: 10,
       question: {
         __html: `10 - Qu’indique un coupon élevé au moment de l’émission d’un titre obligataire ou monétaire ?`
       },
@@ -235,7 +245,7 @@ const module_09_blocQuiz = {
         __html: `Plus l’émetteur est risqué, plus il a besoin de proposer une rémunération élevée pour attirer les investisseurs.`
       }
     }
-  }
+  ]
 };
 
 export default module_09_blocQuiz;

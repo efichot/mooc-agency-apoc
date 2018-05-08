@@ -3,7 +3,7 @@ import moduleTypes from '../moduleTypes';
 const module_06_03_blocQCMType1 = {
   /*position: 13,*/
   modulType: moduleTypes.blocQCMType1,
-  linkWithBlocSubMenu1ButtonPosition: 3,
+  /*linkWithBlocSubMenu1ButtonPosition: 3,*/
   noChapter: false,
   chapter: 'Échelle de risque',
   duration: 1,

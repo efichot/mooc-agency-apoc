@@ -11,8 +11,11 @@ class BlocSimulatorsExternalLink extends React.Component {
     durationInMinutes: 1
   };
 
+  handleClick = e => {};
+
   render() {
     const {
+      modulType,
       noChapter,
       name,
       duration,
@@ -32,6 +35,7 @@ class BlocSimulatorsExternalLink extends React.Component {
         <span className="bloc__name">{name}</span>
         {firstDescription && (
           <BlocDescription
+            modulType={modulType}
             classProps="bloc__first-description"
             description={firstDescription}
           />
@@ -53,10 +57,11 @@ class BlocSimulatorsExternalLink extends React.Component {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <ButtonPrimary name={button} />
+          <ButtonPrimary name={button} onClick={this.handleClick} />
         </a>
         {secondDescription && (
           <BlocDescription
+            modulType={modulType}
             classProps="bloc__second-description"
             description={secondDescription}
           />
@@ -68,23 +73,26 @@ class BlocSimulatorsExternalLink extends React.Component {
 
 BlocSimulatorsExternalLink.propTypes = {
   in: PropTypes.bool,
+
+  modulType: PropTypes.string.isRequired,
   noChapter: PropTypes.bool,
-  name: PropTypes.string.isRequired,
-  duration: PropTypes.number,
   chapter: PropTypes.string,
-  firstDescription: PropTypes.object.isRequired,
+  duration: PropTypes.number,
+  name: PropTypes.string.isRequired,
+  firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired })
+    .isRequired,
   backgroundImage: PropTypes.string.isRequired,
-  secondDescription: PropTypes.object,
   button: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired
+  link: PropTypes.string.isRequired,
+  secondDescription: PropTypes.shape({ __html: PropTypes.string.isRequired })
 };
 
 BlocSimulatorsExternalLink.defaultProps = {
   in: false,
   noChapter: false,
-  secondDescription: undefined,
   chapter: '',
-  duration: 0
+  duration: 0,
+  secondDescription: undefined
 };
 
 export default BlocSimulatorsExternalLink;

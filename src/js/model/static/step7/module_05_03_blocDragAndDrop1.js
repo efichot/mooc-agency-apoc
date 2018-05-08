@@ -3,7 +3,7 @@ import moduleTypes from '../moduleTypes';
 const module_05_03_blocDragAndDrop1 = {
   /*position: 9,*/
   modulType: moduleTypes.blocDragAndDrop1,
-  linkWithBlocSubMenu1ButtonPosition: 2,
+  /*linkWithBlocSubMenu1ButtonPosition: 2,*/
   firstDescription: {
     __html: `Classez sur l’axe horizontal, « de moins à plus de risque », les obligations d’État ci-dessous en fonction de plusieurs paramètres : 
     - la visibilité est-elle meilleure à 5 ou 10 ans ? 

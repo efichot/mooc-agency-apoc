@@ -3,14 +3,14 @@ import backgroundImage from '../../../../assets/img/step1/module_02.png';
 
 const module_02_blocSimulator = {
   /*position: 3,*/
+  modulType: moduleTypes.blocVideo,
   noChapter: false,
   chapter: `simulateurs`,
   duration: 5,
-  modulType: moduleTypes.blocVideo,
   name: `Profils d'investisseur`,
   firstDescription: {
     __html: `Déterminez votre profil d’investisseur en répondant aux questions proposées dans le simulateur ci-dessous. 
-À la fin de la simulation, pensez à refermer la fenêtre ouverte pour revenir au parcours !`
+    À la fin de la simulation, pensez à refermer la fenêtre ouverte pour revenir au parcours !`
   },
   backgroundImage,
   /*secondDescription: {

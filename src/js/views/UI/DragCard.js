@@ -81,9 +81,11 @@ DragCard.propTypes = {
   content: PropTypes.object.isRequired,
   type: PropTypes.string.isRequired,
   startPosition: PropTypes.number.isRequired,
-  endPosition: PropTypes.number.isRequired
+  endPosition: PropTypes.number
 };
 
-DragCard.defaultProps = {};
+DragCard.defaultProps = {
+  endPosition: undefined
+};
 
 export default DragCard;

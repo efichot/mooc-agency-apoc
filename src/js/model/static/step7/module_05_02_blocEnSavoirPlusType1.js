@@ -2,7 +2,7 @@ import moduleTypes from '../moduleTypes';
 
 const module_05_02_blocEnSavoirPlusType1 = {
   modulType: moduleTypes.blocEnSavoirPlusType1,
-  linkWithBlocSubMenu1ButtonPosition: 2,
+  /*linkWithBlocSubMenu1ButtonPosition: 2,*/
   noChapter: false,
   chapter: 'En savoir plus',
   duration: 2,

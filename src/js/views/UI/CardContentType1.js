@@ -61,9 +61,11 @@ class CardContentType1 extends React.Component {
 
 CardContentType1.propTypes = {
   bigBorder: PropTypes.bool,
+  /***************** DATA ******************/
+
   isDraggable: PropTypes.bool,
   cardTitle: PropTypes.string.isRequired,
-  cardSubTitle: PropTypes.string.isRequired,
+  cardSubTitle: PropTypes.string,
   image: PropTypes.string,
   list: PropTypes.array.isRequired,
   legend: PropTypes.array.isRequired
@@ -71,7 +73,10 @@ CardContentType1.propTypes = {
 
 CardContentType1.defaultProps = {
   bigBorder: false,
+  /***************** DATA ******************/
+
   isDraggable: false,
+  cardSubTitle: '',
   image: ''
 };
 

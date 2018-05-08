@@ -3,7 +3,7 @@ import moduleTypes from '../moduleTypes';
 const module_04_02_blocDragAndDropType1 = {
   /*position: 6,*/
   modulType: moduleTypes.blocDragAndDrop1,
-  linkWithBlocSubMenu1ButtonPosition: 1,
+  /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   firstDescription: {
     __html: `Classez sur l’axe horizontal, « de moins à plus de risque », les entreprises ci-dessous en fonction de plusieurs paramètres : 
       - pour être moins sensible au marché boursier, vaut-il mieux être cotée ou non ? 
@@ -12,7 +12,7 @@ const module_04_02_blocDragAndDropType1 = {
 
       Puis validez. En cas de doute sur la façon dont l’Europe, les États-Unis et les pays émergents ont réagi à la crise, visionnez à nouveau la 2ième partie de la vidéo intitulée CONTEXTE ÉCONOMIQUE.`
   },
-  noChapter: false,
+  /*noChapter: false,*/
   chapter: 'Échelle de risque',
   duration: 4,
   title: 'Risque des titres actions',

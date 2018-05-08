@@ -2,7 +2,7 @@ import moduleTypes from '../moduleTypes';
 
 const module_07_blocSynthese = {
   /*position: 5,*/
-  linkWithBlocSubMenu1ButtonPosition: 1,
+  /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   modulType: moduleTypes.blocSynthese,
   name: 'Synthèse',
   description_1: {

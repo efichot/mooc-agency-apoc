@@ -90,14 +90,17 @@ class Step7 extends React.Component {
                       <span className="bloc__name">{step7.module_07.name}</span>
                       <BlocDescription
                         in={show_01}
+                        modulType={step7.module_07.modulType}
                         description={step7.module_07.description_1}
                       />
                       <BlocDescription
                         in={show_02}
+                        modulType={step7.module_07.modulType}
                         description={step7.module_07.description_2}
                       />
                       <BlocDescription
                         in={show_03}
+                        modulType={step7.module_07.modulType}
                         description={step7.module_07.description_3}
                       />
                       <BlocSubMenu1

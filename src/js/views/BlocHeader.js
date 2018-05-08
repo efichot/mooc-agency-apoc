@@ -39,6 +39,7 @@ BlocHeader.propTypes = {
   type: PropTypes.string.isRequired,
   duration: PropTypes.number,
   name: PropTypes.string
+  /*modulType: PropTypes.string.isRequired,*/
 };
 
 BlocHeader.defaultProps = {

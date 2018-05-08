@@ -25,6 +25,7 @@ class BlocEnSavoirPlusType1 extends React.Component {
 
   render = () => {
     const {
+      modulType,
       noChapter,
       cards,
       duration,
@@ -43,6 +44,7 @@ class BlocEnSavoirPlusType1 extends React.Component {
         )}
         <span className="bloc__name">{title}</span>
         <BlocDescription
+          modulType={modulType}
           classProps="bloc__first-description"
           description={firstDescription}
         />
@@ -91,16 +93,34 @@ class BlocEnSavoirPlusType1 extends React.Component {
 
 BlocEnSavoirPlusType1.propTypes = {
   in: PropTypes.bool,
+
+  /***************** DATA ******************/
+
+  modulType: PropTypes.string.isRequired,
   noChapter: PropTypes.bool,
-  duration: PropTypes.number,
-  cards: PropTypes.array.isRequired,
   chapter: PropTypes.string.isRequired,
+  duration: PropTypes.number,
   title: PropTypes.string.isRequired,
-  firstDescription: PropTypes.object.isRequired
+  firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired })
+    .isRequired,
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      color: PropTypes.string.isRequired,
+      hoverColor: PropTypes.string.isRequired,
+      startPosition: PropTypes.number.isRequired,
+      arrowFollowing: PropTypes.bool.isRequired,
+      cardTitle: PropTypes.string.isRequired,
+      cardContent: PropTypes.string.isRequired,
+      cardSubTitle: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired
 };
 
 BlocEnSavoirPlusType1.defaultProps = {
   in: false,
+
+  /***************** DATA ******************/
+
   noChapter: false,
   duration: 0
 };

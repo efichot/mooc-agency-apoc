@@ -8,6 +8,7 @@ import Fade from '../transitions/Fade';
 class BlocText extends React.Component {
   render() {
     const {
+      modulType,
       noChapter,
       iconType,
       chapter,
@@ -25,11 +26,13 @@ class BlocText extends React.Component {
         )}
         <span className={`bloc__name${secondary}`}>{name}</span>
         <BlocDescription
+          modulType={modulType}
           classProps="bloc__first-description"
           description={firstDescription}
         />
         {secondDescription && (
           <BlocDescription
+            modulType={modulType}
             classProps="bloc__second-description"
             description={secondDescription}
           />
@@ -48,7 +51,8 @@ BlocText.propTypes = {
   name: PropTypes.string.isRequired,
   duration: PropTypes.number,
   firstDescription: PropTypes.object.isRequired,
-  secondDescription: PropTypes.object
+  secondDescription: PropTypes.object,
+  modulType: PropTypes.string.isRequired
 };
 
 BlocText.defaultProps = {

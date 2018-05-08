@@ -15,14 +15,31 @@ const popupDefeatMessage = `Ce n'est pas la bonne réponse. Réessayez !`;
 class BlocQuiz extends React.Component {
   state = {
     buttonActive: null,
-    currentQuestion: 1,
+    /******** ACHTUNG ! La question 1 est à l'index 0, la question 10 à l'index 9 *******/
+    currentQuestionIndex: 0,
     victoryMessage: undefined,
     gameIsFinished: false,
     correctAnswer: null,
     help: false,
-    questions: {},
+    questions: [],
     timeout: null
   };
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.questions.length > 0) {
+      return {
+        ...prevState,
+        questions: nextProps.questions
+      };
+    }
+    return prevState;
+  }
+
+  componentDidMount() {
+    this.setTheCorrectAnswer(
+      this.props.questions[this.state.currentQuestionIndex]
+    );
+  }
 
   handleClick = answer => {
     if (this.state.victoryMessage === popupVictoryMessage) {
@@ -37,11 +54,13 @@ class BlocQuiz extends React.Component {
     this.setState({ help: true });
     this.props.clearTimeout(this.state.timeout);
     if (this.state.buttonActive === this.state.correctAnswer) {
+      if (this.state.victoryMessage === popupVictoryMessage) {
+        this.showNextQuestion();
+        return;
+      }
       this.setState({ victoryMessage: popupVictoryMessage });
       /*this.setState({ gameIsFinished: true });
       this.props.gameIsFinished(this.state.gameIsFinished);*/
-      if (this.state.victoryMessage === popupVictoryMessage)
-        this.showNextQuestion();
     } else {
       this.setState({ victoryMessage: popupDefeatMessage });
       const timeout = this.props.setTimeout(() => {
@@ -51,12 +70,13 @@ class BlocQuiz extends React.Component {
     }
   };
 
-  showNextQuestion = () => {
-    if (this.state.currentQuestion < Object.keys(this.state.questions).length) {
-      this.setState({ currentQuestion: this.state.currentQuestion + 1 });
-      this.setTheCorrectAnswer(
-        this.state.questions[`question_${this.state.currentQuestion + 1}`]
-      );
+  showNextQuestion = async () => {
+    const { currentQuestionIndex, questions } = this.state;
+
+    if (currentQuestionIndex < questions.length) {
+      const nextQIndex = currentQuestionIndex + 1;
+      this.setState({ currentQuestionIndex: nextQIndex });
+      this.setTheCorrectAnswer(questions[nextQIndex]);
     }
     this.setState({ victoryMessage: undefined });
     this.setState({ buttonActive: null });
@@ -80,19 +100,12 @@ class BlocQuiz extends React.Component {
     this.setState({ correctAnswer });
   };
 
-  componentWillMount() {
-    this.setState({ questions: this.props.questions });
-    this.setTheCorrectAnswer(
-      this.props.questions[`question_${this.state.currentQuestion}`]
-    );
-  }
-
   render() {
-    const { noChapter, duration, chapter, name } = this.props;
-    const { questions, currentQuestion } = this.state;
-    const { question, answers, explication } = questions[
-      `question_${currentQuestion}`
-    ];
+    const { modulType, noChapter, duration, chapter, name } = this.props;
+
+    const { questions, currentQuestionIndex } = this.state;
+
+    const { question, answers, explication } = questions[currentQuestionIndex];
 
     return (
       <Fade classProps={`bloc bloc-quiz`} in={this.props.in}>
@@ -101,6 +114,7 @@ class BlocQuiz extends React.Component {
         )}
         <span className="bloc__name">{name}</span>
         <BlocDescription
+          modulType={modulType}
           classProps="bloc__first-description"
           description={question}
         />
@@ -151,12 +165,31 @@ class BlocQuiz extends React.Component {
 
 BlocQuiz.propTypes = {
   in: PropTypes.bool,
+
+  /***************** DATA ******************/
+
+  modulType: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  chapter: PropTypes.string.isRequired,
   noChapter: PropTypes.bool,
   duration: PropTypes.number,
-  questions: PropTypes.object.isRequired,
-  description: PropTypes.object.isRequired,
-  chapter: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  description: PropTypes.shape({ __html: PropTypes.string.isRequired })
+    .isRequired,
+  questions: PropTypes.arrayOf(
+    PropTypes.shape({
+      questionNumber: PropTypes.number.isRequired,
+      question: PropTypes.shape({ __html: PropTypes.string.isRequired })
+        .isRequired,
+      answers: PropTypes.arrayOf(
+        PropTypes.shape({
+          content: PropTypes.string.isRequired,
+          correctAnswer: PropTypes.bool.isRequired
+        }).isRequired
+      ).isRequired,
+      explication: PropTypes.shape({ __html: PropTypes.string.isRequired })
+        .isRequired
+    }).isRequired
+  ).isRequired
 };
 
 BlocQuiz.defaultProps = {

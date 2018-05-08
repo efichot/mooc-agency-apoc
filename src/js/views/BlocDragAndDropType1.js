@@ -132,6 +132,7 @@ class BlocDragAndDropType1 extends React.Component {
 
   render() {
     const {
+      modulType,
       noChapter,
       cards,
       duration,
@@ -147,6 +148,7 @@ class BlocDragAndDropType1 extends React.Component {
         )}
         <span className="bloc__name">{title}</span>
         <BlocDescription
+          modulType={modulType}
           classProps="bloc__first-description"
           description={firstDescription}
         />
@@ -190,21 +192,53 @@ class BlocDragAndDropType1 extends React.Component {
 
 BlocDragAndDropType1.propTypes = {
   in: PropTypes.bool,
-  module: PropTypes.string,
+  module: PropTypes.string.isRequired,
+  gameIsFinished: PropTypes.func.isRequired,
+
+  /***************** DATA ******************/
+
+  modulType: PropTypes.string.isRequired,
+  firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
   noChapter: PropTypes.bool,
-  cards: PropTypes.array.isRequired,
-  duration: PropTypes.number,
   chapter: PropTypes.string.isRequired,
+  duration: PropTypes.number,
   title: PropTypes.string.isRequired,
-  firstDescription: PropTypes.object.isRequired,
-  gameIsFinished: PropTypes.func.isRequired
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      color: PropTypes.string.isRequired,
+      startPosition: PropTypes.number.isRequired,
+      endPosition: PropTypes.number,
+      content: PropTypes.shape({
+        isDraggable: PropTypes.bool.isRequired,
+        cardTitle: PropTypes.string.isRequired,
+        cardSubTitle: PropTypes.string,
+        image: PropTypes.string,
+        list: PropTypes.arrayOf(PropTypes.string).isRequired,
+        legend: PropTypes.arrayOf(
+          PropTypes.shape({
+            legendColor: PropTypes.string.isRequired,
+            legendText: PropTypes.string.isRequired
+          })
+        ).isRequired
+      }).isRequired
+    }).isRequired
+  ).isRequired
 };
 
 BlocDragAndDropType1.defaultProps = {
   in: false,
   module: 'drag-and-drop',
+  /***************** DATA ******************/
+
+  firstDescription: undefined,
   noChapter: false,
-  duration: 0
+  duration: 0,
+  cards: {
+    endPosition: 0,
+    content: {
+      cardSubTitle: ''
+    }
+  }
 };
 
 export default ReactTimeout(BlocDragAndDropType1);

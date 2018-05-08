@@ -97,6 +97,7 @@ class Step1 extends React.Component {
                       <span className="bloc__name">{step1.module_11.name}</span>
                       <BlocDescription
                         in
+                        modulType={step1.module_11.modulType}
                         description={step1.module_11.description}
                       />
                       <ButtonPrimary
@@ -113,8 +114,8 @@ class Step1 extends React.Component {
             } else {
               return (
                 <React.Fragment>
-                  <BlocDivider />
-                  <BlocQuiz {...step1.module_12} />
+                  <BlocDivider in />
+                  <BlocQuiz in {...step1.module_12} />
                 </React.Fragment>
               );
             }

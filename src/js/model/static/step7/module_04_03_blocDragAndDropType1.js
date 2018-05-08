@@ -3,7 +3,7 @@ import moduleTypes from '../moduleTypes';
 const module_04_03_blocDragAndDropType1 = {
   /*position: 6.1,*/
   modulType: moduleTypes.blocDragAndDrop1,
-  linkWithBlocSubMenu1ButtonPosition: 1,
+  /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   firstDescription: {
     __html: `Classez à présent sur un nouvel axe horizontal, « de moins à plus de risque », les portefeuilles (ou fonds) des investisseurs qui ont acheté ces actions à l’aide du bouton et en fonction du degré de risque que présente la composition de leur portefeuille dans le contexte décrit, puis validez.`
   },

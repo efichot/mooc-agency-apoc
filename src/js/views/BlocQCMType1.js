@@ -16,7 +16,6 @@ class BlocQCMType1 extends React.Component {
   };
 
   handleClick = answer => {
-    console.log(answer);
     this.setState({ buttonActive: answer });
     this.setState({ victoryMessage: null });
     this.setState({ gameIsFinished: false });
@@ -48,6 +47,7 @@ class BlocQCMType1 extends React.Component {
 
   render() {
     const {
+      modulType,
       noChapter,
       duration,
       chapter,
@@ -71,6 +71,7 @@ class BlocQCMType1 extends React.Component {
           })}
         </div>
         <BlocDescription
+          modulType={modulType}
           classProps="bloc__first-description"
           description={question}
         />
@@ -109,20 +110,43 @@ class BlocQCMType1 extends React.Component {
 
 BlocQCMType1.propTypes = {
   in: PropTypes.bool,
+  gameIsFinished: PropTypes.func,
+
+  /***************** DATA ******************/
+
+  modulType: PropTypes.string.isRequired,
   noChapter: PropTypes.bool,
-  duration: PropTypes.number,
   chapter: PropTypes.string.isRequired,
+  duration: PropTypes.number,
   name: PropTypes.string.isRequired,
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      color: PropTypes.string.isRequired,
+      startPosition: PropTypes.number.isRequired,
+      content: PropTypes.shape({
+        bigBorder: PropTypes.bool.isRequired,
+        cardTitle: PropTypes.string.isRequired,
+        cardSubTitle: PropTypes.string.isRequired,
+        list: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+        legend: PropTypes.arrayOf(
+          PropTypes.shape({
+            legendColor: PropTypes.string.isRequired,
+            legendText: PropTypes.string.isRequired
+          }).isRequired
+        ).isRequired
+      }).isRequired
+    }).isRequired
+  ).isRequired,
   question: PropTypes.object.isRequired,
-  cards: PropTypes.array.isRequired,
   answers: PropTypes.array.isRequired,
-  gameIsFinished: PropTypes.func
+  description: PropTypes.shape({ __html: PropTypes.string.isRequired })
 };
 
 BlocQCMType1.defaultProps = {
   in: false,
   noChapter: false,
-  duration: 0
+  duration: 0,
+  description: undefined
 };
 
 export default BlocQCMType1;

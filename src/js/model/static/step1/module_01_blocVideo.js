@@ -2,8 +2,6 @@ import moduleTypes from '../moduleTypes';
 
 const module_01_blocVideo = {
   /*position: 1,*/
-  noChapter: false,
-  secondary: false,
   modulType: moduleTypes.blocVideo,
   name: `Vidéo Introductive`,
   firstDescription: {

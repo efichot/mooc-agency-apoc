@@ -39,12 +39,14 @@ class BlocDescription extends React.Component {
 BlocDescription.propTypes = {
   in: PropTypes.bool,
   description: PropTypes.object.isRequired,
+  /***************** DATA ******************/
   classProps: PropTypes.string,
-  padding: PropTypes.number
+  padding: PropTypes.number,
+  modulType: PropTypes.string.isRequired
 };
 
 BlocDescription.defaultProps = {
-  in: false,
+  in: true,
   classProps: '',
   padding: 10
 };

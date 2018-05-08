@@ -30,7 +30,7 @@ class BlocPieChartPlay extends React.Component {
 
       pieData[0] = {
         name: 'blank',
-        value: 100,
+        value: 90,
         color: 'rgba(255,255,255,1)'
       };
 
@@ -85,6 +85,7 @@ class BlocPieChartPlay extends React.Component {
 
   render() {
     const {
+      modulType,
       noChapter,
       duration,
       chapter,
@@ -103,6 +104,7 @@ class BlocPieChartPlay extends React.Component {
         <span className="bloc__name">{name}</span>
         {description && (
           <BlocDescription
+            modulType={modulType}
             classProps="bloc-pie-chart-play__description"
             description={description}
           />
@@ -138,13 +140,27 @@ class BlocPieChartPlay extends React.Component {
 BlocPieChartPlay.propTypes = {
   in: PropTypes.bool,
   module: PropTypes.string,
+  gameIsFinished: PropTypes.func,
+
+  /***************** DATA ******************/
+
+  modulType: PropTypes.string.isRequired,
   noChapter: PropTypes.bool,
+  iconType: PropTypes.string.isRequired,
   duration: PropTypes.number,
   chapter: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  description: PropTypes.object.isRequired,
-  buttons: PropTypes.array.isRequired,
-  gameIsFinished: PropTypes.func
+  description: PropTypes.shape({ __html: PropTypes.string.isRequired })
+    .isRequired,
+  buttons: PropTypes.arrayOf(
+    PropTypes.shape({
+      position: PropTypes.number.isRequired,
+      type: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      color: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired
+    }).isRequired
+  ).isRequired
 };
 
 BlocPieChartPlay.defaultProps = {

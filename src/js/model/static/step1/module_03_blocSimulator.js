@@ -3,17 +3,17 @@ import backgroundImage from '../../../../assets/img/step1/module_03.png';
 
 const module_03_blocSimulator = {
   /*position: 3,*/
+  modulType: moduleTypes.blocVideo,
   noChapter: true,
   /*chapter: `simulateurs`,*/
   /*duration: 5,*/
-  modulType: moduleTypes.blocVideo,
   name: `allocation d'actifs`,
   firstDescription: {
     __html: `Par allocation d'actifs, on entend la proportion d’actions, d’obligations et de titres monétaires qui composent
-un fonds. 
-Pour connaître celle qui correspond à votre profil d’investisseur, reportez ce dernier dans le simulateur 
-ci-dessous.
-En faisant varier votre durée de placement, vous verrez que plus elle s’allonge, plus la part des actions et obligations est importante. `
+    un fonds. 
+    Pour connaître celle qui correspond à votre profil d’investisseur, reportez ce dernier dans le simulateur 
+    ci-dessous.
+    En faisant varier votre durée de placement, vous verrez que plus elle s’allonge, plus la part des actions et obligations est importante. `
   },
   backgroundImage,
   secondDescription: {

@@ -3,7 +3,7 @@ import moduleTypes from '../moduleTypes';
 const module_05_04_blocDragAndDrop1 = {
   /*position: 9,*/
   modulType: moduleTypes.blocDragAndDrop1,
-  linkWithBlocSubMenu1ButtonPosition: 2,
+  /*linkWithBlocSubMenu1ButtonPosition: 2,*/
   firstDescription: {
     __html: `Faites de même pour les obligations d’entreprise ci-dessous : 
 - quel secteur d’activité résiste le mieux à la crise ? 

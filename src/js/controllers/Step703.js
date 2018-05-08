@@ -26,6 +26,7 @@ class Step7_03 extends React.Component {
       <Fade in={this.props.in}>
         <BlocDescription
           in={this.props.in}
+          modulType={step7.module_06_01.modulType}
           description={step7.module_06_01.description}
           padding={20}
         />
