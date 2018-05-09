@@ -1,0 +1,122 @@
+.bloc-QCM-type-3 {
+  width: 100%;
+  // margin-bottom: 300px;
+  &__questions {
+    width: 100%;
+    height: 100%;
+    @extend %flex-row-center-center;
+    justify-content: space-between;
+
+    &--to-hover{
+      flex-grow: 1;
+      margin-right: 15px;
+      display: flex;
+      flex-direction: column;      
+      justify-content: space-between;
+      align-items: space-between;
+
+      &--question {
+        display: flex;
+        justify-content: flex-start; 
+        align-items: center;
+
+        .button-groupe {
+          flex-grow: 1;
+          flex-shrink: 1;
+          max-width: 50%;
+        }
+
+        .select-QCM-type-2 {
+          width: 100px;
+          flex-grow: 0;
+          margin-right: 10px;
+        }
+
+        .button-primary {
+          background-color: transparent !important;
+          color: var(--defaultTextColor);
+          font-size: 0.875rem;
+          text-transform: unset;
+          text-align: left;
+          justify-content: flex-start;
+          // max-width: 75%;
+        }
+      }
+    }
+
+
+    &--to-show {
+      width: 360px;
+
+      .question-subtitle {
+        margin-bottom: 20px;
+      }
+    }
+    .arrow-following {
+      height: 30px;
+      width: 210px;
+      @extend %background-contain;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+  }
+
+  &__validate-victory {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__validate {
+    height: 44px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  &__victory-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  &__explanations {
+    height: 44px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .step2-module_08_04 {
+    .select-QCM-type-2 {
+      width: 150px;
+    }
+    .button-groupe {
+      flex-grow: 1;
+      flex-shrink: 1;
+      max-width: 30%;
+    }
+  }
+
+  .step2-module_09_03 {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 100%;
+    .select-QCM-type-2 {
+      width: 150px;
+    }
+  }
+
+
+
+}

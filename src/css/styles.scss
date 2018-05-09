@@ -16,6 +16,7 @@
 @import "UI/popup-blue/styles";
 @import "UI/pie-chart/styles";
 @import "UI/button-double-arrow/styles";
+@import "UI/select-QCM-type-2/styles";
 
 @import "base";
 
@@ -28,17 +29,24 @@
 @import "views/bloc/styles";
 @import "views/bloc-step/styles";
 @import "views/bloc-title/styles";
+@import "views/bloc-link/styles";
 @import "views/bloc-divider/styles";
+@import "views/bloc-description/styles";
 @import "views/bloc-header/styles";
 @import "views/bloc-video/styles";
 @import "views/bloc-sub-menu-1/styles";
 @import "views/bloc-en-savoir-plus-type-1/styles";
+@import "views/bloc-en-savoir-plus-type-2/styles";
 @import "views/bloc-up-and-down-type-1/styles";
 @import "views/bloc-drag-and-drop-1/styles";
 @import "views/bloc-QCM-type-1/styles";
+@import "views/bloc-QCM-type-2/styles";
+@import "views/bloc-QCM-type-3/styles";
 @import "views/bloc-quiz/styles";
 @import "views/bloc-simulator/styles";
 @import "views/bloc-pie-chart-play/styles";
+
+@import "views/step2/styles";
 
 @import "controllers/introduction/styles";
 @import "controllers/step/styles";

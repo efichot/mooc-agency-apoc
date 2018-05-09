@@ -5,7 +5,7 @@ class PopupBlueInnerHtml extends React.Component {
   state = {};
 
   render() {
-    const { description, classProps, hideCard } = this.props;
+    const { description, classProps, hidePopup } = this.props;
 
     if (description.__html) {
       description.__html = description.__html
@@ -15,7 +15,7 @@ class PopupBlueInnerHtml extends React.Component {
       return (
         <div
           className={`${classProps} popup-blue`}
-          style={{ opacity: hideCard ? 0 : 1 }}
+          style={{ opacity: hidePopup ? 0 : 1 }}
           dangerouslySetInnerHTML={description}
         />
       );
@@ -23,7 +23,7 @@ class PopupBlueInnerHtml extends React.Component {
       return (
         <div
           className={`${classProps} popup-blue`}
-          style={{ opacity: hideCard ? 0 : 1 }}
+          style={{ opacity: hidePopup ? 0 : 1 }}
         >
           {description.replace(/\r\n/g, '<br />').replace(/[\r\n]/g, '<br />')}
         </div>
@@ -33,13 +33,13 @@ class PopupBlueInnerHtml extends React.Component {
 }
 
 PopupBlueInnerHtml.propTypes = {
-  hideCard: PropTypes.bool,
+  hidePopup: PropTypes.bool,
   classProps: PropTypes.string,
   description: PropTypes.object.isRequired
 };
 
 PopupBlueInnerHtml.defaultProps = {
-  hideCard: false,
+  hidePopup: false,
   classProps: ''
 };
 

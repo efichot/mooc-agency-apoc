@@ -46,8 +46,6 @@ class Step7 extends React.Component {
     this.setState({ showQuiz: true });
   };
 
-  handleClickSecondPrimaryButton = data => {};
-
   render() {
     const { show_01, show_02, show_03, showSynthese, showQuiz } = this.state;
 
@@ -113,10 +111,7 @@ class Step7 extends React.Component {
                         onClick={this.handleShowQuiz}
                       />
                       <Link to="#" className="button">
-                        <ButtonPrimary
-                          name={step7.module_07.button_2}
-                          onClick={this.handleClickSecondPrimaryButton}
-                        />
+                        <ButtonPrimary name={step7.module_07.button_2} />
                       </Link>
                     </div>
                   )}

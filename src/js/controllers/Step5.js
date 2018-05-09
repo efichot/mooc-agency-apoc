@@ -134,7 +134,7 @@ class Step5 extends React.Component {
                                     textAlign: 'center',
                                     fontFamily: 'Helvetica Neue LT Std 55 Roman'
                                   }}
-                                  onclick="parent.parent.quiz1();"
+                                  onClick="parent.parent.quiz1();"
                                 >
                                   POURSUIVRE VERS<br />le quiz de fin d'étape
                                 </div>*/}

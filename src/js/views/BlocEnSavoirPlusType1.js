@@ -51,6 +51,9 @@ class BlocEnSavoirPlusType1 extends React.Component {
         <div className="bloc-en-savoir-plus-type-1__cards">
           <div className="bloc-en-savoir-plus-type-1__cards--to-hover">
             {cards.map((card, index) => {
+              const hover =
+                this.state.showCard === card.startPosition &&
+                !this.state.hideCard;
               return (
                 <div
                   key={index}
@@ -58,7 +61,10 @@ class BlocEnSavoirPlusType1 extends React.Component {
                   onMouseEnter={() => this.showCard(card)}
                   onMouseLeave={() => this.hideCards(card)}
                 >
-                  <ButtonPrimary color={card.color} name={card.cardTitle} />
+                  <ButtonPrimary
+                    color={hover ? card.hoverColor : card.color}
+                    name={card.cardTitle}
+                  />
                   {card.arrowFollowing && (
                     <div
                       className="arrow-following"
@@ -71,7 +77,7 @@ class BlocEnSavoirPlusType1 extends React.Component {
           </div>
           <PopupBlue
             classProps="bloc-en-savoir-plus-type-1__cards--to-show"
-            hideCard={this.state.hideCard}
+            hidePopup={this.state.hideCard}
           >
             <span className="card-title">
               {!this.state.hideCard && cards[this.state.showCard - 1].cardTitle}
@@ -80,10 +86,19 @@ class BlocEnSavoirPlusType1 extends React.Component {
               {!this.state.hideCard &&
                 cards[this.state.showCard - 1].cardSubTitle}
             </span>
-            <p className="card-content">
-              {!this.state.hideCard &&
-                cards[this.state.showCard - 1].cardContent}
-            </p>
+            {!this.state.hideCard &&
+              (cards[this.state.showCard - 1].cardContent.__html ? (
+                <p
+                  className="card-content"
+                  dangerouslySetInnerHTML={
+                    cards[this.state.showCard - 1].cardContent
+                  }
+                />
+              ) : (
+                <p className="card-content">
+                  {cards[this.state.showCard - 1].cardContent}
+                </p>
+              ))}
           </PopupBlue>
         </div>
       </Fade>
@@ -101,8 +116,7 @@ BlocEnSavoirPlusType1.propTypes = {
   chapter: PropTypes.string.isRequired,
   duration: PropTypes.number,
   title: PropTypes.string.isRequired,
-  firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired })
-    .isRequired,
+  firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
   cards: PropTypes.arrayOf(
     PropTypes.shape({
       color: PropTypes.string.isRequired,
@@ -110,7 +124,10 @@ BlocEnSavoirPlusType1.propTypes = {
       startPosition: PropTypes.number.isRequired,
       arrowFollowing: PropTypes.bool.isRequired,
       cardTitle: PropTypes.string.isRequired,
-      cardContent: PropTypes.string.isRequired,
+      cardContent: PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.shape({ __html: PropTypes.string.isRequired })
+      ]).isRequired,
       cardSubTitle: PropTypes.string.isRequired
     }).isRequired
   ).isRequired
@@ -120,7 +137,9 @@ BlocEnSavoirPlusType1.defaultProps = {
   in: false,
 
   /***************** DATA ******************/
-
+  firstDescription: {
+    __html: ``
+  },
   noChapter: false,
   duration: 0
 };

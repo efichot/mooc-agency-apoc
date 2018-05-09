@@ -8,6 +8,7 @@ import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocVideo from '../views/BlocVideo';
 import BlocDivider from '../views/BlocDivider';
 import BlocSimulatorsExternalLink from '../views/BlocSimulatorsExternalLink';
+import BlocEnSavoirPlusType2 from '../views/BlocEnSavoirPlusType2';
 import BlocPieChartPlay from '../views/BlocPieChartPlay';
 import BlocText from '../views/BlocText';
 import BlocDragAndDropType1 from '../views/BlocDragAndDropType1';
@@ -40,58 +41,86 @@ class Step1 extends React.Component {
     this.setState({ showQuiz: true });
   };
 
-  handleShowNextModule = module => {
-    if (module === 'pie-chart') {
-      if (this.state.showNextModule > 0) {
-        return;
-      }
-      this.setState({ showNextModule: 1 });
+  handleGetPieChartData = (module, data) => {
+    const actions = data.filter(item => item.name === 'actions')[0];
+    /*const obligations = data.filter(item => item.name === 'obligations')[0]*/
+    const monetary = data.filter(item => item.name === 'monétaire')[0];
+    const company = data.filter(
+      item => item.name === "Titres de l'entreprise"
+    )[0];
+    if (actions.value >= 60) {
+      this.setState({ fund: 'Fonds Actions' });
+    } else if (company.value > 30) {
+      this.setState({ fund: "Fonds en titres de l'entreprise" });
+    } else if (monetary.value >= 80) {
+      this.setState({ fund: 'Fonds Monétaire' });
+    } else if (actions.value <= 10) {
+      this.setState({ fund: 'Fonds Obligataire' });
+    } else {
+      this.setState({ fund: 'Fonds de type mixte' });
+    }
+    this.handleShowNextModule(module);
+  };
+
+  handleShowNextModule = async module => {
+    await this.setState({ showNextModule: this.state.showNextModule + 1 });
+    if (this.state.showNextModule > 2) {
       this.setState({ showSynthese: true });
-    } else if (module === 'drag-and-drop') {
-      if (this.state.showNextModule > 0) {
-        return;
-      }
-      this.setState({ showNextModule: 2 });
     }
   };
 
   render() {
     const { showSynthese, showQuiz, showNextModule } = this.state;
 
+    const isStep1 = this.props.match.path === '/step1';
+
     const stepInStep0 = showNextModule > 0;
     const stepInStep1 = showNextModule > 1;
+    const stepInStep2 = showNextModule > 2;
 
     return (
-      <Fade classProps="step step1" in>
+      <Fade classProps="step step1" in={isStep1}>
         <GlobalInfosContext.Consumer>
           {context => {
             const step1 = context.state.step1;
             if (!showQuiz) {
               return (
                 <React.Fragment>
-                  <BlocStepTopContent in step={step1} />
-                  <BlocDivider in />
-                  <BlocSimulatorsExternalLink in {...step1.module_02} />
-                  <BlocSimulatorsExternalLink in {...step1.module_03} />
-                  <BlocDivider in />
-                  <BlocPieChartPlay
-                    in
-                    {...step1.module_04}
-                    gameIsFinished={this.handleShowNextModule}
+                  <BlocStepTopContent in={isStep1} step={step1} />
+                  <BlocDivider in={isStep1} />
+                  <BlocSimulatorsExternalLink
+                    in={isStep1}
+                    {...step1.module_02}
                   />
-                  <BlocDivider in={stepInStep0} />
-                  <BlocText in={stepInStep0} {...step1.module_05} />
-                  <BlocVideo in={stepInStep0} {...step1.module_06} />
-                  <BlocVideo in={stepInStep0} {...step1.module_07} />
-                  <BlocVideo in={stepInStep0} {...step1.module_08} />
-                  <BlocDivider in={stepInStep0} />
-                  <BlocDragAndDropType1
+                  <BlocSimulatorsExternalLink
+                    in={isStep1}
+                    {...step1.module_03}
+                  />
+                  <BlocDivider in={isStep1} />
+                  <BlocPieChartPlay
+                    in={isStep1}
+                    {...step1.module_04}
+                    gameIsFinished={this.handleGetPieChartData}
+                  />
+                  <BlocEnSavoirPlusType2
                     in={stepInStep0}
-                    {...step1.module_09}
+                    answer={this.state.fund}
+                    {...step1.module_04_bis}
                     gameIsFinished={this.handleShowNextModule}
                   />
                   <BlocDivider in={stepInStep1} />
-                  <BlocVideo in={stepInStep1} {...step1.module_10} />
+                  <BlocText in={stepInStep1} {...step1.module_05} />
+                  <BlocVideo in={stepInStep1} {...step1.module_06} />
+                  <BlocVideo in={stepInStep1} {...step1.module_07} />
+                  <BlocVideo in={stepInStep1} {...step1.module_08} />
+                  <BlocDivider in={stepInStep1} />
+                  <BlocDragAndDropType1
+                    in={stepInStep1}
+                    {...step1.module_09}
+                    gameIsFinished={this.handleShowNextModule}
+                  />
+                  <BlocDivider in={stepInStep2} />
+                  <BlocVideo in={stepInStep2} {...step1.module_10} />
                   {showSynthese && (
                     <div className="step1__synthese step__synthese">
                       <span className="bloc__name">{step1.module_11.name}</span>

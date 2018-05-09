@@ -1,0 +1,33 @@
+
+.select-QCM-type-2 {
+  min-width: 80px;
+  flex-grow: 1;
+  height: 40px;
+
+  &__control {
+    border-radius: 20px !important;
+  }
+
+  &__indicators {
+    width: 38px;
+    // width: 50%;
+
+
+    svg {
+      height: 40px;
+      width: 40px;
+    }
+  }
+  &__dropdown-indicator {
+    height: 40px;
+    width: 40px;      
+  }
+
+  &__value-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+

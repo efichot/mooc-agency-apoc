@@ -1,10 +1,10 @@
 .bloc-pie-chart-play {
   width: 100%;
 
-  > .button-primary {
-    margin-left: auto;
-  } 
-  
+  // > .button-primary {
+  //   margin-left: auto;
+  // } 
+
   &__buttons {
     width: 100%;
     @extend %flex-row-center-center;
@@ -16,5 +16,23 @@
     .button-double-arrow__arrows {
       cursor: pointer;
     }
+  }
+  
+  &__validate-victory {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__validate {
+    height: 44px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }

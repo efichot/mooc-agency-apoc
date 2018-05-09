@@ -14,7 +14,15 @@ class ButtonPrimary extends React.Component {
   };
 
   render() {
-    const { id, classProps, color, name, value } = this.props;
+    const {
+      id,
+      classProps,
+      color,
+      name,
+      value,
+      borderColor,
+      fontColor
+    } = this.props;
 
     return (
       <div
@@ -22,7 +30,9 @@ class ButtonPrimary extends React.Component {
         className={`button button-primary ${classProps}`}
         onClick={this.handleClick}
         style={{
-          backgroundColor: color
+          backgroundColor: color,
+          borderColor: borderColor,
+          color: fontColor
         }}
       >
         {name}
@@ -40,14 +50,18 @@ ButtonPrimary.propTypes = {
   subname: PropTypes.string,
   classProps: PropTypes.string,
   color: PropTypes.string,
-  answer: PropTypes.number
+  answer: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  borderColor: PropTypes.string,
+  fontColor: PropTypes.string
 };
 
 ButtonPrimary.defaultProps = {
   classProps: '',
   subname: '',
   color: 'var(--buttonPrimaryDefaultColor)',
-  answer: null,
+  borderColor: '',
+  fontColor: '',
+  answer: undefined,
   value: undefined,
   onClick: undefined
 };

@@ -48,7 +48,7 @@ class BlocPieChartPlay extends React.Component {
       .reduce((total, data) => total + data.value, 0);
 
     if (percent === 100) {
-      this.props.gameIsFinished(this.props.module);
+      this.props.gameIsFinished(this.props.module, this.state.pieData);
     } else {
       this.setState({ hidePopup: false });
       this.props.setTimeout(() => {
@@ -126,12 +126,18 @@ class BlocPieChartPlay extends React.Component {
             );
           })}
         </div>
-        <ButtonPrimary name="valider" onClick={this.handleValidateClick} />
-        <PopupBlue hideCard={hidePopup}>
-          <span className="card-title">
-            La composition de votre fonds est incomplète. réessayez !
-          </span>
-        </PopupBlue>
+        <div className="bloc-pie-chart-play__validate-victory">
+          <ButtonPrimary
+            name="valider"
+            onClick={this.handleValidateClick}
+            classProps={`bloc-pie-chart-play__validate`}
+          />
+          <PopupBlue hidePopup={hidePopup}>
+            <span className="card-title">
+              La composition de votre fonds est incomplète. réessayez !
+            </span>
+          </PopupBlue>
+        </div>
       </Fade>
     );
   }

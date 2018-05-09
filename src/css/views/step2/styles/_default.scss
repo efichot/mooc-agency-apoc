@@ -1,0 +1,32 @@
+
+.step2 {
+  .bloc-en-savoir-plus-type-1 {
+    height: 800px;
+    
+    &__cards--to-hover {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    &__cards--to-show {
+      display: flex;
+      justify-content: center;
+      align-items: center;      
+    }
+  }
+
+  .bloc-sub-menu-1 {
+    .button-primary {
+      background-color: transparent;
+      border-width: 3px;
+      border-style: solid;
+      font-weight: 700;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}

@@ -50,6 +50,15 @@ const module_05_02_blocEnSavoirPlusType1 = {
       cardTitle: `Moody's`,
       cardContent: `Créée en 1909 par John Moody, journaliste financier reconverti, elle a pour principal actionnaire la société Berkshire Hathaway, holding du milliardaire américain Warren Buffet.`,
       cardSubTitle: `cf. Glossaire`
+    },
+    {
+      color: 'rgba(185,120,182,1.00)',
+      hoverColor: 'rgba(185,120,182,1.00)',
+      startPosition: 5,
+      arrowFollowing: false,
+      cardTitle: `Dagong`,
+      cardContent: `Agence de notation chinoise fondée en 1994, elle est aujourd’hui moins influente que ses aînées.`,
+      cardSubTitle: `cf. Glossaire`
     }
   ]
 };

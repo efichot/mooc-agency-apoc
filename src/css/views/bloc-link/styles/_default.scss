@@ -1,0 +1,27 @@
+
+
+.bloc-link {
+
+  &__link {
+    margin-left: auto;
+  }
+
+  &__group-link {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: uppercase;
+
+    .bloc-link__link-name {
+      width: 300px;
+    }
+
+    .bloc-link__link {
+      margin-left: 0;
+    }
+    
+  }
+
+}
+

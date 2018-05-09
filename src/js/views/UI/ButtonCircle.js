@@ -5,7 +5,7 @@ class ButtonCircle extends React.Component {
   state = {};
 
   handleClick = e => {
-    this.props.onclick();
+    this.props.onClick();
   };
 
   render() {

@@ -15,7 +15,7 @@ class BlocDescription extends React.Component {
       return (
         <Fade in={this.props.in}>
           <p
-            className={`bloc bloc-description${classProps}`}
+            className={`bloc bloc-description ${classProps}`}
             dangerouslySetInnerHTML={description}
             style={{ padding: `${padding}px` }}
           />
@@ -38,7 +38,10 @@ class BlocDescription extends React.Component {
 
 BlocDescription.propTypes = {
   in: PropTypes.bool,
-  description: PropTypes.object.isRequired,
+  description: PropTypes.oneOfType([
+    PropTypes.shape({ __html: PropTypes.string.isRequired }),
+    PropTypes.string
+  ]).isRequired,
   /***************** DATA ******************/
   classProps: PropTypes.string,
   padding: PropTypes.number,
