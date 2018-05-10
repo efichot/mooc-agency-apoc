@@ -1,0 +1,78 @@
+
+.bloc-text-to-fill {
+  .checkbox {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border: 2px solid rgba(122,124,121,1.00);
+    border-radius: 50%;
+    background-color: rgba(225,228,223,1.00);
+    margin-left: 5px;
+    margin-right: 2px;
+    top: 2px;
+
+    &.to-check {
+      background-color: rgba(125,128,123,1.00);
+      border: 3px solid rgba(122,124,121,1.00);
+    }
+
+    &.checked {
+      @extend %background-cover;
+      background-image: url(../assets/img/icons/checkbox-checked.png);
+
+      &.bad {
+        border: none;
+        background-image: url(../assets/img/icons/checkbox-bad.png);
+      }
+
+      &.good {
+        border: none;
+        background-image: url(../assets/img/icons/checkbox-good.png);
+      }
+    }
+
+  }
+  .text-to-select {
+    cursor: pointer;
+    display: inline-block;
+    color: var(--textToSelectColor);
+    white-space: nowrap;
+    // text-align: justify-all;
+  }
+
+  &__validate-victory {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  &__validate { order: 3}
+  &__answers { order: 2}
+  &__reset { order: 1}
+
+  .button-primary {
+    &.hidden {
+      visibility: hidden;
+    }
+    &.visible {
+      visibility: visible;
+    }
+  }
+
+  &__victory-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 200px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+
+
+
+
+}

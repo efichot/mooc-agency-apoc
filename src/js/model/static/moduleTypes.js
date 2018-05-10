@@ -14,6 +14,7 @@ const moduleTypes = {
   blocQuiz: 'bloc-quiz',
   blocSimulator: 'bloc-simulator',
   blocText: 'bloc-text',
+  blocTextToFill: 'bloc-text-to-fill',
   blocLink: 'bloc-link',
   blocPicChartPlay: 'bloc-pic-chart-play'
 };

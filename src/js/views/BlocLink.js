@@ -25,7 +25,8 @@ class BlocLink extends React.Component {
       firstDescription,
       secondDescription,
       linkName,
-      link
+      link,
+      buttonName
     } = this.props;
 
     return (
@@ -59,7 +60,7 @@ class BlocLink extends React.Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <ButtonPrimary name="Télécharger" />
+              <ButtonPrimary name={buttonName} />
             </a>
           </div>
         ) : link !== '#' ? (
@@ -69,12 +70,12 @@ class BlocLink extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <ButtonPrimary name="Télécharger" />
+            <ButtonPrimary name={buttonName} />
           </a>
         ) : (
           <ButtonPrimary
             classProps="bloc-link__link"
-            name="Télécharger"
+            name={buttonName}
             onClick={this.handleClick}
           />
         )}
@@ -85,6 +86,10 @@ class BlocLink extends React.Component {
 
 BlocLink.propTypes = {
   in: PropTypes.bool,
+
+  /******** DATAT **********/
+
+  modulType: PropTypes.string.isRequired,
   noChapter: PropTypes.bool,
   iconType: PropTypes.string,
   chapter: PropTypes.string,
@@ -94,7 +99,7 @@ BlocLink.propTypes = {
   duration: PropTypes.number,
   firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
   secondDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
-  modulType: PropTypes.string.isRequired
+  buttonName: PropTypes.string
 };
 
 BlocLink.defaultProps = {
@@ -107,7 +112,8 @@ BlocLink.defaultProps = {
   firstDescription: undefined,
   secondDescription: undefined,
   linkName: undefined,
-  iconType: 'horloge'
+  iconType: 'horloge',
+  buttonName: 'Télécharger'
 };
 
 export default BlocLink;
