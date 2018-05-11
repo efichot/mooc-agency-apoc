@@ -7,7 +7,7 @@
 @font-face {
   font-family: 'Helvetica Neue LT Std 75 Bold';
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   src: local('HelveticaNeueLTStd-Roman'), url('../assets/font/Helvetica Neue LT Std 75 Bold.otf') format('opentype');
 }
 
@@ -17,6 +17,7 @@
   font-weight: bold;
   src: local('HelveticaNeueLTStd-XBlkC'), url('../assets/font/HelveticaNeueLTStd-XBlkCn.otf') format('opentype');
 }
+
 @font-face {font-family: "Helvetica Neue LT Std 93 Black Extended";
   font-style: normal;
   font-weight: bold;

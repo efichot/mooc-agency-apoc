@@ -5,38 +5,84 @@ import React from 'react';
 
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 import BlocStepTopContent from '../views/BlocStepTopContent';
+import BlocLink from '../views/BlocLink';
+import BlocDragAndDropType2 from '../views/BlocDragAndDropType2';
 import Fade from '../transitions/Fade';
 
 class Step4 extends React.Component {
-  state = {};
+  state = {
+    showNextModule: 1
+  };
+
+  handleShowNextModule = e => {
+    this.setState({ showNextModule: this.state.showNextModule + 1 });
+  };
 
   render() {
+    const isStep4 = this.props.match.path === '/step4';
+
+    const { showNextModule } = this.state;
+
+    const stepInStep1 = showNextModule > 0;
+
     return (
-      <Fade classProps={``}>
+      <Fade classProps="step step4" in={isStep4}>
         <GlobalInfosContext.Consumer>
           {context => {
             const step4 = context.state.step4;
             return (
               <React.Fragment>
-                <BlocStepTopContent step={step4} videoInIframe />
-                {/*<iframe
-                                  title="step4-iframe-1"
-                                  style={{
-                                    display: 'block',
-                                    margin: 'auto',
-                                    marginBottom: ' 0px',
-                                    border: 'none',
-                                    marginLeft: '0px'
-                                  }}
-                                  width="709"
-                                  height="5000"
-                                  src={`${
-                                    process.env.REACT_APP_DAVIS_URL
-                                  }APOCamundi/chapFolder/etape5/etape5/index.html`}
-                                  id="frame1"
-                                  align="middle"
-                                  scrolling="no"
-                                />*/}
+                <BlocStepTopContent step={step4} in={isStep4} />
+                <BlocLink
+                  in={isStep4}
+                  {...step4.module_02}
+                  onClick={this.handleShowNextModule}
+                />
+                <BlocLink
+                  in={stepInStep1}
+                  {...step4.module_03}
+                  onClick={this.handleShowNextModule}
+                />
+                <BlocLink
+                  in={stepInStep1}
+                  {...step4.module_04}
+                  onClick={this.handleShowNextModule}
+                />
+                <BlocLink
+                  in={stepInStep1}
+                  {...step4.module_05}
+                  onClick={this.handleShowNextModule}
+                />
+                <BlocLink
+                  in={stepInStep1}
+                  {...step4.module_06}
+                  onClick={this.handleShowNextModule}
+                />
+                <BlocLink
+                  in={stepInStep1}
+                  {...step4.module_07}
+                  onClick={this.handleShowNextModule}
+                />
+                <BlocLink
+                  in={stepInStep1}
+                  {...step4.module_08}
+                  onClick={this.handleShowNextModule}
+                />
+                <BlocLink
+                  in={stepInStep1}
+                  {...step4.module_09}
+                  onClick={this.handleShowNextModule}
+                />
+                <BlocLink
+                  in={stepInStep1}
+                  {...step4.module_10}
+                  onClick={this.handleShowNextModule}
+                />
+                <BlocDragAndDropType2
+                  in={stepInStep1}
+                  {...step4.module_11}
+                  onClick={this.handleShowNextModule}
+                />
               </React.Fragment>
             );
           }}

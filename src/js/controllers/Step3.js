@@ -128,10 +128,12 @@ class Step3 extends React.Component {
                         action={this.changeMarketToShow}
                         noDescription
                       />
-                      <ButtonPrimary
-                        name={step3.module_07.button_1}
-                        onClick={this.handleShowQuiz}
-                      />
+                      <Link to="/step4" className="button">
+                        <ButtonPrimary
+                          name={step3.module_07.button_1}
+                          enableClick
+                        />
+                      </Link>
                       <Link to="#" className="button">
                         <ButtonPrimary name={step3.module_07.button_2} />
                       </Link>

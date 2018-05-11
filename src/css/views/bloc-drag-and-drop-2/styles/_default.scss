@@ -1,0 +1,107 @@
+.bloc-drag-and-drop-2 {
+
+  &__start {
+    width: 100%;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    flex-wrap: wrap;
+    background-color: var(--white);
+
+    .icon-draggable {
+      @extend %background-contain;
+      background-image: url('../assets/img/icons/button-finger.png');
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      margin-right: 3px;
+      grid-row: 1 / 10;
+      justify-self: center;
+      align-self: center;
+    }
+
+    .drop-card {
+      height: 60px;
+      width: 80px;
+      margin-right: 30px;
+      margin-top: 3px;
+      margin-bottom: 3px;
+      border: 1px solid var(--gridLinesColor);
+    }
+    
+  }
+
+  &__grid {
+    display: grid;
+    display: -ms-grid;
+    width: 100%;
+  }
+
+  .grid-cell {
+    height: 60px;
+    border: 1px solid var(--gridLinesColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.grid-header {
+      font-family: 'Helvetica Neue LT Std 75 Bold';
+      color: var(--headerColor);
+    }
+
+    .drop-card {
+      height: 100%;
+      width: 100%;
+      max-width: 80px;
+    }
+  }
+  .drop-card {
+    font-size: 0.5rem;
+    text-transform: uppercase;
+    background-color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    .pie-chart-empty {
+      background-color: rgba(233,233,233,1.00);
+    }
+  }
+  .pie-chart-mini {
+    height: 40px;
+    width: 40px;
+    margin-left: 5px;
+    border-radius: 50%;
+  }
+
+  .drag-card {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    * {
+      flex-shrink: 0;
+    }
+    .pie-chart-mini {
+      transform: rotate(-90deg) scaleY(-1);
+      transition: all 0.25s linear;
+    }
+    .name {
+      margin-left: 5px;
+      max-width: 60px;
+      z-index: 1;
+    }
+    
+  }
+
+  &__buttons {
+    width: 100%;
+    @extend %flex-row-center-right;
+    // justify-content: space-around;
+
+    > * {
+      flex-basis: 150px;
+      margin-right: 50px;
+    }
+  }
+}

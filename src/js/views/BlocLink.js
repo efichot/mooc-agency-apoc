@@ -60,7 +60,7 @@ class BlocLink extends React.Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <ButtonPrimary name={buttonName} />
+              <ButtonPrimary name={buttonName} enableClick />
             </a>
           </div>
         ) : link !== '#' ? (
@@ -70,7 +70,7 @@ class BlocLink extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <ButtonPrimary name={buttonName} />
+            <ButtonPrimary name={buttonName} enableClick />
           </a>
         ) : (
           <ButtonPrimary

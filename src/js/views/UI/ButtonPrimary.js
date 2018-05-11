@@ -7,7 +7,7 @@ class ButtonPrimary extends React.Component {
 
   handleClick = e => {
     !this.props.onClick
-      ? e.preventDefault()
+      ? !this.props.enableClick && e.preventDefault()
       : this.props.answer
         ? this.props.onClick(this.props.answer)
         : this.props.onClick(e);
@@ -52,7 +52,8 @@ ButtonPrimary.propTypes = {
   color: PropTypes.string,
   answer: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   borderColor: PropTypes.string,
-  fontColor: PropTypes.string
+  fontColor: PropTypes.string,
+  enableClick: PropTypes.bool
 };
 
 ButtonPrimary.defaultProps = {
@@ -63,7 +64,8 @@ ButtonPrimary.defaultProps = {
   fontColor: '',
   answer: undefined,
   value: undefined,
-  onClick: undefined
+  onClick: undefined,
+  enableClick: false
 };
 
 export default ButtonPrimary;
