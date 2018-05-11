@@ -143,7 +143,7 @@ class BlocDragAndDropType2 extends React.Component {
       });
       this.props.setTimeout(() => {
         this.setState({ victoryMessage: undefined });
-      }, 4000);
+      }, 2000);
       return;
     }
     const falseAnswers = Object.keys(this.state.cardInPosition).filter(
@@ -233,7 +233,10 @@ class BlocDragAndDropType2 extends React.Component {
       chapter,
       title,
       firstDescription,
-      grid
+      grid,
+      legend,
+      verticalAxis,
+      horizontalAxis
     } = this.props;
 
     const {
@@ -314,9 +317,30 @@ class BlocDragAndDropType2 extends React.Component {
               )
             )}
         </div>
+        <span className="bloc-drag-and-drop-2__axis vertical">
+          {verticalAxis}
+        </span>
         <div className="bloc-drag-and-drop-2__grid" style={gridTemplate}>
           {cells}
+          {legend && (
+            <ul className="bloc-drag-and-drop-2__legend">
+              {legend.map(item => {
+                return (
+                  <li key={item.legendText}>
+                    <div
+                      className="legend-square"
+                      style={{ backgroundColor: item.legendColor }}
+                    />
+                    <div className="legend-text">{item.legendText}</div>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
+        <span className="bloc-drag-and-drop-2__axis horizontal">
+          {horizontalAxis}
+        </span>
         <div className="bloc-drag-and-drop-2__buttons">
           {this.state.victoryMessage && (
             <PopupBlue>
@@ -342,6 +366,8 @@ BlocDragAndDropType2.propTypes = {
   firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
   noChapter: PropTypes.bool,
   chapter: PropTypes.string.isRequired,
+  verticalAxis: PropTypes.string.isRequired,
+  horizontalAxis: PropTypes.string.isRequired,
   duration: PropTypes.number,
   grid: PropTypes.shape({
     columns: PropTypes.arrayOf(
@@ -352,6 +378,12 @@ BlocDragAndDropType2.propTypes = {
     ).isRequired
   }).isRequired,
   title: PropTypes.string.isRequired,
+  legend: PropTypes.arrayOf(
+    PropTypes.shape({
+      legendColor: PropTypes.string.isRequired,
+      legendText: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -360,7 +392,7 @@ BlocDragAndDropType2.propTypes = {
         column: PropTypes.number.isRequired,
         row: PropTypes.number.isRequired
       }).isRequired,
-      pieChart: PropTypes.arrayOf(
+      pieData: PropTypes.arrayOf(
         PropTypes.shape({
           name: PropTypes.string.isRequired,
           value: PropTypes.number.isRequired,

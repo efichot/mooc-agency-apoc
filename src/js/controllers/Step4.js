@@ -6,16 +6,21 @@ import React from 'react';
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocLink from '../views/BlocLink';
+import BlocQuiz from '../views/BlocQuiz';
 import BlocDragAndDropType2 from '../views/BlocDragAndDropType2';
 import Fade from '../transitions/Fade';
 
 class Step4 extends React.Component {
   state = {
-    showNextModule: 1
+    showNextModule: 0
   };
 
   handleShowNextModule = e => {
     this.setState({ showNextModule: this.state.showNextModule + 1 });
+  };
+
+  handleGameIsFinished = () => {
+    return;
   };
 
   render() {
@@ -79,10 +84,11 @@ class Step4 extends React.Component {
                   onClick={this.handleShowNextModule}
                 />
                 <BlocDragAndDropType2
-                  in={stepInStep1}
+                  in={isStep4}
                   {...step4.module_11}
-                  onClick={this.handleShowNextModule}
+                  gameIsFinished={this.handleGameIsFinished}
                 />
+                <BlocQuiz in={isStep4} {...step4.module_12} />
               </React.Fragment>
             );
           }}

@@ -16,7 +16,7 @@ const module_09_blocQuiz = {
     {
       questionNumber: 1,
       question: {
-        __html: `1 - À quoi mesure-t-on le degré de risque d’un titre quand on investit?`
+        __html: `1 - À quoi mesure-t-on le degré de risque d’un titre quand on investit ?`
       },
       answers: [
         {
@@ -39,7 +39,7 @@ const module_09_blocQuiz = {
     {
       questionNumber: 2,
       question: {
-        __html: `2 - À la sortie d’une crise économique, sur quel secteur un gérant a-t-il plutôt intérêt à investir?`
+        __html: `2 - À la sortie d’une crise économique, sur quel secteur un gérant a-t-il plutôt intérêt à investir ?`
       },
       answers: [
         {

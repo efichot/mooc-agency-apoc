@@ -9,6 +9,7 @@ import module_08_blocLink from './step4/module_08_blocLink';
 import module_09_blocLink from './step4/module_09_blocLink';
 import module_10_blocLink from './step4/module_10_blocLink';
 import module_11_blocDragAndDropType2 from './step4/module_11_blocDragAndDropType2';
+import module_12_blocQuiz from './step4/module_12_blocQuiz';
 
 const step4 = {
   linkStep: 4,
@@ -23,7 +24,8 @@ const step4 = {
   module_08: module_08_blocLink,
   module_09: module_09_blocLink,
   module_10: module_10_blocLink,
-  module_11: module_11_blocDragAndDropType2
+  module_11: module_11_blocDragAndDropType2,
+  module_12: module_12_blocQuiz
 };
 
 export default step4;

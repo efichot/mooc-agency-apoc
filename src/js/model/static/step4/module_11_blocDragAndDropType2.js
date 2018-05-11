@@ -27,6 +27,30 @@ const module_11_blocDragAndDropType2 = {
       '3 mois'
     ]
   },
+  legend: [
+    {
+      legendColor: 'rgba(127,31,118,1.00)',
+      legendText: 'obligataires'
+    },
+    {
+      legendColor: 'rgba(0,156,80,1.00)',
+      legendText: 'monétaires'
+    },
+    {
+      legendColor: 'rgba(240,95,55,1.00)',
+      legendText: 'actions'
+    },
+    {
+      legendColor: 'rgba(255,196,87,1.00)',
+      legendText: `titres de l'entreprise`
+    },
+    {
+      legendColor: 'rgba(0,116,176,1.00)',
+      legendText: 'titres solidaires'
+    }
+  ],
+  verticalAxis: 'Durée de placement minimum recommandée',
+  horizontalAxis: 'Risque',
   cards: [
     {
       startPosition: 1,
