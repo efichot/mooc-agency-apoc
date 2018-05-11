@@ -85,6 +85,9 @@
     .pie-chart-mini {
       transform: rotate(-90deg) scaleY(-1);
       transition: all 0.25s linear;
+      * {
+        stroke-width: 0;
+      }
     }
     .name {
       margin-left: 5px;

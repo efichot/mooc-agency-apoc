@@ -22,9 +22,9 @@
 
   &.active {
     border-color: var(--buttonQCMType1ActivBorderColor);
-    &.finished {
+  }
+  &.correct.finished {
       border-color: var(--blocUpAndDownButtonBorderFinished);
-    }
   }
 
   

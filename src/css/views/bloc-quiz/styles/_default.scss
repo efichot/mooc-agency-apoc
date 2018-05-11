@@ -1,6 +1,17 @@
 
 .bloc-quiz {
 
+  margin-bottom: 50vh;
+
+  .chrono-question {
+    display: flex;
+    
+    //justify-content: center;
+    align-items: center;
+    //align-content: center;
+    
+  }
+
   &__answers {
     @extend %flex-row-center-left;
     justify-content: flex-start;
@@ -19,7 +30,16 @@
     width: 200px;
   }
 
+  .validate-and-popup {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+  }
+
   .popup-blue {
+    justify-content: center;
 
     &__explication {
       width: 75%;
@@ -28,9 +48,6 @@
     }
 
     &__victory-message {
-      position: absolute;
-      right: -10px;
-      top: 10px;
       flex-grow: 0;
       width: 200px;
       height: 75px;
