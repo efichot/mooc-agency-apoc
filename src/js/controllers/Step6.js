@@ -15,32 +15,16 @@ class Step6 extends React.Component {
   }
 
   render() {
+    const isStep6 = this.props.match.path === '/step6';
+
     return (
-      <Fade classProps="step step6">
+      <Fade classProps="step step6" in={isStep6}>
         <GlobalInfosContext.Consumer>
           {context => {
             const step6 = context.state.step6;
             return (
               <React.Fragment>
-                <BlocStepTopContent step={step6} />
-                {/*<iframe
-                                  title="iframe-step6-1"
-                                  style={{
-                                    display: 'block',
-                                    margin: 'auto',
-                                    marginBottom: '0px',
-                                    border: 'none',
-                                    marginLeft: '0px'
-                                  }}
-                                  width="709"
-                                  height="4500"
-                                  src={`${
-                                    process.env.REACT_APP_DAVIS_URL
-                                  }APOCamundi/chapFolder/etape2/etape2/index.html`}
-                                  id="frame1index"
-                                  align="middle"
-                                  scrolling="no"
-                                />*/}
+                <BlocStepTopContent step={step6} in={isStep6} />
               </React.Fragment>
             );
           }}

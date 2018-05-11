@@ -11,32 +11,16 @@ class Step8 extends React.Component {
   state = {};
 
   render() {
+    const isStep8 = this.props.match.path === '/step8';
+
     return (
-      <Fade classProps="step step8">
+      <Fade classProps="step step8" in={isStep8}>
         <GlobalInfosContext.Consumer>
           {context => {
             const step8 = context.state.step8;
             return (
               <React.Fragment>
-                <BlocStepTopContent step={step8} videoInIframe />
-                {/*<iframe
-                                  title="step8-iframe-1"
-                                  style={{
-                                    display: 'block',
-                                    margin: 'auto',
-                                    marginBottom: ' 0px',
-                                    border: 'none',
-                                    marginLeft: '0px'
-                                  }}
-                                  width="709"
-                                  height="5000"
-                                  src={`${
-                                    process.env.REACT_APP_DAVIS_URL
-                                  }APOCamundi/chapFolder/etape5/etape5/index.html`}
-                                  id="frame1"
-                                  align="middle"
-                                  scrolling="no"
-                                />*/}
+                <BlocStepTopContent step={step8} in={isStep8} />
               </React.Fragment>
             );
           }}
