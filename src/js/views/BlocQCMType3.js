@@ -172,6 +172,7 @@ class BlocQCMType3 extends React.Component {
             <PopupBlue
               classProps="bloc-QCM-type-3__questions--to-show"
               hidePopup={hideQuestion}
+              noCross
             >
               <span className="question-title">
                 {!hideQuestion && questions[showQuestion - 1].title}
@@ -197,6 +198,7 @@ class BlocQCMType3 extends React.Component {
             <PopupBlueInnerHtml
               classProps="bloc-QCM-type-3__victory-message"
               description={victoryMessage}
+              onCloseClick={() => this.setState({ victoryMessage: undefined })}
             />
           )}
           <ButtonPrimary

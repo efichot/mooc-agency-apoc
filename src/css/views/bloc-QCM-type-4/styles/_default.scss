@@ -1,0 +1,66 @@
+
+.bloc-QCM-type-4 {
+
+  &__cards {
+    @extend %flex-row-center-left;
+    * { 
+      text-align: center; 
+    }
+
+    width: 100%;
+    height: 220px;
+    > * {
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+  }
+
+
+  &__validate {
+    margin-left: auto;
+    width: 200px;
+  }
+
+
+  &__answer-and-popup {
+    @extend %flex-row-center-center;
+    justify-content: space-between;
+    width: 100%;
+
+    &--labels {
+      width: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      > * {
+        height: 60px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &--answers {
+      flex-grow: 1;
+      .field {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+        height: 60px;
+      }
+    }
+
+    .popup-blue {
+      position: absolute;
+      margin: auto;
+      top: 120px;
+      left: 110px;
+      flex-grow: 0;
+      width: 300px;
+    }
+    
+  }
+
+
+
+}

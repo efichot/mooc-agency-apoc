@@ -50,7 +50,11 @@ ButtonPrimary.propTypes = {
   subname: PropTypes.string,
   classProps: PropTypes.string,
   color: PropTypes.string,
-  answer: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  answer: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+    PropTypes.object
+  ]),
   borderColor: PropTypes.string,
   fontColor: PropTypes.string,
   enableClick: PropTypes.bool

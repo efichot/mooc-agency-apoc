@@ -11,17 +11,25 @@ class ButtonWithDoubleArrow extends React.Component {
     this.props.onClick(e.target.dataset.plusorminus, this.props.attachedName);
   };
 
+  handleButtonClick = answer => {
+    this.props.onButtonClick(answer, this.props.attachedName);
+  };
+
   render() {
-    const { button, value } = this.props;
+    const { noButton, button, value, answer } = this.props;
 
     return (
       <div className="button-double-arrow">
-        <ButtonPrimary
-          classProps="button-double-arrow__button"
-          name={button.name}
-          value={value}
-          color={button.color}
-        />
+        {!noButton && (
+          <ButtonPrimary
+            classProps="button-double-arrow__button"
+            name={button.name}
+            value={value}
+            color={button.color}
+            onClick={this.handleButtonClick}
+            answer={answer}
+          />
+        )}
         <div className="button-double-arrow__arrows">
           <div
             data-plusorminus="plus"
@@ -45,10 +53,13 @@ ButtonWithDoubleArrow.propTypes = {
   attachedName: PropTypes.string.isRequired,
   button: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired
+  name: PropTypes.string,
+  value: PropTypes.string,
+  noButton: PropTypes.bool
 };
 
-ButtonWithDoubleArrow.defaultProps = {};
+ButtonWithDoubleArrow.defaultProps = {
+  noButton: false
+};
 
 export default ButtonWithDoubleArrow;

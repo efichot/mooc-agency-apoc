@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 import Fade from '../transitions/Fade';
+import BlocStep from '../views/BlocStep';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocEnSavoirPlusType1 from '../views/BlocEnSavoirPlusType1';
 import BlocVideo from '../views/BlocVideo';
@@ -87,6 +88,7 @@ class Step2 extends React.Component {
             if (!showQuiz) {
               return (
                 <React.Fragment>
+                  <BlocStep step={step2.linkStep} />
                   <BlocStepTopContent
                     in={isStep2}
                     step={step2}

@@ -2,6 +2,9 @@
 .step {
   @extend %flex-column-top-left;
   justify-content: space-between;
+  &:last-child {
+    margin-bottom: var(--masterPaddingBottom);
+  }
 
   > * {
     width: 100%;

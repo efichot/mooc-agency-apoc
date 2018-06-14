@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PieChart from 'react-svg-piechart';
-import ReactTimeout from 'react-timeout';
 
 import ButtonWithDoubleArrow from './UI/ButtonWithDoubleArrow';
 import ButtonPrimary from './UI/ButtonPrimary';
@@ -51,9 +50,6 @@ class BlocPieChartPlay extends React.Component {
       this.props.gameIsFinished(this.props.module, this.state.pieData);
     } else {
       this.setState({ hidePopup: false });
-      this.props.setTimeout(() => {
-        this.setState({ hidePopup: true });
-      }, 1500);
     }
   };
 
@@ -132,7 +128,10 @@ class BlocPieChartPlay extends React.Component {
             onClick={this.handleValidateClick}
             classProps={`bloc-pie-chart-play__validate`}
           />
-          <PopupBlue hidePopup={hidePopup}>
+          <PopupBlue
+            hidePopup={hidePopup}
+            onCloseClick={() => this.setState({ hidePopup: true })}
+          >
             <span className="card-title">
               La composition de votre fonds est incomplète. réessayez !
             </span>
@@ -177,4 +176,4 @@ BlocPieChartPlay.defaultProps = {
   gameIsFinished: undefined
 };
 
-export default ReactTimeout(BlocPieChartPlay);
+export default BlocPieChartPlay;

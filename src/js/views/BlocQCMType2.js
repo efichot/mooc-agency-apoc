@@ -16,7 +16,7 @@ class BlocQCMType2 extends React.Component {
     hideQuestion: true,
     showQuestion: 1,
     gameIsFinished: false,
-    victoryMessage: null,
+    victoryMessage: undefined,
     answers: [],
     correctAnswers: [],
     hideExplanation: true
@@ -56,7 +56,7 @@ class BlocQCMType2 extends React.Component {
   };
 
   handleQCMAnswer = (index, answer) => {
-    this.setState({ victoryMessage: null });
+    this.setState({ victoryMessage: undefined });
     const answers = [...this.state.answers];
     answers[index - 1] = answer;
     this.setState({ answers });
@@ -64,7 +64,7 @@ class BlocQCMType2 extends React.Component {
 
   handleHideExplanation = () => {
     this.setState({ hideExplanation: true });
-    this.setState({ victoryMessage: null });
+    this.setState({ victoryMessage: undefined });
   };
 
   handleValidate = async e => {
@@ -176,6 +176,7 @@ class BlocQCMType2 extends React.Component {
             <PopupBlue
               classProps="bloc-QCM-type-2__questions--to-show"
               hidePopup={hideQuestion}
+              noCross
             >
               <span className="question-title">
                 {!hideQuestion && questions[showQuestion - 1].title}
@@ -201,6 +202,7 @@ class BlocQCMType2 extends React.Component {
             <PopupBlueInnerHtml
               classProps="bloc-QCM-type-2__victory-message"
               description={victoryMessage}
+              onCloseClick={() => this.setState({ victoryMessage: undefined })}
             />
           )}
           <ButtonPrimary

@@ -5,7 +5,7 @@ class PopupBlueInnerHtml extends React.Component {
   state = {};
 
   render() {
-    const { description, classProps, hidePopup } = this.props;
+    const { description, classProps, hidePopup, noCross } = this.props;
 
     if (description.__html) {
       description.__html = description.__html
@@ -16,8 +16,14 @@ class PopupBlueInnerHtml extends React.Component {
         <div
           className={`${classProps} popup-blue`}
           style={{ opacity: hidePopup ? 0 : 1 }}
-          dangerouslySetInnerHTML={description}
-        />
+        >
+          {!noCross && (
+            <span className="cross" onClick={() => this.props.onCloseClick()}>
+              X
+            </span>
+          )}
+          <span dangerouslySetInnerHTML={description} />
+        </div>
       );
     } else {
       return (
@@ -34,12 +40,14 @@ class PopupBlueInnerHtml extends React.Component {
 
 PopupBlueInnerHtml.propTypes = {
   hidePopup: PropTypes.bool,
+  noCross: PropTypes.bool,
   classProps: PropTypes.string,
   description: PropTypes.object.isRequired
 };
 
 PopupBlueInnerHtml.defaultProps = {
   hidePopup: false,
+  noCross: false,
   classProps: ''
 };
 

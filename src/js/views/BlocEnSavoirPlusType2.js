@@ -17,7 +17,7 @@ class BlocEnSavoirPlusType2 extends React.Component {
     buttonActive: false,
     buttonAnswer: '',
     gameIsFinished: false,
-    victoryMessage: null,
+    victoryMessage: undefined,
     correctAnswer: ''
   };
 
@@ -41,7 +41,7 @@ class BlocEnSavoirPlusType2 extends React.Component {
 
   handleClick = answer => {
     this.setState({ buttonAnswer: answer });
-    this.setState({ victoryMessage: null });
+    this.setState({ victoryMessage: undefined });
     this.setState({ gameIsFinished: false });
   };
 
@@ -67,6 +67,14 @@ class BlocEnSavoirPlusType2 extends React.Component {
       title,
       firstDescription
     } = this.props;
+
+    const {
+      buttonAnswer,
+      gameIsFinished,
+      hideCard,
+      showCard,
+      victoryMessage
+    } = this.state;
 
     return (
       <Fade
@@ -96,10 +104,8 @@ class BlocEnSavoirPlusType2 extends React.Component {
                     color={card.color}
                     name={card.cardTitle}
                     classProps={`button-QCM-type-1${
-                      this.state.buttonAnswer === card.cardTitle
-                        ? ' active'
-                        : ''
-                    }${this.state.gameIsFinished ? ' finished' : ''}`}
+                      buttonAnswer === card.cardTitle ? ' active' : ''
+                    }${gameIsFinished ? ' finished' : ''}`}
                     onClick={this.handleClick}
                     answer={card.cardTitle}
                   />
@@ -115,15 +121,16 @@ class BlocEnSavoirPlusType2 extends React.Component {
           </div>
           <PopupBlueInnerHtml
             classProps="bloc-en-savoir-plus-type-2__cards--to-show"
-            hidePopup={this.state.hideCard}
-            description={cards[this.state.showCard - 1].cardContent}
+            hidePopup={hideCard}
+            description={cards[showCard - 1].cardContent}
+            noCross
           />
         </div>
         <div className="bloc-en-savoir-plus-type-2__validate-victory">
-          {this.state.victoryMessage && (
-            <PopupBlue>
+          {victoryMessage && (
+            <PopupBlue onCloseClick={this.handleClick}>
               <span className="bloc-en-savoir-plus-type-2__victory-message">
-                {this.state.victoryMessage}
+                {victoryMessage}
               </span>
             </PopupBlue>
           )}

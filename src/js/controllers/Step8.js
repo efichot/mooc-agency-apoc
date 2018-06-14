@@ -6,6 +6,7 @@ import React from 'react';
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import Fade from '../transitions/Fade';
+import BlocStep from '../views/BlocStep';
 
 class Step8 extends React.Component {
   state = {};
@@ -20,6 +21,7 @@ class Step8 extends React.Component {
             const step8 = context.state.step8;
             return (
               <React.Fragment>
+                <BlocStep step={step8.linkStep} />
                 <BlocStepTopContent step={step8} in={isStep8} />
               </React.Fragment>
             );

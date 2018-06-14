@@ -19,237 +19,228 @@ const module_12_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - 0',
-          correctAnswer: false
-        },
-        {
-          content: 'B - 2',
+          content: 'A - Le marché primaire',
           correctAnswer: true
         },
         {
-          content: 'C - 7',
+          content: 'B - Le marché secondaire',
+          correctAnswer: false
+        },
+        {
+          content: 'C - Le marché de gré à gré',
           correctAnswer: false
         }
       ],
       explication: {
-        __html: `La durée de placement recommandée est supérieure à 5 ans pour le fonds Groupe Sodexo PEPS et supérieure à 8 ans pour Amundi Convictions ESR. Les fonds dont la durée de placement est inférieure à 5 ans sont tous compatibles avec un horizon de placement de 5 ans. Toutefois la durée de placement recommandée pour les fonds Amundi 3 mois ESR et Amundi Label Monétaire ESR est de 3 mois. En investissant dans ces fonds, vous ne prenez pas de risque mais vous ne faites pas non plus fructifier votre épargne. Sachant que votre horizon de placement est d’au moins 5 ans, vous pourriez investir une partie de votre épargne dans d’autres fonds, quitte à la réinvestir dans Amundi 3 mois ESR et Amundi Label Monétaire ESR  quand le moment de mobiliser cette épargne se rapprochera.`
+        __html: `Le qualificatif de primaire fait référence aux titres émis, soit par des émetteurs déjà cotés, soit par des émetteurs qui s’introduisent en Bourse. Par analogie au marché des biens de consommation, on pourrait parler de « marché du neuf », tandis qu’on pourrait qualifier de « marché de l’occasion » le marché secondaire où s’échangent entre investisseurs les titres déjà existants.`
       }
     },
     {
       questionNumber: 2,
       question: {
-        __html: `2 - Vous avez lu que la reprise économique allait s’accélérer en zone euro. Quel fonds du PERCO peut permettre de prendre en compte cette situation ?`
+        __html: `2 - Sur quel marché s’échangent les titres non cotés ?`
       },
       answers: [
         {
-          content: 'A - Amundi Convictions ESR',
+          content: 'A -  Le marché parallèle',
           correctAnswer: false
         },
         {
-          content: 'B - CPR ES Croissance',
+          content: 'B- Le marché secondaire',
           correctAnswer: false
         },
         {
-          content: 'C - Expertise Europe Optima',
+          content: 'C - Le marché de gré à gré',
           correctAnswer: true
         }
       ],
       explication: {
-        __html: `Expertise Europe Optima est investi sur l’Europe et il peut être exposé jusqu’à 90% aux actions qui constituent l’actif le plus porteur dans les périodes où une accélération de la croissance est anticipée. Les fonds Amundi Convictions ESR et CPR ES Croissance sont investis sur le monde et donc structurellement moins exposés sur l’Europe. Quant au fonds Amundi Label Harmonie Solidaire ESR qui est aussi présent dans le PERCO, il ne peut investir plus de 30% en actions.`
+        __html: `L’échange de titres entre deux contreparties qui se mettent d’accord sur le prix et les conditions de transaction en dehors du cadre du marché réglementé, se fait sur le marché de gré à gré.`
       }
     },
     {
       questionNumber: 3,
       question: {
-        __html: `3 - Vous projetez de débloquer l’épargne de votre PEG dans l’année. Quelle attitude adopter ?`
+        __html: `3 - Qu’entend-on par marché réglementé ?`
       },
       answers: [
         {
-          content:
-            'A - Sécuriser votre épargne en arbitrant vers le fonds monétaire Amundi 3 mois ESR',
+          content: 'A - Le marché des titres cotés ',
           correctAnswer: true
         },
         {
-          content:
-            'B - Laisser votre épargne sur le fonds actions Groupe Sodexo PEPS',
+          content: 'B- Le marché des titres non cotés',
           correctAnswer: false
         },
         {
-          content:
-            'C - Diversifier votre épargne entre le fonds Amundi Label Équilibre Solidaire ESR et le fonds Groupe Sodexo PEPS',
+          content: 'C - Le marché des titres cotés et non cotés',
           correctAnswer: false
         }
       ],
       explication: {
-        __html: `Vous souhaitez donner du sens à votre investissement financier en soutenant des acteurs qui ont une mission d’utilité sociale. Quel fonds choisir ? La répartition de votre épargne dépend de votre profil d’investisseur et de votre horizon de placement. Puisque vous avez besoin de liquidités à brève échéance, la sécurisation de votre épargne est préférable afin d’éviter d’avoir à vendre au plus mauvais moment, en cas de baisse brutale des marchés financiers. Mieux vaut donc investir dans un fonds de risque 1 comme Amundi 3 mois ESR.`
+        __html: `Le marché réglementé assure la cotation des titres en respectant un certain nombre de dispositions réglementaires qui régissent son fonctionnement. Il est distinct du marché de gré à gré où s’échangent les titres non cotés.`
       }
     },
     {
       questionNumber: 4,
       question: {
-        __html: `4 - Vous souhaitez donner du sens à votre investissement financier en soutenant des acteurs qui ont une mission d’utilité sociale. Quel fonds choisir ?`
+        __html: `4 - Qui régule les marchés financiers réglementés en France ?`
       },
       answers: [
         {
-          content: 'A - Amundi 3 mois ESR',
-          correctAnswer: false
-        },
-        {
-          content: 'B - Amundi Label Équilibre Solidaire ESR',
+          content: 'A - L’Autorité des Marchés Financiers',
           correctAnswer: true
         },
         {
-          content: 'C - Aucun des deux',
+          content: 'B- La Banque de France',
+          correctAnswer: false
+        },
+        {
+          content: 'C - L’Autorité de Contrôle Prudentiel et de Résolution',
           correctAnswer: false
         }
       ],
       explication: {
-        __html: `5 à 10% du fonds Amundi Label Équilibre Solidaire ESR sont investis dans les entreprises de l’économie sociale et solidaire dont l’objet principal est le soutien aux personnes fragilisées, la lutte contre les exclusions et les inégalités, l’éducation, le lien social, le développement durable, la transition énergétique ou la solidarité internationale (loi n°2014-856 du 31 juillet 2014).`
+        __html: `L’Autorité des Marchés Financiers (AMF) est l’autorité publique française indépendante qui régule les marchés financiers. C’est elle qui agrée les sociétés de gestion tandis que l’Autorité de Contrôle Prudentiel et de Résolution (ACPR) agrée les intermédiaires.`
       }
     },
     {
       questionNumber: 5,
       question: {
-        __html: `5 - Compte-tenu des bonnes perspectives du Groupe Sodexo, vous vous étonnez que le fonds Groupe Sodexo PEPS proposé dans le PEG soit plus risqué que le fonds Amundi Convictions ESR proposé dans le PERCO. Comment l’expliquer ?`
+        __html: `5 - Comment appelle-t-on les acteurs qui font des placement sur les marchés financiers ?`
       },
       answers: [
         {
-          content:
-            'A - Les perspectives de croissance du Groupe Sodexo sont surestimées',
+          content: 'A - Les émetteurs',
           correctAnswer: false
         },
         {
-          content:
-            'B - La performance du fonds Groupe Sodexo PEPS dépend d’un seul titre',
+          content: 'B- Les intermédiaires',
+          correctAnswer: false
+        },
+        {
+          content: 'C - Les investisseurs',
           correctAnswer: true
-        },
-        {
-          content:
-            'C - Les titres non cotés détenus par Amundi Convictions ESR réduisent le risque',
-          correctAnswer: false
         }
       ],
       explication: {
-        __html: `Le fonds Groupe Sodexo PEPS est investi exclusivement en actions du Groupe Sodexo. Contrairement au fonds Amundi Convictions ESR dont les investissements sont répartis sur des actions de nombreuses entreprises, son risque est concentré. Cela ne signifie pas que le fonds Groupe Sodexo PEPS sera moins performant que le fonds Amundi Convictions ESR ; par exemple si la croissance du Groupe Sodexo se révélait supérieure à celle des entreprises dont les titres sont détenus par Amundi Convictions ESR, la performance du fonds Groupe Sodexo PEPS pourrait même être supérieure.
-        Quant aux titres non cotés détenus à hauteur de 0 à 30% par Amundi Convictions ESR, ils ne réduisent pas le risque car, échangés de gré à gré entre deux parties, ils peuvent être difficiles à vendre. Ils ne bénéficient pas de la liquidité assurée par la multiplicité des investisseurs présents sur les marchés cotés.`
+        __html: `Sont appelés investisseurs tous les acteurs économiques qui font des placements sur les marchés financiers, achètent des titres ou vendent ceux qu’ils ont achetés.`
       }
     },
     {
       questionNumber: 6,
       question: {
-        __html: `6 - Au moment d’investir, vous hésitez entre le fonds Amundi Label Harmonie Solidaire ESR et le fonds Europe Expertise Optima qui ont la même durée minimum de placement recommandée mais des niveaux de risque respectifs de 3 et de 5. À partir de quels éléments décider ?`
+        __html: `6 - Quelle catégorie d’acteurs ne peut émettre des actions ?`
       },
       answers: [
         {
-          content:
-            'A - Votre propension naturelle à prendre ou ne pas prendre de risque',
+          content: 'A - Les banques',
           correctAnswer: false
         },
         {
-          content: 'B - Votre propre horizon de placement ',
-          correctAnswer: false
-        },
-        {
-          content: 'C - Les deux',
+          content: 'B - Les États',
           correctAnswer: true
+        },
+        {
+          content: 'C - Les entreprises',
+          correctAnswer: false
         }
       ],
       explication: {
-        __html: `Ces deux fonds étant proposés dans le PERCO, on peut penser que votre horizon de placement est long. Vous pouvez donc accroître en proportion votre exposition aux actions qui sont aussi les actifs les plus performants à long terme, en répartissant par exemple vos investissements entre Amundi Label Harmonie Solidaire ESR et Europe Expertise Optima.`
+        __html: `Les États n’ayant pas de capital contrairement aux entreprises et aux banques, ils ne peuvent pas émettre d'action.`
       }
     },
     {
       questionNumber: 7,
       question: {
-        __html: `7 - Vous souhaitez investir au niveau mondial et en fonction des grands enjeux de long terme. Quel fonds privilégier dans le PERCO ?`
+        __html: `7 - Quelle mission n’assure pas l’Autorité des Marchés Financiers ?`
       },
       answers: [
         {
-          content: 'A - Expertise Europe Optima',
+          content:
+            'A -  La protection de l’épargne investie dans les produits financiers',
           correctAnswer: false
         },
         {
-          content: 'B - CPR ES Croissance',
+          content: 'B - L’information des investisseurs',
           correctAnswer: false
         },
         {
-          content: 'C - Amundi Convictions ESR ',
+          content: 'C - Le contrôle des comptes des entreprises cotées',
           correctAnswer: true
         }
       ],
       explication: {
-        __html: `Amundi Convictions ESR a pour objectif sur le long terme d’investir au niveau mondial dans des thématiques et des classes d’actifs en ligne avec la conjoncture économique et liées aux défis mondiaux. En phase de croissance, le fonds privilégie les marchés actions et les valeurs de croissance. Inversement, en phase de décélération voire de récession, le fonds privilégie les valeurs défensives et les classes d’actifs moins risquées.`
+        __html: `L’Autorité des Marchés Financiers (AMF) veille à la fois à la protection de l’épargne investie dans les produits financiers, à l’information des investisseurs et au bon fonctionnement des marchés financiers.`
       }
     },
     {
       questionNumber: 8,
       question: {
-        __html: `8 - Vous pensez investir sur le marché obligataire grâce au fonds Amundi Label Harmonie ESR. Quel élément pourrait vous en dissuader ?`
+        __html: `8 - Quel est le rôle d’une société de gestion ?`
       },
       answers: [
         {
-          content: 'A - Des anticipations de hausse brutale des taux d’intérêt',
-          correctAnswer: true
-        },
-        {
-          content:
-            'B - Le fait que les obligations détenues dans ce fonds soient non cotées',
+          content: 'A - Placer ses propres capitaux',
           correctAnswer: false
         },
         {
-          content: 'C - Les deux',
+          content: 'B- Gérer  pour compte de tiers',
+          correctAnswer: true
+        },
+        {
+          content: 'C - Assurer les échanges entre émetteurs et investisseurs',
           correctAnswer: false
         }
       ],
       explication: {
-        __html: `Le fonds Amundi Label Harmonie ESR est majoritairement investi en obligations cotées. Il est donc sensible aux mouvements des taux d’intérêt. Leur hausse brutale rendrait le rendement des obligations détenues par le fonds comparativement moins intéressant puisque moins élevé que celui des nouvelles obligations émises sur le marché. Cela provoquerait donc une baisse de la valeur des obligations détenues et donc de la valeur du fonds.`
+        __html: `Elle gère des portefeuilles de valeurs mobilières pour le compte de tiers, dans le cadre de contraintes réglementaires et contractuelles et dans l’objectif d’obtenir le meilleur rendement possible en fonction du risque choisi.`
       }
     },
     {
       questionNumber: 9,
       question: {
-        __html: `9 - Vous vous étonnez que les deux fonds monétaires proposés respectivement dans le PEG et le PERCO, Amundi 3 mois ESR et Amundi Label Monétaire ESR, puissent avoir des performances négatives. Quelle raison invoquer ?`
+        __html: `9 - Sur quel marché les banques échangent-elles directement entre elles des actifs financiers à court terme ?`
       },
       answers: [
         {
-          content: 'A - Le gérant ne respecte pas l’objectif de ces fonds',
-          correctAnswer: false
-        },
-        {
-          content: 'B - Leur gestion est de mauvaise qualité',
-          correctAnswer: false
-        },
-        {
-          content: 'C - Leur performance reflète celle du marché monétaire',
+          content: 'A - Le marché interbancaire',
           correctAnswer: true
+        },
+        {
+          content: 'B- Le marché obligataire',
+          correctAnswer: false
+        },
+        {
+          content: 'C - Le marché secondaire',
+          correctAnswer: false
         }
       ],
       explication: {
-        __html: `La performance du marché monétaire est négative depuis 2015 comme l’indique l’évolution de l’EONIA qui est l’indice de référence de ce marché. Les fonds Amundi 3 mois ESR et Amundi Label Monétaire ESR étant classifiés « monétaires » par l’Autorité des Marchés Financiers, ils sont donc quasi intégralement investis sur le marché monétaire et leur performance est donc en ligne avec son évolution. Leur gérant peut néanmoins investir en partie sur des obligations dont l’échéance est très proche, ce qui explique que la performance puisse être meilleure que celle de l’indice de référence en dépit des frais de gestion supportés par ces fonds mais pas par l’indice.`
+        __html: `Les banques commerciales (ou banques de détail) qui collectent les ressources des particuliers et prêtent aux entreprises, ont recours au marché interbancaire pour équilibrer ces flux en échangeant directement entre elles à court terme.`
       }
     },
     {
       questionNumber: 10,
       question: {
-        __html: `10 - Dans le cadre du PERCO, vous souhaitez investir 50% en produits de taux (monétaire et obligataire) et 50% en actions. Quelle proposition privilégier ?`
+        __html: `10 - Qui intervient sur les marchés financiers à la fois en tant qu’émetteur, investisseur et intermédiaire ?`
       },
       answers: [
         {
-          content:
-            'A - 50% en Amundi Label Monétaire ESR et 50% en Amundi Label Harmonie Solidaire ESR',
+          content: 'A - Les États et les collectivités ',
           correctAnswer: false
         },
         {
-          content: 'B - 100% en Amundi Convictions',
-          correctAnswer: false
-        },
-        {
-          content: 'C - 100% en CPR ES Croissance',
+          content: 'B - Les banques et les assureurs',
           correctAnswer: true
+        },
+        {
+          content: 'C - Les courtiers',
+          correctAnswer: false
         }
       ],
       explication: {
-        __html: `Le fonds CPR ES Croissance est le seul qui présente en moyenne la répartition souhaitée en terme d’actifs. Le fonds Amundi Convictions a vocation à être investi principalement en actions, tandis que le fonds Amundi Label Monétaire ESR est investi à 100 % en produits de taux et que le fonds Amundi Label Harmonie Solidaire ESR ne peut pas l’être à plus de 30% en actions.`
+        __html: `A travers leurs différents métiers, les groupes financiers (assureurs, banques) peuvent intervenir sur les marchés financiers à la fois en tant qu’émetteur, investisseur et intermédiaire. La réglementation prévoit néanmoins la séparation de ces métiers en filiales juridiquement distinctes de façon à éviter les conflits d’intérêt.`
       }
     }
   ]

@@ -1,15 +1,22 @@
 .menu-top {
   height: var(--menuTopHeight);
   width: var(--menuTopWidth);
+  margin-bottom: 60px;
+
   border-top-left-radius: var(--menuTopPaddingTop);
   border-top-right-radius: var(--menuTopPaddingTop);
+  border: 1px solid var(--white);
   background-color: var(--menuTopBgColor);
+
+  box-shadow: -2px 2px 10px rgba(0,0,0,0.2);
 
   display: flex;
   justify-content: center;
   align-items: flex-start;
 
   padding-top: var(--menuTopPaddingTop);
+
+  z-index: 10;
 
   &__item {
     flex-grow: 1;

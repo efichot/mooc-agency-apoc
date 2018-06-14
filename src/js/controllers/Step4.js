@@ -4,11 +4,12 @@ import React from 'react';
 /*import PropTypes from 'prop-types';*/
 
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+import Fade from '../transitions/Fade';
+import BlocStep from '../views/BlocStep';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocLink from '../views/BlocLink';
 import BlocQuiz from '../views/BlocQuiz';
 import BlocDragAndDropType2 from '../views/BlocDragAndDropType2';
-import Fade from '../transitions/Fade';
 
 class Step4 extends React.Component {
   state = {
@@ -37,6 +38,7 @@ class Step4 extends React.Component {
             const step4 = context.state.step4;
             return (
               <React.Fragment>
+                <BlocStep step={step4.linkStep} />
                 <BlocStepTopContent step={step4} in={isStep4} />
                 <BlocLink
                   in={isStep4}

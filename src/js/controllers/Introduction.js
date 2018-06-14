@@ -13,6 +13,14 @@ class Introduction extends React.Component {
     return (
       <Fade in={this.props.in} classProps={`introduction`}>
         <UserGameInfos classProps={`introduction`} big />
+        <div className="actualities">
+          <div className="title">Actualité</div>
+          <div className="content">
+            Découvrir les coulisses de votre épargne salariale vous tente ? Pour
+            faire partie des 6 lauréats qui passeront une ½ journée avec les
+            gérants d’Amundi, lancez-vous sans plus tarder !
+          </div>
+        </div>
 
         <GlobalInfosContext.Consumer>
           {context => {

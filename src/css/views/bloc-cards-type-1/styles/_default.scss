@@ -1,0 +1,15 @@
+
+.bloc-cards-type-1 {
+  
+  padding: 10px;
+  margin-bottom: 20px;
+
+  &__cards {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 100px;
+    grid-gap: 10px;
+  }
+
+}

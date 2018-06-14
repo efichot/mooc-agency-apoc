@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactTimeout from 'react-timeout';
 
 import BlocHeader from './BlocHeader';
 import BlocDescription from './BlocDescription';
@@ -23,7 +22,6 @@ class BlocQuiz extends React.Component {
     correctAnswer: null,
     help: false,
     questions: [],
-    timeout: null,
     chrono: 60
   };
 
@@ -54,7 +52,6 @@ class BlocQuiz extends React.Component {
 
   handleValidate = e => {
     this.setState({ help: true });
-    this.props.clearTimeout(this.state.timeout);
     if (this.state.buttonActive === this.state.correctAnswer) {
       if (this.state.victoryMessage === popupVictoryMessage) {
         this.showNextQuestion();
@@ -103,7 +100,15 @@ class BlocQuiz extends React.Component {
   render() {
     const { modulType, noChapter, duration, chapter, name } = this.props;
 
-    const { questions, currentQuestionIndex, chrono } = this.state;
+    const {
+      questions,
+      currentQuestionIndex,
+      chrono,
+      victoryMessage,
+      buttonActive,
+      correctAnswer,
+      help
+    } = this.state;
 
     const { question, answers, explication } = questions[currentQuestionIndex];
 
@@ -134,9 +139,9 @@ class BlocQuiz extends React.Component {
                 id={`QCM_question_1_answer_${index}`}
                 name={answer.content}
                 classProps={`button-quiz${
-                  this.state.buttonActive === index + 1 ? ' active' : ''
-                }${this.state.victoryMessage !== undefined ? ' finished' : ''}${
-                  this.state.correctAnswer === index + 1 ? ' correct' : ''
+                  buttonActive === index + 1 ? ' active' : ''
+                }${victoryMessage !== undefined ? ' finished' : ''}${
+                  correctAnswer === index + 1 ? ' correct' : ''
                 }`}
                 onClick={this.handleClick}
                 answer={index + 1}
@@ -145,28 +150,28 @@ class BlocQuiz extends React.Component {
           })}
         </div>
         <div className="validate-and-popup">
-          {this.state.victoryMessage && (
+          {victoryMessage && (
             <PopupBlue
               classProps={`popup-blue__victory-message`}
               style={{
-                visibility: this.state.victoryMessage ? 'visible' : 'hidden'
+                visibility: victoryMessage ? 'visible' : 'hidden'
               }}
+              noCross
             >
-              <span>{this.state.victoryMessage}</span>
+              <span>{victoryMessage}</span>
             </PopupBlue>
           )}
           <ButtonPrimary
-            name={
-              this.state.victoryMessage !== undefined ? 'suivant' : 'valider'
-            }
+            name={victoryMessage !== undefined ? 'suivant' : 'valider'}
             onClick={this.handleValidate}
             classProps={`bloc-quiz__validate`}
           />
         </div>
-        {this.state.help && (
+        {help && (
           <PopupBlueInnerHtml
             classes={`popup-blue__explication`}
             description={explication}
+            noCross
           />
         )}
       </Fade>
@@ -210,4 +215,4 @@ BlocQuiz.defaultProps = {
   duration: 0
 };
 
-export default ReactTimeout(BlocQuiz);
+export default BlocQuiz;

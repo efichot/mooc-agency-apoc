@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactTimeout from 'react-timeout';
 
 import TextQCM from './TextQCM';
 import PopupBlueInnerHtml from './PopupBlueInnerHtml';
@@ -17,7 +16,8 @@ class TextToFill extends React.Component {
     reset: false,
     showAnswers: false,
     highlightUnchecked: false,
-    gameIsFinished: false
+    gameIsFinished: false,
+    victoryMessage: undefined
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -88,9 +88,6 @@ class TextToFill extends React.Component {
     if (!this.state.filled) {
       const victoryMessage = { __html: `Vous n'avez pas rempli tout le texte` };
       this.setState({ victoryMessage });
-      this.props.setTimeout(() => {
-        this.setState({ victoryMessage: null });
-      }, 1500);
       this.setState({ highlightUnchecked: true });
     } else if (this.state.filledCorrectly) {
       const victoryMessage = { __html: `Bravo ! C'est la bonne réponse.` };
@@ -106,9 +103,6 @@ class TextToFill extends React.Component {
       this.setState({ checkValidated: true });
       this.setState({ highlightUnchecked: false });
       this.setState({ victoryMessage });
-      this.props.setTimeout(() => {
-        this.setState({ victoryMessage: null });
-      }, 1500);
     }
   };
 
@@ -203,6 +197,7 @@ class TextToFill extends React.Component {
             <PopupBlueInnerHtml
               classProps="bloc-text-to-fill__victory-message"
               description={victoryMessage}
+              onCloseClick={() => this.setState({ victoryMessage: undefined })}
             />
           )}
         </div>
@@ -238,4 +233,4 @@ TextToFill.defaultProps = {
   title: undefined
 };
 
-export default ReactTimeout(TextToFill);
+export default TextToFill;

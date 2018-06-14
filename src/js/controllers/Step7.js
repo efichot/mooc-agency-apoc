@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+import Fade from '../transitions/Fade';
+import BlocStep from '../views/BlocStep';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocVideo from '../views/BlocVideo';
 import BlocDivider from '../views/BlocDivider';
@@ -13,7 +15,6 @@ import Step702 from './Step702';
 import ButtonPrimary from '../views/UI/ButtonPrimary';
 import BlocDescription from '../views/BlocDescription';
 import BlocQuiz from '../views/BlocQuiz';
-import Fade from '../transitions/Fade';
 
 class Step7 extends React.Component {
   state = {
@@ -59,6 +60,7 @@ class Step7 extends React.Component {
             if (!showQuiz) {
               return (
                 <React.Fragment>
+                  <BlocStep step={step7.linkStep} />
                   <BlocStepTopContent step={step7} in={isStep7} />
                   <BlocDivider in={isStep7} />
                   <BlocVideo in={isStep7} {...step7.module_02} />

@@ -4,6 +4,9 @@
   bottom: 0;
   right: calc((100vw - var(--masterWidth)) / 2 + var(--innerContentPaddingX) / 2 - var(--buttonCircleRadius) / 2);
   right: calc((100vw - var(--masterWidth)) / 2 - 10px);
+
+  z-index: 10;
+  
   &__item {
     margin-bottom: 5px;
     width: var(--innerContentPaddingX);

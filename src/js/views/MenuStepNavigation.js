@@ -27,8 +27,8 @@ class MenuStepNavigation extends React.Component {
           <div className="menu-step-navigation__title">
             <span>
               {showPart1
-                ? stepNavigation.toggleParts.part2
-                : stepNavigation.toggleParts.part1}
+                ? stepNavigation.toggleParts.part1
+                : stepNavigation.toggleParts.part2}
             </span>
           </div>
           <UserGameInfos classProps={`menu-step-navigation`} />
@@ -55,7 +55,9 @@ class MenuStepNavigation extends React.Component {
                       <span>{stepNavigation[`${key}`].name}</span>
                     </div>
                     <div className="menu-step-navigation__step--durations">
-                      <span>Détails min: 3 / 7 / 3 / 3</span>
+                      <span>
+                        Détail min: {stepNavigation[`${key}`].detailsMin}
+                      </span>
                     </div>
                   </div>
                 </Link>

@@ -2,9 +2,8 @@
   position: fixed;
   width: calc(var(--innerContentPaddingX) * 0.9);
   padding: 5px;
-  /* top: calc(var(--headerHeight) - var(--menuTopHeight) + var(--menuTopPaddingTop)); */
   bottom: 0;
-  height: 450px;
+  margin-left: 100px;
 
   display: flex;
   flex-direction: column;
@@ -15,17 +14,21 @@
   font-size: var(--defaultFontSize);
   text-transform: uppercase;
 
-  &__button > * {
-    margin-top: 10px;
-    height: 75px;
-    box-shadow: 2px 1px 1px var(--shadow);
+  z-index: 10;
+
+  &__button {
+      margin-top: 10px;
+      height: 75px;
+      box-shadow: 2px 1px 1px var(--shadow);
   }
+
 
   &__frame {
     border-radius: 10px;
     background-color: var(--menuStepNavigationBg);
     padding: 10px;
     box-shadow: 2px 1px 1px var(--shadow);
+    margin-bottom: 15px;
   }
 
   &__title {
@@ -84,6 +87,7 @@
 
     &--durations {
       font-size: 0.55rem;
+      text-transform: none;
     }
   }
 

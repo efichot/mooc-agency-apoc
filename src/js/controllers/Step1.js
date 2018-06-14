@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 import Fade from '../transitions/Fade';
+import BlocStep from '../views/BlocStep';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocVideo from '../views/BlocVideo';
 import BlocDivider from '../views/BlocDivider';
@@ -86,6 +87,7 @@ class Step1 extends React.Component {
             if (!showQuiz) {
               return (
                 <React.Fragment>
+                  <BlocStep step={step1.linkStep} />
                   <BlocStepTopContent in={isStep1} step={step1} />
                   <BlocDivider in={isStep1} />
                   <BlocSimulatorsExternalLink

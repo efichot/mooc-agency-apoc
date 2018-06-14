@@ -5,4 +5,10 @@
   background: var(--popupBgColor);
   color: var(--popupContentColor);
   font-size: 0.95rem;
+  .cross {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
 }

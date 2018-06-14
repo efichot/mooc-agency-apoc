@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 import Fade from '../transitions/Fade';
+import BlocStep from '../views/BlocStep';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocTextToFill from '../views/BlocTextToFill';
 import BlocText from '../views/BlocText';
@@ -85,6 +86,7 @@ class Step3 extends React.Component {
             if (!showQuiz) {
               return (
                 <React.Fragment>
+                  <BlocStep step={step3.linkStep} />
                   <BlocStepTopContent in={isStep3} step={step3} />
                   <BlocSubMenu1
                     {...step3.module_02}

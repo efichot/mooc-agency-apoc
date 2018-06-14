@@ -7,7 +7,6 @@ import PopupBlue from './UI/PopupBlue';
 import ButtonPrimary from './UI/ButtonPrimary';
 import BlocHeader from '../views/BlocHeader';
 import BlocDescription from './BlocDescription';
-import ReactTimeout from 'react-timeout';
 import Fade from '../transitions/Fade';
 
 class BlocDragAndDropType1 extends React.Component {
@@ -88,9 +87,6 @@ class BlocDragAndDropType1 extends React.Component {
       this.setState({
         victoryMessage: `Vous n'avez pas rempli toutes les cases.`
       });
-      this.props.setTimeout(() => {
-        this.setState({ victoryMessage: undefined });
-      }, 4000);
       return;
     }
     const falseAnswers = Object.keys(this.state.cardInPosition).filter(
@@ -162,7 +158,11 @@ class BlocDragAndDropType1 extends React.Component {
             <div className="risk-scale">
               <span className="risk-low">Moins de risque</span>
               {this.state.victoryMessage && (
-                <PopupBlue>
+                <PopupBlue
+                  onCloseClick={() =>
+                    this.setState({ victoryMessage: undefined })
+                  }
+                >
                   <span className="">{this.state.victoryMessage}</span>
                 </PopupBlue>
               )}
@@ -241,4 +241,4 @@ BlocDragAndDropType1.defaultProps = {
   }
 };
 
-export default ReactTimeout(BlocDragAndDropType1);
+export default BlocDragAndDropType1;

@@ -7,7 +7,6 @@ import PopupBlue from './UI/PopupBlue';
 import ButtonPrimary from './UI/ButtonPrimary';
 import BlocHeader from '../views/BlocHeader';
 import BlocDescription from './BlocDescription';
-import ReactTimeout from 'react-timeout';
 import Fade from '../transitions/Fade';
 
 // import draggableIcon from '../../assets/img/icons/button-finger.png';
@@ -141,9 +140,6 @@ class BlocDragAndDropType2 extends React.Component {
       this.setState({
         victoryMessage: `Vous n'avez pas rempli toutes les cases.`
       });
-      this.props.setTimeout(() => {
-        this.setState({ victoryMessage: undefined });
-      }, 2000);
       return;
     }
     const falseAnswers = Object.keys(this.state.cardInPosition).filter(
@@ -343,7 +339,9 @@ class BlocDragAndDropType2 extends React.Component {
         </span>
         <div className="bloc-drag-and-drop-2__buttons">
           {this.state.victoryMessage && (
-            <PopupBlue>
+            <PopupBlue
+              onCloseClick={() => this.setState({ victoryMessage: undefined })}
+            >
               <span className="">{this.state.victoryMessage}</span>
             </PopupBlue>
           )}
@@ -417,4 +415,4 @@ BlocDragAndDropType2.defaultProps = {
   }
 };
 
-export default ReactTimeout(BlocDragAndDropType2);
+export default BlocDragAndDropType2;

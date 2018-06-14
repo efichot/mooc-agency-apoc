@@ -36,9 +36,11 @@ br {
   &__inner-container {
     margin-right: var(--innerContentPaddingX);
     margin-left: var(--innerContentPaddingX);
+    margin-top: -60px;
     padding-left: 100px;
-    padding-bottom: var(--masterPaddingBottom);
-
+    border: 1px solid white;
+    box-shadow: -2px 2px 10px rgba(0,0,0,0.2);
+    background-color: var(--masterBgColor);
   }
 }
 
