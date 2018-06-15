@@ -26,6 +26,7 @@ class Step7_03 extends React.Component {
       <Fade in={this.props.in}>
         <BlocDescription
           in={this.props.in}
+          scrollIntoView={this.props.in}
           modulType={step7.module_06_01.modulType}
           description={step7.module_06_01.description}
           padding={20}
@@ -38,7 +39,11 @@ class Step7_03 extends React.Component {
           gameIsFinished={this.handleShowNextModule}
         />
         <BlocDivider in={stepInStep0} />
-        <BlocVideo in={stepInStep0} {...step7.module_06_04} />
+        <BlocVideo
+          in={stepInStep0}
+          scrollIntoView={stepInStep0}
+          {...step7.module_06_04}
+        />
       </Fade>
     );
   }

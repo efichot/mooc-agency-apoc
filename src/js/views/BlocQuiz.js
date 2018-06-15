@@ -98,7 +98,14 @@ class BlocQuiz extends React.Component {
   };
 
   render() {
-    const { modulType, noChapter, duration, chapter, name } = this.props;
+    const {
+      modulType,
+      noChapter,
+      duration,
+      chapter,
+      name,
+      scrollIntoView
+    } = this.props;
 
     const {
       questions,
@@ -113,7 +120,11 @@ class BlocQuiz extends React.Component {
     const { question, answers, explication } = questions[currentQuestionIndex];
 
     return (
-      <Fade classProps={`bloc bloc-quiz`} in={this.props.in}>
+      <Fade
+        classProps={`bloc bloc-quiz`}
+        in={this.props.in}
+        scrollIntoView={scrollIntoView}
+      >
         {!noChapter && (
           <BlocHeader type="chrono" duration={duration} name={chapter} />
         )}
@@ -181,6 +192,7 @@ class BlocQuiz extends React.Component {
 
 BlocQuiz.propTypes = {
   in: PropTypes.bool,
+  scrollIntoView: PropTypes.bool,
 
   /***************** DATA ******************/
 
@@ -211,6 +223,7 @@ BlocQuiz.propTypes = {
 
 BlocQuiz.defaultProps = {
   in: false,
+  scrollIntoView: false,
   noChapter: false,
   duration: 0
 };

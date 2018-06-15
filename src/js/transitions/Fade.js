@@ -17,10 +17,48 @@ const transitionStyles = {
 };
 
 class Fade extends React.Component {
-  state = {};
+  state = {
+    scrolledIntoView: false
+  };
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.scrollIntoView && !prevState.scrolledIntoView) {
+      console.log(
+        'nextProps.scrollIntoView, !prevState.scrolledIntoView',
+        nextProps.scrollIntoView,
+        !prevState.scrolledIntoView
+      );
+      return {
+        ...prevState,
+        scrolledIntoView: true
+      };
+    }
+
+    return prevState;
+  }
+
+  componentDidMount() {
+    if (this.state.scrolledIntoView) {
+      this.module.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log(
+      '!prevState.scrolledIntoView, this.state.scrolledIntoView',
+      !prevState.scrolledIntoView,
+      this.state.scrolledIntoView
+    );
+    if (!prevState.scrolledIntoView && this.state.scrolledIntoView) {
+      console.log('scrolling into view');
+      this.module.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 
   render() {
     const { classProps } = this.props;
+
+    console.log(this.state.scrolledIntoView);
 
     return (
       <Transition
@@ -34,6 +72,7 @@ class Fade extends React.Component {
             <div
               className={classProps ? classProps : ''}
               style={{ ...defaultStyle, ...transitionStyles[state] }}
+              ref={module => (this.module = module)}
             >
               {this.props.children}
             </div>
@@ -46,11 +85,13 @@ class Fade extends React.Component {
 
 Fade.propTypes = {
   in: PropTypes.bool,
+  scrollIntoView: PropTypes.bool,
   classProps: PropTypes.string
 };
 
 Fade.defaultProps = {
   in: false,
+  scrollIntoView: false,
   classProps: ''
 };
 

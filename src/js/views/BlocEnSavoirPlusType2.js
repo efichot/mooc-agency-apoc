@@ -65,7 +65,8 @@ class BlocEnSavoirPlusType2 extends React.Component {
       duration,
       chapter,
       title,
-      firstDescription
+      firstDescription,
+      scrollIntoView
     } = this.props;
 
     const {
@@ -80,6 +81,7 @@ class BlocEnSavoirPlusType2 extends React.Component {
       <Fade
         in={this.props.in}
         classProps={`bloc bloc-en-savoir-plus bloc-en-savoir-plus-type-2`}
+        scrollIntoView={scrollIntoView}
       >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
@@ -173,6 +175,7 @@ BlocEnSavoirPlusType2.propTypes = {
 
 BlocEnSavoirPlusType2.defaultProps = {
   in: false,
+  scrollIntoView: false,
   answer: '',
   /***************** DATA ******************/
 

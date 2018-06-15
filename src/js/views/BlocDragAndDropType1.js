@@ -134,11 +134,16 @@ class BlocDragAndDropType1 extends React.Component {
       duration,
       chapter,
       title,
-      firstDescription
+      firstDescription,
+      scrollIntoView
     } = this.props;
 
     return (
-      <Fade classProps={`bloc bloc-drag-and-drop-1`} in={this.props.in}>
+      <Fade
+        classProps={`bloc bloc-drag-and-drop-1`}
+        in={this.props.in}
+        scrollIntoView={scrollIntoView}
+      >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
         )}

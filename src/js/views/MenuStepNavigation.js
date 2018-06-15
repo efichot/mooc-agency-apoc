@@ -37,7 +37,6 @@ class MenuStepNavigation extends React.Component {
               key => stepNavigation[`${key}`].part === (showPart1 ? 1 : 2)
             )
             .map((key, i, stepsFiltered) => {
-              console.log(`step${stepNavigation[`${key}`].stepLink}`);
               return (
                 <Link
                   key={stepNavigation[`${key}`].name}

@@ -101,7 +101,8 @@ class BlocQCMType3 extends React.Component {
       firstDescription,
       synthese,
       classSelect,
-      lineHeight
+      lineHeight,
+      scrollIntoView
     } = this.props;
 
     const {
@@ -113,7 +114,11 @@ class BlocQCMType3 extends React.Component {
     } = this.state;
 
     return (
-      <Fade in={this.props.in} classProps={`bloc bloc-QCM-type-3`}>
+      <Fade
+        in={this.props.in}
+        classProps={`bloc bloc-QCM-type-3`}
+        scrollIntoView={scrollIntoView}
+      >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
         )}
@@ -280,6 +285,7 @@ BlocQCMType3.propTypes = {
 
 BlocQCMType3.defaultProps = {
   in: false,
+  scrollIntoView: false,
   classSelect: '',
 
   /***************** DATA ******************/

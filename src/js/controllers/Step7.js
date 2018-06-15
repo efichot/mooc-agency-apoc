@@ -8,6 +8,7 @@ import BlocStep from '../views/BlocStep';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocVideo from '../views/BlocVideo';
 import BlocDivider from '../views/BlocDivider';
+import BlocSpacer from '../views/BlocSpacer';
 import BlocSubMenu1 from '../views/BlocSubMenu1';
 import Step703 from './Step703';
 import Step701 from './Step701';
@@ -22,7 +23,7 @@ class Step7 extends React.Component {
     show_02: false,
     show_03: false,
     showSynthese: false,
-    showQuiz: false
+    showQuiz: true
   };
 
   changeMarketToShow = marketToShow => {
@@ -61,7 +62,11 @@ class Step7 extends React.Component {
               return (
                 <React.Fragment>
                   <BlocStep step={step7.linkStep} />
-                  <BlocStepTopContent step={step7} in={isStep7} />
+                  <BlocStepTopContent
+                    step={step7}
+                    in={isStep7}
+                    scrollIntoView={isStep7}
+                  />
                   <BlocDivider in={isStep7} />
                   <BlocVideo in={isStep7} {...step7.module_02} />
                   <BlocSubMenu1
@@ -89,17 +94,20 @@ class Step7 extends React.Component {
                     <div className="step7__synthese step__synthese">
                       <span className="bloc__name">{step7.module_07.name}</span>
                       <BlocDescription
-                        in={show_01}
+                        in={showSynthese && show_01}
+                        scrollIntoView={showSynthese && show_01}
                         modulType={step7.module_07.modulType}
                         description={step7.module_07.description_1}
                       />
                       <BlocDescription
-                        in={show_02}
+                        in={showSynthese && show_02}
+                        scrollIntoView={showSynthese && show_02}
                         modulType={step7.module_07.modulType}
                         description={step7.module_07.description_2}
                       />
                       <BlocDescription
-                        in={show_03}
+                        in={showSynthese && show_03}
+                        scrollIntoView={showSynthese && show_03}
                         modulType={step7.module_07.modulType}
                         description={step7.module_07.description_3}
                       />
@@ -122,7 +130,9 @@ class Step7 extends React.Component {
             } else {
               return (
                 <React.Fragment>
-                  <BlocVideo in {...step7.module_08} />
+                  <BlocStep step={step7.linkStep} />
+                  <BlocSpacer />
+                  <BlocVideo in {...step7.module_08} scrollIntoView />
                   <BlocDivider in />
                   <BlocQuiz in {...step7.module_09} />
                 </React.Fragment>

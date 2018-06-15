@@ -96,11 +96,16 @@ class BlocUpAndDownType1 extends React.Component {
       duration,
       chapter,
       name,
-      firstDescription
+      firstDescription,
+      scrollIntoView
     } = this.props;
 
     return (
-      <Fade classProps={`bloc bloc-up-and-down-type-1`} in={this.props.in}>
+      <Fade
+        classProps={`bloc bloc-up-and-down-type-1`}
+        in={this.props.in}
+        scrollIntoView={scrollIntoView}
+      >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
         )}
@@ -220,7 +225,7 @@ BlocUpAndDownType1.propTypes = {
   /***************** DATA ******************/
 
   modulType: PropTypes.string.isRequired,
-  firstDescription: PropTypes.object.isRequired,
+  firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
   noChapter: PropTypes.bool,
   chapter: PropTypes.string.isRequired,
   duration: PropTypes.number,
@@ -241,6 +246,7 @@ BlocUpAndDownType1.propTypes = {
 
 BlocUpAndDownType1.defaultProps = {
   in: false,
+  scrollIntoView: false,
   noChapter: false,
   duration: 0
 };

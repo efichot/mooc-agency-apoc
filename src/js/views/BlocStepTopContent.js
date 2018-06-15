@@ -7,10 +7,14 @@ import Fade from '../transitions/Fade';
 
 class BlocStepTopContent extends React.Component {
   render() {
-    const { step, videoInIframe } = this.props;
+    const { step, videoInIframe, scrollIntoView } = this.props;
 
     return (
-      <Fade in={this.props.in}>
+      <Fade
+        classProps="bloc-step-top-content"
+        in={this.props.in}
+        scrollIntoView={scrollIntoView}
+      >
         {!videoInIframe && <BlocTitle title={step.title} />}
         {!videoInIframe && <BlocVideo in {...step.module_01} />}
       </Fade>
@@ -20,12 +24,14 @@ class BlocStepTopContent extends React.Component {
 
 BlocStepTopContent.propTypes = {
   in: PropTypes.bool,
+  scrollIntoView: PropTypes.bool,
   step: PropTypes.object.isRequired,
   videoInIframe: PropTypes.bool
 };
 
 BlocStepTopContent.defaultProps = {
   in: false,
+  scrollIntoView: false,
   videoInIframe: false
 };
 

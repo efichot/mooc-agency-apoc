@@ -33,22 +33,29 @@ class Step2_02 extends React.Component {
         <BlocText in={this.props.in} {...step2.module_08_03} />
         <BlocQCMType3
           in={this.props.in}
+          scrollIntoView={this.props.in}
           classSelect="step2-module_08_04"
           {...step2.module_08_04}
           gameIsFinished={this.handleShowNextModule}
         />
         <BlocQCMType3
           in={stepInStep0}
+          scrollIntoView={stepInStep0}
           classSelect="step2-module_08_04"
           {...step2.module_08_05}
           gameIsFinished={this.handleShowNextModule}
         />
         <BlocLink
           in={stepInStep1}
+          scrollIntoView={stepInStep1}
           {...step2.module_08_06}
           onClick={this.handleShowNextModule}
         />
-        <BlocLink in={stepInStep2} {...step2.module_08_07} />
+        <BlocLink
+          in={stepInStep2}
+          scrollIntoView={stepInStep2}
+          {...step2.module_08_07}
+        />
         <BlocLink in={stepInStep2} {...step2.module_08_08} />
       </Fade>
     );

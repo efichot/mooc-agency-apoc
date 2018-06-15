@@ -54,11 +54,16 @@ class BlocQCMType1 extends React.Component {
       name,
       question,
       cards,
-      answers
+      answers,
+      scrollIntoView
     } = this.props;
 
     return (
-      <Fade classProps={`bloc bloc-QCM-type-1`} in={this.props.in}>
+      <Fade
+        classProps={`bloc bloc-QCM-type-1`}
+        in={this.props.in}
+        scrollIntoView={scrollIntoView}
+      >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
         )}

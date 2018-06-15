@@ -36,11 +36,16 @@ class BlocVideo extends React.Component {
       secondary,
       firstDescription,
       videoUrl,
-      secondDescription
+      secondDescription,
+      scrollIntoView
     } = this.props;
 
     return (
-      <Fade classProps={`bloc-video bloc`} in={this.props.in}>
+      <Fade
+        classProps={`bloc-video bloc`}
+        in={this.props.in}
+        scrollIntoView={scrollIntoView}
+      >
         {!noChapter && (
           <BlocHeader type="video" duration={this.state.durationInMinutes} />
         )}
@@ -84,6 +89,7 @@ class BlocVideo extends React.Component {
 
 BlocVideo.propTypes = {
   in: PropTypes.bool,
+  scrollIntoView: PropTypes.bool,
 
   /***************** DATA ******************/
 

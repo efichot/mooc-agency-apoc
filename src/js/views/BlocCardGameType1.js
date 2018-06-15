@@ -1,5 +1,5 @@
 import React from 'react';
-/*import PropTypes from 'prop-types';*/
+import PropTypes from 'prop-types';
 
 import BlocHeader from './BlocHeader';
 import BlocDescription from './BlocDescription';
@@ -149,12 +149,13 @@ class BlocCardGameType1 extends React.Component {
   render() {
     const {
       modulType,
-      noChapter,
+      // noChapter,
       chapter,
       title,
       duration,
       firstDescription,
-      secondary
+      secondary,
+      scrollIntoView
     } = this.props;
 
     const {
@@ -185,11 +186,18 @@ class BlocCardGameType1 extends React.Component {
     const column3CardSet = column3[column3CardIndex];
 
     return (
-      <Fade classProps={`bloc-card-game-type-1`} in={this.props.in}>
-        {!noChapter && (
-          <BlocHeader type="horloge" duration={duration} name={chapter} />
+      <Fade
+        classProps={`bloc-card-game-type-1`}
+        in={this.props.in}
+        scrollIntoView={scrollIntoView}
+      >
+        <BlocHeader type="horloge" duration={duration} name={chapter} />
+        )}: PropTypes.string.isRequired,
+        {title && (
+          <span className={`bloc: PropTypes.bool,__name ${secondary}`}>
+            {title}
+          </span>
         )}
-        {title && <span className={`bloc__name ${secondary}`}>{title}</span>}
         {firstDescription && (
           <BlocDescription
             modulType={modulType}
@@ -495,8 +503,20 @@ class BlocCardGameType1 extends React.Component {
   }
 }
 
-BlocCardGameType1.propTypes = {};
+BlocCardGameType1.propTypes = {
+  modulType: PropTypes.string.isRequired,
+  noChapter: PropTypes.bool,
+  chapter: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  duration: PropTypes.number.isRequired,
+  firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
+  secondary: PropTypes.string.isRequired,
+  scrollIntoView: PropTypes.bool
+};
 
-BlocCardGameType1.defaultProps = {};
+BlocCardGameType1.defaultProps = {
+  noChapter: false,
+  scrollIntoView: false
+};
 
 export default BlocCardGameType1;

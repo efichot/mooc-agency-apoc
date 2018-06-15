@@ -38,7 +38,11 @@ class Step5 extends React.Component {
             return (
               <React.Fragment>
                 <BlocStep step={step5.linkStep} />
-                <BlocStepTopContent step={step5} in={isStep5} />
+                <BlocStepTopContent
+                  step={step5}
+                  in={isStep5}
+                  scrollIntoView={isStep5}
+                />
                 <BlocDivider in={isStep5} />
                 <BlocCardGameType1
                   in={isStep5}

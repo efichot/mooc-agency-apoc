@@ -13,6 +13,7 @@ import BlocText from '../views/BlocText';
 import BlocLink from '../views/BlocLink';
 import BlocQuiz from '../views/BlocQuiz';
 import BlocDivider from '../views/BlocDivider';
+import BlocSpacer from '../views/BlocSpacer';
 import BlocSubMenu1 from '../views/BlocSubMenu1';
 import ButtonPrimary from '../views/UI/ButtonPrimary';
 
@@ -87,35 +88,56 @@ class Step3 extends React.Component {
               return (
                 <React.Fragment>
                   <BlocStep step={step3.linkStep} />
-                  <BlocStepTopContent in={isStep3} step={step3} />
+                  <BlocStepTopContent
+                    in={isStep3}
+                    step={step3}
+                    scrollIntoView={isStep3}
+                  />
                   <BlocSubMenu1
                     {...step3.module_02}
                     in={isStep3}
                     action={this.changeMarketToShow}
                     reset={this.state.reset}
                   />
-                  <BlocLink in={show_01} {...step3.module_03.module_03_01} />
+                  <BlocLink
+                    in={show_01}
+                    scrollIntoView={show_01}
+                    {...step3.module_03.module_03_01}
+                  />
                   <BlocTextToFill
                     in={show_01}
                     {...step3.module_03.module_03_02}
                     gameIsFinished={this.handleShowSynthese}
                     reset={this.state.reset}
                   />
-                  <BlocLink in={show_02} {...step3.module_04.module_04_01} />
+                  <BlocLink
+                    in={show_02}
+                    scrollIntoView={show_02}
+                    {...step3.module_04.module_04_01}
+                  />
                   <BlocTextToFill
                     in={show_02}
+                    scrollIntoView={show_01}
                     {...step3.module_04.module_04_02}
                     gameIsFinished={this.handleShowSynthese}
                     reset={this.state.reset}
                   />
-                  <BlocLink in={show_03} {...step3.module_05.module_05_01} />
+                  <BlocLink
+                    in={show_03}
+                    scrollIntoView={show_03}
+                    {...step3.module_05.module_05_01}
+                  />
                   <BlocTextToFill
                     in={show_03}
                     {...step3.module_05.module_05_02}
                     gameIsFinished={this.handleShowSynthese}
                     reset={this.state.reset}
                   />
-                  <BlocLink in={show_04} {...step3.module_06.module_06_01} />
+                  <BlocLink
+                    in={show_04}
+                    scrollIntoView={show_04}
+                    {...step3.module_06.module_06_01}
+                  />
                   <BlocTextToFill
                     in={show_04}
                     {...step3.module_06.module_06_02}
@@ -127,6 +149,7 @@ class Step3 extends React.Component {
                       <BlocSubMenu1
                         {...step3.module_02}
                         in={showSynthese}
+                        scrollIntoView={showSynthese}
                         action={this.changeMarketToShow}
                         noDescription
                       />
@@ -146,7 +169,9 @@ class Step3 extends React.Component {
             } else {
               return (
                 <React.Fragment>
-                  <BlocText in {...step3.module_12} />
+                  <BlocStep step={step3.linkStep} />
+                  <BlocSpacer />
+                  <BlocText in {...step3.module_12} scrollIntoView />
                   <BlocDivider in />
                   <BlocQuiz in {...step3.module_13} />
                 </React.Fragment>

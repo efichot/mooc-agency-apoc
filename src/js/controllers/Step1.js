@@ -8,6 +8,7 @@ import BlocStep from '../views/BlocStep';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocVideo from '../views/BlocVideo';
 import BlocDivider from '../views/BlocDivider';
+import BlocSpacer from '../views/BlocSpacer';
 import BlocSimulatorsExternalLink from '../views/BlocSimulatorsExternalLink';
 import BlocEnSavoirPlusType2 from '../views/BlocEnSavoirPlusType2';
 import BlocPieChartPlay from '../views/BlocPieChartPlay';
@@ -88,7 +89,11 @@ class Step1 extends React.Component {
               return (
                 <React.Fragment>
                   <BlocStep step={step1.linkStep} />
-                  <BlocStepTopContent in={isStep1} step={step1} />
+                  <BlocStepTopContent
+                    in={isStep1}
+                    step={step1}
+                    scrollIntoView={isStep1}
+                  />
                   <BlocDivider in={isStep1} />
                   <BlocSimulatorsExternalLink
                     in={isStep1}
@@ -106,12 +111,17 @@ class Step1 extends React.Component {
                   />
                   <BlocEnSavoirPlusType2
                     in={stepInStep0}
+                    scrollIntoView={stepInStep0}
                     answer={this.state.fund}
                     {...step1.module_04_bis}
                     gameIsFinished={this.handleShowNextModule}
                   />
                   <BlocDivider in={stepInStep1} />
-                  <BlocText in={stepInStep1} {...step1.module_05} />
+                  <BlocText
+                    in={stepInStep1}
+                    scrollIntoView={stepInStep1}
+                    {...step1.module_05}
+                  />
                   <BlocVideo in={stepInStep1} {...step1.module_06} />
                   <BlocVideo in={stepInStep1} {...step1.module_07} />
                   <BlocVideo in={stepInStep1} {...step1.module_08} />
@@ -122,12 +132,17 @@ class Step1 extends React.Component {
                     gameIsFinished={this.handleShowNextModule}
                   />
                   <BlocDivider in={stepInStep2} />
-                  <BlocVideo in={stepInStep2} {...step1.module_10} />
+                  <BlocVideo
+                    in={stepInStep2}
+                    scrollIntoView={stepInStep2}
+                    {...step1.module_10}
+                  />
                   {showSynthese && (
                     <div className="step1__synthese step__synthese">
                       <span className="bloc__name">{step1.module_11.name}</span>
                       <BlocDescription
-                        in
+                        in={showSynthese}
+                        scrollIntoView={showSynthese}
                         modulType={step1.module_11.modulType}
                         description={step1.module_11.description}
                       />
@@ -145,8 +160,9 @@ class Step1 extends React.Component {
             } else {
               return (
                 <React.Fragment>
-                  <BlocDivider in />
-                  <BlocQuiz in {...step1.module_12} />
+                  <BlocStep step={step1.linkStep} />
+                  <BlocSpacer />
+                  <BlocQuiz in {...step1.module_12} scrollIntoView />
                 </React.Fragment>
               );
             }

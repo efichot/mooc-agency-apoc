@@ -26,11 +26,16 @@ class BlocLink extends React.Component {
       secondDescription,
       linkName,
       link,
-      buttonName
+      buttonName,
+      scrollIntoView
     } = this.props;
 
     return (
-      <Fade classProps={`bloc-link bloc`} in={this.props.in}>
+      <Fade
+        classProps={`bloc-link bloc`}
+        in={this.props.in}
+        scrollIntoView={scrollIntoView}
+      >
         {!noChapter && (
           <BlocHeader type={iconType} duration={duration} name={chapter} />
         )}
@@ -104,6 +109,7 @@ BlocLink.propTypes = {
 
 BlocLink.defaultProps = {
   in: false,
+  scrollIntoView: false,
   noChapter: false,
   duration: 0,
   secondary: '',

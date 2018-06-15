@@ -30,24 +30,30 @@ class Step7_01 extends React.Component {
     return (
       <Fade in={this.props.in}>
         <BlocDescription
-          in
+          in={this.props.in}
+          scrollIntoView={this.props.in}
           modulType={step7.module_04_01.modulType}
           description={step7.module_04_01.description}
           padding={20}
         />
         <BlocDragAndDropType1
-          in
+          in={this.props.in}
           {...step7.module_04_02}
           gameIsFinished={this.handleShowNextModule}
         />
         <BlocDivider in={stepInStep0} />
         <BlocDragAndDropType1
           in={stepInStep0}
+          scrollIntoView={stepInStep0}
           {...step7.module_04_03}
           gameIsFinished={this.handleShowNextModule}
         />
         <BlocDivider in={stepInStep1} />
-        <BlocVideo in={stepInStep1} {...step7.module_04_04} />
+        <BlocVideo
+          in={stepInStep1}
+          scrollIntoView={stepInStep1}
+          {...step7.module_04_04}
+        />
         <BlocUpAndDownType1
           in={stepInStep1}
           {...step7.module_04_05}
@@ -55,6 +61,7 @@ class Step7_01 extends React.Component {
         />
         <BlocUpAndDownType1
           in={stepInStep2}
+          scrollIntoView={stepInStep2}
           {...step7.module_04_06}
           gameIsFinished={this.handleShowNextModule}
           noHeader

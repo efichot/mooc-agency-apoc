@@ -14,7 +14,6 @@ const ChapterPresentation = ({
   button,
   videoUrl
 }) => {
-  console.log('name, button', name, button);
   return (
     <Fade
       in={inProps}

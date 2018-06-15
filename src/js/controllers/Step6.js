@@ -11,6 +11,7 @@ import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocText from '../views/BlocText';
 import BlocQuiz from '../views/BlocQuiz';
 import BlocDivider from '../views/BlocDivider';
+import BlocSpacer from '../views/BlocSpacer';
 import BlocSubMenu1 from '../views/BlocSubMenu1';
 import BlocCardsType1 from '../views/BlocCardsType1';
 import BlocQCMType4 from '../views/BlocQCMType4';
@@ -18,7 +19,7 @@ import ButtonPrimary from '../views/UI/ButtonPrimary';
 
 class Step6 extends React.Component {
   state = {
-    show_01: true,
+    show_01: false,
     show_02: false,
     show_03: false,
     show_04: false,
@@ -26,7 +27,7 @@ class Step6 extends React.Component {
     showSynthese: false,
     showQuiz: false,
     reset: false,
-    show_01_selectedRow: 1
+    show_01_selectedRow: undefined
   };
 
   handleShowNextModule = async module => {
@@ -88,7 +89,11 @@ class Step6 extends React.Component {
               return (
                 <React.Fragment>
                   <BlocStep step={step6.linkStep} />
-                  <BlocStepTopContent in={isStep6} step={step6} />
+                  <BlocStepTopContent
+                    in={isStep6}
+                    step={step6}
+                    scrollIntoView={isStep6}
+                  />
                   <BlocSubMenu1
                     {...step6.module_02}
                     in={isStep6}
@@ -98,6 +103,7 @@ class Step6 extends React.Component {
                   <BlocCardsType1
                     {...step6.module_03_01}
                     in={show_01}
+                    scrollIntoView={show_01}
                     selectedRow={index =>
                       this.setState({ show_01_selectedRow: index })
                     }
@@ -112,13 +118,17 @@ class Step6 extends React.Component {
                     in={
                       show_01 && show_01_selectedRow && show_01_selectedRow > 0
                     }
-                    selectedRow={show_01_selectedRow}
+                    scrollIntoView={
+                      show_01 && show_01_selectedRow && show_01_selectedRow > 0
+                    }
+                    selectedRow={show_01_selectedRow || 0}
                   />
                   {showSynthese && (
                     <div className="step6__synthese step__synthese">
                       <BlocSubMenu1
                         {...step6.module_02}
                         in={showSynthese}
+                        scrollIntoView={showSynthese}
                         action={this.changeMarketToShow}
                         noDescription
                       />
@@ -138,7 +148,9 @@ class Step6 extends React.Component {
             } else {
               return (
                 <React.Fragment>
-                  <BlocText in {...step6.module_12} />
+                  <BlocStep step={step6.linkStep} />
+                  <BlocSpacer />
+                  <BlocText in {...step6.module_12} scrollIntoView />
                   <BlocDivider in />
                   <BlocQuiz in {...step6.module_13} />
                 </React.Fragment>

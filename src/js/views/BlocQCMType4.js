@@ -82,7 +82,8 @@ class BlocQCMType4 extends React.Component {
       name,
       fields,
       cards,
-      selectedRow
+      selectedRow,
+      scrollIntoView
     } = this.props;
 
     const { proposedAnswers, gameIsFinished, victoryMessage } = this.state;
@@ -90,7 +91,11 @@ class BlocQCMType4 extends React.Component {
     const isProposedAnswers = Object.keys(proposedAnswers).length > 0;
 
     return (
-      <Fade classProps={`bloc bloc-QCM-type-4`} in={this.props.in}>
+      <Fade
+        classProps={`bloc bloc-QCM-type-4`}
+        in={this.props.in}
+        scrollIntoView={scrollIntoView}
+      >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
         )}
@@ -141,8 +146,6 @@ class BlocQCMType4 extends React.Component {
               <div key={field} className="field">
                 {Object.keys(cards[selectedRow].answers[field]).map(
                   (key, i) => {
-                    console.log({ key, field });
-                    console.log('proposedAnswers', proposedAnswers);
                     return (
                       <ButtonPrimary
                         key={key}

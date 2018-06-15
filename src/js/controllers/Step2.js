@@ -13,6 +13,7 @@ import BlocVideo from '../views/BlocVideo';
 import BlocText from '../views/BlocText';
 import BlocQuiz from '../views/BlocQuiz';
 import BlocDivider from '../views/BlocDivider';
+import BlocSpacer from '../views/BlocSpacer';
 import BlocSubMenu1 from '../views/BlocSubMenu1';
 import BlocQCMType2 from '../views/BlocQCMType2';
 import ButtonPrimary from '../views/UI/ButtonPrimary';
@@ -23,7 +24,7 @@ import Step204 from './Step204';
 
 class Step2 extends React.Component {
   state = {
-    show_01: true,
+    show_01: false,
     show_02: false,
     show_03: false,
     show_04: false,
@@ -91,6 +92,7 @@ class Step2 extends React.Component {
                   <BlocStep step={step2.linkStep} />
                   <BlocStepTopContent
                     in={isStep2}
+                    scrollIntoView={isStep2}
                     step={step2}
                     videoInIframe={!mainThread}
                   />
@@ -108,6 +110,7 @@ class Step2 extends React.Component {
                   />
                   <BlocVideo
                     in={stepInStep0 && mainThread}
+                    scrollIntoView={stepInStep0 && mainThread}
                     {...step2.module_05}
                   />
                   <BlocSubMenu1
@@ -141,6 +144,7 @@ class Step2 extends React.Component {
                       <BlocSubMenu1
                         {...step2.module_06}
                         in={showSynthese}
+                        scrollIntoView={showSynthese}
                         action={this.changeMarketToShow}
                         noDescription
                       />
@@ -158,7 +162,9 @@ class Step2 extends React.Component {
             } else {
               return (
                 <React.Fragment>
-                  <BlocText in {...step2.module_12} />
+                  <BlocStep step={step2.linkStep} />
+                  <BlocSpacer />
+                  <BlocText in {...step2.module_12} scrollIntoView />
                   <BlocDivider in />
                   <BlocQuiz in {...step2.module_13} />
                 </React.Fragment>

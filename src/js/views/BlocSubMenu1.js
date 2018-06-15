@@ -12,10 +12,20 @@ class BlocSubMenu1 extends React.Component {
   };
 
   render() {
-    const { modulType, description, buttons, noDescription } = this.props;
+    const {
+      modulType,
+      description,
+      buttons,
+      noDescription,
+      scrollIntoView
+    } = this.props;
 
     return (
-      <Fade classProps={`bloc-sub-menu-1 bloc`} in={this.props.in}>
+      <Fade
+        classProps={`bloc-sub-menu-1 bloc`}
+        in={this.props.in}
+        scrollIntoView={scrollIntoView}
+      >
         {!noDescription && (
           <BlocDescription
             modulType={modulType}
@@ -45,7 +55,7 @@ BlocSubMenu1.propTypes = {
   /***************** DATA ******************/
 
   modulType: PropTypes.string.isRequired,
-  description: PropTypes.object.isRequired,
+  description: PropTypes.shape({ __html: PropTypes.string.isRequired }),
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
       position: PropTypes.number.isRequired,
@@ -60,6 +70,7 @@ BlocSubMenu1.propTypes = {
 
 BlocSubMenu1.defaultProps = {
   in: false,
+  scrollIntoView: false,
   noDescription: false
 };
 

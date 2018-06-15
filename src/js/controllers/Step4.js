@@ -6,6 +6,7 @@ import React from 'react';
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 import Fade from '../transitions/Fade';
 import BlocStep from '../views/BlocStep';
+import BlocSpacer from '../views/BlocSpacer';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocLink from '../views/BlocLink';
 import BlocQuiz from '../views/BlocQuiz';
@@ -47,6 +48,7 @@ class Step4 extends React.Component {
                 />
                 <BlocLink
                   in={stepInStep1}
+                  scrollIntoView={stepInStep1}
                   {...step4.module_03}
                   onClick={this.handleShowNextModule}
                 />

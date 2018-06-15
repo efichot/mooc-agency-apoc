@@ -31,13 +31,15 @@ class BlocEnSavoirPlusType1 extends React.Component {
       duration,
       chapter,
       title,
-      firstDescription
+      firstDescription,
+      scrollIntoView
     } = this.props;
 
     return (
       <Fade
         in={this.props.in}
         classProps={`bloc bloc-en-savoir-plus bloc-en-savoir-plus-type-1`}
+        scrollIntoView={scrollIntoView}
       >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />

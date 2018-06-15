@@ -87,13 +87,18 @@ class BlocPieChartPlay extends React.Component {
       chapter,
       name,
       description,
-      buttons
+      buttons,
+      scrollIntoView
     } = this.props;
 
     const { pieData, hidePopup } = this.state;
 
     return (
-      <Fade classProps={`bloc bloc-pie-chart-play bloc`} in={this.props.in}>
+      <Fade
+        classProps={`bloc bloc-pie-chart-play bloc`}
+        in={this.props.in}
+        scrollIntoView={scrollIntoView}
+      >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
         )}

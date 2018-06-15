@@ -20,13 +20,18 @@ class BlocCardsType1 extends React.Component {
       duration,
       firstDescription,
       secondary,
-      cards
+      cards,
+      scrollIntoView
     } = this.props;
 
     const { selectedRow } = this.state;
 
     return (
-      <Fade classProps={`bloc-cards-type-1`} in={this.props.in}>
+      <Fade
+        classProps={`bloc-cards-type-1`}
+        in={this.props.in}
+        scrollIntoView={scrollIntoView}
+      >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
         )}
