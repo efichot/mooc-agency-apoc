@@ -58,6 +58,7 @@ class Step7_01 extends React.Component {
           in={stepInStep1}
           {...step7.module_04_05}
           gameIsFinished={this.handleShowNextModule}
+          margins
         />
         <BlocUpAndDownType1
           in={stepInStep2}

@@ -23,7 +23,7 @@ class Step7 extends React.Component {
     show_02: false,
     show_03: false,
     showSynthese: false,
-    showQuiz: true
+    showQuiz: false
   };
 
   changeMarketToShow = marketToShow => {
@@ -92,6 +92,7 @@ class Step7 extends React.Component {
 
                   {showSynthese && (
                     <div className="step7__synthese step__synthese">
+                      <BlocSpacer />
                       <span className="bloc__name">{step7.module_07.name}</span>
                       <BlocDescription
                         in={showSynthese && show_01}
@@ -112,10 +113,12 @@ class Step7 extends React.Component {
                         description={step7.module_07.description_3}
                       />
                       <BlocSubMenu1
+                        in={showSynthese}
                         {...step7.module_03}
                         action={this.changeMarketToShow}
                         noDescription
                       />
+                      <BlocSpacer />
                       <ButtonPrimary
                         name={step7.module_07.button_1}
                         onClick={this.handleShowQuiz}

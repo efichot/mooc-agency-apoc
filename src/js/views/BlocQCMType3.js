@@ -118,6 +118,7 @@ class BlocQCMType3 extends React.Component {
         in={this.props.in}
         classProps={`bloc bloc-QCM-type-3`}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
@@ -128,7 +129,7 @@ class BlocQCMType3 extends React.Component {
           classProps="bloc__first-description"
           description={firstDescription}
         />
-        <div className="bloc-QCM-type-3__questions">
+        <div className="bloc-QCM-type-3__questions game">
           <div
             className="bloc-QCM-type-3__questions--to-hover"
             style={{
@@ -267,8 +268,8 @@ BlocQCMType3.propTypes = {
           selectNumber: PropTypes.number.isRequired,
           choices: PropTypes.arrayOf(
             PropTypes.shape({
-              value: PropTypes.number.isRequired,
-              label: PropTypes.number.isRequired
+              value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+              label: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
             }).isRequired
           ),
           answer: PropTypes.oneOfType([PropTypes.number, PropTypes.string])

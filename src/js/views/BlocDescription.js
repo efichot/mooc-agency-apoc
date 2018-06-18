@@ -13,7 +13,7 @@ class BlocDescription extends React.Component {
         .replace(/[\r\n]/g, '<br />');
 
       return (
-        <Fade in={this.props.in}>
+        <Fade in={this.props.in} margins={this.props.margins}>
           <p
             className={`bloc bloc-description ${classProps}`}
             dangerouslySetInnerHTML={description}
@@ -51,7 +51,7 @@ BlocDescription.propTypes = {
 BlocDescription.defaultProps = {
   in: true,
   classProps: '',
-  padding: 10
+  padding: 0
 };
 
 export default BlocDescription;

@@ -18,7 +18,11 @@ class BlocHeader extends React.Component {
     const name = this.props.type === 'video' ? 'Vidéo' : this.props.name;
 
     return (
-      <Fade in={this.props.in} classProps=" bloc-header">
+      <Fade
+        in={this.props.in}
+        classProps=" bloc-header"
+        margins={this.props.margins}
+      >
         <div
           className="bloc-header__picture"
           style={{ backgroundImage: `url(${picType})` }}

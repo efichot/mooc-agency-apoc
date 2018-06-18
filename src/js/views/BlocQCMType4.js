@@ -95,6 +95,7 @@ class BlocQCMType4 extends React.Component {
         classProps={`bloc bloc-QCM-type-4`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
@@ -105,7 +106,7 @@ class BlocQCMType4 extends React.Component {
           classProps="bloc__first-description"
           description={firstDescription}
         />
-        <div className="bloc-QCM-type-4__cards">
+        <div className="bloc-QCM-type-4__cards game">
           {cards[selectedRow].cardsSet.map((card, i) => (
             <CardContentType4
               key={i}

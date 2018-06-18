@@ -63,7 +63,8 @@ const module_08_05_blocQCMType3 = {
   questions: [
     {
       questionNumber: 1,
-      title: `Quels sont les 2 pays les plus surpondérés ?`
+      title: `Quels sont les 2 pays les plus surpondérés ?`,
+      selects: []
     },
     {
       questionNumber: 2,
@@ -99,7 +100,8 @@ const module_08_05_blocQCMType3 = {
     },
     {
       questionNumber: 4,
-      title: `Quels sont les 2 pays les plus sous-pondérés ?`
+      title: `Quels sont les 2 pays les plus sous-pondérés ?`,
+      selects: []
     },
     {
       questionNumber: 5,

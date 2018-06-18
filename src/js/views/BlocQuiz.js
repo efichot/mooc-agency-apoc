@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import BlocHeader from './BlocHeader';
+import BlocSpacer from './BlocSpacer';
 import BlocDescription from './BlocDescription';
 import ButtonPrimary from './UI/ButtonPrimary';
 import PopupBlue from './UI/PopupBlue';
@@ -124,6 +125,7 @@ class BlocQuiz extends React.Component {
         classProps={`bloc bloc-quiz`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type="chrono" duration={duration} name={chapter} />
@@ -142,6 +144,7 @@ class BlocQuiz extends React.Component {
             description={question}
           />
         </div>
+        <BlocSpacer />
         <div className="bloc-quiz__answers">
           {answers.map((answer, index) => {
             return (
@@ -160,6 +163,7 @@ class BlocQuiz extends React.Component {
             );
           })}
         </div>
+        <BlocSpacer />
         <div className="validate-and-popup">
           {victoryMessage && (
             <PopupBlue

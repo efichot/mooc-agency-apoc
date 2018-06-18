@@ -27,7 +27,7 @@ class Step2 extends React.Component {
     show_01: false,
     show_02: false,
     show_03: false,
-    show_04: false,
+    show_04: true,
     showNextModule: 0,
     showSynthese: false,
     showQuiz: false
@@ -99,8 +99,9 @@ class Step2 extends React.Component {
                   <BlocEnSavoirPlusType1
                     in={isStep2 && mainThread}
                     {...step2.module_02}
+                    margins
                   />
-                  <BlocDivider in={isStep2 && mainThread} />
+                  <BlocDivider in={isStep2 && mainThread} noMarginTop />
                   <BlocVideo in={isStep2 && mainThread} {...step2.module_03} />
                   <BlocDivider in={isStep2 && mainThread} />
                   <BlocQCMType2
@@ -108,6 +109,7 @@ class Step2 extends React.Component {
                     {...step2.module_04}
                     gameIsFinished={this.handleShowNextModule}
                   />
+                  <BlocSpacer />
                   <BlocVideo
                     in={stepInStep0 && mainThread}
                     scrollIntoView={stepInStep0 && mainThread}

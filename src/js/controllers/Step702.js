@@ -42,6 +42,7 @@ class Step7_02 extends React.Component {
           in={this.props.in}
           {...step7.module_05_03}
           gameIsFinished={this.handleShowNextModule}
+          margins
         />
         {/*<BlocDivider in={stepInStep0} />*/}
         <BlocDragAndDropType1
@@ -60,6 +61,7 @@ class Step7_02 extends React.Component {
           in={stepInStep1}
           {...step7.module_05_06}
           gameIsFinished={this.handleShowNextModule}
+          margins
         />
         <BlocUpAndDownType1
           in={stepInStep2}

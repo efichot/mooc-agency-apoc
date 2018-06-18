@@ -63,6 +63,7 @@ class BlocQCMType1 extends React.Component {
         classProps={`bloc bloc-QCM-type-1`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
@@ -80,7 +81,7 @@ class BlocQCMType1 extends React.Component {
           classProps="bloc__first-description"
           description={question}
         />
-        <div className="bloc-QCM-type-1__answer-and-popup">
+        <div className="bloc-QCM-type-1__answer-and-popup game">
           <div className="bloc-QCM-type-1__answers">
             {answers.map((answer, index) => {
               return (

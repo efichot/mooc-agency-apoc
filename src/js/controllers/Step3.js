@@ -99,51 +99,68 @@ class Step3 extends React.Component {
                     action={this.changeMarketToShow}
                     reset={this.state.reset}
                   />
-                  <BlocLink
-                    in={show_01}
-                    scrollIntoView={show_01}
-                    {...step3.module_03.module_03_01}
-                  />
-                  <BlocTextToFill
-                    in={show_01}
-                    {...step3.module_03.module_03_02}
-                    gameIsFinished={this.handleShowSynthese}
-                    reset={this.state.reset}
-                  />
-                  <BlocLink
-                    in={show_02}
-                    scrollIntoView={show_02}
-                    {...step3.module_04.module_04_01}
-                  />
-                  <BlocTextToFill
-                    in={show_02}
-                    scrollIntoView={show_01}
-                    {...step3.module_04.module_04_02}
-                    gameIsFinished={this.handleShowSynthese}
-                    reset={this.state.reset}
-                  />
-                  <BlocLink
-                    in={show_03}
-                    scrollIntoView={show_03}
-                    {...step3.module_05.module_05_01}
-                  />
-                  <BlocTextToFill
-                    in={show_03}
-                    {...step3.module_05.module_05_02}
-                    gameIsFinished={this.handleShowSynthese}
-                    reset={this.state.reset}
-                  />
-                  <BlocLink
-                    in={show_04}
-                    scrollIntoView={show_04}
-                    {...step3.module_06.module_06_01}
-                  />
-                  <BlocTextToFill
-                    in={show_04}
-                    {...step3.module_06.module_06_02}
-                    gameIsFinished={this.handleShowSynthese}
-                    reset={this.state.reset}
-                  />
+                  <BlocSpacer />
+                  {show_01 && (
+                    <BlocLink
+                      in={show_01}
+                      scrollIntoView={show_01}
+                      {...step3.module_03.module_03_01}
+                    />
+                  )}
+                  {show_01 && (
+                    <BlocTextToFill
+                      in={show_01}
+                      {...step3.module_03.module_03_02}
+                      gameIsFinished={this.handleShowSynthese}
+                      reset={this.state.reset}
+                    />
+                  )}
+                  {show_02 && (
+                    <BlocLink
+                      in={show_02}
+                      scrollIntoView={show_02}
+                      {...step3.module_04.module_04_01}
+                    />
+                  )}
+                  {show_02 && (
+                    <BlocTextToFill
+                      in={show_02}
+                      scrollIntoView={show_01}
+                      {...step3.module_04.module_04_02}
+                      gameIsFinished={this.handleShowSynthese}
+                      reset={this.state.reset}
+                    />
+                  )}
+                  {show_03 && (
+                    <BlocLink
+                      in={show_03}
+                      scrollIntoView={show_03}
+                      {...step3.module_05.module_05_01}
+                    />
+                  )}
+                  {show_03 && (
+                    <BlocTextToFill
+                      in={show_03}
+                      {...step3.module_05.module_05_02}
+                      gameIsFinished={this.handleShowSynthese}
+                      reset={this.state.reset}
+                    />
+                  )}
+                  {show_04 && (
+                    <BlocLink
+                      in={show_04}
+                      scrollIntoView={show_04}
+                      {...step3.module_06.module_06_01}
+                    />
+                  )}
+                  {show_04 && (
+                    <BlocTextToFill
+                      in={show_04}
+                      {...step3.module_06.module_06_02}
+                      gameIsFinished={this.handleShowSynthese}
+                      reset={this.state.reset}
+                    />
+                  )}
                   {showSynthese && (
                     <div className="step3__synthese step__synthese">
                       <BlocSubMenu1

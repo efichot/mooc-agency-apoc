@@ -40,6 +40,7 @@ class BlocEnSavoirPlusType1 extends React.Component {
         in={this.props.in}
         classProps={`bloc bloc-en-savoir-plus bloc-en-savoir-plus-type-1`}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
@@ -50,7 +51,7 @@ class BlocEnSavoirPlusType1 extends React.Component {
           classProps="bloc__first-description"
           description={firstDescription}
         />
-        <div className="bloc-en-savoir-plus-type-1__cards">
+        <div className="bloc-en-savoir-plus-type-1__cards game">
           <div className="bloc-en-savoir-plus-type-1__cards--to-hover">
             {cards.map((card, index) => {
               const hover =

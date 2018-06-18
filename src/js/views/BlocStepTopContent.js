@@ -14,8 +14,9 @@ class BlocStepTopContent extends React.Component {
         classProps="bloc-step-top-content"
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
-        {!videoInIframe && <BlocTitle title={step.title} />}
+        {!videoInIframe && <BlocTitle title={step.title} margins />}
         {!videoInIframe && <BlocVideo in {...step.module_01} />}
       </Fade>
     );

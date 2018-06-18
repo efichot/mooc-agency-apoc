@@ -101,6 +101,7 @@ class Step1 extends React.Component {
                   />
                   <BlocSimulatorsExternalLink
                     in={isStep1}
+                    height={350}
                     {...step1.module_03}
                   />
                   <BlocDivider in={isStep1} />
@@ -112,11 +113,12 @@ class Step1 extends React.Component {
                   <BlocEnSavoirPlusType2
                     in={stepInStep0}
                     scrollIntoView={stepInStep0}
+                    margins
                     answer={this.state.fund}
                     {...step1.module_04_bis}
                     gameIsFinished={this.handleShowNextModule}
                   />
-                  <BlocDivider in={stepInStep1} />
+                  <BlocDivider in={stepInStep1} noMarginTop />
                   <BlocText
                     in={stepInStep1}
                     scrollIntoView={stepInStep1}
@@ -139,6 +141,7 @@ class Step1 extends React.Component {
                   />
                   {showSynthese && (
                     <div className="step1__synthese step__synthese">
+                      <BlocSpacer />
                       <span className="bloc__name">{step1.module_11.name}</span>
                       <BlocDescription
                         in={showSynthese}
@@ -146,6 +149,7 @@ class Step1 extends React.Component {
                         modulType={step1.module_11.modulType}
                         description={step1.module_11.description}
                       />
+                      <BlocSpacer />
                       <ButtonPrimary
                         name={step1.module_11.button_1}
                         onClick={this.handleShowQuiz}

@@ -295,6 +295,7 @@ class BlocDragAndDropType2 extends React.Component {
         classProps={`bloc bloc-drag-and-drop-2`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
@@ -305,7 +306,7 @@ class BlocDragAndDropType2 extends React.Component {
           classProps="bloc__first-description"
           description={firstDescription}
         />
-        <div className="bloc-drag-and-drop-2__start">
+        <div className="bloc-drag-and-drop-2__start game">
           <div className="icon-draggable" />
           {cards
             .filter(card => card.isDraggable)

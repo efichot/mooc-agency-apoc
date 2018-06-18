@@ -6,6 +6,7 @@ import DropCard from './UI/DropCard';
 import PopupBlue from './UI/PopupBlue';
 import ButtonPrimary from './UI/ButtonPrimary';
 import BlocHeader from '../views/BlocHeader';
+import BlocSpacer from '../views/BlocSpacer';
 import BlocDescription from './BlocDescription';
 import Fade from '../transitions/Fade';
 
@@ -143,6 +144,7 @@ class BlocDragAndDropType1 extends React.Component {
         classProps={`bloc bloc-drag-and-drop-1`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
@@ -153,7 +155,7 @@ class BlocDragAndDropType1 extends React.Component {
           classProps="bloc__first-description"
           description={firstDescription}
         />
-        <div className="bloc-drag-and-drop-1__cards">
+        <div className="bloc-drag-and-drop-1__cards game">
           <React.Fragment>
             <div className="drop-cards-start">
               {cards.map((onlyForIndex, indexDrop) =>
@@ -186,6 +188,7 @@ class BlocDragAndDropType1 extends React.Component {
             </div>
           </React.Fragment>
         </div>
+        <BlocSpacer />
         <div className="bloc-drag-and-drop-1__buttons">
           <ButtonPrimary name="Recommencer" onClick={this.reset} />
           <ButtonPrimary name="Valider" onClick={this.checkAnswers} />

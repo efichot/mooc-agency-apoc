@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 
+import BlocSpacer from '../views/BlocSpacer';
+
 import { duration } from './transitionUtils';
 
 const defaultStyle = {
@@ -23,11 +25,6 @@ class Fade extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.scrollIntoView && !prevState.scrolledIntoView) {
-      console.log(
-        'nextProps.scrollIntoView, !prevState.scrolledIntoView',
-        nextProps.scrollIntoView,
-        !prevState.scrolledIntoView
-      );
       return {
         ...prevState,
         scrolledIntoView: true
@@ -44,21 +41,13 @@ class Fade extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log(
-      '!prevState.scrolledIntoView, this.state.scrolledIntoView',
-      !prevState.scrolledIntoView,
-      this.state.scrolledIntoView
-    );
     if (!prevState.scrolledIntoView && this.state.scrolledIntoView) {
-      console.log('scrolling into view');
       this.module.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
   render() {
-    const { classProps } = this.props;
-
-    console.log(this.state.scrolledIntoView);
+    const { classProps, margins } = this.props;
 
     return (
       <Transition
@@ -74,7 +63,9 @@ class Fade extends React.Component {
               style={{ ...defaultStyle, ...transitionStyles[state] }}
               ref={module => (this.module = module)}
             >
+              {margins && <BlocSpacer />}
               {this.props.children}
+              {margins && <BlocSpacer />}
             </div>
           );
         }}
@@ -85,12 +76,14 @@ class Fade extends React.Component {
 
 Fade.propTypes = {
   in: PropTypes.bool,
+  margins: PropTypes.bool,
   scrollIntoView: PropTypes.bool,
   classProps: PropTypes.string
 };
 
 Fade.defaultProps = {
   in: false,
+  margins: false,
   scrollIntoView: false,
   classProps: ''
 };

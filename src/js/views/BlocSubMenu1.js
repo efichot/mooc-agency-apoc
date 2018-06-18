@@ -25,6 +25,7 @@ class BlocSubMenu1 extends React.Component {
         classProps={`bloc-sub-menu-1 bloc`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noDescription && (
           <BlocDescription
@@ -33,7 +34,7 @@ class BlocSubMenu1 extends React.Component {
             description={description}
           />
         )}
-        <div className="bloc-sub-menu-1__buttons">
+        <div className="bloc-sub-menu-1__buttons game">
           {buttons.map((button, i) => {
             return (
               <ButtonWithArrow

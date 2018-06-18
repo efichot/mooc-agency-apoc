@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import BlocHeader from './BlocHeader';
+import BlocSpacer from './BlocSpacer';
 import BlocDescription from './BlocDescription';
 import ButtonPrimary from './UI/ButtonPrimary';
 import Fade from '../transitions/Fade';
@@ -35,6 +36,7 @@ class BlocLink extends React.Component {
         classProps={`bloc-link bloc`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type={iconType} duration={duration} name={chapter} />
@@ -84,6 +86,7 @@ class BlocLink extends React.Component {
             onClick={this.handleClick}
           />
         )}
+        <BlocSpacer />
       </Fade>
     );
   }

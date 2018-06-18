@@ -124,8 +124,6 @@ class BlocCardGameType1 extends React.Component {
     const proposedAnswer = this.state[`${column}SecondCards`][index].secondCard
       .answerNumber;
 
-    console.log('correctAnswer, proposedAnswer', correctAnswer, proposedAnswer);
-
     if (correctAnswer === proposedAnswer) {
       this.setState({ victoryMessage: 'Bravo ! Vous avez réussi' });
       column === 'column1' &&
@@ -190,14 +188,10 @@ class BlocCardGameType1 extends React.Component {
         classProps={`bloc-card-game-type-1`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         <BlocHeader type="horloge" duration={duration} name={chapter} />
-        )}: PropTypes.string.isRequired,
-        {title && (
-          <span className={`bloc: PropTypes.bool,__name ${secondary}`}>
-            {title}
-          </span>
-        )}
+        {title && <span className={`bloc__name ${secondary}`}>{title}</span>}
         {firstDescription && (
           <BlocDescription
             modulType={modulType}
@@ -205,7 +199,7 @@ class BlocCardGameType1 extends React.Component {
             description={firstDescription}
           />
         )}
-        <div className="bloc-card-game-type-1__game">
+        <div className="bloc-card-game-type-1__game game">
           {/*
 
             COLUMN 1

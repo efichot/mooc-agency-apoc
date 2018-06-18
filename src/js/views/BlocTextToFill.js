@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import BlocHeader from './BlocHeader';
+import BlocSpacer from './BlocSpacer';
 import BlocDescription from './BlocDescription';
 import TextToFill from './UI/TextToFill';
 import Fade from '../transitions/Fade';
@@ -45,7 +46,11 @@ class BlocTextToFill extends React.Component {
     const { showNextModule } = this.state;
 
     return (
-      <Fade in={this.props.in} classProps={`bloc bloc-text-to-fill`}>
+      <Fade
+        in={this.props.in}
+        classProps={`bloc bloc-text-to-fill`}
+        margins={this.props.margins}
+      >
         {!noChapter && (
           <BlocHeader type={iconType} duration={duration} name={chapter} />
         )}
@@ -56,19 +61,25 @@ class BlocTextToFill extends React.Component {
           description={description}
         />
         {firstText && (
-          <TextToFill
-            in={this.props.in}
-            textToFill={firstText}
-            gameIsFinished={this.handleTextFinished}
-          />
+          <React.Fragment>
+            <BlocSpacer />
+            <TextToFill
+              in={this.props.in}
+              textToFill={firstText}
+              gameIsFinished={this.handleTextFinished}
+            />
+          </React.Fragment>
         )}
         {secondText && (
-          <TextToFill
-            in={showNextModule > 0}
-            title={title2}
-            textToFill={secondText}
-            gameIsFinished={this.handleTextFinished}
-          />
+          <React.Fragment>
+            <BlocSpacer />
+            <TextToFill
+              in={showNextModule > 0}
+              title={title2}
+              textToFill={secondText}
+              gameIsFinished={this.handleTextFinished}
+            />
+          </React.Fragment>
         )}
       </Fade>
     );

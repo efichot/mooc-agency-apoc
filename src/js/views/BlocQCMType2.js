@@ -125,6 +125,7 @@ class BlocQCMType2 extends React.Component {
         in={this.props.in}
         classProps={`bloc bloc-QCM-type-2`}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
@@ -135,7 +136,7 @@ class BlocQCMType2 extends React.Component {
           classProps="bloc__first-description"
           description={firstDescription}
         />
-        <div className="bloc-QCM-type-2__questions">
+        <div className="bloc-QCM-type-2__questions game">
           <div
             className="bloc-QCM-type-2__questions--to-hover"
             style={{

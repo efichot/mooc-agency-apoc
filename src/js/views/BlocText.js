@@ -25,6 +25,7 @@ class BlocText extends React.Component {
         classProps={`bloc-video bloc`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type={iconType} duration={duration} name={chapter} />

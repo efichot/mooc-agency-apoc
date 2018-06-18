@@ -4,6 +4,7 @@ import Player from '@vimeo/player';
 // import Iframe from 'react-iframe';
 
 import BlocHeader from './BlocHeader';
+import BlocSpacer from './BlocSpacer';
 import BlocDescription from './BlocDescription';
 import Fade from '../transitions/Fade';
 
@@ -45,6 +46,7 @@ class BlocVideo extends React.Component {
         classProps={`bloc-video bloc`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type="video" duration={this.state.durationInMinutes} />
@@ -59,7 +61,7 @@ class BlocVideo extends React.Component {
             description={firstDescription}
           />
         )}
-        <div className="bloc-video__video--container">
+        <div className="bloc-video__video--container game">
           <iframe
             ref={this.video}
             title={name}
@@ -76,11 +78,14 @@ class BlocVideo extends React.Component {
           />
         </div>
         {secondDescription && (
-          <BlocDescription
-            modulType={modulType}
-            classProps="bloc__second-description"
-            description={secondDescription}
-          />
+          <React.Fragment>
+            <BlocSpacer />
+            <BlocDescription
+              modulType={modulType}
+              classProps="bloc__second-description"
+              description={secondDescription}
+            />
+          </React.Fragment>
         )}
       </Fade>
     );

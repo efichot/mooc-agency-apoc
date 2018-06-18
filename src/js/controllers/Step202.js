@@ -5,11 +5,10 @@ import BlocVideo from '../views/BlocVideo';
 import BlocLink from '../views/BlocLink';
 import BlocText from '../views/BlocText';
 import BlocQCMType3 from '../views/BlocQCMType3';
-import Fade from '../transitions/Fade';
 
 class Step2_02 extends React.Component {
   state = {
-    showNextModule: 1
+    showNextModule: 0
   };
 
   handleShowNextModule = () => {
@@ -22,25 +21,29 @@ class Step2_02 extends React.Component {
   render() {
     const step2 = this.props.context.module_08;
 
-    const stepInStep0 = this.state.showNextModule > 0;
-    const stepInStep1 = this.state.showNextModule > 1;
-    const stepInStep2 = this.state.showNextModule > 2;
+    const stepInStep0 = this.props.in && this.state.showNextModule > 0;
+    const stepInStep1 = this.props.in && this.state.showNextModule > 1;
+    const stepInStep2 = this.props.in && this.state.showNextModule > 2;
 
     return (
-      <Fade in={this.props.in}>
-        <BlocVideo in={this.props.in} {...step2.module_08_01} />
+      <React.Fragment>
+        <BlocVideo
+          in={this.props.in}
+          scrollIntoView={this.props.in}
+          {...step2.module_08_01}
+        />
         <BlocLink in={this.props.in} {...step2.module_08_02} />
         <BlocText in={this.props.in} {...step2.module_08_03} />
         <BlocQCMType3
           in={this.props.in}
-          scrollIntoView={this.props.in}
+          margins
           classSelect="step2-module_08_04"
           {...step2.module_08_04}
           gameIsFinished={this.handleShowNextModule}
         />
         <BlocQCMType3
           in={stepInStep0}
-          scrollIntoView={stepInStep0}
+          margins
           classSelect="step2-module_08_04"
           {...step2.module_08_05}
           gameIsFinished={this.handleShowNextModule}
@@ -57,7 +60,7 @@ class Step2_02 extends React.Component {
           {...step2.module_08_07}
         />
         <BlocLink in={stepInStep2} {...step2.module_08_08} />
-      </Fade>
+      </React.Fragment>
     );
   }
 }

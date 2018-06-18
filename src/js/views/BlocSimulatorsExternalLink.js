@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import BlocHeader from './BlocHeader';
+import BlocSpacer from './BlocSpacer';
 import BlocDescription from './BlocDescription';
 import ButtonPrimary from '../views/UI/ButtonPrimary';
 import Fade from '../transitions/Fade';
@@ -24,11 +25,16 @@ class BlocSimulatorsExternalLink extends React.Component {
       backgroundImage,
       secondDescription,
       button,
-      link
+      link,
+      height
     } = this.props;
 
     return (
-      <Fade in={this.props.in} classProps={`bloc-simulator bloc`}>
+      <Fade
+        in={this.props.in}
+        classProps={`bloc-simulator bloc`}
+        margins={this.props.margins}
+      >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
         )}
@@ -40,6 +46,7 @@ class BlocSimulatorsExternalLink extends React.Component {
             description={firstDescription}
           />
         )}
+        <BlocSpacer />
         <a
           className="bloc-simulator__link--picture bloc-simulator__link"
           href={link}
@@ -48,9 +55,10 @@ class BlocSimulatorsExternalLink extends React.Component {
         >
           <div
             className="bloc-simulator__background-img"
-            style={{ backgroundImage: `url(${backgroundImage})` }}
+            style={{ height, backgroundImage: `url(${backgroundImage})` }}
           />
         </a>
+        <BlocSpacer />
         <a
           className="bloc-simulator__link--button bloc-simulator__link"
           href={link}
@@ -59,6 +67,7 @@ class BlocSimulatorsExternalLink extends React.Component {
         >
           <ButtonPrimary name={button} onClick={this.handleClick} />
         </a>
+        <BlocSpacer />
         {secondDescription && (
           <BlocDescription
             modulType={modulType}
@@ -78,6 +87,7 @@ BlocSimulatorsExternalLink.propTypes = {
   noChapter: PropTypes.bool,
   chapter: PropTypes.string,
   duration: PropTypes.number,
+  height: PropTypes.number,
   name: PropTypes.string.isRequired,
   firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired })
     .isRequired,
@@ -92,6 +102,7 @@ BlocSimulatorsExternalLink.defaultProps = {
   noChapter: false,
   chapter: '',
   duration: 0,
+  height: 500,
   secondDescription: undefined
 };
 

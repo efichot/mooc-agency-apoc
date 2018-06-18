@@ -2,11 +2,10 @@
 .bloc {
   @extend %flex-column-top-left;
   width: 100%;
-  padding: 10px;
+  padding-left: 30px;
+  padding-right: 10px;
+  
   font-size: 0.875rem;
-  > * {
-    margin-bottom: 1rem;
-  }
 
   &__name {
     color: var(--blocNameColor);
@@ -18,5 +17,8 @@
     }
   }
 
-
+  .game {
+    margin-top: 50px;
+    // margin-bottom: 50px;
+  }
 }

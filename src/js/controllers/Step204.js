@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import BlocQCMType2 from '../views/BlocQCMType2';
 import BlocLink from '../views/BlocLink';
-import Fade from '../transitions/Fade';
+import BlocSpacer from '../views/BlocSpacer';
 
 class Step2_04 extends React.Component {
   state = {
@@ -24,7 +24,7 @@ class Step2_04 extends React.Component {
     const stepInStep1 = this.state.showNextModule > 1;
 
     return (
-      <Fade in={this.props.in}>
+      <React.Fragment>
         <BlocQCMType2
           in={this.props.in}
           scrollIntoView={this.props.in}
@@ -32,6 +32,7 @@ class Step2_04 extends React.Component {
           {...step2.module_10_01}
           gameIsFinished={this.handleShowNextModule}
         />
+        <BlocSpacer />
         <BlocLink
           in={stepInStep0}
           scrollIntoView={stepInStep0}
@@ -44,7 +45,7 @@ class Step2_04 extends React.Component {
           {...step2.module_10_03}
         />
         <BlocLink in={stepInStep1} {...step2.module_10_04} />
-      </Fade>
+      </React.Fragment>
     );
   }
 }

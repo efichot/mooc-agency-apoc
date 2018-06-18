@@ -6,6 +6,7 @@ import ButtonWithDoubleArrow from './UI/ButtonWithDoubleArrow';
 import ButtonPrimary from './UI/ButtonPrimary';
 import BlocDescription from './BlocDescription';
 import BlocHeader from './BlocHeader';
+import BlocSpacer from './BlocSpacer';
 import PopupBlue from './UI/PopupBlue';
 import Fade from '../transitions/Fade';
 
@@ -98,6 +99,7 @@ class BlocPieChartPlay extends React.Component {
         classProps={`bloc bloc-pie-chart-play bloc`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
@@ -110,7 +112,9 @@ class BlocPieChartPlay extends React.Component {
             description={description}
           />
         )}
+        <BlocSpacer />
         <PieChart data={pieData} viewBoxSize={300} />
+        <BlocSpacer />
         <div className="bloc-pie-chart-play__buttons">
           {buttons.map((button, i) => {
             return (
@@ -127,6 +131,7 @@ class BlocPieChartPlay extends React.Component {
             );
           })}
         </div>
+        <BlocSpacer />
         <div className="bloc-pie-chart-play__validate-victory">
           <ButtonPrimary
             name="valider"

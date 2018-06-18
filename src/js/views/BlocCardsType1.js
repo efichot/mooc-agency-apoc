@@ -31,6 +31,7 @@ class BlocCardsType1 extends React.Component {
         classProps={`bloc-cards-type-1`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
@@ -43,7 +44,7 @@ class BlocCardsType1 extends React.Component {
             description={firstDescription}
           />
         )}
-        <div className="bloc-cards-type-1__cards">
+        <div className="bloc-cards-type-1__cards game">
           {cards.map((cardset, rowIndex) =>
             cardset.map((card, colIndex) => (
               <div

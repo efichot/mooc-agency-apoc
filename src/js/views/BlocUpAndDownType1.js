@@ -105,6 +105,7 @@ class BlocUpAndDownType1 extends React.Component {
         classProps={`bloc bloc-up-and-down-type-1`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
+        margins={this.props.margins}
       >
         {!noChapter && (
           <BlocHeader type="horloge" duration={duration} name={chapter} />
@@ -117,7 +118,7 @@ class BlocUpAndDownType1 extends React.Component {
         />
         <span className="legend legend-high">Plus de performance</span>
         <div
-          className="bloc-up-and-down-type-1__grid"
+          className="bloc-up-and-down-type-1__grid game"
           style={{
             display: 'grid',
             gridTemplateColumns: `repeat(${cards.length}, 1fr 5px)`
@@ -203,7 +204,6 @@ class BlocUpAndDownType1 extends React.Component {
           <div className="legend__low--left">Moins</div>
           <div className="legend__low--right">Plus de risque</div>
         </div>
-
         <div className="bloc-up-and-down-type-1__buttons">
           <ButtonPrimary name="Recommencer" onClick={this.reset} />
           {this.state.victoryMessage && (
