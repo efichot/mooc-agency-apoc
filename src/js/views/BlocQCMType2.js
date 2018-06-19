@@ -8,6 +8,7 @@ import PopupBlue from './UI/PopupBlue';
 import PopupBlueInnerHtml from './UI/PopupBlueInnerHtml';
 import SelectQCM from './UI/SelectQCM';
 import Fade from '../transitions/Fade';
+import victoryMessages from '../model/static/popupBlueMessages';
 
 import arrowDown from '../../assets/img/icons/arrow-down.svg';
 
@@ -85,13 +86,13 @@ class BlocQCMType2 extends React.Component {
     });
     this.setState({ hideExplanation: false });
     if (correct) {
-      const victoryMessage = { __html: `Bravo ! C'est la bonne réponse.` };
+      const victoryMessage = { __html: victoryMessages.isVictory };
       this.setState({ victoryMessage });
       this.setState({ gameIsFinished: true });
       this.props.gameIsFinished(this.state.gameIsFinished);
     } else {
       const victoryMessage = {
-        __html: `Ce n'est pas la bonne réponse.<br />Réessayez !`
+        __html: victoryMessages.isDefeatHTML
       };
       this.setState({ victoryMessage });
     }

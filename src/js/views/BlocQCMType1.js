@@ -7,6 +7,7 @@ import CardContentType1 from './UI/CardContentType1';
 import ButtonPrimary from './UI/ButtonPrimary';
 import PopupBlue from './UI/PopupBlue';
 import Fade from '../transitions/Fade';
+import victoryMessages from '../model/static/popupBlueMessages';
 
 class BlocQCMType1 extends React.Component {
   state = {
@@ -23,12 +24,12 @@ class BlocQCMType1 extends React.Component {
 
   handleValidate = e => {
     if (this.state.buttonActive === this.state.correctAnswer) {
-      this.setState({ victoryMessage: `Bravo ! C'est la bonne réponse.` });
+      this.setState({ victoryMessage: victoryMessages.isVictory });
       this.setState({ gameIsFinished: true });
       this.props.gameIsFinished(this.state.gameIsFinished);
     } else {
       this.setState({
-        victoryMessage: `Ce n'est pas la bonne réponse. Réessayez !`
+        victoryMessage: victoryMessages.isDefeat
       });
     }
   };

@@ -9,9 +9,10 @@ import PopupBlue from './UI/PopupBlue';
 import Chrono from './UI/Chrono';
 import PopupBlueInnerHtml from './UI/PopupBlueInnerHtml';
 import Fade from '../transitions/Fade';
+import victoryMessages from '../model/static/popupBlueMessages';
 
-const popupVictoryMessage = `Bravo ! C'est la bonne réponse.`;
-const popupDefeatMessage = `Ce n'est pas la bonne réponse. Dommage !`;
+const popupVictoryMessage = victoryMessages.isVictory;
+const popupDefeatMessage = victoryMessages.isDefeatOneShot;
 
 class BlocQuiz extends React.Component {
   state = {

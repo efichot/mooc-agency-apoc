@@ -9,6 +9,7 @@ import BlocHeader from '../views/BlocHeader';
 import BlocSpacer from '../views/BlocSpacer';
 import BlocDescription from './BlocDescription';
 import Fade from '../transitions/Fade';
+import victoryMessages from '../model/static/popupBlueMessages';
 
 class BlocDragAndDropType1 extends React.Component {
   state = {
@@ -86,7 +87,7 @@ class BlocDragAndDropType1 extends React.Component {
       Object.keys(this.state.cardInPosition).length < this.state.cardCounter
     ) {
       this.setState({
-        victoryMessage: `Vous n'avez pas rempli toutes les cases.`
+        victoryMessage: victoryMessages.casesNotFilled
       });
       return;
     }
@@ -94,13 +95,13 @@ class BlocDragAndDropType1 extends React.Component {
       card => !this.state.cardInPosition[`${card}`]
     );
     if (falseAnswers.length === 0) {
-      this.setState({ victoryMessage: 'Bravo, vous avez réussi !' });
+      this.setState({ victoryMessage: victoryMessages.isVictory });
       this.setState({ gameIsFinished: true });
       this.props.gameIsFinished(this.props.module);
       return;
     } else {
       this.setState({
-        victoryMessage: `Ce n'est pas la bonne réponse... réessayez !`
+        victoryMessage: victoryMessages.isDefeat
       });
       return;
     }

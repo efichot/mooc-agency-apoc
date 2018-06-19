@@ -6,6 +6,7 @@ import ButtonPrimary from './UI/ButtonPrimary';
 import BlocHeader from '../views/BlocHeader';
 import BlocDescription from './BlocDescription';
 import Fade from '../transitions/Fade';
+import victoryMessages from '../model/static/popupBlueMessages';
 
 import button_down_right from '../../assets/img/icons/button-down-right.svg';
 import button_up_left from '../../assets/img/icons/button-up-left.svg';
@@ -55,13 +56,13 @@ class BlocUpAndDownType1 extends React.Component {
         this.state.solutions[`${index}`] - 1
     );
     if (falseAnswers.length === 0) {
-      this.setState({ victoryMessage: 'Bravo, vous avez réussi !' });
+      this.setState({ victoryMessage: victoryMessages.isVictory });
       this.setState({ gameIsFinished: true });
       this.props.gameIsFinished(this.state.gameIsFinished);
       return;
     } else {
       this.setState({
-        victoryMessage: `Ce n'est pas la bonne réponse... réessayez !`
+        victoryMessage: victoryMessages.isDefeat
       });
       return;
     }

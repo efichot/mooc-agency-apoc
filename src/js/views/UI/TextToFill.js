@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import TextQCM from './TextQCM';
-import PopupBlueInnerHtml from './PopupBlueInnerHtml';
 import ButtonPrimary from './ButtonPrimary';
 import Fade from '../../transitions/Fade';
+import PopupBlueInnerHtml from './PopupBlueInnerHtml';
+import victoryMessages from '../../model/static/popupBlueMessages';
 
 class TextToFill extends React.Component {
   state = {
@@ -86,11 +87,11 @@ class TextToFill extends React.Component {
       return;
     }
     if (!this.state.filled) {
-      const victoryMessage = { __html: `Vous n'avez pas rempli tout le texte` };
+      const victoryMessage = { __html: victoryMessages.textNotFilled };
       this.setState({ victoryMessage });
       this.setState({ highlightUnchecked: true });
     } else if (this.state.filledCorrectly) {
-      const victoryMessage = { __html: `Bravo ! C'est la bonne réponse.` };
+      const victoryMessage = { __html: victoryMessages.isVictory };
       this.setState({ victoryMessage });
       this.setState({ checkValidated: true });
       this.setState({ highlightUnchecked: false });
@@ -98,7 +99,7 @@ class TextToFill extends React.Component {
       this.props.gameIsFinished(true);
     } else {
       const victoryMessage = {
-        __html: `Ce n'est pas la bonne réponse.<br />Réessayez !`
+        __html: victoryMessages.isDefeatHTML
       };
       this.setState({ checkValidated: true });
       this.setState({ highlightUnchecked: false });

@@ -143,7 +143,7 @@ class BlocPieChartPlay extends React.Component {
             onCloseClick={() => this.setState({ hidePopup: true })}
           >
             <span className="card-title">
-              La composition de votre fonds est incomplète. réessayez !
+              La composition de votre fonds est incomplète. Réessayez !
             </span>
           </PopupBlue>
         </div>

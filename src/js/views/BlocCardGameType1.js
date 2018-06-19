@@ -7,6 +7,7 @@ import CardContentType3 from './UI/CardContentType3';
 import ButtonWithDoubleArrow from './UI/ButtonWithDoubleArrow';
 import Fade from '../transitions/Fade';
 import PopupBlue from './UI/PopupBlue';
+import victoryMessages from '../model/static/popupBlueMessages';
 
 import backCard from '../../assets/img/step5/card.png';
 
@@ -125,7 +126,7 @@ class BlocCardGameType1 extends React.Component {
       .answerNumber;
 
     if (correctAnswer === proposedAnswer) {
-      this.setState({ victoryMessage: 'Bravo ! Vous avez réussi' });
+      this.setState({ victoryMessage: victoryMessages.isVictory });
       column === 'column1' &&
         this.setState({ column1card3: true, step: 'column3card1' });
       column === 'column3' &&
@@ -135,7 +136,7 @@ class BlocCardGameType1 extends React.Component {
         this.props.gameIsFinished();
     } else {
       this.setState({
-        victoryMessage: "Ce n'est pas la bonne réponse. Réessayez !"
+        victoryMessage: victoryMessages.isDefeat
       });
     }
   };
