@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Select, { components } from 'react-select';
 import SVGInline from 'react-svg-inline';
 
-import button_down_right from '../../../assets/img/icons/button-down-right.svg';
+import button_down_right from '../../../assets/img/icons/button-down-right.png';
 
 const DropdownIndicator = props => {
   return (

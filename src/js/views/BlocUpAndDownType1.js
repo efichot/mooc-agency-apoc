@@ -8,8 +8,8 @@ import BlocDescription from './BlocDescription';
 import Fade from '../transitions/Fade';
 import victoryMessages from '../model/static/popupBlueMessages';
 
-import button_down_right from '../../assets/img/icons/button-down-right.svg';
-import button_up_left from '../../assets/img/icons/button-up-left.svg';
+import button_down_right from '../../assets/img/icons/button-down-right.png';
+import button_up_left from '../../assets/img/icons/button-up-left.png';
 
 class BlocUpAndDownType1 extends React.Component {
   state = {

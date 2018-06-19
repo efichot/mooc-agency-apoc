@@ -25,6 +25,7 @@ class DropCard extends React.Component {
   }
 
   handleDragOver = event => {
+    this.setState({ isDraggingOver: true });
     const isDragCard = contains(event.dataTransfer.types, 'drag-card');
     const isEndDropCard = this.props.startOrEnd === 'end';
     if (isDragCard && isEndDropCard) {
@@ -32,7 +33,12 @@ class DropCard extends React.Component {
     }
   };
 
+  handleDragExit = e => {
+    this.setState({ isDraggingOver: false });
+  };
+
   handleDrop = async event => {
+    this.setState({ isDraggingOver: false });
     const data = event.dataTransfer.getData('drag-card');
     await this.setState({
       title: data.split('+++')[0],
@@ -47,12 +53,13 @@ class DropCard extends React.Component {
   render() {
     const { startOrEnd } = this.props;
 
-    const { title, subtitle } = this.state;
+    const { title, subtitle, isDraggingOver } = this.state;
 
     return (
       <div
-        className={`drop-card`}
+        className={`drop-card ${isDraggingOver ? 'dragging-over' : ''}`}
         onDragOver={this.handleDragOver}
+        onDragLeave={this.handleDragExit}
         onDrop={this.handleDrop}
       >
         {startOrEnd === 'end' &&

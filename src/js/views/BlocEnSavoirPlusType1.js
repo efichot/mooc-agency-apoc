@@ -7,7 +7,7 @@ import ButtonPrimary from './UI/ButtonPrimary';
 import PopupBlue from './UI/PopupBlue';
 import Fade from '../transitions/Fade';
 
-import arrowDown from '../../assets/img/icons/arrow-down.svg';
+import arrowDown from '../../assets/img/icons/arrow-down.png';
 
 class BlocEnSavoirPlusType1 extends React.Component {
   state = {

@@ -10,7 +10,7 @@ import SelectQCM from './UI/SelectQCM';
 import Fade from '../transitions/Fade';
 import victoryMessages from '../model/static/popupBlueMessages';
 
-import arrowDown from '../../assets/img/icons/arrow-down.svg';
+import arrowDown from '../../assets/img/icons/arrow-down.png';
 
 class BlocQCMType2 extends React.Component {
   state = {

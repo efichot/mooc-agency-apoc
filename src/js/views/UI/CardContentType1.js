@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import draggableIcon from '../../../assets/img/icons/button-finger.svg';
+import draggableIcon from '../../../assets/img/icons/button-finger.png';
 
 class CardContentType1 extends React.Component {
   super = {};
