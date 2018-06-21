@@ -7,10 +7,10 @@ class BlocDescription extends React.Component {
   render() {
     const { description, classProps, padding } = this.props;
 
+    console.log('description', description);
+
     if (description.__html) {
-      description.__html = description.__html
-        .replace(/\r\n/g, '<br />')
-        .replace(/[\r\n]/g, '<br />');
+      description.__html = description.__html.replace(/\r\n/g, '<br />').replace(/[\r\n]/g, '<br />');
 
       return (
         <Fade in={this.props.in} margins={this.props.margins}>
@@ -24,10 +24,7 @@ class BlocDescription extends React.Component {
     } else {
       return (
         <Fade>
-          <p
-            className={`bloc bloc-description${classProps}`}
-            style={{ padding: `${padding}px` }}
-          >
+          <p className={`bloc bloc-description${classProps}`} style={{ padding: `${padding}px` }}>
             {description}
           </p>
         </Fade>
@@ -38,20 +35,18 @@ class BlocDescription extends React.Component {
 
 BlocDescription.propTypes = {
   in: PropTypes.bool,
-  description: PropTypes.oneOfType([
-    PropTypes.shape({ __html: PropTypes.string.isRequired }),
-    PropTypes.string
-  ]).isRequired,
+  description: PropTypes.oneOfType([PropTypes.shape({ __html: PropTypes.string.isRequired }), PropTypes.string])
+    .isRequired,
   /***************** DATA ******************/
   classProps: PropTypes.string,
   padding: PropTypes.number,
-  modulType: PropTypes.string.isRequired
+  modulType: PropTypes.string.isRequired,
 };
 
 BlocDescription.defaultProps = {
   in: true,
   classProps: '',
-  padding: 0
+  padding: 0,
 };
 
 export default BlocDescription;

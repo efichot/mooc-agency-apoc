@@ -27,10 +27,10 @@ class Step2 extends React.Component {
     show_01: false,
     show_02: false,
     show_03: false,
-    show_04: true,
+    show_04: false,
     showNextModule: 0,
     showSynthese: false,
-    showQuiz: false
+    showQuiz: false,
   };
 
   handleShowNextModule = async module => {
@@ -44,9 +44,7 @@ class Step2 extends React.Component {
     const stateCopy = { ...this.state };
 
     Object.keys(stateCopy).forEach(stateAction => {
-      stateAction === marketToShow
-        ? (stateCopy[`${stateAction}`] = true)
-        : (stateCopy[`${stateAction}`] = false);
+      stateAction === marketToShow ? (stateCopy[`${stateAction}`] = true) : (stateCopy[`${stateAction}`] = false);
     });
     this.setState(stateCopy);
   };
@@ -63,15 +61,7 @@ class Step2 extends React.Component {
   };
 
   render() {
-    const {
-      show_01,
-      show_02,
-      show_03,
-      show_04,
-      showSynthese,
-      showQuiz,
-      showNextModule
-    } = this.state;
+    const { show_01, show_02, show_03, show_04, showSynthese, showQuiz, showNextModule } = this.state;
 
     const mainThread = !show_01 && !show_02 && !show_03 && !show_04;
 
@@ -90,17 +80,8 @@ class Step2 extends React.Component {
               return (
                 <React.Fragment>
                   <BlocStep step={step2.linkStep} />
-                  <BlocStepTopContent
-                    in={isStep2}
-                    scrollIntoView={isStep2}
-                    step={step2}
-                    videoInIframe={!mainThread}
-                  />
-                  <BlocEnSavoirPlusType1
-                    in={isStep2 && mainThread}
-                    {...step2.module_02}
-                    margins
-                  />
+                  <BlocStepTopContent in={isStep2} scrollIntoView={isStep2} step={step2} videoInIframe={!mainThread} />
+                  <BlocEnSavoirPlusType1 in={isStep2 && mainThread} {...step2.module_02} margins />
                   <BlocDivider in={isStep2 && mainThread} noMarginTop />
                   <BlocVideo in={isStep2 && mainThread} {...step2.module_03} />
                   <BlocDivider in={isStep2 && mainThread} />
@@ -115,31 +96,11 @@ class Step2 extends React.Component {
                     scrollIntoView={stepInStep0 && mainThread}
                     {...step2.module_05}
                   />
-                  <BlocSubMenu1
-                    {...step2.module_06}
-                    in={stepInStep0 && mainThread}
-                    action={this.changeMarketToShow}
-                  />
-                  <Step201
-                    in={show_01}
-                    context={step2}
-                    endOfModules={this.handleShowSynthese}
-                  />
-                  <Step202
-                    in={show_02}
-                    context={step2}
-                    endOfModules={this.handleShowSynthese}
-                  />
-                  <Step203
-                    in={show_03}
-                    context={step2}
-                    endOfModules={this.handleShowSynthese}
-                  />
-                  <Step204
-                    in={show_04}
-                    context={step2}
-                    endOfModules={this.handleShowSynthese}
-                  />
+                  <BlocSubMenu1 {...step2.module_06} in={stepInStep0 && mainThread} action={this.changeMarketToShow} />
+                  <Step201 in={show_01} context={step2} endOfModules={this.handleShowSynthese} />
+                  <Step202 in={show_02} context={step2} endOfModules={this.handleShowSynthese} />
+                  <Step203 in={show_03} context={step2} endOfModules={this.handleShowSynthese} />
+                  <Step204 in={show_04} context={step2} endOfModules={this.handleShowSynthese} />
 
                   {showSynthese && (
                     <div className="step2__synthese step__synthese">
@@ -150,10 +111,7 @@ class Step2 extends React.Component {
                         action={this.changeMarketToShow}
                         noDescription
                       />
-                      <ButtonPrimary
-                        name={step2.module_11.button_1}
-                        onClick={this.handleShowQuiz}
-                      />
+                      <ButtonPrimary name={step2.module_11.button_1} onClick={this.handleShowQuiz} />
                       <Link to="#" className="button">
                         <ButtonPrimary name={step2.module_11.button_2} />
                       </Link>
@@ -180,11 +138,11 @@ class Step2 extends React.Component {
 }
 
 Step2.propTypes = {
-  in: PropTypes.bool
+  in: PropTypes.bool,
 };
 
 Step2.defaultProps = {
-  in: false
+  in: false,
 };
 
 export default Step2;

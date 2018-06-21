@@ -8,21 +8,11 @@ class ButtonPrimary extends React.Component {
   handleClick = e => {
     !this.props.onClick
       ? !this.props.enableClick && e.preventDefault()
-      : this.props.answer
-        ? this.props.onClick(this.props.answer)
-        : this.props.onClick(e);
+      : this.props.answer ? this.props.onClick(this.props.answer) : this.props.onClick(e);
   };
 
   render() {
-    const {
-      id,
-      classProps,
-      color,
-      name,
-      value,
-      borderColor,
-      fontColor
-    } = this.props;
+    const { id, classProps, color, name, value, borderColor, fontColor } = this.props;
 
     return (
       <div
@@ -32,11 +22,10 @@ class ButtonPrimary extends React.Component {
         style={{
           backgroundColor: color,
           borderColor: borderColor,
-          color: fontColor
-        }}
-      >
+          color: fontColor,
+        }}>
         {name}
-        <br />
+        {value !== undefined && <br />}
         {value !== undefined && value}
       </div>
     );
@@ -50,14 +39,10 @@ ButtonPrimary.propTypes = {
   subname: PropTypes.string,
   classProps: PropTypes.string,
   color: PropTypes.string,
-  answer: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-    PropTypes.object
-  ]),
+  answer: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]),
   borderColor: PropTypes.string,
   fontColor: PropTypes.string,
-  enableClick: PropTypes.bool
+  enableClick: PropTypes.bool,
 };
 
 ButtonPrimary.defaultProps = {
@@ -69,7 +54,7 @@ ButtonPrimary.defaultProps = {
   answer: undefined,
   value: undefined,
   onClick: undefined,
-  enableClick: false
+  enableClick: false,
 };
 
 export default ButtonPrimary;

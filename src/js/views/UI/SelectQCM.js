@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Select, { components } from 'react-select';
 import SVGInline from 'react-svg-inline';
 
-import button_down_right from '../../../assets/img/icons/button-down-right.png';
+import button_down_right from '../../../assets/img/icons/button-down-right.svg';
 
 const DropdownIndicator = props => {
   return (
@@ -15,7 +15,7 @@ const DropdownIndicator = props => {
 
 class SelectQCM extends React.Component {
   state = {
-    value: this.props.options[0]
+    value: this.props.options[0],
   };
 
   handleChange = option => {
@@ -33,7 +33,7 @@ class SelectQCM extends React.Component {
         components={{ DropdownIndicator }}
         className={classProps}
         styles={{
-          dropdownIndicator: () => button_down_right
+          dropdownIndicator: () => button_down_right,
         }}
         onChange={this.handleChange}
       />
@@ -49,18 +49,16 @@ SelectQCM.propTypes = {
   classProps: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-        .isRequired,
-      label: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-        .isRequired
-    }).isRequired
-  ).isRequired
+      value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+      label: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 SelectQCM.defaultProps = {
   classProps: '',
   placeholder: '',
-  answer: ''
+  answer: '',
 };
 
 export default SelectQCM;

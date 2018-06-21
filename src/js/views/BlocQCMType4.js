@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import BlocHeader from './BlocHeader';
+import BlocSpacer from './BlocSpacer';
 import BlocDescription from './BlocDescription';
 import CardContentType4 from './UI/CardContentType4';
 import ButtonPrimary from './UI/ButtonPrimary';
@@ -14,7 +15,7 @@ class BlocQCMType4 extends React.Component {
     victoryMessage: undefined,
     gameIsFinished: false,
     correctAnswers: {},
-    proposedAnswers: {}
+    proposedAnswers: {},
   };
 
   handleClick = ({ key, field }) => {
@@ -23,9 +24,9 @@ class BlocQCMType4 extends React.Component {
         ...this.state.proposedAnswers,
         [field]: {
           ...this.state.proposedAnswers[field],
-          [key]: !this.state.proposedAnswers[field][key]
-        }
-      }
+          [key]: !this.state.proposedAnswers[field][key],
+        },
+      },
     });
     this.setState({ victoryMessage: null });
     this.setState({ gameIsFinished: false });
@@ -48,10 +49,10 @@ class BlocQCMType4 extends React.Component {
     if (correct) {
       this.setState({ victoryMessage: victoryMessages.isVictory });
       this.setState({ gameIsFinished: true });
-      // this.props.gameIsFinished(this.state.gameIsFinished);
+      this.props.gameIsFinished(this.state.gameIsFinished);
     } else {
       this.setState({
-        victoryMessage: victoryMessages.isDefeat
+        victoryMessage: victoryMessages.isDefeat,
       });
     }
   };
@@ -84,7 +85,7 @@ class BlocQCMType4 extends React.Component {
       fields,
       cards,
       selectedRow,
-      scrollIntoView
+      scrollIntoView,
     } = this.props;
 
     const { proposedAnswers, gameIsFinished, victoryMessage } = this.state;
@@ -96,98 +97,67 @@ class BlocQCMType4 extends React.Component {
         classProps={`bloc bloc-QCM-type-4`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
-        margins={this.props.margins}
-      >
-        {!noChapter && (
-          <BlocHeader type="horloge" duration={duration} name={chapter} />
-        )}
+        margins={this.props.margins}>
+        {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
         <span className="bloc__name">{name}</span>
-        <BlocDescription
-          modulType={modulType}
-          classProps="bloc__first-description"
-          description={firstDescription}
-        />
+        <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
         <div className="bloc-QCM-type-4__cards game">
           {cards[selectedRow].cardsSet.map((card, i) => (
             <CardContentType4
               key={i}
               cardTitle={card.title}
               content={{
-                __html: `<em>${card.element1.key}</em>&nbsp;${
-                  card.element1.value
-                }</br>${card.element1.transition}</br><em>${
-                  card.element2.key
-                }</em>&nbsp;${card.element2.value}</br>${
+                __html: `<em>${card.element1.key}</em>&nbsp;${card.element1.value}</br>${
                   card.element1.transition
-                }</br><em>${card.element3.key}</em>&nbsp;${
-                  card.element3.value
-                }</br>${card.element1.transition}</br><em>${
-                  card.element4.key
-                }</em>&nbsp;${card.element4.value}</br>${
+                }</br><em>${card.element2.key}</em>&nbsp;${card.element2.value}</br>${
                   card.element1.transition
-                }</br><em>${card.element5.key}</em>&nbsp;${
-                  card.element5.value
-                }</br>`
+                }</br><em>${card.element3.key}</em>&nbsp;${card.element3.value}</br>${
+                  card.element1.transition
+                }</br><em>${card.element4.key}</em>&nbsp;${card.element4.value}</br>${
+                  card.element1.transition
+                }</br><em>${card.element5.key}</em>&nbsp;${card.element5.value}</br>`,
               }}
             />
           ))}
         </div>
-        <BlocDescription
-          modulType={modulType}
-          classProps="bloc__first-description"
-          description={secondDescription}
-        />
+        <BlocSpacer />
+        <BlocDescription modulType={modulType} classProps="bloc__first-description" description={secondDescription} />
+        <BlocSpacer />
         <div className="bloc-QCM-type-4__answer-and-popup">
           <div className="bloc-QCM-type-4__answer-and-popup--labels">
-            {Object.keys(fields).map((key, index) => (
-              <span key={key}>{fields[key]}</span>
-            ))}
+            {Object.keys(fields).map((key, index) => <span key={key}>{fields[key]}</span>)}
           </div>
           <div className="bloc-QCM-type-4__answer-and-popup--answers">
             {Object.keys(cards[selectedRow].answers).map((field, index) => (
               <div key={field} className="field">
-                {Object.keys(cards[selectedRow].answers[field]).map(
-                  (key, i) => {
-                    return (
-                      <ButtonPrimary
-                        key={key}
-                        id={`QCM_question_4_answer_${key}`}
-                        name={key}
-                        classProps={`button-QCM-type-4${
-                          isProposedAnswers && proposedAnswers[field][key]
-                            ? ' active'
-                            : ''
-                        }${gameIsFinished ? ' finished' : ''}`}
-                        onClick={this.handleClick}
-                        answer={{ key, field }}
-                      />
-                    );
-                  }
-                )}
+                {Object.keys(cards[selectedRow].answers[field]).map((key, i) => {
+                  return (
+                    <ButtonPrimary
+                      key={i}
+                      id={`QCM_question_4_answer_${i}`}
+                      name={key}
+                      classProps={`button-QCM-type-4${
+                        isProposedAnswers && proposedAnswers[field][key] ? ' active' : ''
+                      }${gameIsFinished ? ' finished' : ''}`}
+                      onClick={this.handleClick}
+                      answer={{ key, field }}
+                    />
+                  );
+                })}
               </div>
             ))}
             {victoryMessage && (
-              <PopupBlue
-                onCloseClick={() =>
-                  this.setState({ victoryMessage: undefined })
-                }
-              >
+              <PopupBlue onCloseClick={() => this.setState({ victoryMessage: undefined })}>
                 <span className="">{this.state.victoryMessage}</span>
               </PopupBlue>
             )}
           </div>
         </div>
-        <ButtonPrimary
-          name="valider"
-          onClick={this.handleValidate}
-          classProps={`bloc-QCM-type-4__validate`}
-        />
+        <BlocSpacer />
+        <ButtonPrimary name="valider" onClick={this.handleValidate} classProps={`bloc-QCM-type-4__validate`} />
+        <BlocSpacer />
         {gameIsFinished && (
-          <BlocDescription
-            modulType={modulType}
-            classProps="bloc__first-description"
-            description={thirdDescription}
-          />
+          <BlocDescription modulType={modulType} classProps="bloc__first-description" description={thirdDescription} />
         )}
       </Fade>
     );
@@ -210,7 +180,7 @@ BlocQCMType4.propTypes = {
     element2: PropTypes.string.isRequired,
     element3: PropTypes.string.isRequired,
     element4: PropTypes.string.isRequired,
-    element5: PropTypes.string.isRequired
+    element5: PropTypes.string.isRequired,
   }).isRequired,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
@@ -221,42 +191,42 @@ BlocQCMType4.propTypes = {
           element1: PropTypes.shape({
             key: PropTypes.string.isRequired,
             value: PropTypes.string.isRequired,
-            transition: PropTypes.string.isRequired
+            transition: PropTypes.string.isRequired,
           }).isRequired,
           element2: PropTypes.shape({
             key: PropTypes.string.isRequired,
             value: PropTypes.string.isRequired,
-            transition: PropTypes.string.isRequired
+            transition: PropTypes.string.isRequired,
           }).isRequired,
           element3: PropTypes.shape({
             key: PropTypes.string.isRequired,
             value: PropTypes.string.isRequired,
-            transition: PropTypes.string.isRequired
+            transition: PropTypes.string.isRequired,
           }).isRequired,
           element4: PropTypes.shape({
             key: PropTypes.string.isRequired,
             value: PropTypes.string.isRequired,
-            transition: PropTypes.string.isRequired
+            transition: PropTypes.string.isRequired,
           }).isRequired,
           element5: PropTypes.shape({
             key: PropTypes.string.isRequired,
             value: PropTypes.string.isRequired,
-            transition: PropTypes.string.isRequired
-          }).isRequired
-        }).isRequired
-      ).isRequired
-    }).isRequired
+            transition: PropTypes.string.isRequired,
+          }).isRequired,
+        }).isRequired,
+      ).isRequired,
+    }).isRequired,
   ).isRequired,
   firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
   secondDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
-  thirdDescription: PropTypes.shape({ __html: PropTypes.string.isRequired })
+  thirdDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
 };
 
 BlocQCMType4.defaultProps = {
   in: false,
   noChapter: false,
   duration: 0,
-  description: undefined
+  description: undefined,
 };
 
 export default BlocQCMType4;
