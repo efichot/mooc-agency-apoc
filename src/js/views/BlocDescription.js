@@ -7,8 +7,6 @@ class BlocDescription extends React.Component {
   render() {
     const { description, classProps, padding } = this.props;
 
-    console.log('description', description);
-
     if (description.__html) {
       description.__html = description.__html.replace(/\r\n/g, '<br />').replace(/[\r\n]/g, '<br />');
 

@@ -8,7 +8,16 @@ import Fade from '../transitions/Fade';
 
 class BlocCardsType1 extends React.Component {
   state = {
-    selectedRow: null
+    selectedRow: null,
+  };
+
+  handleCardClick = rowIndex => {
+    console.log('has been called');
+    const selectedRow = {
+      selectedRow: rowIndex,
+    };
+    this.setState(selectedRow);
+    this.props.selectedRow(selectedRow);
   };
 
   render() {
@@ -21,7 +30,7 @@ class BlocCardsType1 extends React.Component {
       firstDescription,
       secondary,
       cards,
-      scrollIntoView
+      scrollIntoView,
     } = this.props;
 
     const { selectedRow } = this.state;
@@ -31,18 +40,11 @@ class BlocCardsType1 extends React.Component {
         classProps={`bloc-cards-type-1`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
-        margins={this.props.margins}
-      >
-        {!noChapter && (
-          <BlocHeader type="horloge" duration={duration} name={chapter} />
-        )}
+        margins={this.props.margins}>
+        {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
         {title && <span className={`bloc__name ${secondary}`}>{title}</span>}
         {firstDescription && (
-          <BlocDescription
-            modulType={modulType}
-            classProps="bloc__second-description"
-            description={firstDescription}
-          />
+          <BlocDescription modulType={modulType} classProps="bloc__second-description" description={firstDescription} />
         )}
         <div className="bloc-cards-type-1__cards game">
           {cards.map((cardset, rowIndex) =>
@@ -50,18 +52,11 @@ class BlocCardsType1 extends React.Component {
               <div
                 key={colIndex}
                 style={{ gridRow: rowIndex + 1, gridColumn: colIndex + 1 }}
-                onClick={() => {
-                  this.setState({ selectedRow: rowIndex });
-                  this.props.selectedRow(rowIndex);
-                }}
-              >
-                <CardContentType4
-                  cardTitle={card.title}
-                  content={card.content}
-                  bigBorder={selectedRow === rowIndex}
-                />
+                onClick={() => this.handleCardClick(rowIndex)}
+                data-index={rowIndex}>
+                <CardContentType4 cardTitle={card.title} content={card.content} bigBorder={selectedRow === rowIndex} />
               </div>
-            ))
+            )),
           )}
         </div>
       </Fade>

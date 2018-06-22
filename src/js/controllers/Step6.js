@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 import Fade from '../transitions/Fade';
 import BlocStep from '../views/BlocStep';
+import BlocVideo from '../views/BlocVideo';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocText from '../views/BlocText';
 import BlocQuiz from '../views/BlocQuiz';
@@ -16,6 +17,7 @@ import BlocSubMenu1 from '../views/BlocSubMenu1';
 import BlocCardsType1 from '../views/BlocCardsType1';
 import BlocQCMType4 from '../views/BlocQCMType4';
 import BlocEnSavoirPlusType3 from '../views/BlocEnSavoirPlusType3';
+import BlocEnSavoirPlusType1 from '../views/BlocEnSavoirPlusType1';
 import BlocDescription from '../views/BlocDescription';
 import ButtonPrimary from '../views/UI/ButtonPrimary';
 
@@ -26,10 +28,14 @@ class Step6 extends React.Component {
     show_03: false,
     show_04: false,
     showNextModule: 0,
-    showSynthese: true,
+    showSynthese: false,
     showQuiz: false,
     reset: false,
-    show_01_selectedRow: undefined,
+    selectedRow: 0,
+  };
+
+  handleSelectedRow = ({ selectedRow }) => {
+    this.setState({ selectedRow, showNextModule: 1 });
   };
 
   handleShowNextModule = async module => {
@@ -65,31 +71,21 @@ class Step6 extends React.Component {
   };
 
   render() {
-    const {
-      show_01,
-      show_02,
-      show_03,
-      show_04,
-      showNextModule,
-      showSynthese,
-      showQuiz,
-      show_01_selectedRow,
-    } = this.state;
+    const { show_01, show_02, show_03, show_04, showNextModule, showSynthese, showQuiz, selectedRow } = this.state;
 
     /*const mainThread = !show_01 && !show_02 && !show_03 && !show_04;*/
 
     const isStep6 = this.props.match.path === '/step6';
 
     const stepInStep0 = showNextModule > 0;
-    /*const stepInStep1 = showNextModule > 1;
-    const stepInStep6 = showNextModule > 2;*/
+    const stepInStep1 = showNextModule > 1;
+    /*const stepInStep6 = showNextModule > 2;*/
 
     return (
       <Fade classProps="step step6" in={isStep6}>
         <GlobalInfosContext.Consumer>
           {context => {
             const step6 = context.state.step6;
-            console.log('step6.module_07.description_1', step6.module_07.description_1);
             if (!showQuiz) {
               return (
                 <React.Fragment>
@@ -105,21 +101,64 @@ class Step6 extends React.Component {
                     {...step6.module_03_01}
                     in={show_01}
                     scrollIntoView={show_01}
-                    selectedRow={index => this.setState({ show_01_selectedRow: index })}
+                    selectedRow={this.handleSelectedRow}
                   />
-                  <BlocDivider in={show_01 && show_01_selectedRow && show_01_selectedRow > 0} />
+                  <BlocDivider in={show_01 && stepInStep0} />
                   <BlocQCMType4
                     {...step6.module_03_02}
-                    in={show_01 && show_01_selectedRow && show_01_selectedRow > 0}
-                    scrollIntoView={show_01 && show_01_selectedRow && show_01_selectedRow > 0}
-                    selectedRow={show_01_selectedRow || 0}
+                    in={show_01 && stepInStep0}
+                    scrollIntoView={show_01 && stepInStep0}
+                    selectedRow={selectedRow || 0}
                     gameIsFinished={this.handleShowNextModule}
                   />
                   <BlocEnSavoirPlusType3
                     {...step6.module_03_03}
-                    in={show_01 && stepInStep0}
-                    scrollIntoView={show_01 && stepInStep0}
+                    in={show_01 && stepInStep1}
+                    scrollIntoView={show_01 && stepInStep1}
                   />
+                  <BlocCardsType1
+                    {...step6.module_04_01}
+                    in={show_02}
+                    scrollIntoView={show_02}
+                    selectedRow={this.handleSelectedRow}
+                  />
+                  <BlocDivider in={show_02 && stepInStep0} />
+                  <BlocQCMType4
+                    {...step6.module_04_02}
+                    in={show_02 && stepInStep0}
+                    scrollIntoView={show_02 && stepInStep0}
+                    selectedRow={selectedRow || 0}
+                    gameIsFinished={this.handleShowNextModule}
+                  />
+                  <BlocEnSavoirPlusType1
+                    {...step6.module_04_03}
+                    in={show_02 && stepInStep1}
+                    scrollIntoView={show_02 && stepInStep1}
+                  />
+                  <BlocCardsType1
+                    {...step6.module_05_01}
+                    in={show_03}
+                    scrollIntoView={show_03}
+                    selectedRow={this.handleSelectedRow}
+                  />
+                  <BlocDivider in={show_03 && stepInStep0} />
+                  {selectedRow !== 2 ? (
+                    <BlocQCMType4
+                      {...step6.module_04_02}
+                      in={show_03 && stepInStep0}
+                      scrollIntoView={show_03 && stepInStep0}
+                      selectedRow={selectedRow || 0}
+                      gameIsFinished={this.handleShowNextModule}
+                    />
+                  ) : (
+                    <BlocVideo in={show_03 && stepInStep0} {...step6.module_05_03} />
+                  )}
+                  <BlocEnSavoirPlusType1
+                    {...step6.module_05_04}
+                    in={show_02 && stepInStep1}
+                    scrollIntoView={show_02 && stepInStep1}
+                  />
+                  <BlocVideo in={show_04} {...step6.module_06_01} />
                   {showSynthese && (
                     <div className="step6__synthese step__synthese">
                       <BlocSpacer />

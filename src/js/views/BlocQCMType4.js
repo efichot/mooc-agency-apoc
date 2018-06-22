@@ -58,8 +58,8 @@ class BlocQCMType4 extends React.Component {
   };
 
   componentDidMount() {
-    const { cards, selectedRow } = this.props;
-
+    const { cards, selectedRow: selectedRowProp } = this.props;
+    const selectedRow = selectedRowProp || 0;
     const proposedAnswers = {};
     Object.keys(cards[selectedRow].answers).forEach(field => {
       proposedAnswers[field] = {};
@@ -84,13 +84,15 @@ class BlocQCMType4 extends React.Component {
       name,
       fields,
       cards,
-      selectedRow,
+      selectedRow: selectedRowProp,
       scrollIntoView,
     } = this.props;
 
     const { proposedAnswers, gameIsFinished, victoryMessage } = this.state;
 
     const isProposedAnswers = Object.keys(proposedAnswers).length > 0;
+
+    const selectedRow = selectedRowProp || 0;
 
     return (
       <Fade
@@ -220,6 +222,7 @@ BlocQCMType4.propTypes = {
   firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
   secondDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
   thirdDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
+  selectedRow: PropTypes.number,
 };
 
 BlocQCMType4.defaultProps = {
@@ -227,6 +230,7 @@ BlocQCMType4.defaultProps = {
   noChapter: false,
   duration: 0,
   description: undefined,
+  selectedRow: undefined,
 };
 
 export default BlocQCMType4;
