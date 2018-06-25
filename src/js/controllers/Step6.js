@@ -9,7 +9,6 @@ import Fade from '../transitions/Fade';
 import BlocStep from '../views/BlocStep';
 import BlocVideo from '../views/BlocVideo';
 import BlocStepTopContent from '../views/BlocStepTopContent';
-import BlocText from '../views/BlocText';
 import BlocQuiz from '../views/BlocQuiz';
 import BlocDivider from '../views/BlocDivider';
 import BlocSpacer from '../views/BlocSpacer';
@@ -29,7 +28,7 @@ class Step6 extends React.Component {
     show_04: false,
     showNextModule: 0,
     showSynthese: false,
-    showQuiz: false,
+    showQuiz: true,
     reset: false,
     selectedRow: 0,
   };
@@ -56,6 +55,12 @@ class Step6 extends React.Component {
       reset: true,
       showNextModule: 0,
     });
+
+    marketToShow === 'show_04' && this.handleShowSynthese(true);
+  };
+
+  handleShow3Back = () => {
+    this.setState({ showNextModule: this.state.showNextModule - 1, selectedRow: undefined });
   };
 
   handleShowSynthese = bool => {
@@ -144,21 +149,27 @@ class Step6 extends React.Component {
                   <BlocDivider in={show_03 && stepInStep0} />
                   {selectedRow !== 2 ? (
                     <BlocQCMType4
-                      {...step6.module_04_02}
+                      {...step6.module_05_02}
                       in={show_03 && stepInStep0}
                       scrollIntoView={show_03 && stepInStep0}
                       selectedRow={selectedRow || 0}
                       gameIsFinished={this.handleShowNextModule}
                     />
                   ) : (
-                    <BlocVideo in={show_03 && stepInStep0} {...step6.module_05_03} />
+                    <BlocVideo
+                      in={show_03 && stepInStep0}
+                      scrollIntoView={show_03 && stepInStep0}
+                      {...step6.module_05_03}
+                      onButtonClick={this.handleShow3Back}
+                    />
                   )}
                   <BlocEnSavoirPlusType1
                     {...step6.module_05_04}
-                    in={show_02 && stepInStep1}
-                    scrollIntoView={show_02 && stepInStep1}
+                    in={show_03 && stepInStep1}
+                    scrollIntoView={show_03 && stepInStep1}
                   />
-                  <BlocVideo in={show_04} {...step6.module_06_01} />
+                  <BlocVideo in={show_04} scrollIntoView={show_04} {...step6.module_06_01} />
+                  <BlocEnSavoirPlusType3 {...step6.module_06_02} in={show_04} />
                   {showSynthese && (
                     <div className="step6__synthese step__synthese">
                       <BlocSpacer />
@@ -183,21 +194,17 @@ class Step6 extends React.Component {
                       />
                       <BlocDescription
                         in={showSynthese && show_04}
-                        scrollIntoView={showSynthese && show_04}
                         modulType={step6.module_07.modulType}
                         description={step6.module_07.description_4}
                       />
                       <BlocSubMenu1
                         {...step6.module_02}
                         in={showSynthese}
-                        scrollIntoView={showSynthese}
                         action={this.changeMarketToShow}
                         noDescription
                       />
                       <BlocSpacer />
-                      <Link to="/step4" className="button">
-                        <ButtonPrimary name={step6.module_07.button_1} enableClick />
-                      </Link>
+                      <ButtonPrimary name={step6.module_07.button_1} onClick={this.handleShowQuiz} />
                       <Link to="#" className="button">
                         <ButtonPrimary name={step6.module_07.button_2} />
                       </Link>
@@ -210,9 +217,7 @@ class Step6 extends React.Component {
                 <React.Fragment>
                   <BlocStep step={step6.linkStep} />
                   <BlocSpacer />
-                  <BlocText in {...step6.module_12} scrollIntoView />
-                  <BlocDivider in />
-                  <BlocQuiz in {...step6.module_13} />
+                  <BlocQuiz in {...step6.module_08} scrollIntoView />
                 </React.Fragment>
               );
             }

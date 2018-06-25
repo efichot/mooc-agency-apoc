@@ -10,7 +10,10 @@ import module_05_01_blocCardsType1 from './step6/module_05_01_blocCardsType1';
 import module_05_02_blocQCMType4 from './step6/module_05_02_blocQCMType4';
 import module_05_03_blocVideo from './step6/module_05_03_blocVideo';
 import module_05_04_blocEnSavoirPlusType1 from './step6/module_05_04_blocEnSavoirPlusType1';
+import module_06_01_blocVideo from './step6/module_06_01_blocVideo';
+import module_06_02_blocEnSavoirPlusType3 from './step6/module_06_02_blocEnSavoirPlusType3';
 import module_07_blocSynthese from './step6/module_07_blocSynthese';
+import module_08_blocQuiz from './step6/module_08_blocQuiz';
 
 const step6 = {
   linkStep: 6,
@@ -27,7 +30,10 @@ const step6 = {
   module_05_02: module_05_02_blocQCMType4,
   module_05_03: module_05_03_blocVideo,
   module_05_04: module_05_04_blocEnSavoirPlusType1,
+  module_06_01: module_06_01_blocVideo,
+  module_06_02: module_06_02_blocEnSavoirPlusType3,
   module_07: module_07_blocSynthese,
+  module_08: module_08_blocQuiz,
 };
 
 export default step6;

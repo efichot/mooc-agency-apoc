@@ -3,6 +3,7 @@
   &__cards {
     width: 100%;
     display: grid;
+    grid-column-gap: 5px;
     height: 100%;
 
     &--to-show {
@@ -17,7 +18,7 @@
 
     .button {
       height: 115px;
-      width: 210px;
+      width: 200px;
       font-size: 0.875rem;
       padding: 10%;
       margin-bottom: 2px;
@@ -28,6 +29,12 @@
       @extend %background-contain;
       margin-top: 10px;
       margin-bottom: 10px;
+    }
+    .arrow-right {
+      height: 115px;
+      width: 30px;
+      @extend %background-contain;
+      background-position: center center;
     }
   }
 }

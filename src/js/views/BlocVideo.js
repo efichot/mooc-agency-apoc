@@ -5,12 +5,13 @@ import Player from '@vimeo/player';
 
 import BlocHeader from './BlocHeader';
 import BlocSpacer from './BlocSpacer';
+import ButtonPrimary from './UI/ButtonPrimary';
 import BlocDescription from './BlocDescription';
 import Fade from '../transitions/Fade';
 
 class BlocVideo extends React.Component {
   state = {
-    durationInMinutes: 1
+    durationInMinutes: 1,
   };
 
   video = React.createRef();
@@ -38,7 +39,8 @@ class BlocVideo extends React.Component {
       firstDescription,
       videoUrl,
       secondDescription,
-      scrollIntoView
+      scrollIntoView,
+      buttonCaption,
     } = this.props;
 
     return (
@@ -46,20 +48,11 @@ class BlocVideo extends React.Component {
         classProps={`bloc-video bloc`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
-        margins={this.props.margins}
-      >
-        {!noChapter && (
-          <BlocHeader type="video" duration={this.state.durationInMinutes} />
-        )}
-        <span className={`bloc__name${secondary ? ' secondary' : ''}`}>
-          {name}
-        </span>
+        margins={this.props.margins}>
+        {!noChapter && <BlocHeader type="video" duration={this.state.durationInMinutes} />}
+        <span className={`bloc__name${secondary ? ' secondary' : ''}`}>{name}</span>
         {firstDescription && (
-          <BlocDescription
-            modulType={modulType}
-            classProps="bloc__first-description"
-            description={firstDescription}
-          />
+          <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
         )}
         <div className="bloc-video__video--container game">
           <iframe
@@ -71,7 +64,7 @@ class BlocVideo extends React.Component {
             display="block"
             styles={{
               width: '100%',
-              height: 'auto'
+              height: 'auto',
             }}
             allowFullScreen
             frameBorder="0"
@@ -85,6 +78,12 @@ class BlocVideo extends React.Component {
               classProps="bloc__second-description"
               description={secondDescription}
             />
+          </React.Fragment>
+        )}
+        {buttonCaption && (
+          <React.Fragment>
+            <BlocSpacer />
+            <ButtonPrimary name={buttonCaption} onClick={this.props.onButtonClick} />
           </React.Fragment>
         )}
       </Fade>
@@ -105,7 +104,7 @@ BlocVideo.propTypes = {
   noChapter: PropTypes.bool,
   secondary: PropTypes.bool,
   firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
-  secondDescription: PropTypes.shape({ __html: PropTypes.string.isRequired })
+  secondDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
 };
 
 BlocVideo.defaultProps = {
@@ -116,7 +115,7 @@ BlocVideo.defaultProps = {
   noChapter: false,
   secondary: false,
   firstDescription: undefined,
-  secondDescription: undefined
+  secondDescription: undefined,
 };
 
 export default BlocVideo;

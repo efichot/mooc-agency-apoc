@@ -9,241 +9,240 @@ const module_12_blocQuiz = {
   duration: 5,
   description: {
     __html: `Pour chacune des dix questions proposées, sélectionnez la bonne réponse à l’aide des DICI et/ou fiches de reporting. 
-    Pour cet exercice d’entraînement, vos réponses ne sont pas prises en compte dans le calcul de vos score et classement.`
+    Pour cet exercice d’entraînement, vos réponses ne sont pas prises en compte dans le calcul de vos score et classement.`,
   },
   questions: [
     {
       questionNumber: 1,
       question: {
-        __html: `1 - Vous souhaitez investir pour 5 ans maximum. Combien de fonds du PEG et du PERCO ne correspondent pas à cet horizon ?`
+        __html: `1 - Qu’est-ce qu’une action ?`,
       },
       answers: [
         {
-          content: 'A - Le marché primaire',
-          correctAnswer: true
+          content: 'A - Une fraction de capital',
+          correctAnswer: true,
         },
         {
-          content: 'B - Le marché secondaire',
-          correctAnswer: false
+          content: 'B - Une fraction de dette',
+          correctAnswer: false,
         },
         {
-          content: 'C - Le marché de gré à gré',
-          correctAnswer: false
-        }
+          content: 'C - Aucun des deux',
+          correctAnswer: false,
+        },
       ],
       explication: {
-        __html: `Le qualificatif de primaire fait référence aux titres émis, soit par des émetteurs déjà cotés, soit par des émetteurs qui s’introduisent en Bourse. Par analogie au marché des biens de consommation, on pourrait parler de « marché du neuf », tandis qu’on pourrait qualifier de « marché de l’occasion » le marché secondaire où s’échangent entre investisseurs les titres déjà existants.`
-      }
+        __html: `Toute action représente une part du capital d’une entreprise; c’est un titre de propriété et non une dette.`,
+      },
     },
     {
       questionNumber: 2,
       question: {
-        __html: `2 - Sur quel marché s’échangent les titres non cotés ?`
+        __html: `2 - Qu’implique obligatoirement le titre action ?`,
       },
       answers: [
         {
-          content: 'A -  Le marché parallèle',
-          correctAnswer: false
+          content: 'A -  Voter à l’Assemblée Générale des actionnaires',
+          correctAnswer: false,
         },
         {
-          content: 'B- Le marché secondaire',
-          correctAnswer: false
+          content: 'B - Verser un dividende',
+          correctAnswer: false,
         },
         {
-          content: 'C - Le marché de gré à gré',
-          correctAnswer: true
-        }
+          content: 'C - Aucune obligation',
+          correctAnswer: true,
+        },
       ],
       explication: {
-        __html: `L’échange de titres entre deux contreparties qui se mettent d’accord sur le prix et les conditions de transaction en dehors du cadre du marché réglementé, se fait sur le marché de gré à gré.`
-      }
+        __html: `Toute action est assortie d’un droit financier (le dividende) et d’un droit politique (le droit de vote), mais d’aucune obligation: l’actionnaire peut ne pas voter et l’Assemblée Générale des actionnaires peut décider que le dividende de l’année sera nul.`,
+      },
     },
     {
       questionNumber: 3,
       question: {
-        __html: `3 - Qu’entend-on par marché réglementé ?`
+        __html: `3 - Qu’est-ce qu’une action à droit de vote double ?`,
       },
       answers: [
         {
-          content: 'A - Le marché des titres cotés ',
-          correctAnswer: true
+          content: 'A - Une action qui vaut deux fois plus cher',
+          correctAnswer: false,
         },
         {
-          content: 'B- Le marché des titres non cotés',
-          correctAnswer: false
+          content: 'B - Une action réservée à l’actionnaire majoritaire ',
+          correctAnswer: false,
         },
         {
-          content: 'C - Le marché des titres cotés et non cotés',
-          correctAnswer: false
-        }
+          content: 'C - Une action qui donne deux voix à l’Assemblée Générale',
+          correctAnswer: true,
+        },
       ],
       explication: {
-        __html: `Le marché réglementé assure la cotation des titres en respectant un certain nombre de dispositions réglementaires qui régissent son fonctionnement. Il est distinct du marché de gré à gré où s’échangent les titres non cotés.`
-      }
+        __html: `L’action à droit de vote double donne à son détenteur un poids double dans les décisions votées en Assemblée Générale des actionnaires. Depuis la loi Florange du 29 mars 2014, ce droit est attribué d’office aux actionnaires des entreprises françaises cotées qui détiennent leurs actions depuis au moins deux ans, sauf si une décision contraire est adoptée par l’Assemblée Générale ou si les statuts prévoient déjà l’octroi de ce droit en faveur des actionnaires détenant leurs actions depuis une période déterminée.`,
+      },
     },
     {
       questionNumber: 4,
       question: {
-        __html: `4 - Qui régule les marchés financiers réglementés en France ?`
+        __html: `4 - Quel statut a le détenteur d’une obligation vis-à-vis de l’émetteur ?`,
       },
       answers: [
         {
-          content: 'A - L’Autorité des Marchés Financiers',
-          correctAnswer: true
+          content: 'A - Celui de propriétaire',
+          correctAnswer: false,
         },
         {
-          content: 'B- La Banque de France',
-          correctAnswer: false
+          content: 'B - Celui de créanciere',
+          correctAnswer: true,
         },
         {
-          content: 'C - L’Autorité de Contrôle Prudentiel et de Résolution',
-          correctAnswer: false
-        }
+          content: 'C - Celui de prestataire',
+          correctAnswer: false,
+        },
       ],
       explication: {
-        __html: `L’Autorité des Marchés Financiers (AMF) est l’autorité publique française indépendante qui régule les marchés financiers. C’est elle qui agrée les sociétés de gestion tandis que l’Autorité de Contrôle Prudentiel et de Résolution (ACPR) agrée les intermédiaires.`
-      }
+        __html: `Toute obligation représente une part de dette émise par une entreprise, une entité du secteur public ou un État ; c’est donc un titre de créance et non un titre de propriété ou une prestation de service.`,
+      },
     },
     {
       questionNumber: 5,
       question: {
-        __html: `5 - Comment appelle-t-on les acteurs qui font des placement sur les marchés financiers ?`
+        __html: `5 - Quelle(s) obligation(s) doit remplir l’émetteur d’une obligation ?`,
       },
       answers: [
         {
-          content: 'A - Les émetteurs',
-          correctAnswer: false
+          content: 'A - Rémunérer son détenteur ',
+          correctAnswer: false,
         },
         {
-          content: 'B- Les intermédiaires',
-          correctAnswer: false
+          content: 'B - Rembourser son détenteur',
+          correctAnswer: false,
         },
         {
-          content: 'C - Les investisseurs',
-          correctAnswer: true
-        }
+          content: 'C - Les deux',
+          correctAnswer: true,
+        },
       ],
       explication: {
-        __html: `Sont appelés investisseurs tous les acteurs économiques qui font des placements sur les marchés financiers, achètent des titres ou vendent ceux qu’ils ont achetés.`
-      }
+        __html: `L’obligation est un titre de créance assorti d’une double obligation de rémunérer en versant un revenu et de rembourser le nominal à l’échéance.`,
+      },
     },
     {
       questionNumber: 6,
       question: {
-        __html: `6 - Quelle catégorie d’acteurs ne peut émettre des actions ?`
+        __html: `6 - Qu’est-ce qu’une obligation à taux variable ?`,
       },
       answers: [
         {
-          content: 'A - Les banques',
-          correctAnswer: false
+          content: 'A - Une obligation dont le prix varie',
+          correctAnswer: false,
         },
         {
-          content: 'B - Les États',
-          correctAnswer: true
+          content: 'B - Une obligation dont le coupon varie',
+          correctAnswer: true,
         },
         {
-          content: 'C - Les entreprises',
-          correctAnswer: false
-        }
+          content: 'C - Une obligation dont l’échéance varie',
+          correctAnswer: false,
+        },
       ],
       explication: {
-        __html: `Les États n’ayant pas de capital contrairement aux entreprises et aux banques, ils ne peuvent pas émettre d'action.`
-      }
+        __html: `L’obligation à taux variable est un titre de créance dont la rémunération (ou coupon) matérialisée par  un taux d’intérêt varie le plus souvent par rapport à un taux d’emprunt d’État ou de marché obligataire. Comme toute obligation, elle a une échéance fixée à l’émission et peut s’échanger à un prix qui varie en fonction des taux du marché et du risque de l’émetteur.`,
+      },
     },
     {
       questionNumber: 7,
       question: {
-        __html: `7 - Quelle mission n’assure pas l’Autorité des Marchés Financiers ?`
+        __html: `7 - Qu’est-ce qui différencie une action d’une obligation ?`,
       },
       answers: [
         {
-          content:
-            'A -  La protection de l’épargne investie dans les produits financiers',
-          correctAnswer: false
+          content: 'A -  Une action n’a jamais d’échéance',
+          correctAnswer: true,
         },
         {
-          content: 'B - L’information des investisseurs',
-          correctAnswer: false
+          content: 'B - Une obligation ne peut pas s’échanger',
+          correctAnswer: false,
         },
         {
-          content: 'C - Le contrôle des comptes des entreprises cotées',
-          correctAnswer: true
-        }
+          content: 'C - Une action ne rémunère pas son détenteur',
+          correctAnswer: false,
+        },
       ],
       explication: {
-        __html: `L’Autorité des Marchés Financiers (AMF) veille à la fois à la protection de l’épargne investie dans les produits financiers, à l’information des investisseurs et au bon fonctionnement des marchés financiers.`
-      }
+        __html: `Toute action est un titre de propriété; elle peut être cédée à un autre investisseur, voire rachetée par son émetteur à un prix qui va dépendre de celui du marché, mais en aucun cas remboursée; elle n’a pas d’échéance mais donne droit à une rémunération, le dividende qui est fixé à l’Assemblée Générale Annuelle des actionnaires. À l’opposé l’obligation est un titre de créance assortie d’une échéance et d’une rémunération fixées à son émission; elle peut néanmoins être échangée entre investisseurs jusqu’à sa date de remboursement.`,
+      },
     },
     {
       questionNumber: 8,
       question: {
-        __html: `8 - Quel est le rôle d’une société de gestion ?`
+        __html: `8 - Qu’est-ce qui différencie un titre monétaire -ou titre de créance négociable (TCN)- d’une obligation ?`,
       },
       answers: [
         {
-          content: 'A - Placer ses propres capitaux',
-          correctAnswer: false
+          content: 'A -  Le TCN doit être remboursé à l’échéance',
+          correctAnswer: false,
         },
         {
-          content: 'B- Gérer  pour compte de tiers',
-          correctAnswer: true
+          content: 'B - L’obligation distribue un revenu',
+          correctAnswer: false,
         },
         {
-          content: 'C - Assurer les échanges entre émetteurs et investisseurs',
-          correctAnswer: false
-        }
+          content: 'C - La durée du TCN se compte en mois, celle de l’obligation en années',
+          correctAnswer: true,
+        },
       ],
       explication: {
-        __html: `Elle gère des portefeuilles de valeurs mobilières pour le compte de tiers, dans le cadre de contraintes réglementaires et contractuelles et dans l’objectif d’obtenir le meilleur rendement possible en fonction du risque choisi.`
-      }
+        __html: `TCN et obligation ont en commun la double obligation de rémunérer et de rembourser à l’échéance. Ce sont des titres de créance dont la seule différence est la durée: celle du TCN se compte en mois, celle de l’obligation en années.`,
+      },
     },
     {
       questionNumber: 9,
       question: {
-        __html: `9 - Sur quel marché les banques échangent-elles directement entre elles des actifs financiers à court terme ?`
+        __html: `9 - Dans quel cas le Titre de créance négociable (TCN) et l’obligation ne sont pas remboursés ?`,
       },
       answers: [
         {
-          content: 'A - Le marché interbancaire',
-          correctAnswer: true
+          content: 'A - Résultat déficitaire de l’émetteur',
+          correctAnswer: false,
         },
         {
-          content: 'B- Le marché obligataire',
-          correctAnswer: false
+          content: 'B - Faillite de l’émetteur',
+          correctAnswer: true,
         },
         {
-          content: 'C - Le marché secondaire',
-          correctAnswer: false
-        }
+          content: 'C - Aucun, TCN et obligation sont toujours remboursés',
+          correctAnswer: false,
+        },
       ],
       explication: {
-        __html: `Les banques commerciales (ou banques de détail) qui collectent les ressources des particuliers et prêtent aux entreprises, ont recours au marché interbancaire pour équilibrer ces flux en échangeant directement entre elles à court terme.`
-      }
+        __html: `La faillite est le seul cas dans lequel l’émetteur de TCN ou d’obligations est dans l’incapacité d’honorer son obligation de remboursement. Un résultat déficitaire ne remet pas en cause le fonctionnement de l’entité vis-à-vis de ses créanciers; il peut par contre conduire l’Assemblée Générale des actionnaires à voter un dividende nul pour les détenteurs d’actions.`,
+      },
     },
     {
       questionNumber: 10,
       question: {
-        __html: `10 - Qui intervient sur les marchés financiers à la fois en tant qu’émetteur, investisseur et intermédiaire ?`
+        __html: `10 - A quoi sert un produit dérivé ?`,
       },
       answers: [
         {
-          content: 'A - Les États et les collectivités ',
-          correctAnswer: false
+          content: 'A - Gérer les risques liés aux fluctuations de valeur de l’actif concerné',
+          correctAnswer: false,
         },
         {
-          content: 'B - Les banques et les assureurs',
-          correctAnswer: true
+          content: 'B - Prendre des  positions à l’achat ou à la vente avec une mise de fonds limitée',
+          correctAnswer: false,
         },
         {
-          content: 'C - Les courtiers',
-          correctAnswer: false
-        }
+          content: 'C - Les deux',
+          correctAnswer: true,
+        },
       ],
       explication: {
-        __html: `A travers leurs différents métiers, les groupes financiers (assureurs, banques) peuvent intervenir sur les marchés financiers à la fois en tant qu’émetteur, investisseur et intermédiaire. La réglementation prévoit néanmoins la séparation de ces métiers en filiales juridiquement distinctes de façon à éviter les conflits d’intérêt.`
-      }
-    }
-  ]
+        __html: `Les produits dérivés ont une double fonction: celle de gérer les risques associés aux fluctuations de cours, de taux ou de prix de nombreux actifs, mais aussi celle de prendre des positions à l’achat ou à la vente avec une mise de fonds limitée.`,
+      },
+    },
+  ],
 };
 
 export default module_12_blocQuiz;

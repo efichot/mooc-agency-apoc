@@ -106,6 +106,34 @@ Pour avoir plus de détail sur les éléments de différenciation d’un titre �
             transition: '',
           },
         },
+        {
+          title: '',
+          element1: {
+            key: '',
+            value: '',
+            transition: '',
+          },
+          element2: {
+            key: '',
+            value: '',
+            transition: '',
+          },
+          element3: {
+            key: '',
+            value: '',
+            transition: '',
+          },
+          element4: {
+            key: '',
+            value: '',
+            transition: '',
+          },
+          element5: {
+            key: '',
+            value: '',
+            transition: '',
+          },
+        },
       ],
     },
     {
@@ -185,6 +213,34 @@ Pour avoir plus de détail sur les éléments de différenciation d’un titre �
           element5: {
             key: '1 cours de 100',
             value: '(exprimé en % de la valeur nominale soit 500 000€)',
+            transition: '',
+          },
+        },
+        {
+          title: '',
+          element1: {
+            key: '',
+            value: '',
+            transition: '',
+          },
+          element2: {
+            key: '',
+            value: '',
+            transition: '',
+          },
+          element3: {
+            key: '',
+            value: '',
+            transition: '',
+          },
+          element4: {
+            key: '',
+            value: '',
+            transition: '',
+          },
+          element5: {
+            key: '',
+            value: '',
             transition: '',
           },
         },

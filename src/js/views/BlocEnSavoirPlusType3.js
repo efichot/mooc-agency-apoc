@@ -8,6 +8,7 @@ import PopupBlue from './UI/PopupBlue';
 import Fade from '../transitions/Fade';
 
 import arrowDown from '../../assets/img/icons/arrow-down.png';
+import arrowRight from '../../assets/img/icons/arrow-right.png';
 
 class BlocEnSavoirPlusType3 extends React.Component {
   state = {
@@ -50,26 +51,37 @@ class BlocEnSavoirPlusType3 extends React.Component {
         <div
           className="bloc-en-savoir-plus-type-3__cards game"
           style={{
-            gridTemplateColumns: `repeat(${grid.columns}, 1fr)`,
+            gridTemplateColumns: `repeat(${2 * grid.columns}, 1fr)`,
           }}>
           <React.Fragment>
             {cards.map((card, index) => {
               const hover = cardNumberShown === card.startPosition && !hideCard;
               return (
-                <div
-                  key={index}
-                  className="button-groupe"
-                  onMouseEnter={() => this.cardNumberShown(card)}
-                  onMouseLeave={() => this.hideCards(card)}
-                  style={{
-                    gridRow: card.position.row,
-                    gridColumn: card.position.column,
-                  }}>
-                  <ButtonPrimary color={hover ? card.hoverColor : card.color} name={card.cardTitle} />
-                  {card.arrowFollowing && (
-                    <div className="arrow-following" style={{ backgroundImage: `url(${arrowDown})` }} />
+                <React.Fragment key={index}>
+                  <div
+                    className="button-groupe"
+                    onMouseEnter={() => this.cardNumberShown(card)}
+                    onMouseLeave={() => this.hideCards(card)}
+                    style={{
+                      gridRow: card.position.row,
+                      gridColumn: card.position.column * 2 - 1,
+                    }}>
+                    <ButtonPrimary color={hover ? card.hoverColor : card.color} name={card.cardTitle} />
+                    {card.arrowFollowing && (
+                      <div className="arrow-following" style={{ backgroundImage: `url(${arrowDown})` }} />
+                    )}
+                  </div>
+                  {card.arrowRight && (
+                    <div
+                      className="arrow-right"
+                      style={{
+                        gridRow: card.position.row,
+                        gridColumn: card.position.column * 2,
+                        backgroundImage: `url(${arrowRight})`,
+                      }}
+                    />
                   )}
-                </div>
+                </React.Fragment>
               );
             })}
           </React.Fragment>
@@ -78,7 +90,7 @@ class BlocEnSavoirPlusType3 extends React.Component {
             hidePopup={hideCard}
             styleProps={{
               gridRow: `1 / ${grid.rows}`,
-              gridColumn: `2 / ${grid.columns + 1}`,
+              gridColumn: `2 / ${grid.columns * 2}`,
             }}>
             <span className="card-title">{!hideCard && cards[cardNumberShown - 1].cardTitle}</span>
             <span className="card-subtitle">{!hideCard && cards[cardNumberShown - 1].cardSubTitle}</span>
@@ -119,6 +131,7 @@ BlocEnSavoirPlusType3.propTypes = {
         column: PropTypes.number.isRequired,
       }).isRequired,
       arrowFollowing: PropTypes.bool.isRequired,
+      arrowRight: PropTypes.bool.isRequired,
       cardTitle: PropTypes.string.isRequired,
       cardContent: PropTypes.oneOfType([
         PropTypes.string.isRequired,

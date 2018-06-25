@@ -25,7 +25,7 @@ const module_05_04_blocEnSavoirPlusType1 = {
     {
       color: 'rgba(0,156,62,1.00)',
       hoverColor: 'rgba(0,156,62,1.00)',
-      startPosition: 1,
+      startPosition: 2,
       arrowFollowing: false,
       cardTitle: 'Bon du Trésor (BT)',
       cardContent: {
@@ -36,7 +36,7 @@ const module_05_04_blocEnSavoirPlusType1 = {
     {
       color: 'rgba(0,156,62,1.00)',
       hoverColor: 'rgba(0,156,62,1.00)',
-      startPosition: 1,
+      startPosition: 3,
       arrowFollowing: false,
       cardTitle: 'Bon des institutions et sociétés financières (BISF)',
       cardContent: {
@@ -47,7 +47,7 @@ const module_05_04_blocEnSavoirPlusType1 = {
     {
       color: 'rgba(0,156,62,1.00)',
       hoverColor: 'rgba(0,156,62,1.00)',
-      startPosition: 1,
+      startPosition: 4,
       arrowFollowing: false,
       cardTitle: 'Billet de trésorerie',
       cardContent: {

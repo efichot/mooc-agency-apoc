@@ -24,6 +24,7 @@ const module_03_03_blocEnSavoirPlusType3 = {
         row: 1,
       },
       arrowFollowing: true,
+      arrowRight: false,
       cardTitle: 'Action ordinaire',
       cardContent:
         'Titre de propriété représentant une partie du capital d’une entreprise, assorti d’un dividende et d’un droit de vote.',
@@ -38,6 +39,7 @@ const module_03_03_blocEnSavoirPlusType3 = {
         row: 2,
       },
       arrowFollowing: false,
+      arrowRight: false,
       cardTitle: "Action à bon﻿(s) de souscription d'actions",
       cardContent:
         'Titre de propriété auquel est attaché un (ou plusieurs) bon(s) donnant droit de souscrire à un certain nombre d’actions ordinaires à un prix et durant une période fixés à l’avance, sans obligation d’exercice.',
@@ -52,6 +54,7 @@ const module_03_03_blocEnSavoirPlusType3 = {
         row: 3,
       },
       arrowFollowing: true,
+      arrowRight: false,
       cardTitle: 'Action de préférence',
       cardContent: 'Titre de propriété hybride dont les droits particuliers peuvent être financiers et/ou politiques.',
       cardSubTitle: 'cf. Glossaire',
@@ -65,6 +68,7 @@ const module_03_03_blocEnSavoirPlusType3 = {
         row: 4,
       },
       arrowFollowing: false,
+      arrowRight: false,
       cardTitle: 'Action à dividende prioritaire',
       cardContent:
         'Titre de propriété donnant droit à un dividende qui est réglé avant tout versement aux autres actionnaires et qui est forfaitaire, déterminé en fonction d’une formule de valorisation incluant un % du chiffre d’affaires, voire limité.',
@@ -79,6 +83,7 @@ const module_03_03_blocEnSavoirPlusType3 = {
         row: 4,
       },
       arrowFollowing: false,
+      arrowRight: false,
       cardTitle: 'Action à droit de vote double',
       cardContent:
         'Titre de propriété qui donne à son détenteur un poids double dans les décisions votées en Assemblée Générale de l’entreprise. Depuis la loi Florange du 29 mars 2014, il est attribué d’office aux actionnaires des entreprises françaises cotées qui détiennent leurs actions depuis au moins deux ans, sauf si une décision contraire est adoptée par l’Assemblée Générale ou si les statuts prévoient déjà l’octroi de ce droit en faveur des actionnaires détenant leurs actions depuis une période déterminée.',
@@ -93,6 +98,7 @@ const module_03_03_blocEnSavoirPlusType3 = {
         row: 4,
       },
       arrowFollowing: false,
+      arrowRight: false,
       cardTitle: 'Action sans droit de vote',
       cardContent:
         'Titre de propriété dépourvu de droit de vote comme l’action à dividende prioritaire (ADP) ou le certificat d’investissement (CI), qui permettent de lever des capitaux sans interférence sur le fonctionnement politique de l’entreprise.',

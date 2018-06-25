@@ -8,6 +8,7 @@ const module_05_03_blocVideo = {
     __html: `Découvrez le fonctionnement des échanges interbancaires en cliquant sur la vidéo ci-dessous.`,
   },
   videoUrl: 'https://player.vimeo.com/video/191616601',
+  buttonCaption: 'Choisir une autre transaction',
   // secondDescription: {
   //   __html: `L’ensemble des transactions sur lesquelles vous avez travaillé aux étapes 5 et 6, ont toutes eu lieu en 2009 et 2010:
   //   - d’avril 2009 à septembre 2009 pour les actions,
