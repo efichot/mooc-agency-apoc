@@ -11,27 +11,25 @@ class ButtonWithArrow extends React.Component {
   };
 
   render() {
-    const { button } = this.props;
+    const { button, classOrigin } = this.props;
 
     return (
-      <div className="bloc-sub-menu-1__group" onClick={this.handleClick}>
+      <div className={`${classOrigin}__group`} onClick={this.handleClick}>
         <ButtonPrimary
-          classProps="bloc-sub-menu-1__button"
+          className={`${classOrigin}__button`}
           name={button.name}
           color={button.color}
           borderColor={button.borderColor}
           fontColor={button.fontColor}
         />
-        <div
-          className="bloc-sub-menu-1__arrow"
-          style={{ backgroundImage: `url(${button_arrow_right})` }}
-        />
+        <div className={`${classOrigin}__arrow`} style={{ backgroundImage: `url(${button_arrow_right})` }} />
       </div>
     );
   }
 }
 
 ButtonWithArrow.propTypes = {
+  classOrigin: PropTypes.string.isRequired,
   button: PropTypes.shape({
     position: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
@@ -39,9 +37,9 @@ ButtonWithArrow.propTypes = {
     color: PropTypes.string,
     borderColor: PropTypes.string,
     fontColor: PropTypes.string,
-    action: PropTypes.string.isRequired
+    action: PropTypes.string.isRequired,
   }).isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 ButtonWithArrow.defaultProps = {};

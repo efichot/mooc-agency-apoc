@@ -1,0 +1,52 @@
+.bloc-sub-menu-2 {
+  width: 100%;
+
+  &__buttons {
+    width: 100%;
+    @extend %flex-row-center-center;
+
+    :not(:last-child) {
+      margin-right: 20px;
+    }
+
+    &--name {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      text-align: center;
+    }
+
+    &--button {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 230px;
+    * {
+      margin: 0 !important;
+      max-width: 150px;
+    }
+    }
+
+
+  }
+
+  .button-primary {
+    height: 125px;
+    width: 125px !important;
+    flex-shrink: 0;
+    border-radius: 75px;
+    border: 2px solid var(--white);
+    margin: 0;
+
+  }
+
+  &__group {
+    @extend %flex-column-center-center;
+    cursor: pointer;
+    
+  }
+  &__arrow {
+    @include equalSides(45px);
+    @extend %background-contain;
+  }
+}

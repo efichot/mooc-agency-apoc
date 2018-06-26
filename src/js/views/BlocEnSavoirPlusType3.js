@@ -65,6 +65,7 @@ class BlocEnSavoirPlusType3 extends React.Component {
                     style={{
                       gridRow: card.position.row,
                       gridColumn: card.position.column * 2 - 1,
+                      width: card.width,
                     }}>
                     <ButtonPrimary color={hover ? card.hoverColor : card.color} name={card.cardTitle} />
                     {card.arrowFollowing && (
@@ -89,7 +90,7 @@ class BlocEnSavoirPlusType3 extends React.Component {
             classProps="bloc-en-savoir-plus-type-3__cards--to-show"
             hidePopup={hideCard}
             styleProps={{
-              gridRow: `1 / ${grid.rows}`,
+              gridRow: `2 / ${grid.rows + 1}`,
               gridColumn: `2 / ${grid.columns * 2}`,
             }}>
             <span className="card-title">{!hideCard && cards[cardNumberShown - 1].cardTitle}</span>

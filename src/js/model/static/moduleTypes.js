@@ -3,6 +3,7 @@ const moduleTypes = {
   blocDivider: 'bloc-divider',
   blocDescription: 'bloc-description',
   blocSubMenuType1: 'bloc-sub-menu-1',
+  blocSubMenuType2: 'bloc-sub-menu-2',
   blocDragAndDrop1: 'bloc-drag-and-drop-1',
   blocDragAndDrop2: 'bloc-drag-and-drop-2',
   blocEnSavoirPlusType1: 'bloc-en-savoir-plus-type-1',

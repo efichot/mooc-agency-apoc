@@ -4,7 +4,7 @@ import ButtonWithArrow from './UI/ButtonWithArrow';
 import BlocDescription from './BlocDescription';
 import Fade from '../transitions/Fade';
 
-class BlocSubMenu1 extends React.Component {
+class BlocSubMenu2 extends React.Component {
   state = {};
 
   handleButtonClick = changeMarketToShow => {
@@ -16,22 +16,27 @@ class BlocSubMenu1 extends React.Component {
 
     return (
       <Fade
-        classProps={`bloc-sub-menu-1 bloc`}
+        classProps={`bloc-sub-menu-2 bloc`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
         margins={this.props.margins}>
         {!noDescription && (
-          <BlocDescription modulType={modulType} classProps="bloc-sub-menu-1__description" description={description} />
+          <BlocDescription modulType={modulType} classProps="bloc-sub-menu-2__description" description={description} />
         )}
-        <div className="bloc-sub-menu-1__buttons game">
+        <div className="bloc-sub-menu-2__buttons game">
           {buttons.map((button, i) => {
             return (
-              <ButtonWithArrow
-                classOrigin="bloc-sub-menu-1"
-                key={button.action}
-                button={button}
-                onClick={this.handleButtonClick}
-              />
+              <div className="bloc-sub-menu-2__buttons--button" key={button.action}>
+                <ButtonWithArrow classOrigin="bloc-sub-menu-2" button={button} onClick={this.handleButtonClick} />
+                <span
+                  dangerouslySetInnerHTML={button.nameBelow}
+                  style={{
+                    color: button.fontColor,
+                    borderColor: button.borderColor,
+                  }}
+                  className="bloc-sub-menu-2__buttons--name"
+                />
+              </div>
             );
           })}
         </div>
@@ -40,7 +45,7 @@ class BlocSubMenu1 extends React.Component {
   }
 }
 
-BlocSubMenu1.propTypes = {
+BlocSubMenu2.propTypes = {
   in: PropTypes.bool,
   action: PropTypes.func.isRequired,
   /***************** DATA ******************/
@@ -59,10 +64,10 @@ BlocSubMenu1.propTypes = {
   noDescription: PropTypes.bool,
 };
 
-BlocSubMenu1.defaultProps = {
+BlocSubMenu2.defaultProps = {
   in: false,
   scrollIntoView: false,
   noDescription: false,
 };
 
-export default BlocSubMenu1;
+export default BlocSubMenu2;

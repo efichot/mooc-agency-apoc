@@ -5,17 +5,12 @@ const module_01_blocVideo = {
   modulType: moduleTypes.blocVideo,
   name: `Vidéo Introductive`,
   firstDescription: {
-    __html: `Découvrez l'étape 8 en visionnant la vidéo ci-dessous.`
+    __html: `Découvrez l'étape 8 en visionnant la vidéo ci-dessous.`,
   },
-  videoUrl: 'https://player.vimeo.com/video/259824710'
-  // secondDescription: {
-  //   __html: `L’ensemble des transactions sur lesquelles vous avez travaillé aux étapes 5 et 6, ont toutes eu lieu en 2009 et 2010:
-  //   - d’avril 2009 à septembre 2009 pour les actions,
-  //   - de janvier 2010 à octobre 2010 pour les obligations,
-  //   - et en mai 2009 pour les titres de créance négociables.
-
-  //   Nous vous proposons de quitter 2009-2010 pour faire un bond de 2 ans à 2 ans et demi dans le temps et vous projeter en octobre 2011.`
-  // }
+  videoUrl: 'https://player.vimeo.com/video/259824710',
+  secondDescription: {
+    __html: `L’investissement sur les marchés se fait généralement via des fonds qui, en fonction de leur objectif d’investissement et de leur éventuelle classification, achètent et vendent des titres sur les marchés actions, obligataire et/ou monétaire. Ils le font dans le cadre d’un processus de gestion qui est différent selon les classes d’actifs mais aussi qui peut aussi l’être à l’intérieur d’une même classe d’actifs.`,
+  },
 };
 
 export default module_01_blocVideo;

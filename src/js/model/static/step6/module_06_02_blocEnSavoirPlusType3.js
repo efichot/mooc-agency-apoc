@@ -18,6 +18,7 @@ const module_06_02_blocEnSavoirPlusType3 = {
     {
       color: 'rgba(76,43,29,1.00)',
       hoverColor: 'rgba(76,43,29,1.00)',
+      width: 200,
       index: 1,
       position: {
         column: 1,
@@ -33,6 +34,7 @@ const module_06_02_blocEnSavoirPlusType3 = {
     {
       color: 'rgba(76,43,29,1.00)',
       hoverColor: 'rgba(76,43,29,1.00)',
+      width: 200,
       index: 2,
       position: {
         column: 1,
@@ -48,6 +50,7 @@ const module_06_02_blocEnSavoirPlusType3 = {
     {
       color: 'rgba(110,68,57,1.00)',
       hoverColor: 'rgba(110,68,57,1.00)',
+      width: 200,
       index: 3,
       position: {
         column: 2,
@@ -63,6 +66,7 @@ const module_06_02_blocEnSavoirPlusType3 = {
     {
       color: 'rgba(110,68,57,1.00)',
       hoverColor: 'rgba(110,68,57,1.00)',
+      width: 200,
       index: 4,
       position: {
         column: 3,
@@ -78,6 +82,7 @@ const module_06_02_blocEnSavoirPlusType3 = {
     {
       color: 'rgba(110,68,57,1.00)',
       hoverColor: 'rgba(110,68,57,1.00)',
+      width: 200,
       index: 5,
       position: {
         column: 1,
@@ -93,6 +98,7 @@ const module_06_02_blocEnSavoirPlusType3 = {
     {
       color: 'rgba(110,68,57,1.00)',
       hoverColor: 'rgba(110,68,57,1.00)',
+      width: 200,
       index: 6,
       position: {
         column: 1,
@@ -108,6 +114,7 @@ const module_06_02_blocEnSavoirPlusType3 = {
     {
       color: 'rgba(110,68,57,1.00)',
       hoverColor: 'rgba(110,68,57,1.00)',
+      width: 200,
       index: 7,
       position: {
         column: 1,
