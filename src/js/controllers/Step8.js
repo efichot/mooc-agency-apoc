@@ -19,7 +19,7 @@ import BlocDivider from '../views/BlocDivider';
 class Step8 extends React.Component {
   state = {
     show_01: false,
-    show_02: false,
+    show_02: true,
     show_03: false,
     show_04: false,
     showNextModule: 0,
@@ -85,13 +85,33 @@ class Step8 extends React.Component {
                   <BlocEnSavoirPlusType3 in={isStep8 && show_01} {...step8.module_03_02} />
                   <BlocDivider in={isStep8 && show_01} margins />
                   <BlocEnSavoirPlusType1 in={isStep8 && show_01} {...step8.module_03_04} />
-                  {(showSynthese || show_01) && (
+                  <BlocDescription
+                    padding={30}
+                    in={isStep8 && show_02}
+                    scrollIntoView={isStep8 && show_02}
+                    {...step8.module_04_01}
+                  />
+                  <BlocEnSavoirPlusType1 in={isStep8 && show_02} {...step8.module_04_03} />
+                  <BlocDescription
+                    padding={30}
+                    in={isStep8 && show_03}
+                    scrollIntoView={isStep8 && show_03}
+                    {...step8.module_05_01}
+                  />
+                  <BlocEnSavoirPlusType1 in={isStep8 && show_03} {...step8.module_05_02} />
+                  <BlocDescription
+                    padding={30}
+                    in={isStep8 && show_04}
+                    scrollIntoView={isStep8 && show_04}
+                    {...step8.module_06_01}
+                  />
+                  {(showSynthese || show_01 || show_02 || show_03 || show_04) && (
                     <div className="step8__synthese step__synthese">
                       <BlocSpacer />
                       <span className="bloc__name">{step8.module_07.name}</span>
                       <BlocDescription
-                        in={showSynthese || show_01}
-                        scrollIntoView={showSynthese || show_01}
+                        in={showSynthese || show_01 || show_02 || show_03 || show_04}
+                        scrollIntoView={showSynthese || show_01 || show_02 || show_03 || show_04}
                         modulType={step8.module_07.modulType}
                         description={step8.module_07.description_1}
                       />
@@ -114,7 +134,7 @@ class Step8 extends React.Component {
                       />
                       <BlocSubMenu2
                         {...step8.module_02}
-                        in={showSynthese || show_01}
+                        in={showSynthese || show_01 || show_02 || show_03 || show_04}
                         action={this.changeMarketToShow}
                         noDescription
                       />

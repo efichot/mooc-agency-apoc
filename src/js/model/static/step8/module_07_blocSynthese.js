@@ -9,7 +9,7 @@ const module_07_blocSynthese = {
     __html: `Retrouvez la fiche de synthèse de l’étape 8 « Approches de gestion actions » dans la bibliothèque.`,
   },
   description_2: {
-    __html: `Retrouvez la fiche de synthèse « Principes du Marché des Obligations » dans la bibliothèque.`,
+    __html: `Retrouvez la fiche de synthèse de l’étape 8 « Approches de gestion taux » dans la bibliothèque.`,
   },
   description_3: {
     __html: `Retrouvez la fiche de synthèse « Principes du Marché Monétaire » dans la bibliothèque.`,
