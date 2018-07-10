@@ -2,6 +2,7 @@ import module_01_blocVideo from './step8/module_01_blocVideo';
 import module_02_blocSubmenu2 from './step8/module_02_blocSubmenu2';
 import module_03_01_blocDescription from './step8/module_03_01_blocDescription';
 import module_03_02_blocEnSavoirPlusType3 from './step8/module_03_02_blocEnSavoirPlusType3';
+import module_03_03_blocEnSavoirPlusType3QCMType1 from './step8/module_03_03_blocEnSavoirPlusType3QCMType1';
 import module_03_04_blocEnSavoirPlusType1 from './step8/module_03_04_blocEnSavoirPlusType1';
 import module_04_01_blocDescription from './step8/module_04_01_blocDescription';
 import module_04_03_blocEnSavoirPlusType1 from './step8/module_04_03_blocEnSavoirPlusType1';
@@ -17,6 +18,7 @@ const step8 = {
   module_02: module_02_blocSubmenu2,
   module_03_01: module_03_01_blocDescription,
   module_03_02: module_03_02_blocEnSavoirPlusType3,
+  module_03_03: module_03_03_blocEnSavoirPlusType3QCMType1,
   module_03_04: module_03_04_blocEnSavoirPlusType1,
   module_04_01: module_04_01_blocDescription,
   module_04_03: module_04_03_blocEnSavoirPlusType1,

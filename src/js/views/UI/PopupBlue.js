@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const PopupBlue = ({ hidePopup, classProps, noCross, onCloseClick, children, styleProps }) => (
   <div className={`${classProps} popup-blue`} style={{ opacity: hidePopup ? 0 : 1, ...styleProps }}>
     {!noCross && (
-      <span className="cross" onClick={() => onCloseClick}>
+      <span className="cross" onClick={() => onCloseClick()}>
         X
       </span>
     )}

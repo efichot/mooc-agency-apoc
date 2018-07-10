@@ -21,6 +21,7 @@ const module_05_02_blocEnSavoirPlusType1 = {
       startPosition: 1,
       arrowFollowing: true,
       cardTitle: 'Indice de référence composite',
+      cardSubTitle: 'cf. Glossaire',
       cardContent: `Il synthétise l’évolution de plusieurs indices de façon à refléter la composition cible du fonds de type mixte.`,
     },
     {
@@ -29,6 +30,7 @@ const module_05_02_blocEnSavoirPlusType1 = {
       startPosition: 2,
       arrowFollowing: false,
       cardTitle: 'Exemple',
+      cardSubTitle: 'cf. Glossaire',
       cardContent: `35% STOXX 50 SPECIAL OPENNING NET (1)<br />
                + 30% FTSE MTS  GLOBAL<br />
                + 15% JPM GBI GLOBAL TRADED INDEX HEDGED EURO (2)<br />

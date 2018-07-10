@@ -13,13 +13,14 @@ import BlocQuiz from '../views/BlocQuiz';
 import BlocSubMenu2 from '../views/BlocSubMenu2';
 import BlocDescription from '../views/BlocDescription';
 import BlocEnSavoirPlusType3 from '../views/BlocEnSavoirPlusType3';
+import BlocEnSavoirPlusType3QCMType1 from '../views/BlocEnSavoirPlusType3QCMType1';
 import BlocEnSavoirPlusType1 from '../views/BlocEnSavoirPlusType1';
 import BlocDivider from '../views/BlocDivider';
 
 class Step8 extends React.Component {
   state = {
     show_01: false,
-    show_02: true,
+    show_02: false,
     show_03: false,
     show_04: false,
     showNextModule: 0,
@@ -83,6 +84,8 @@ class Step8 extends React.Component {
                     {...step8.module_03_01}
                   />
                   <BlocEnSavoirPlusType3 in={isStep8 && show_01} {...step8.module_03_02} />
+                  <BlocDivider in={isStep8 && show_01} margins />
+                  <BlocEnSavoirPlusType3QCMType1 in={isStep8 && show_01} {...step8.module_03_03} />
                   <BlocDivider in={isStep8 && show_01} margins />
                   <BlocEnSavoirPlusType1 in={isStep8 && show_01} {...step8.module_03_04} />
                   <BlocDescription

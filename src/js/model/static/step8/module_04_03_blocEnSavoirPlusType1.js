@@ -23,6 +23,7 @@ const module_04_03_blocEnSavoirPlusType1 = {
 */ startPosition: 1,
       arrowFollowing: true,
       cardTitle: 'Indice de référence',
+      cardSubTitle: 'cf. Glossaire',
       cardContent: `Panier d’obligations respectant des critères de devise, catégorie d’émetteur (État, entreprises…), maturité comprise dans une certaine plage (typiquement : 1-3 ans, 3-5 ans, 7-10 ans, 10 ans et +). Il sert de repère pour analyser la performance des fonds. Il n’inclut ni frais de transaction, ni frais de gestion.`,
     },
     {
@@ -33,6 +34,7 @@ const module_04_03_blocEnSavoirPlusType1 = {
 */ startPosition: 2,
       arrowFollowing: false,
       cardTitle: 'Ftse mts global',
+      cardSubTitle: 'cf. Glossaire',
       cardContent: `Indice composé de titres obligataires à taux fixe libellés en euros, émis par les États de la zone Euro et ayant une durée résiduelle d’au moins un an.`,
     },
     {
@@ -43,6 +45,7 @@ const module_04_03_blocEnSavoirPlusType1 = {
 */ startPosition: 3,
       arrowFollowing: false,
       cardTitle: 'Barclays euro-aggregate corporate',
+      cardSubTitle: 'cf. Glossaire',
       cardContent: `Indice représentatif des emprunts obligataires à taux fixe libellés en euros et émis par des émetteurs privés qui reçoivent une note allant de AAA à BBB- par les agences de notation.`,
     },
     {
@@ -53,6 +56,7 @@ const module_04_03_blocEnSavoirPlusType1 = {
 */ startPosition: 4,
       arrowFollowing: false,
       cardTitle: 'Eonia ou euro overnight index average',
+      cardSubTitle: 'cf. Glossaire',
       cardContent: `Indice correspondant à la moyenne pondérée des taux des opérations au jour le jour entre les banques retenues pour le calcul de l’Euribor (Euro Interbank Offered Rate ou taux interbancaire offert entre banques de meilleures signatures pour la rémunération de dépôts dans la zone Euro). Le taux de l’EONIA est calculé par la Banque Centrale Européenne (BCE) et diffusé par la Fédération Bancaire de l’Union Européenne (FBE). L’EONIA capitalisé intègre l’impact du réinvestissement des intérêts.`,
     },
   ],

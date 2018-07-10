@@ -28,7 +28,7 @@ class Step6 extends React.Component {
     show_04: false,
     showNextModule: 0,
     showSynthese: false,
-    showQuiz: true,
+    showQuiz: false,
     reset: false,
     selectedRow: 0,
   };

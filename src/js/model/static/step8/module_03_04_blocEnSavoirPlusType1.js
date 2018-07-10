@@ -21,6 +21,7 @@ const module_03_04_blocEnSavoirPlusType1 = {
       startPosition: 1,
       arrowFollowing: false,
       cardTitle: 'Gestion de croissance ou growth en anglais ',
+      cardSubTitle: 'cf. Glossaire',
       cardContent: `Elle consiste à sélectionner les titres en retenant comme critère principal la croissance du chiffre d’affaires et des résultats des entreprises qui les ont émis. Ces titres correspondent à des entreprises bien valorisées par le marché mais dont la croissance à venir devrait entraîner le cours à la hausse.`,
     },
     {
@@ -29,6 +30,7 @@ const module_03_04_blocEnSavoirPlusType1 = {
       startPosition: 2,
       arrowFollowing: false,
       cardTitle: 'Gestion de valeur ou value en anglais',
+      cardSubTitle: 'cf. Glossaire',
       cardContent: `Elle consiste à sélectionner les titres en retenant comme critère principal la sous-évaluation, en terme de valeur d’actif ou de rendement, des entreprises qui les ont émis. Ces titres correspondent à des entreprises dont le cours devrait se réapprécier à l’avenir.`,
     },
     {
@@ -37,6 +39,7 @@ const module_03_04_blocEnSavoirPlusType1 = {
       startPosition: 3,
       arrowFollowing: false,
       cardTitle: 'Gestion sectorielle ',
+      cardSubTitle: 'cf. Glossaire',
       cardContent: `Elle consiste à sélectionner les titres des entreprises qui appartiennent au secteur d’activité retenu, comme par exemple les matières premières, la santé ou les télécommunications.`,
     },
     {
@@ -45,6 +48,7 @@ const module_03_04_blocEnSavoirPlusType1 = {
       startPosition: 4,
       arrowFollowing: false,
       cardTitle: 'Gestion thématique',
+      cardSubTitle: 'cf. Glossaire',
       cardContent: `Elle consiste à sélectionner les titres des entreprises liées au thème retenu, comme par exemple les petites et moyennes capitalisations, le vieillissement de la population, le rendement, les situations spéciales. Ce dernier thème consiste à sélectionner les titres des entreprises pour lesquelles une situation de rupture (fusion, réorganisation, contrat important, changement d’hommes ou de réglementation…) et donc une réappréciation du cours sont anticipées.`,
     },
     {
@@ -53,6 +57,7 @@ const module_03_04_blocEnSavoirPlusType1 = {
       startPosition: 5,
       arrowFollowing: false,
       cardTitle: 'Finance comportementale',
+      cardSubTitle: 'cf. Glossaire',
       cardContent: `Elle consiste à sélectionner les titres en intégrant la psychologie des acteurs de marché, et à profiter des écarts dus à leurs comportements, comme par exemple l’aversion au risque, l’optimisme, le panurgisme.`,
     },
   ],

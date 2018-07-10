@@ -9,6 +9,7 @@ const moduleTypes = {
   blocEnSavoirPlusType1: 'bloc-en-savoir-plus-type-1',
   blocEnSavoirPlusType2: 'bloc-en-savoir-plus-type-2',
   blocEnSavoirPlusType3: 'bloc-en-savoir-plus-type-3',
+  blocEnSavoirPlusType3QCMType1: 'bloc-en-savoir-plus-type-3-qcm-type-1',
   blocQCMType1: 'bloc-QCM-type-1',
   blocQCMType2: 'bloc-QCM-type-2',
   blocQCMType3: 'bloc-QCM-type-3',

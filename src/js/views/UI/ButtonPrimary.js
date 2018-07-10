@@ -12,9 +12,9 @@ class ButtonPrimary extends React.Component {
   };
 
   render() {
-    const { id, classProps, color, name, value, borderColor, fontColor } = this.props;
+    const { id, classProps, color, name, value, borderColor, fontColor, styleProps } = this.props;
 
-    return (
+    return name.__html ? (
       <div
         id={id}
         className={`button button-primary ${classProps}`}
@@ -23,8 +23,22 @@ class ButtonPrimary extends React.Component {
           backgroundColor: color,
           borderColor: borderColor,
           color: fontColor,
+          ...styleProps,
+        }}
+        dangerouslySetInnerHTML={name}
+      />
+    ) : (
+      <div
+        id={id}
+        className={`button button-primary ${classProps}`}
+        onClick={this.handleClick}
+        style={{
+          backgroundColor: color,
+          borderColor: borderColor,
+          color: fontColor,
+          ...styleProps,
         }}>
-        {name}
+        <span>{name}</span>
         {value !== undefined && <br />}
         {value !== undefined && value}
       </div>
@@ -33,7 +47,7 @@ class ButtonPrimary extends React.Component {
 }
 
 ButtonPrimary.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.shape({ __html: PropTypes.string.isRequired })]),
   onClick: PropTypes.func,
   value: PropTypes.string,
   subname: PropTypes.string,
@@ -43,6 +57,7 @@ ButtonPrimary.propTypes = {
   borderColor: PropTypes.string,
   fontColor: PropTypes.string,
   enableClick: PropTypes.bool,
+  styleProps: PropTypes.object,
 };
 
 ButtonPrimary.defaultProps = {
@@ -55,6 +70,7 @@ ButtonPrimary.defaultProps = {
   value: undefined,
   onClick: undefined,
   enableClick: false,
+  styleProps: {},
 };
 
 export default ButtonPrimary;
