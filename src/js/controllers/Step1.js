@@ -22,16 +22,14 @@ class Step1 extends React.Component {
   state = {
     showNextModule: 0,
     showSynthese: false,
-    showQuiz: false
+    showQuiz: false,
   };
 
   changeMarketToShow = marketToShow => {
     const stateCopy = { ...this.state };
 
     Object.keys(stateCopy).forEach(stateAction => {
-      stateAction === marketToShow
-        ? (stateCopy[`${stateAction}`] = true)
-        : (stateCopy[`${stateAction}`] = false);
+      stateAction === marketToShow ? (stateCopy[`${stateAction}`] = true) : (stateCopy[`${stateAction}`] = false);
     });
     this.setState(stateCopy);
   };
@@ -47,9 +45,7 @@ class Step1 extends React.Component {
     const actions = data.filter(item => item.name === 'actions')[0];
     /*const obligations = data.filter(item => item.name === 'obligations')[0]*/
     const monetary = data.filter(item => item.name === 'monétaire')[0];
-    const company = data.filter(
-      item => item.name === "Titres de l'entreprise"
-    )[0];
+    const company = data.filter(item => item.name === "Titres de l'entreprise")[0];
     if (actions.value >= 60) {
       this.setState({ fund: 'Fonds Actions' });
     } else if (company.value > 30) {
@@ -89,27 +85,12 @@ class Step1 extends React.Component {
               return (
                 <React.Fragment>
                   <BlocStep step={step1.linkStep} />
-                  <BlocStepTopContent
-                    in={isStep1}
-                    step={step1}
-                    scrollIntoView={isStep1}
-                  />
+                  <BlocStepTopContent in={isStep1} step={step1} scrollIntoView={isStep1} />
                   <BlocDivider in={isStep1} />
-                  <BlocSimulatorsExternalLink
-                    in={isStep1}
-                    {...step1.module_02}
-                  />
-                  <BlocSimulatorsExternalLink
-                    in={isStep1}
-                    height={350}
-                    {...step1.module_03}
-                  />
+                  <BlocSimulatorsExternalLink in={isStep1} {...step1.module_02} />
+                  <BlocSimulatorsExternalLink in={isStep1} height={350} {...step1.module_03} />
                   <BlocDivider in={isStep1} />
-                  <BlocPieChartPlay
-                    in={isStep1}
-                    {...step1.module_04}
-                    gameIsFinished={this.handleGetPieChartData}
-                  />
+                  <BlocPieChartPlay in={isStep1} {...step1.module_04} gameIsFinished={this.handleGetPieChartData} />
                   <BlocEnSavoirPlusType2
                     in={stepInStep0}
                     scrollIntoView={stepInStep0}
@@ -119,11 +100,7 @@ class Step1 extends React.Component {
                     gameIsFinished={this.handleShowNextModule}
                   />
                   <BlocDivider in={stepInStep1} noMarginTop />
-                  <BlocText
-                    in={stepInStep1}
-                    scrollIntoView={stepInStep1}
-                    {...step1.module_05}
-                  />
+                  <BlocText in={stepInStep1} scrollIntoView={stepInStep1} {...step1.module_05} />
                   <BlocVideo in={stepInStep1} {...step1.module_06} />
                   <BlocVideo in={stepInStep1} {...step1.module_07} />
                   <BlocVideo in={stepInStep1} {...step1.module_08} />
@@ -134,13 +111,9 @@ class Step1 extends React.Component {
                     gameIsFinished={this.handleShowNextModule}
                   />
                   <BlocDivider in={stepInStep2} />
-                  <BlocVideo
-                    in={stepInStep2}
-                    scrollIntoView={stepInStep2}
-                    {...step1.module_10}
-                  />
+                  <BlocVideo in={stepInStep2} scrollIntoView={stepInStep2} {...step1.module_10} />
                   {showSynthese && (
-                    <div className="step1__synthese step__synthese">
+                    <div className="step1__synthese step__synthese bloc">
                       <BlocSpacer />
                       <span className="bloc__name">{step1.module_11.name}</span>
                       <BlocDescription
@@ -150,10 +123,7 @@ class Step1 extends React.Component {
                         description={step1.module_11.description}
                       />
                       <BlocSpacer />
-                      <ButtonPrimary
-                        name={step1.module_11.button_1}
-                        onClick={this.handleShowQuiz}
-                      />
+                      <ButtonPrimary name={step1.module_11.button_1} onClick={this.handleShowQuiz} />
                       <Link to="#" className="button">
                         <ButtonPrimary name={step1.module_11.button_2} />
                       </Link>

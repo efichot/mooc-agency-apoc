@@ -38,7 +38,7 @@ class ButtonPrimary extends React.Component {
           color: fontColor,
           ...styleProps,
         }}>
-        <span>{name}</span>
+        {name.__html ? <span dangerouslySetInnerHTML={name} /> : <span>{name}</span>}
         {value !== undefined && <br />}
         {value !== undefined && value}
       </div>

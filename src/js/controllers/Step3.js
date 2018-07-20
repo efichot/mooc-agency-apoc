@@ -26,7 +26,7 @@ class Step3 extends React.Component {
     /*showNextModule: 0,*/
     showSynthese: false,
     showQuiz: false,
-    reset: false
+    reset: false,
   };
 
   handleShowNextModule = async module => {
@@ -40,9 +40,7 @@ class Step3 extends React.Component {
     const stateCopy = { ...this.state };
 
     Object.keys(stateCopy).forEach(stateAction => {
-      stateAction === marketToShow
-        ? (stateCopy[`${stateAction}`] = true)
-        : (stateCopy[`${stateAction}`] = false);
+      stateAction === marketToShow ? (stateCopy[`${stateAction}`] = true) : (stateCopy[`${stateAction}`] = false);
     });
     this.setState(stateCopy);
     this.setState({ reset: true });
@@ -67,7 +65,7 @@ class Step3 extends React.Component {
       show_03,
       show_04,
       showSynthese,
-      showQuiz
+      showQuiz,
       /*showNextModule*/
     } = this.state;
 
@@ -88,11 +86,7 @@ class Step3 extends React.Component {
               return (
                 <React.Fragment>
                   <BlocStep step={step3.linkStep} />
-                  <BlocStepTopContent
-                    in={isStep3}
-                    step={step3}
-                    scrollIntoView={isStep3}
-                  />
+                  <BlocStepTopContent in={isStep3} step={step3} scrollIntoView={isStep3} />
                   <BlocSubMenu1
                     {...step3.module_02}
                     in={isStep3}
@@ -100,13 +94,7 @@ class Step3 extends React.Component {
                     reset={this.state.reset}
                   />
                   <BlocSpacer />
-                  {show_01 && (
-                    <BlocLink
-                      in={show_01}
-                      scrollIntoView={show_01}
-                      {...step3.module_03.module_03_01}
-                    />
-                  )}
+                  {show_01 && <BlocLink in={show_01} scrollIntoView={show_01} {...step3.module_03.module_03_01} />}
                   {show_01 && (
                     <BlocTextToFill
                       in={show_01}
@@ -115,13 +103,7 @@ class Step3 extends React.Component {
                       reset={this.state.reset}
                     />
                   )}
-                  {show_02 && (
-                    <BlocLink
-                      in={show_02}
-                      scrollIntoView={show_02}
-                      {...step3.module_04.module_04_01}
-                    />
-                  )}
+                  {show_02 && <BlocLink in={show_02} scrollIntoView={show_02} {...step3.module_04.module_04_01} />}
                   {show_02 && (
                     <BlocTextToFill
                       in={show_02}
@@ -131,13 +113,7 @@ class Step3 extends React.Component {
                       reset={this.state.reset}
                     />
                   )}
-                  {show_03 && (
-                    <BlocLink
-                      in={show_03}
-                      scrollIntoView={show_03}
-                      {...step3.module_05.module_05_01}
-                    />
-                  )}
+                  {show_03 && <BlocLink in={show_03} scrollIntoView={show_03} {...step3.module_05.module_05_01} />}
                   {show_03 && (
                     <BlocTextToFill
                       in={show_03}
@@ -146,13 +122,7 @@ class Step3 extends React.Component {
                       reset={this.state.reset}
                     />
                   )}
-                  {show_04 && (
-                    <BlocLink
-                      in={show_04}
-                      scrollIntoView={show_04}
-                      {...step3.module_06.module_06_01}
-                    />
-                  )}
+                  {show_04 && <BlocLink in={show_04} scrollIntoView={show_04} {...step3.module_06.module_06_01} />}
                   {show_04 && (
                     <BlocTextToFill
                       in={show_04}
@@ -162,7 +132,7 @@ class Step3 extends React.Component {
                     />
                   )}
                   {showSynthese && (
-                    <div className="step3__synthese step__synthese">
+                    <div className="step3__synthese step__synthese bloc">
                       <BlocSubMenu1
                         {...step3.module_02}
                         in={showSynthese}
@@ -171,10 +141,7 @@ class Step3 extends React.Component {
                         noDescription
                       />
                       <Link to="/step4" className="button">
-                        <ButtonPrimary
-                          name={step3.module_07.button_1}
-                          enableClick
-                        />
+                        <ButtonPrimary name={step3.module_07.button_1} enableClick />
                       </Link>
                       <Link to="#" className="button">
                         <ButtonPrimary name={step3.module_07.button_2} />
@@ -202,11 +169,11 @@ class Step3 extends React.Component {
 }
 
 Step3.propTypes = {
-  in: PropTypes.bool
+  in: PropTypes.bool,
 };
 
 Step3.defaultProps = {
-  in: false
+  in: false,
 };
 
 export default Step3;

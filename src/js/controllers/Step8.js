@@ -21,7 +21,7 @@ class Step8 extends React.Component {
   state = {
     show_01: false,
     show_02: false,
-    show_03: false,
+    show_03: true,
     show_04: false,
     showNextModule: 0,
     showSynthese: false,
@@ -94,6 +94,7 @@ class Step8 extends React.Component {
                     scrollIntoView={isStep8 && show_02}
                     {...step8.module_04_01}
                   />
+                  <BlocEnSavoirPlusType3QCMType1 in={isStep8 && show_02} {...step8.module_04_02} />
                   <BlocEnSavoirPlusType1 in={isStep8 && show_02} {...step8.module_04_03} />
                   <BlocDescription
                     padding={30}
@@ -102,6 +103,7 @@ class Step8 extends React.Component {
                     {...step8.module_05_01}
                   />
                   <BlocEnSavoirPlusType1 in={isStep8 && show_03} {...step8.module_05_02} />
+                  <BlocEnSavoirPlusType3QCMType1 in={isStep8 && show_03} {...step8.module_05_03} />
                   <BlocDescription
                     padding={30}
                     in={isStep8 && show_04}
@@ -109,7 +111,7 @@ class Step8 extends React.Component {
                     {...step8.module_06_01}
                   />
                   {(showSynthese || show_01 || show_02 || show_03 || show_04) && (
-                    <div className="step8__synthese step__synthese">
+                    <div className="step8__synthese step__synthese bloc">
                       <BlocSpacer />
                       <span className="bloc__name">{step8.module_07.name}</span>
                       <BlocDescription

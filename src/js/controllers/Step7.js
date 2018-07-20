@@ -23,16 +23,14 @@ class Step7 extends React.Component {
     show_02: false,
     show_03: false,
     showSynthese: false,
-    showQuiz: false
+    showQuiz: false,
   };
 
   changeMarketToShow = marketToShow => {
     const stateCopy = { ...this.state };
 
     Object.keys(stateCopy).forEach(stateAction => {
-      stateAction === marketToShow
-        ? (stateCopy[`${stateAction}`] = true)
-        : (stateCopy[`${stateAction}`] = false);
+      stateAction === marketToShow ? (stateCopy[`${stateAction}`] = true) : (stateCopy[`${stateAction}`] = false);
     });
     this.setState(stateCopy);
   };
@@ -62,36 +60,16 @@ class Step7 extends React.Component {
               return (
                 <React.Fragment>
                   <BlocStep step={step7.linkStep} />
-                  <BlocStepTopContent
-                    step={step7}
-                    in={isStep7}
-                    scrollIntoView={isStep7}
-                  />
+                  <BlocStepTopContent step={step7} in={isStep7} scrollIntoView={isStep7} />
                   <BlocDivider in={isStep7} />
                   <BlocVideo in={isStep7} {...step7.module_02} />
-                  <BlocSubMenu1
-                    {...step7.module_03}
-                    in={isStep7}
-                    action={this.changeMarketToShow}
-                  />
-                  <Step701
-                    in={show_01}
-                    context={step7}
-                    endOfModules={this.handleShowSynthese}
-                  />
-                  <Step702
-                    in={show_02}
-                    context={step7}
-                    endOfModules={this.handleShowSynthese}
-                  />
-                  <Step703
-                    in={show_03}
-                    context={step7}
-                    endOfModules={this.handleShowSynthese}
-                  />
+                  <BlocSubMenu1 {...step7.module_03} in={isStep7} action={this.changeMarketToShow} />
+                  <Step701 in={show_01} context={step7} endOfModules={this.handleShowSynthese} />
+                  <Step702 in={show_02} context={step7} endOfModules={this.handleShowSynthese} />
+                  <Step703 in={show_03} context={step7} endOfModules={this.handleShowSynthese} />
 
                   {showSynthese && (
-                    <div className="step7__synthese step__synthese">
+                    <div className="step7__synthese step__synthese bloc">
                       <BlocSpacer />
                       <span className="bloc__name">{step7.module_07.name}</span>
                       <BlocDescription
@@ -119,10 +97,7 @@ class Step7 extends React.Component {
                         noDescription
                       />
                       <BlocSpacer />
-                      <ButtonPrimary
-                        name={step7.module_07.button_1}
-                        onClick={this.handleShowQuiz}
-                      />
+                      <ButtonPrimary name={step7.module_07.button_1} onClick={this.handleShowQuiz} />
                       <Link to="#" className="button">
                         <ButtonPrimary name={step7.module_07.button_2} />
                       </Link>
@@ -149,11 +124,11 @@ class Step7 extends React.Component {
 }
 
 Step7.propTypes = {
-  in: PropTypes.bool
+  in: PropTypes.bool,
 };
 
 Step7.defaultProps = {
-  in: false
+  in: false,
 };
 
 export default Step7;

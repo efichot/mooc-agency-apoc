@@ -94,6 +94,8 @@ const module_03_03_blocEnSavoirPlusType3QCMType1 = {
     columns: 8,
     rows: 12,
     gridAutoRows: 50,
+    popupRows: 4,
+    gridTemplateColumns: '7fr 1fr 6fr 1fr 7fr 1fr 7fr 1fr',
   },
   firstDescription: {
     __html: `Le processus de gestion matérialise la façon dont est géré le fonds.
@@ -109,7 +111,7 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
     [
       questions.originalQuestions[0].answers[0],
       questions.originalQuestions[1][0].answers[1],
-      questions.originalQuestions[2].answers[1],
+      questions.originalQuestions[2].answers[0],
     ],
     [
       questions.originalQuestions[0].answers[1],

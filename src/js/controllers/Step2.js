@@ -103,7 +103,7 @@ class Step2 extends React.Component {
                   <Step204 in={show_04} context={step2} endOfModules={this.handleShowSynthese} />
 
                   {showSynthese && (
-                    <div className="step2__synthese step__synthese">
+                    <div className="step2__synthese step__synthese bloc">
                       <BlocSubMenu1
                         {...step2.module_06}
                         in={showSynthese}

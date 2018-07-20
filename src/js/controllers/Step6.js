@@ -171,7 +171,7 @@ class Step6 extends React.Component {
                   <BlocVideo in={show_04} scrollIntoView={show_04} {...step6.module_06_01} />
                   <BlocEnSavoirPlusType3 {...step6.module_06_02} in={show_04} />
                   {showSynthese && (
-                    <div className="step6__synthese step__synthese">
+                    <div className="step6__synthese step__synthese bloc">
                       <BlocSpacer />
                       <span className="bloc__name">{step6.module_07.name}</span>
                       <BlocDescription

@@ -11,7 +11,7 @@ class BlocDescription extends React.Component {
       description.__html = description.__html.replace(/\r\n/g, '<br />').replace(/[\r\n]/g, '<br />');
 
       return (
-        <Fade in={this.props.in} margins={this.props.margins}>
+        <Fade in={this.props.in} margins={this.props.margins} classProps={classProps}>
           <p
             className={`bloc bloc-description ${classProps}`}
             dangerouslySetInnerHTML={description}

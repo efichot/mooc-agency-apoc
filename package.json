@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "/mooc-agency-apoc",
+  "repository": { 
+    "type" : "git",
+    "url" : "https://github.com/arnaudambro/mooc-agency-apoc"
+  },
   "dependencies": {
     "@fortawesome/fontawesome": "~1.1.4",
     "@fortawesome/fontawesome-free-brands": "~5.0.8",
