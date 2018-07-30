@@ -76,7 +76,7 @@ class BlocQCMType2 extends React.Component {
     });
     this.setState({ hideExplanation: false });
     if (correct) {
-      const victoryMessage = { __html: victoryMessages.isVictory };
+      const victoryMessage = { __html: victoryMessages.isGoodAnswer };
       this.setState({ victoryMessage });
       this.setState({ gameIsFinished: true });
       this.props.gameIsFinished(this.state.gameIsFinished);

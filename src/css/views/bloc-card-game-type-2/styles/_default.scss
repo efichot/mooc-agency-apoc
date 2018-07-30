@@ -1,0 +1,97 @@
+
+.bloc-card-game-type-2 {
+  
+  // padding: 10px;
+  display: block;
+  overflow: hidden;
+
+  &__game {
+    margin-left: -20px;
+    max-width: 680px;
+    display: grid;
+    grid-auto-columns: 220px;
+    grid-template-rows: 50px 1fr repeat(3, 40px);
+    grid-gap: 10px;
+    
+  }
+
+  
+
+  .button-double-arrow {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    //align-content: center;
+    &__button {
+      order: 2;
+      min-height: auto;
+      margin: 0;
+    }
+    &__arrows {
+      order: 1;
+      margin: 0;
+      margin-left: auto;
+      width: auto;
+    }
+  }
+
+  .popup-column1,
+  .popup-column2,
+  .popup-column3,
+  {
+    position: absolute;
+    z-index: 1000;
+    grid-row: 3;
+    margin-top: 25px;
+    max-width: 200px;
+  }
+  .popup-column1 {
+    grid-column: 2;
+  }
+  .popup-column2 {
+    grid-column: 1;
+  }
+  .popup-column3 {
+    grid-column: 2;
+  }
+
+  .button-validate {
+    height: 50px;
+    margin-right: 0;
+  }
+
+
+  .popup-column1-explanation,
+  .popup-column2-explanation,
+  .popup-column3-explanation {
+    position: relative;
+    min-height: 0;
+    margin-top: 15px;
+    display: block;
+    flex-grow: 0;
+    grid-row: 6;
+    height: fit-content;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      border-bottom: 10px solid var(--popupBgColor);
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      left: 0;
+      right: 0;
+      width: 0;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+  }
+
+}

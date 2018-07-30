@@ -6,6 +6,7 @@ import React from 'react';
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 import Fade from '../transitions/Fade';
 import BlocStep from '../views/BlocStep';
+import BlocSpacer from '../views/BlocSpacer';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocLink from '../views/BlocLink';
 import BlocQuiz from '../views/BlocQuiz';
@@ -13,7 +14,7 @@ import BlocDragAndDropType2 from '../views/BlocDragAndDropType2';
 
 class Step4 extends React.Component {
   state = {
-    showNextModule: 0
+    showNextModule: 0,
   };
 
   handleShowNextModule = e => {
@@ -41,16 +42,9 @@ class Step4 extends React.Component {
               <React.Fragment>
                 <BlocStep step={step4.linkStep} />
                 <BlocStepTopContent step={step4} in={isStep4} />
-                <BlocLink
-                  in={isStep4}
-                  {...step4.module_02}
-                  onClick={this.handleShowNextModule}
-                />
-                <BlocLink
-                  in={stepInStep1}
-                  scrollIntoView={stepInStep1}
-                  {...step4.module_03}
-                />
+                <BlocSpacer />
+                <BlocLink in={isStep4} {...step4.module_02} onClick={this.handleShowNextModule} />
+                <BlocLink in={stepInStep1} scrollIntoView={stepInStep1} {...step4.module_03} />
                 <BlocLink in={stepInStep1} {...step4.module_04} />
                 <BlocLink in={stepInStep1} {...step4.module_05} />
                 <BlocLink in={stepInStep1} {...step4.module_06} />
@@ -58,11 +52,7 @@ class Step4 extends React.Component {
                 <BlocLink in={stepInStep1} {...step4.module_08} />
                 <BlocLink in={stepInStep1} {...step4.module_09} />
                 <BlocLink in={stepInStep1} {...step4.module_10} />
-                <BlocDragAndDropType2
-                  in={isStep4}
-                  {...step4.module_11}
-                  gameIsFinished={this.handleGameIsFinished}
-                />
+                <BlocDragAndDropType2 in={isStep4} {...step4.module_11} gameIsFinished={this.handleGameIsFinished} />
                 <BlocQuiz in={stepInStep2} {...step4.module_12} />
               </React.Fragment>
             );

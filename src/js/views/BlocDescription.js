@@ -38,13 +38,14 @@ BlocDescription.propTypes = {
   /***************** DATA ******************/
   classProps: PropTypes.string,
   padding: PropTypes.number,
-  modulType: PropTypes.string.isRequired,
+  modulType: PropTypes.string,
 };
 
 BlocDescription.defaultProps = {
   in: true,
   classProps: '',
   padding: 0,
+  modulType: '',
 };
 
 export default BlocDescription;

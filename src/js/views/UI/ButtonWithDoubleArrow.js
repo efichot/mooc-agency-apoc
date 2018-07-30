@@ -55,11 +55,15 @@ ButtonWithDoubleArrow.propTypes = {
   onClick: PropTypes.func.isRequired,
   name: PropTypes.string,
   value: PropTypes.string,
-  noButton: PropTypes.bool
+  noButton: PropTypes.bool,
+  answer: PropTypes.string,
 };
 
 ButtonWithDoubleArrow.defaultProps = {
-  noButton: false
+  noButton: false,
+  answer: '',
+  value: '',
+  name: '',
 };
 
 export default ButtonWithDoubleArrow;

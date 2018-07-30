@@ -1,9 +1,10 @@
 
 .bloc-card-game-type-1 {
   
-  padding: 10px;
+  display: block;
 
   &__game {
+    margin-left: -20px;
     max-width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

@@ -28,36 +28,26 @@ class BlocCardGameType1 extends React.Component {
       .filter(cardSet => cardSet.type === 'Émetteurs')
       .filter(
         (cardSet, index, array) =>
-          index === 0 ||
-          cardSet.secondCard.answerNumber !==
-            array[index - 1].secondCard.answerNumber
+          index === 0 || cardSet.secondCard.answerNumber !== array[index - 1].secondCard.answerNumber,
       ),
-    column2: this.props.game.filter(
-      cardSet => cardSet.type === 'Investisseurs'
-    ),
+    column2: this.props.game.filter(cardSet => cardSet.type === 'Investisseurs'),
     column2SecondCards: this.props.game
       .filter(cardSet => cardSet.type === 'Investisseurs')
       .filter(
         (cardSet, index, array) =>
-          index === 0 ||
-          cardSet.secondCard.answerNumber !==
-            array[index - 1].secondCard.answerNumber
+          index === 0 || cardSet.secondCard.answerNumber !== array[index - 1].secondCard.answerNumber,
       ),
-    column3: this.props.game.filter(
-      cardSet => cardSet.type === 'Intermédiaires'
-    ),
+    column3: this.props.game.filter(cardSet => cardSet.type === 'Intermédiaires'),
     column3SecondCards: this.props.game
       .filter(cardSet => cardSet.type === 'Intermédiaires')
       .filter(
         (cardSet, index, array) =>
-          index === 0 ||
-          cardSet.secondCard.answerNumber !==
-            array[index - 1].secondCard.answerNumber
+          index === 0 || cardSet.secondCard.answerNumber !== array[index - 1].secondCard.answerNumber,
       ),
     column1card2currentIndex: 0,
     column2card2currentIndex: 0,
     column3card2currentIndex: 0,
-    victoryMessage: undefined
+    victoryMessage: undefined,
   };
 
   componentDidMount() {
@@ -65,7 +55,7 @@ class BlocCardGameType1 extends React.Component {
     this.setState({
       column1CardIndex: Math.round(Math.random() * (column1.length - 1)),
       column2CardIndex: Math.round(Math.random() * (column2.length - 1)),
-      column3CardIndex: Math.round(Math.random() * (column3.length - 1))
+      column3CardIndex: Math.round(Math.random() * (column3.length - 1)),
     });
   }
 
@@ -120,23 +110,17 @@ class BlocCardGameType1 extends React.Component {
   handleCard2ButtonClick = (indexForAnswer, column) => {
     const indexName = `${column}card2currentIndex`;
     const index = this.state[indexName];
-    const correctAnswer = this.state[`${column}`][indexForAnswer].firstCard
-      .answerNumber;
-    const proposedAnswer = this.state[`${column}SecondCards`][index].secondCard
-      .answerNumber;
+    const correctAnswer = this.state[`${column}`][indexForAnswer].firstCard.answerNumber;
+    const proposedAnswer = this.state[`${column}SecondCards`][index].secondCard.answerNumber;
 
     if (correctAnswer === proposedAnswer) {
       this.setState({ victoryMessage: victoryMessages.isVictory });
-      column === 'column1' &&
-        this.setState({ column1card3: true, step: 'column3card1' });
-      column === 'column3' &&
-        this.setState({ column3card3: true, step: 'column2card1' });
-      column === 'column2' &&
-        this.setState({ column2card3: true }) &&
-        this.props.gameIsFinished();
+      column === 'column1' && this.setState({ column1card3: true, step: 'column3card1' });
+      column === 'column3' && this.setState({ column3card3: true, step: 'column2card1' });
+      column === 'column2' && this.setState({ column2card3: true }) && this.props.gameIsFinished();
     } else {
       this.setState({
-        victoryMessage: victoryMessages.isDefeat
+        victoryMessage: victoryMessages.isDefeat,
       });
     }
   };
@@ -154,7 +138,7 @@ class BlocCardGameType1 extends React.Component {
       duration,
       firstDescription,
       secondary,
-      scrollIntoView
+      scrollIntoView,
     } = this.props;
 
     const {
@@ -177,7 +161,7 @@ class BlocCardGameType1 extends React.Component {
       column1SecondCards,
       column2SecondCards,
       column3SecondCards,
-      victoryMessage
+      victoryMessage,
     } = this.state;
 
     const column1CardSet = column1[column1CardIndex];
@@ -186,19 +170,14 @@ class BlocCardGameType1 extends React.Component {
 
     return (
       <Fade
-        classProps={`bloc-card-game-type-1`}
+        classProps="bloc-card-game-type-1 bloc"
         in={this.props.in}
         scrollIntoView={scrollIntoView}
-        margins={this.props.margins}
-      >
+        margins={this.props.margins}>
         <BlocHeader type="horloge" duration={duration} name={chapter} />
         {title && <span className={`bloc__name ${secondary}`}>{title}</span>}
         {firstDescription && (
-          <BlocDescription
-            modulType={modulType}
-            classProps="bloc__second-description"
-            description={firstDescription}
-          />
+          <BlocDescription modulType={modulType} classProps="bloc__second-description" description={firstDescription} />
         )}
         <div className="bloc-card-game-type-1__game game">
           {/*
@@ -208,10 +187,7 @@ class BlocCardGameType1 extends React.Component {
           */}
           {(step === 'column1card2' || step === 'column3card1') &&
             victoryMessage && (
-              <PopupBlue
-                classProps="popup-column1"
-                onCloseClick={this.handleClosePopupBlue}
-              >
+              <PopupBlue classProps="popup-column1" onCloseClick={this.handleClosePopupBlue}>
                 <span className="">{victoryMessage}</span>
               </PopupBlue>
             )}
@@ -219,10 +195,9 @@ class BlocCardGameType1 extends React.Component {
             className="card column-1 row-1"
             style={{
               gridRow: 1,
-              gridColumn: 1
+              gridColumn: 1,
             }}
-            onClick={this.handleColumn1Card1Click}
-          >
+            onClick={this.handleColumn1Card1Click}>
             {column1card1 ? (
               <CardContentType3
                 cardTitle={column1CardSet.firstCard.title}
@@ -239,9 +214,8 @@ class BlocCardGameType1 extends React.Component {
             className="card column-1 row-2"
             style={{
               gridRow: 2,
-              gridColumn: 1
-            }}
-          >
+              gridColumn: 1,
+            }}>
             {column1card1 ? (
               <React.Fragment>
                 {!column1card3 && (
@@ -254,22 +228,10 @@ class BlocCardGameType1 extends React.Component {
                   />
                 )}
                 <CardContentType3
-                  title1={
-                    column1SecondCards[column1card2currentIndex].secondCard
-                      .title1
-                  }
-                  title2={
-                    column1SecondCards[column1card2currentIndex].secondCard
-                      .title2
-                  }
-                  list1={
-                    column1SecondCards[column1card2currentIndex].secondCard
-                      .list1
-                  }
-                  list2={
-                    column1SecondCards[column1card2currentIndex].secondCard
-                      .list2
-                  }
+                  title1={column1SecondCards[column1card2currentIndex].secondCard.title1}
+                  title2={column1SecondCards[column1card2currentIndex].secondCard.title2}
+                  list1={column1SecondCards[column1card2currentIndex].secondCard.list1}
+                  list2={column1SecondCards[column1card2currentIndex].secondCard.list2}
                 />
               </React.Fragment>
             ) : (
@@ -280,18 +242,17 @@ class BlocCardGameType1 extends React.Component {
             className="card column-1 row-3"
             style={{
               gridRow: 3,
-              gridColumn: 1
-            }}
-          >
+              gridColumn: 1,
+            }}>
             {column1card3 ? (
               <React.Fragment>
                 <CardContentType3
                   cardTitle={column1CardSet.firstCard.title}
                   cardSubTitle={column1CardSet.firstCard.subTitle}
-                  title1={column1[column1card2currentIndex].secondCard.title1}
-                  title2={column1[column1card2currentIndex].secondCard.title2}
-                  list1={column1[column1card2currentIndex].secondCard.list1}
-                  list2={column1[column1card2currentIndex].secondCard.list2}
+                  title1={column1CardSet.thirdCard.headList1}
+                  title2={column1CardSet.thirdCard.headList2}
+                  list1={column1CardSet.thirdCard.list1}
+                  list2={column1CardSet.thirdCard.list2}
                 />
               </React.Fragment>
             ) : (
@@ -305,10 +266,7 @@ class BlocCardGameType1 extends React.Component {
           */}
           {step === 'column2card2' &&
             victoryMessage && (
-              <PopupBlue
-                classProps="popup-column2"
-                onCloseClick={this.handleClosePopupBlue}
-              >
+              <PopupBlue classProps="popup-column2" onCloseClick={this.handleClosePopupBlue}>
                 <span className="">{victoryMessage}</span>
               </PopupBlue>
             )}
@@ -316,10 +274,9 @@ class BlocCardGameType1 extends React.Component {
             className="card column-2 row-1"
             style={{
               gridRow: 1,
-              gridColumn: 2
+              gridColumn: 2,
             }}
-            onClick={this.handleColumn2Card1Click}
-          >
+            onClick={this.handleColumn2Card1Click}>
             {column2card1 ? (
               <CardContentType3
                 cardTitle={column2CardSet.firstCard.title}
@@ -336,9 +293,8 @@ class BlocCardGameType1 extends React.Component {
             className="card column-2 row-2"
             style={{
               gridRow: 2,
-              gridColumn: 2
-            }}
-          >
+              gridColumn: 2,
+            }}>
             {column2card1 ? (
               <React.Fragment>
                 {!column2card3 && (
@@ -351,22 +307,10 @@ class BlocCardGameType1 extends React.Component {
                   />
                 )}
                 <CardContentType3
-                  title1={
-                    column2SecondCards[column2card2currentIndex].secondCard
-                      .title1
-                  }
-                  title2={
-                    column2SecondCards[column2card2currentIndex].secondCard
-                      .title2
-                  }
-                  list1={
-                    column2SecondCards[column2card2currentIndex].secondCard
-                      .list1
-                  }
-                  list2={
-                    column2SecondCards[column2card2currentIndex].secondCard
-                      .list2
-                  }
+                  title1={column2SecondCards[column2card2currentIndex].secondCard.title1}
+                  title2={column2SecondCards[column2card2currentIndex].secondCard.title2}
+                  list1={column2SecondCards[column2card2currentIndex].secondCard.list1}
+                  list2={column2SecondCards[column2card2currentIndex].secondCard.list2}
                 />
               </React.Fragment>
             ) : (
@@ -377,18 +321,17 @@ class BlocCardGameType1 extends React.Component {
             className="card column-2 row-3"
             style={{
               gridRow: 3,
-              gridColumn: 2
-            }}
-          >
+              gridColumn: 2,
+            }}>
             {column2card3 ? (
               <React.Fragment>
                 <CardContentType3
                   cardTitle={column2CardSet.firstCard.title}
                   cardSubTitle={column2CardSet.firstCard.subTitle}
-                  title1={column2[column2card2currentIndex].secondCard.title1}
-                  title2={column2[column2card2currentIndex].secondCard.title2}
-                  list1={column2[column2card2currentIndex].secondCard.list1}
-                  list2={column2[column2card2currentIndex].secondCard.list2}
+                  title1={column2CardSet.thirdCard.headList1}
+                  title2={column2CardSet.thirdCard.headList2}
+                  list1={column2CardSet.thirdCard.list1}
+                  list2={column2CardSet.thirdCard.list2}
                 />
               </React.Fragment>
             ) : (
@@ -402,10 +345,7 @@ class BlocCardGameType1 extends React.Component {
           */}
           {(step === 'column3card2' || step === 'column2card1') &&
             victoryMessage && (
-              <PopupBlue
-                classProps="popup-column3"
-                onCloseClick={this.handleClosePopupBlue}
-              >
+              <PopupBlue classProps="popup-column3" onCloseClick={this.handleClosePopupBlue}>
                 <span className="">{victoryMessage}</span>
               </PopupBlue>
             )}
@@ -413,10 +353,9 @@ class BlocCardGameType1 extends React.Component {
             className="card column-3 row-1"
             style={{
               gridRow: 1,
-              gridColumn: 3
+              gridColumn: 3,
             }}
-            onClick={this.handleColumn3Card1Click}
-          >
+            onClick={this.handleColumn3Card1Click}>
             {column3card1 ? (
               <CardContentType3
                 cardTitle={column3CardSet.firstCard.title}
@@ -433,9 +372,8 @@ class BlocCardGameType1 extends React.Component {
             className="card column-3 row-2"
             style={{
               gridRow: 2,
-              gridColumn: 3
-            }}
-          >
+              gridColumn: 3,
+            }}>
             {column3card1 ? (
               <React.Fragment>
                 {!column3card3 && (
@@ -448,22 +386,10 @@ class BlocCardGameType1 extends React.Component {
                   />
                 )}
                 <CardContentType3
-                  title1={
-                    column3SecondCards[column3card2currentIndex].secondCard
-                      .title1
-                  }
-                  title2={
-                    column3SecondCards[column3card2currentIndex].secondCard
-                      .title2
-                  }
-                  list1={
-                    column3SecondCards[column3card2currentIndex].secondCard
-                      .list1
-                  }
-                  list2={
-                    column3SecondCards[column3card2currentIndex].secondCard
-                      .list2
-                  }
+                  title1={column3SecondCards[column3card2currentIndex].secondCard.title1}
+                  title2={column3SecondCards[column3card2currentIndex].secondCard.title2}
+                  list1={column3SecondCards[column3card2currentIndex].secondCard.list1}
+                  list2={column3SecondCards[column3card2currentIndex].secondCard.list2}
                 />
               </React.Fragment>
             ) : (
@@ -474,18 +400,17 @@ class BlocCardGameType1 extends React.Component {
             className="card column-3 row-3"
             style={{
               gridRow: 3,
-              gridColumn: 3
-            }}
-          >
+              gridColumn: 3,
+            }}>
             {column3card3 ? (
               <React.Fragment>
                 <CardContentType3
                   cardTitle={column3CardSet.firstCard.title}
                   cardSubTitle={column3CardSet.firstCard.subTitle}
-                  title1={column3[column3card2currentIndex].secondCard.title1}
-                  title2={column3[column3card2currentIndex].secondCard.title2}
-                  list1={column3[column3card2currentIndex].secondCard.list1}
-                  list2={column3[column3card2currentIndex].secondCard.list2}
+                  title1={column2CardSet.thirdCard.headList1}
+                  title2={column2CardSet.thirdCard.headList2}
+                  list1={column2CardSet.thirdCard.list1}
+                  list2={column2CardSet.thirdCard.list2}
                 />
               </React.Fragment>
             ) : (
@@ -505,13 +430,14 @@ BlocCardGameType1.propTypes = {
   title: PropTypes.string.isRequired,
   duration: PropTypes.number.isRequired,
   firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
-  secondary: PropTypes.string.isRequired,
-  scrollIntoView: PropTypes.bool
+  secondary: PropTypes.string,
+  scrollIntoView: PropTypes.bool,
 };
 
 BlocCardGameType1.defaultProps = {
   noChapter: false,
-  scrollIntoView: false
+  scrollIntoView: false,
+  secondary: '',
 };
 
 export default BlocCardGameType1;

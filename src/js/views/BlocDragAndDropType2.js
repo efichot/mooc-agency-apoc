@@ -6,6 +6,7 @@ import DropCardMini from './UI/DropCardMini';
 import PopupBlue from './UI/PopupBlue';
 import ButtonPrimary from './UI/ButtonPrimary';
 import BlocHeader from '../views/BlocHeader';
+import BlocSpacer from '../views/BlocSpacer';
 import BlocDescription from './BlocDescription';
 import Fade from '../transitions/Fade';
 import victoryMessages from '../model/static/popupBlueMessages';
@@ -22,18 +23,11 @@ class BlocDragAndDropType2 extends React.Component {
     cardCounter: 0,
     gameIsFinished: false,
     gridColumns: this.props.grid.columns.length,
-    gridRows: this.props.grid.rows.length
+    gridRows: this.props.grid.rows.length,
   };
 
-  renderDropCard = (
-    dropStartOrEnd,
-    startPosition = 0,
-    endPosition,
-    dragCards
-  ) => {
-    const dropCoordinatesAsString = `droppable-${dropStartOrEnd}-${
-      endPosition.row
-    }-${endPosition.column}`;
+  renderDropCard = (dropStartOrEnd, startPosition = 0, endPosition, dragCards) => {
+    const dropCoordinatesAsString = `droppable-${dropStartOrEnd}-${endPosition.row}-${endPosition.column}`;
 
     return (
       <DropCardMini
@@ -42,29 +36,16 @@ class BlocDragAndDropType2 extends React.Component {
         endPosition={endPosition}
         reset={this.state.reset}
         startOrEnd={dropStartOrEnd}
-        dragCard={this.handlePositionDragcard}
-      >
+        dragCard={this.handlePositionDragcard}>
         {Object.keys(dragCards).map(dragCard =>
-          this.renderDragCard(
-            dragCards[dragCard],
-            dropStartOrEnd,
-            endPosition,
-            startPosition
-          )
+          this.renderDragCard(dragCards[dragCard], dropStartOrEnd, endPosition, startPosition),
         )}
       </DropCardMini>
     );
   };
 
-  renderDragCard = (
-    dragCard,
-    dropStartOrEnd,
-    dropEndPosition,
-    dropStartPosition
-  ) => {
-    const dragCoordinatesAsString = `dragable-${dragCard.endPosition.row}-${
-      dragCard.endPosition.column
-    }`;
+  renderDragCard = (dragCard, dropStartOrEnd, dropEndPosition, dropStartPosition) => {
+    const dragCoordinatesAsString = `dragable-${dragCard.endPosition.row}-${dragCard.endPosition.column}`;
 
     const showEndCard =
       dropStartOrEnd === 'end' &&
@@ -96,10 +77,8 @@ class BlocDragAndDropType2 extends React.Component {
     const dragCards = { ...this.state.dragCards };
     let alreadyInPosition = false;
     Object.keys(dragCards).forEach(dragCard => {
-      const inRow =
-        dragCards[dragCard].endPosition.row === inDropCardEndPosition.row;
-      const inColumn =
-        dragCards[dragCard].endPosition.column === inDropCardEndPosition.column;
+      const inRow = dragCards[dragCard].endPosition.row === inDropCardEndPosition.row;
+      const inColumn = dragCards[dragCard].endPosition.column === inDropCardEndPosition.column;
       if (inRow && inColumn) {
         alreadyInPosition = true;
       }
@@ -107,9 +86,7 @@ class BlocDragAndDropType2 extends React.Component {
     if (!alreadyInPosition) {
       dragCards[dragCardName].endPosition = inDropCardEndPosition;
       dragCards[dragCardName].startOrEnd = 'end';
-      this.setState({ dragCards }, () =>
-        this.handleSolutionChecking(dragCardName)
-      );
+      this.setState({ dragCards }, () => this.handleSolutionChecking(dragCardName));
     }
   };
 
@@ -117,11 +94,8 @@ class BlocDragAndDropType2 extends React.Component {
     const cardInPositionStateCopy = this.state.cardInPosition;
     const { solutions, dragCards } = this.state;
 
-    const inRow =
-      solutions[dragCardName].row === dragCards[dragCardName].endPosition.row;
-    const inColumn =
-      solutions[dragCardName].column ===
-      dragCards[dragCardName].endPosition.column;
+    const inRow = solutions[dragCardName].row === dragCards[dragCardName].endPosition.row;
+    const inColumn = solutions[dragCardName].column === dragCards[dragCardName].endPosition.column;
 
     if (inRow && inColumn) {
       cardInPositionStateCopy[dragCardName] = true;
@@ -135,17 +109,13 @@ class BlocDragAndDropType2 extends React.Component {
   };
 
   checkAnswers = () => {
-    if (
-      Object.keys(this.state.cardInPosition).length < this.state.cardCounter
-    ) {
+    if (Object.keys(this.state.cardInPosition).length < this.state.cardCounter) {
       this.setState({
-        victoryMessage: victoryMessages.casesNotFilled
+        victoryMessage: victoryMessages.casesNotFilled,
       });
       return;
     }
-    const falseAnswers = Object.keys(this.state.cardInPosition).filter(
-      card => !this.state.cardInPosition[`${card}`]
-    );
+    const falseAnswers = Object.keys(this.state.cardInPosition).filter(card => !this.state.cardInPosition[`${card}`]);
     if (falseAnswers.length === 0) {
       this.setState({ victoryMessage: victoryMessages.isVictory });
       this.setState({ gameIsFinished: true });
@@ -153,7 +123,7 @@ class BlocDragAndDropType2 extends React.Component {
       return;
     } else {
       this.setState({
-        victoryMessage: victoryMessages.isDefeat
+        victoryMessage: victoryMessages.isDefeat,
       });
       return;
     }
@@ -176,13 +146,13 @@ class BlocDragAndDropType2 extends React.Component {
           startOrEnd: 'start',
           endPosition: {
             row: 0,
-            column: 0
-          }
+            column: 0,
+          },
         };
       } else {
         dragCards[`${card.name}`] = {
           ...card,
-          startOrEnd: 'end'
+          startOrEnd: 'end',
         };
         cardInPosition[card.name] = true;
       }
@@ -205,13 +175,13 @@ class BlocDragAndDropType2 extends React.Component {
           startOrEnd: 'start',
           endPosition: {
             row: 0,
-            column: 0
-          }
+            column: 0,
+          },
         };
       } else {
         dragCards[`${card.name}`] = {
           ...card,
-          startOrEnd: 'end'
+          startOrEnd: 'end',
         };
         cardInPosition[card.name] = true;
       }
@@ -234,24 +204,20 @@ class BlocDragAndDropType2 extends React.Component {
       legend,
       verticalAxis,
       horizontalAxis,
-      scrollIntoView
+      scrollIntoView,
     } = this.props;
 
     const {
       // solutions,
-      dragCards
+      dragCards,
     } = this.state;
 
-    const gridTemplateColumns = grid.columns
-      .map(c => '1fr ')
-      .reduce((a, b) => `${a}${b}`);
-    const gridTemplateRows = grid.rows
-      .map(c => '1fr ')
-      .reduce((a, b) => `${a}${b}`);
+    const gridTemplateColumns = grid.columns.map(c => '1fr ').reduce((a, b) => `${a}${b}`);
+    const gridTemplateRows = grid.rows.map(c => '1fr ').reduce((a, b) => `${a}${b}`);
 
     const gridTemplate = {
       gridTemplateColumns,
-      gridTemplateRows
+      gridTemplateRows,
     };
 
     const cells = grid.rows.map((headerRow, row) => {
@@ -259,29 +225,18 @@ class BlocDragAndDropType2 extends React.Component {
         return (
           <div
             key={`${headerRow}${headerCol}`}
-            className={`grid-cell ${
-              col === 0 || row === grid.rows.length - 1 ? 'grid-header' : ''
-            }`}
+            className={`grid-cell ${col === 0 || row === grid.rows.length - 1 ? 'grid-header' : ''}`}
             style={{
               gridRowStart: row + 1,
               gridRowEnd: row + 1,
               gridColumnStart: col + 1,
-              gridColumnEnd: col + 1
-            }}
-          >
+              gridColumnEnd: col + 1,
+            }}>
             {col === 0 && headerRow}
             {row === grid.rows.length - 1 && headerCol}
             {cards.filter(card => card.isDraggable).map((card, indexDrop) => {
-              if (
-                card.endPosition.column === col + 1 &&
-                card.endPosition.row === row + 1
-              ) {
-                return this.renderDropCard(
-                  'end',
-                  card.startPosition,
-                  card.endPosition,
-                  dragCards
-                );
+              if (card.endPosition.column === col + 1 && card.endPosition.row === row + 1) {
+                return this.renderDropCard('end', card.startPosition, card.endPosition, dragCards);
               } else {
                 return null;
               }
@@ -296,33 +251,19 @@ class BlocDragAndDropType2 extends React.Component {
         classProps={`bloc bloc-drag-and-drop-2`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
-        margins={this.props.margins}
-      >
-        {!noChapter && (
-          <BlocHeader type="horloge" duration={duration} name={chapter} />
-        )}
+        margins={this.props.margins}>
+        {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
         <span className="bloc__name">{title}</span>
-        <BlocDescription
-          modulType={modulType}
-          classProps="bloc__first-description"
-          description={firstDescription}
-        />
+        <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
         <div className="bloc-drag-and-drop-2__start game">
           <div className="icon-draggable" />
           {cards
             .filter(card => card.isDraggable)
-            .map((card, indexDrop) =>
-              this.renderDropCard(
-                'start',
-                card.startPosition,
-                card.endPosition,
-                dragCards
-              )
-            )}
+            .map((card, indexDrop) => this.renderDropCard('start', card.startPosition, card.endPosition, dragCards))}
         </div>
-        <span className="bloc-drag-and-drop-2__axis vertical">
-          {verticalAxis}
-        </span>
+        <BlocSpacer height={20} />
+        <span className="bloc-drag-and-drop-2__axis vertical">{verticalAxis}</span>
+        <BlocSpacer height={20} />
         <div className="bloc-drag-and-drop-2__grid" style={gridTemplate}>
           {cells}
           {legend && (
@@ -330,10 +271,7 @@ class BlocDragAndDropType2 extends React.Component {
               {legend.map(item => {
                 return (
                   <li key={item.legendText}>
-                    <div
-                      className="legend-square"
-                      style={{ backgroundColor: item.legendColor }}
-                    />
+                    <div className="legend-square" style={{ backgroundColor: item.legendColor }} />
                     <div className="legend-text">{item.legendText}</div>
                   </li>
                 );
@@ -341,20 +279,19 @@ class BlocDragAndDropType2 extends React.Component {
             </ul>
           )}
         </div>
-        <span className="bloc-drag-and-drop-2__axis horizontal">
-          {horizontalAxis}
-        </span>
+        <BlocSpacer height={20} />
+        <span className="bloc-drag-and-drop-2__axis horizontal">{horizontalAxis}</span>
+        <BlocSpacer height={20} />
         <div className="bloc-drag-and-drop-2__buttons">
           {this.state.victoryMessage && (
-            <PopupBlue
-              onCloseClick={() => this.setState({ victoryMessage: undefined })}
-            >
+            <PopupBlue onCloseClick={() => this.setState({ victoryMessage: undefined })}>
               <span className="">{this.state.victoryMessage}</span>
             </PopupBlue>
           )}
           <ButtonPrimary name="Recommencer" onClick={this.reset} />
           <ButtonPrimary name="Valider" onClick={this.checkAnswers} />
         </div>
+        <BlocSpacer height={20} />
       </Fade>
     );
   }
@@ -375,19 +312,15 @@ BlocDragAndDropType2.propTypes = {
   horizontalAxis: PropTypes.string.isRequired,
   duration: PropTypes.number,
   grid: PropTypes.shape({
-    columns: PropTypes.arrayOf(
-      PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-    ).isRequired,
-    rows: PropTypes.arrayOf(
-      PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-    ).isRequired
+    columns: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])).isRequired,
+    rows: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])).isRequired,
   }).isRequired,
   title: PropTypes.string.isRequired,
   legend: PropTypes.arrayOf(
     PropTypes.shape({
       legendColor: PropTypes.string.isRequired,
-      legendText: PropTypes.string.isRequired
-    }).isRequired
+      legendText: PropTypes.string.isRequired,
+    }).isRequired,
   ).isRequired,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
@@ -395,17 +328,17 @@ BlocDragAndDropType2.propTypes = {
       startPosition: PropTypes.number,
       endPosition: PropTypes.shape({
         column: PropTypes.number.isRequired,
-        row: PropTypes.number.isRequired
+        row: PropTypes.number.isRequired,
       }).isRequired,
       pieData: PropTypes.arrayOf(
         PropTypes.shape({
           name: PropTypes.string.isRequired,
           value: PropTypes.number.isRequired,
-          color: PropTypes.string.isRequired
-        })
-      ).isRequired
-    }).isRequired
-  ).isRequired
+          color: PropTypes.string.isRequired,
+        }),
+      ).isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 BlocDragAndDropType2.defaultProps = {
@@ -418,8 +351,8 @@ BlocDragAndDropType2.defaultProps = {
   noChapter: false,
   duration: 0,
   cards: {
-    startPosition: undefined
-  }
+    startPosition: undefined,
+  },
 };
 
 export default BlocDragAndDropType2;

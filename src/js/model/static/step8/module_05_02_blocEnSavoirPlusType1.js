@@ -7,6 +7,7 @@ const module_05_02_blocEnSavoirPlusType1 = {
   chapter: 'En savoir plus',
   duration: 2,
   title: 'Principaux styles de gestion des actions',
+  height: 650,
   // firstDescription: {
   //   __html: `Pour plus de détail, passez la souris sur les différents termes et consultez le TABLEAU DES NOTATIONS ci-dessous.
 
@@ -31,7 +32,8 @@ const module_05_02_blocEnSavoirPlusType1 = {
       arrowFollowing: false,
       cardTitle: 'Exemple',
       cardSubTitle: 'cf. Glossaire',
-      cardContent: `35% STOXX 50 SPECIAL OPENNING NET (1)<br />
+      cardContent: {
+        __html: `35% STOXX 50 SPECIAL OPENNING NET (1)<br />
                + 30% FTSE MTS  GLOBAL<br />
                + 15% JPM GBI GLOBAL TRADED INDEX HEDGED EURO (2)<br />
                + 12% S&P 500 COMPOSITE<br />
@@ -44,6 +46,7 @@ const module_05_02_blocEnSavoirPlusType1 = {
                (3) L’indice MSCI JAPAN calculé par la société Morgan Stanley Capital International est représentatif des
                grandes et moyennes capitalisations japonaises. Le poids de chaque valeur dans l’indice est pondéré en
                fonction de l’importance de sa capitalisation ajustée du flottant.`,
+      },
     },
   ],
 };

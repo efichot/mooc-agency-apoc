@@ -24,7 +24,17 @@ class BlocEnSavoirPlusType1 extends React.Component {
   };
 
   render = () => {
-    const { modulType, noChapter, cards, duration, chapter, title, firstDescription, scrollIntoView } = this.props;
+    const {
+      modulType,
+      noChapter,
+      cards,
+      duration,
+      chapter,
+      title,
+      firstDescription,
+      scrollIntoView,
+      height,
+    } = this.props;
 
     return (
       <Fade
@@ -35,7 +45,7 @@ class BlocEnSavoirPlusType1 extends React.Component {
         {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
         <span className="bloc__name">{title}</span>
         <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
-        <div className="bloc-en-savoir-plus-type-1__cards game">
+        <div className="bloc-en-savoir-plus-type-1__cards game" style={{ height }}>
           <div className="bloc-en-savoir-plus-type-1__cards--to-hover">
             {cards.map((card, index) => {
               const hover = this.state.showCard === card.startPosition && !this.state.hideCard;

@@ -124,23 +124,28 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       questions.originalQuestions[2].answers[0],
     ],
   ],
-  error: {
-    conditions: [
-      [
+  error: [
+    {
+      condition: [
         questions.originalQuestions[0].answers[0],
         questions.originalQuestions[1][0].answers[0],
         questions.originalQuestions[2].answers[1],
       ],
-      [
+      errorMessage: {
+        __html: 'Attention ! L’approche qualitative ne s’applique pas à la gestion structurée. Faites un autre choix.',
+      },
+    },
+    {
+      condition: [
         questions.originalQuestions[0].answers[1],
         questions.originalQuestions[1][1].answers[1],
         questions.originalQuestions[2].answers[1],
       ],
-    ],
-    errorMessage: {
-      __html: 'Attention ! L’approche qualitative ne s’applique pas à la gestion structurée. Faites un autre choix.',
+      errorMessage: {
+        __html: 'Attention ! L’approche qualitative ne s’applique pas à la gestion structurée. Faites un autre choix.',
+      },
     },
-  },
+  ],
   cards: [
     {
       color: 'var(--white)',

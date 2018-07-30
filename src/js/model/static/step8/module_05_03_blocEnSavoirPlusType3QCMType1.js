@@ -362,6 +362,7 @@ Pour découvrir les autres approches de gestion possibles dans un fonds diversif
         gridRowEnd: 8,
         alignSelf: 'center',
         pointerEvents: 'auto',
+        marginTop: 10,
       },
       buttonStyle: {
         boxShadow: '2px 2px 2px 1px rgba(0, 0, 0, 0.2)',

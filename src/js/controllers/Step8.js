@@ -21,7 +21,7 @@ class Step8 extends React.Component {
   state = {
     show_01: false,
     show_02: false,
-    show_03: true,
+    show_03: false,
     show_04: false,
     showNextModule: 0,
     showSynthese: false,

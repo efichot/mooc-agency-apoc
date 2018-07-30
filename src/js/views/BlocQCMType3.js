@@ -20,7 +20,7 @@ class BlocQCMType3 extends React.Component {
     victoryMessage: null,
     answers: {},
     correctAnswers: {},
-    hideExplanation: true
+    hideExplanation: true,
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -37,7 +37,7 @@ class BlocQCMType3 extends React.Component {
       });
       return {
         ...prevState,
-        correctAnswers
+        correctAnswers,
       };
     }
     return prevState;
@@ -46,14 +46,14 @@ class BlocQCMType3 extends React.Component {
   showQuestion = question => {
     this.setState({
       showQuestion: question.questionNumber,
-      hideQuestion: false
+      hideQuestion: false,
     });
   };
 
   hideQuestions = question => {
     this.setState({
       showQuestion: question.questionNumber,
-      hideQuestion: true
+      hideQuestion: true,
     });
   };
 
@@ -78,13 +78,13 @@ class BlocQCMType3 extends React.Component {
     });
     this.setState({ hideExplanation: false });
     if (correct) {
-      const victoryMessage = { __html: victoryMessages.isVictory };
+      const victoryMessage = { __html: victoryMessages.isGoodAnswer };
       this.setState({ victoryMessage });
       this.setState({ gameIsFinished: true });
       this.props.gameIsFinished(this.state.gameIsFinished);
     } else {
       const victoryMessage = {
-        __html: victoryMessages.isDefeatHTML
+        __html: victoryMessages.isDefeatHTML,
       };
       this.setState({ victoryMessage });
     }
@@ -103,40 +103,26 @@ class BlocQCMType3 extends React.Component {
       synthese,
       classSelect,
       lineHeight,
-      scrollIntoView
+      scrollIntoView,
     } = this.props;
 
-    const {
-      hideQuestion,
-      showQuestion,
-      gameIsFinished,
-      victoryMessage,
-      hideExplanation
-    } = this.state;
+    const { hideQuestion, showQuestion, gameIsFinished, victoryMessage, hideExplanation } = this.state;
 
     return (
       <Fade
         in={this.props.in}
         classProps={`bloc bloc-QCM-type-3`}
         scrollIntoView={scrollIntoView}
-        margins={this.props.margins}
-      >
-        {!noChapter && (
-          <BlocHeader type="horloge" duration={duration} name={chapter} />
-        )}
+        margins={this.props.margins}>
+        {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
         <span className="bloc__name">{title}</span>
-        <BlocDescription
-          modulType={modulType}
-          classProps="bloc__first-description"
-          description={firstDescription}
-        />
+        <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
         <div className="bloc-QCM-type-3__questions game">
           <div
             className="bloc-QCM-type-3__questions--to-hover"
             style={{
-              height: `${questions.length * lineHeight}px`
-            }}
-          >
+              height: `${questions.length * lineHeight}px`,
+            }}>
             {questions.map((question, index) => {
               /*const hover = 
                 this.state.showQuestion === question.startPosition &&
@@ -144,19 +130,14 @@ class BlocQCMType3 extends React.Component {
               return (
                 <div
                   className={`bloc-QCM-type-3__questions--to-hover--question ${classSelect}`}
-                  key={question.questionNumber}
-                >
+                  key={question.questionNumber}>
                   <div
                     className="button-groupe"
                     onMouseEnter={() => this.showQuestion(question)}
-                    onMouseLeave={() => this.hideQuestions(question)}
-                  >
+                    onMouseLeave={() => this.hideQuestions(question)}>
                     <ButtonPrimary name={question.title} />
                     {question.arrowFollowing && (
-                      <div
-                        className="arrow-following"
-                        style={{ backgroundImage: `url(${arrowDown})` }}
-                      />
+                      <div className="arrow-following" style={{ backgroundImage: `url(${arrowDown})` }} />
                     )}
                   </div>
                   {question.selects &&
@@ -176,26 +157,13 @@ class BlocQCMType3 extends React.Component {
             })}
           </div>
           {!noPopup && (
-            <PopupBlue
-              classProps="bloc-QCM-type-3__questions--to-show"
-              hidePopup={hideQuestion}
-              noCross
-            >
-              <span className="question-title">
-                {!hideQuestion && questions[showQuestion - 1].title}
-              </span>
+            <PopupBlue classProps="bloc-QCM-type-3__questions--to-show" hidePopup={hideQuestion} noCross>
+              <span className="question-title">{!hideQuestion && questions[showQuestion - 1].title}</span>
               {!hideQuestion &&
                 (questions[showQuestion - 1].description.__html ? (
-                  <p
-                    className="question-content"
-                    dangerouslySetInnerHTML={
-                      questions[showQuestion - 1].description
-                    }
-                  />
+                  <p className="question-content" dangerouslySetInnerHTML={questions[showQuestion - 1].description} />
                 ) : (
-                  <p className="question-content">
-                    {questions[showQuestion - 1].description}
-                  </p>
+                  <p className="question-content">{questions[showQuestion - 1].description}</p>
                 ))}
             </PopupBlue>
           )}
@@ -208,11 +176,7 @@ class BlocQCMType3 extends React.Component {
               onCloseClick={() => this.setState({ victoryMessage: undefined })}
             />
           )}
-          <ButtonPrimary
-            name="valider"
-            onClick={this.handleValidate}
-            classProps={`bloc-QCM-type-3__validate`}
-          />
+          <ButtonPrimary name="valider" onClick={this.handleValidate} classProps={`bloc-QCM-type-3__validate`} />
           {!hideExplanation &&
             !gameIsFinished && (
               <ButtonPrimary
@@ -227,12 +191,8 @@ class BlocQCMType3 extends React.Component {
             <BlocDescription description={synthese.firstDescription} />
             {gameIsFinished && (
               <React.Fragment>
-                {synthese.title && (
-                  <span className="bloc__name">{synthese.title}</span>
-                )}
-                {synthese.secondDescription && (
-                  <BlocDescription description={synthese.secondDescription} />
-                )}
+                {synthese.title && <span className="bloc__name">{synthese.title}</span>}
+                {synthese.secondDescription && <BlocDescription description={synthese.secondDescription} />}
               </React.Fragment>
             )}
           </React.Fragment>
@@ -262,7 +222,7 @@ BlocQCMType3.propTypes = {
       title: PropTypes.string.isRequired,
       description: PropTypes.oneOfType([
         PropTypes.string.isRequired,
-        PropTypes.shape({ __html: PropTypes.string.isRequired })
+        PropTypes.shape({ __html: PropTypes.string.isRequired }),
       ]),
       selects: PropTypes.arrayOf(
         PropTypes.shape({
@@ -270,19 +230,19 @@ BlocQCMType3.propTypes = {
           choices: PropTypes.arrayOf(
             PropTypes.shape({
               value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-              label: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-            }).isRequired
+              label: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+            }).isRequired,
           ),
-          answer: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-        }).isRequired
-      ).isRequired
-    }).isRequired
+          answer: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        }).isRequired,
+      ).isRequired,
+    }).isRequired,
   ).isRequired,
   synthese: PropTypes.shape({
     firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
     title: PropTypes.string,
-    secondDescription: PropTypes.shape({ __html: PropTypes.string.isRequired })
-  })
+    secondDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
+  }),
 };
 
 BlocQCMType3.defaultProps = {
@@ -292,18 +252,18 @@ BlocQCMType3.defaultProps = {
 
   /***************** DATA ******************/
   firstDescription: {
-    __html: ``
+    __html: ``,
   },
   questions: {
     description: undefined,
     choices: undefined,
-    answer: 'no-question'
+    answer: 'no-question',
   },
   noChapter: false,
   noPopup: false,
   duration: 0,
   lineHeight: 100,
-  synthese: undefined
+  synthese: undefined,
 };
 
 export default BlocQCMType3;

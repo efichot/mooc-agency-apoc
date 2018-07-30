@@ -13,7 +13,7 @@ class BlocQCMType1 extends React.Component {
   state = {
     victoryMessage: undefined,
     gameIsFinished: false,
-    correctAnswer: 0
+    correctAnswer: 0,
   };
 
   handleClick = answer => {
@@ -24,12 +24,12 @@ class BlocQCMType1 extends React.Component {
 
   handleValidate = e => {
     if (this.state.buttonActive === this.state.correctAnswer) {
-      this.setState({ victoryMessage: victoryMessages.isVictory });
+      this.setState({ victoryMessage: victoryMessages.isGoodAnswer });
       this.setState({ gameIsFinished: true });
       this.props.gameIsFinished(this.state.gameIsFinished);
     } else {
       this.setState({
-        victoryMessage: victoryMessages.isDefeat
+        victoryMessage: victoryMessages.isDefeat,
       });
     }
   };
@@ -47,41 +47,22 @@ class BlocQCMType1 extends React.Component {
   }
 
   render() {
-    const {
-      modulType,
-      noChapter,
-      duration,
-      chapter,
-      name,
-      question,
-      cards,
-      answers,
-      scrollIntoView
-    } = this.props;
+    const { modulType, noChapter, duration, chapter, name, question, cards, answers, scrollIntoView } = this.props;
 
     return (
       <Fade
         classProps={`bloc bloc-QCM-type-1`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
-        margins={this.props.margins}
-      >
-        {!noChapter && (
-          <BlocHeader type="horloge" duration={duration} name={chapter} />
-        )}
+        margins={this.props.margins}>
+        {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
         <span className="bloc__name">{name}</span>
         <div className="bloc-QCM-type-1__cards">
           {cards.map(card => {
-            return (
-              <CardContentType1 key={card.startPosition} {...card.content} />
-            );
+            return <CardContentType1 key={card.startPosition} {...card.content} />;
           })}
         </div>
-        <BlocDescription
-          modulType={modulType}
-          classProps="bloc__first-description"
-          description={question}
-        />
+        <BlocDescription modulType={modulType} classProps="bloc__first-description" description={question} />
         <div className="bloc-QCM-type-1__answer-and-popup game">
           <div className="bloc-QCM-type-1__answers">
             {answers.map((answer, index) => {
@@ -90,9 +71,9 @@ class BlocQCMType1 extends React.Component {
                   key={index}
                   id={`QCM_question_1_answer_${index}`}
                   name={answer.content}
-                  classProps={`button-QCM-type-1${
-                    this.state.buttonActive === index + 1 ? ' active' : ''
-                  }${this.state.gameIsFinished ? ' finished' : ''}`}
+                  classProps={`button-QCM-type-1${this.state.buttonActive === index + 1 ? ' active' : ''}${
+                    this.state.gameIsFinished ? ' finished' : ''
+                  }`}
                   onClick={this.handleClick}
                   answer={index + 1}
                 />
@@ -105,11 +86,7 @@ class BlocQCMType1 extends React.Component {
             </PopupBlue>
           )}
         </div>
-        <ButtonPrimary
-          name="valider"
-          onClick={this.handleValidate}
-          classProps={`bloc-QCM-type-1__validate`}
-        />
+        <ButtonPrimary name="valider" onClick={this.handleValidate} classProps={`bloc-QCM-type-1__validate`} />
       </Fade>
     );
   }
@@ -138,22 +115,22 @@ BlocQCMType1.propTypes = {
         legend: PropTypes.arrayOf(
           PropTypes.shape({
             legendColor: PropTypes.string.isRequired,
-            legendText: PropTypes.string.isRequired
-          }).isRequired
-        ).isRequired
-      }).isRequired
-    }).isRequired
+            legendText: PropTypes.string.isRequired,
+          }).isRequired,
+        ).isRequired,
+      }).isRequired,
+    }).isRequired,
   ).isRequired,
   question: PropTypes.object.isRequired,
   answers: PropTypes.array.isRequired,
-  description: PropTypes.shape({ __html: PropTypes.string.isRequired })
+  description: PropTypes.shape({ __html: PropTypes.string.isRequired }),
 };
 
 BlocQCMType1.defaultProps = {
   in: false,
   noChapter: false,
   duration: 0,
-  description: undefined
+  description: undefined,
 };
 
 export default BlocQCMType1;

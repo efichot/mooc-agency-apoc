@@ -47,7 +47,7 @@ class BlocQCMType4 extends React.Component {
     });
 
     if (correct) {
-      this.setState({ victoryMessage: victoryMessages.isVictory });
+      this.setState({ victoryMessage: victoryMessages.isGoodAnswer });
       this.setState({ gameIsFinished: true });
       this.props.gameIsFinished(this.state.gameIsFinished);
     } else {

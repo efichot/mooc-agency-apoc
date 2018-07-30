@@ -8,11 +8,12 @@ import Fade from '../transitions/Fade';
 import BlocStep from '../views/BlocStep';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocCardGameType1 from '../views/BlocCardGameType1';
+import BlocCardGameType2 from '../views/BlocCardGameType2';
 import BlocDivider from '../views/BlocDivider';
 
 class Step5 extends React.Component {
   state = {
-    showNextModule: 0
+    showNextModule: 0,
   };
 
   handleShowNextModule = e => {
@@ -38,17 +39,11 @@ class Step5 extends React.Component {
             return (
               <React.Fragment>
                 <BlocStep step={step5.linkStep} />
-                <BlocStepTopContent
-                  step={step5}
-                  in={isStep5}
-                  scrollIntoView={isStep5}
-                />
+                <BlocStepTopContent step={step5} in={isStep5} scrollIntoView={isStep5} />
                 <BlocDivider in={isStep5} />
-                <BlocCardGameType1
-                  in={isStep5}
-                  {...step5.module_02}
-                  gameIsFinished={this.handleShowNextModule}
-                />
+                <BlocCardGameType1 in={isStep5} {...step5.module_02} gameIsFinished={this.handleShowNextModule} />
+                <BlocDivider in={isStep5} />
+                <BlocCardGameType2 in={isStep5} {...step5.module_03} gameIsFinished={this.handleShowNextModule} />
               </React.Fragment>
             );
           }}

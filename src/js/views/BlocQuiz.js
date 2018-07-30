@@ -11,7 +11,7 @@ import PopupBlueInnerHtml from './UI/PopupBlueInnerHtml';
 import Fade from '../transitions/Fade';
 import victoryMessages from '../model/static/popupBlueMessages';
 
-const popupVictoryMessage = victoryMessages.isVictory;
+const popupVictoryMessage = victoryMessages.isGoodAnswer;
 const popupDefeatMessage = victoryMessages.isDefeatOneShot;
 
 class BlocQuiz extends React.Component {
@@ -20,6 +20,7 @@ class BlocQuiz extends React.Component {
     /******** ACHTUNG ! La question 1 est à l'index 0, la question 10 à l'index 9 *******/
     currentQuestionIndex: 0,
     victoryMessage: undefined,
+    victoryMessageIsVisible: false,
     gameIsFinished: false,
     correctAnswer: null,
     help: false,
@@ -59,12 +60,14 @@ class BlocQuiz extends React.Component {
         return;
       }
       this.setState({ victoryMessage: popupVictoryMessage });
+      this.setState({ victoryMessageIsVisible: true });
     } else {
       if (this.state.victoryMessage === popupDefeatMessage) {
         this.showNextQuestion();
         return;
       }
       this.setState({ victoryMessage: popupDefeatMessage });
+      this.setState({ victoryMessageIsVisible: true });
     }
   };
 
@@ -76,9 +79,12 @@ class BlocQuiz extends React.Component {
       this.setState({ currentQuestionIndex: nextQIndex });
       this.setTheCorrectAnswer(questions[nextQIndex]);
     }
-    this.setState({ victoryMessage: undefined });
-    this.setState({ buttonActive: null });
-    this.setState({ help: false });
+    this.setState({
+      victoryMessage: undefined,
+      victoryMessageIsVisible: false,
+      buttonActive: null,
+      help: false,
+    });
   };
 
   setTheCorrectAnswer = question => {
@@ -110,6 +116,7 @@ class BlocQuiz extends React.Component {
       correctAnswer,
       help,
       quizStart,
+      victoryMessageIsVisible,
     } = this.state;
 
     const { question, answers, explication } = questions[currentQuestionIndex];
@@ -159,10 +166,11 @@ class BlocQuiz extends React.Component {
                 {victoryMessage && (
                   <PopupBlue
                     classProps={`popup-blue__victory-message`}
-                    style={{
-                      visibility: victoryMessage ? 'visible' : 'hidden',
-                    }}
-                    noCross>
+                    hidePopup={!victoryMessageIsVisible}
+                    onCloseClick={() => {
+                      console.log('ta gugle');
+                      this.setState({ victoryMessageIsVisible: false });
+                    }}>
                     <span>{victoryMessage}</span>
                   </PopupBlue>
                 )}
