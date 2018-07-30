@@ -50,7 +50,7 @@ class ButtonWithDoubleArrow extends React.Component {
 }
 
 ButtonWithDoubleArrow.propTypes = {
-  attachedName: PropTypes.string.isRequired,
+  attachedName: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   button: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired,
   name: PropTypes.string,

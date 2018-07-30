@@ -9,6 +9,7 @@ import BlocStep from '../views/BlocStep';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocCardGameType1 from '../views/BlocCardGameType1';
 import BlocCardGameType2 from '../views/BlocCardGameType2';
+import BlocCardGameType3 from '../views/BlocCardGameType3';
 import BlocDivider from '../views/BlocDivider';
 
 class Step5 extends React.Component {
@@ -44,6 +45,8 @@ class Step5 extends React.Component {
                 <BlocCardGameType1 in={isStep5} {...step5.module_02} gameIsFinished={this.handleShowNextModule} />
                 <BlocDivider in={isStep5} />
                 <BlocCardGameType2 in={isStep5} {...step5.module_03} gameIsFinished={this.handleShowNextModule} />
+                <BlocDivider in={isStep5} />
+                <BlocCardGameType3 in={isStep5} {...step5.module_04} gameIsFinished={this.handleShowNextModule} />
               </React.Fragment>
             );
           }}
