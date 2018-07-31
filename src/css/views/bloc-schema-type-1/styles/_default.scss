@@ -1,0 +1,103 @@
+
+.bloc-schema-type-1 {
+  @extend %flex-column-top-left;
+  width: 100%;
+  margin-left: -20px;
+  
+  font-size: 0.875rem;
+
+  &__name {
+    color: var(--blocNameColor);
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+    &.secondary {
+      color: var(--blocSubnameColor);    
+    }
+  }
+
+  .game {
+    margin-top: 50px;
+    max-width: 100%;
+    flex-grow: 0;
+    display: grid;
+  }
+
+  .column1, .column3, .column5 {
+    display: grid;
+    width: 100%;
+  }
+
+  .column5 {
+    height: 280px;
+    margin-top: 257px;
+  }
+
+  .column3 {
+    height: 310px;
+    margin-top: 242px;
+    > * {
+      grid-column: 1;
+    }
+
+    .ou {
+      justify-self: center;
+      align-self: center;
+      border-radius: 10px;
+      padding-top: 3px;
+      text-transform: uppercase;
+      pointer-events: none;
+      height: 20px;
+      width: 35px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .no-background {
+    text-transform: uppercase;
+    align-self: end;
+    margin-left: 20px;
+    margin-bottom: 5px;
+  }
+
+  .background {
+    text-transform: uppercase;
+    background-color: var(--white);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .arrow {
+    background-image: url('../assets/img/icons/arrow-down.png');
+    background-repeat: no-repeat;
+    background-size: 40px 20px;
+    background-position: center center;
+  }
+
+  .arrow-column2 {
+    background-image: url('../assets/img/icons/arrow-right.png');
+    background-repeat: no-repeat;
+    background-size: 20px 40px;
+    background-position: center 53%;
+    grid-column: 2;
+  }
+
+  .arrow-column4 {
+    background-image: url('../assets/img/icons/arrow-right.png');
+    background-repeat: no-repeat;
+    background-size: 20px 40px;
+    background-position: center 53%;
+    grid-column: 4;
+  }
+
+  .button-primary {
+    margin-left: auto;
+    margin-top: 15px;
+  }
+}

@@ -134,11 +134,14 @@ class BlocCardGameType2 extends React.Component {
       game[questionNumber].steps.indexOf(`column${column}`) === game[questionNumber].steps.length - 1
         ? /*end of game*/
           questionNumber === game.length - 1
-          ? this.setState({
-              /*end of game*/
-              victoryMessage: undefined,
-              [`column${column}IsFinished`]: true,
-            }) && this.props.gameIsFinished()
+          ? this.setState(
+              {
+                /*end of game*/
+                victoryMessage: undefined,
+                [`column${column}IsFinished`]: true,
+              },
+              this.props.gameIsFinished(),
+            )
           : this.setState({
               /*next step*/
               victoryMessage: undefined,

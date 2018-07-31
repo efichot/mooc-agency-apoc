@@ -8,17 +8,17 @@ const contains = (list, value) => {
   return false;
 };
 
-class DropCard extends React.Component {
+class DropCardMini extends React.Component {
   state = {
     title: null,
-    subtitle: null
+    subtitle: null,
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.reset) {
       return {
         title: null,
-        subtitle: null
+        subtitle: null,
       };
     }
     return prevState;
@@ -44,13 +44,8 @@ class DropCard extends React.Component {
     return (
       <React.Fragment>
         {startOrEnd === 'end' && (
-          <div
-            className="drop-card"
-            onDragOver={this.handleDragOver}
-            onDrop={this.handleDrop}
-          >
-            {this.props.children.filter(child => child !== undefined).length >
-            0 ? (
+          <div className="drop-card" onDragOver={this.handleDragOver} onDrop={this.handleDrop}>
+            {this.props.children.filter(child => child !== undefined).length > 0 ? (
               this.props.children
             ) : (
               <div className="pie-chart-mini pie-chart-empty" />
@@ -58,11 +53,7 @@ class DropCard extends React.Component {
           </div>
         )}
         {startOrEnd === 'start' && (
-          <div
-            className="drop-card drop-card-empty"
-            onDragOver={this.handleDragOver}
-            onDrop={this.handleDrop}
-          >
+          <div className="drop-card drop-card-empty" onDragOver={this.handleDragOver} onDrop={this.handleDrop}>
             {this.props.children}
           </div>
         )}
@@ -71,21 +62,21 @@ class DropCard extends React.Component {
   }
 }
 
-DropCard.propTypes = {
+DropCardMini.propTypes = {
   id: PropTypes.string,
   endPosition: PropTypes.shape({
     row: PropTypes.number.isRequired,
-    column: PropTypes.number.isRequired
+    column: PropTypes.number.isRequired,
   }).isRequired,
   reset: PropTypes.bool,
   startOrEnd: PropTypes.string,
-  dragCard: PropTypes.func.isRequired
+  dragCard: PropTypes.func.isRequired,
 };
 
-DropCard.defaultProps = {
+DropCardMini.defaultProps = {
   id: '',
   reset: false,
-  startOrEnd: ''
+  startOrEnd: '',
 };
 
-export default DropCard;
+export default DropCardMini;

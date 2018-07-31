@@ -6,6 +6,7 @@ class ButtonPrimary extends React.Component {
   state = {};
 
   handleClick = e => {
+    console.log('this.props.answer', this.props.answer);
     !this.props.onClick
       ? !this.props.enableClick && e.preventDefault()
       : this.props.answer ? this.props.onClick(this.props.answer) : this.props.onClick(e);

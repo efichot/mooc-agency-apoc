@@ -23,23 +23,23 @@ class BlocCardGameType1 extends React.Component {
     column3card2: false,
     column3card3: false,
     step: 'column1card1',
-    column1: this.props.game.filter(cardSet => cardSet.type === 'Émetteurs'),
+    column1: this.props.game.filter(cardSet => cardSet.category === 'Émetteurs'),
     column1SecondCards: this.props.game
-      .filter(cardSet => cardSet.type === 'Émetteurs')
+      .filter(cardSet => cardSet.category === 'Émetteurs')
       .filter(
         (cardSet, index, array) =>
           index === 0 || cardSet.secondCard.answerNumber !== array[index - 1].secondCard.answerNumber,
       ),
-    column2: this.props.game.filter(cardSet => cardSet.type === 'Investisseurs'),
+    column2: this.props.game.filter(cardSet => cardSet.category === 'Intermédiaires'),
     column2SecondCards: this.props.game
-      .filter(cardSet => cardSet.type === 'Investisseurs')
+      .filter(cardSet => cardSet.category === 'Intermédiaires')
       .filter(
         (cardSet, index, array) =>
           index === 0 || cardSet.secondCard.answerNumber !== array[index - 1].secondCard.answerNumber,
       ),
-    column3: this.props.game.filter(cardSet => cardSet.type === 'Intermédiaires'),
+    column3: this.props.game.filter(cardSet => cardSet.category === 'Investisseurs'),
     column3SecondCards: this.props.game
-      .filter(cardSet => cardSet.type === 'Intermédiaires')
+      .filter(cardSet => cardSet.category === 'Investisseurs')
       .filter(
         (cardSet, index, array) =>
           index === 0 || cardSet.secondCard.answerNumber !== array[index - 1].secondCard.answerNumber,
@@ -108,6 +108,7 @@ class BlocCardGameType1 extends React.Component {
   };
 
   handleCard2ButtonClick = (indexForAnswer, column) => {
+    console.log('indexForAnswer, column', indexForAnswer, column);
     const indexName = `${column}card2currentIndex`;
     const index = this.state[indexName];
     const correctAnswer = this.state[`${column}`][indexForAnswer].firstCard.answerNumber;
@@ -117,7 +118,11 @@ class BlocCardGameType1 extends React.Component {
       this.setState({ victoryMessage: victoryMessages.isVictory });
       column === 'column1' && this.setState({ column1card3: true, step: 'column3card1' });
       column === 'column3' && this.setState({ column3card3: true, step: 'column2card1' });
-      column === 'column2' && this.setState({ column2card3: true }) && this.props.gameIsFinished();
+      if (column === 'column2') {
+        console.log('column2');
+        this.setState({ column2card3: true });
+        this.props.gameIsFinished();
+      }
     } else {
       this.setState({
         victoryMessage: victoryMessages.isDefeat,

@@ -1,7 +1,7 @@
 /******* TODO *********/
 
 import React from 'react';
-/*import PropTypes from 'prop-types';*/
+import { Link } from 'react-router-dom';
 
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 import Fade from '../transitions/Fade';
@@ -10,45 +10,85 @@ import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocCardGameType1 from '../views/BlocCardGameType1';
 import BlocCardGameType2 from '../views/BlocCardGameType2';
 import BlocCardGameType3 from '../views/BlocCardGameType3';
+import BlocCardGameType4 from '../views/BlocCardGameType4';
 import BlocDivider from '../views/BlocDivider';
+import BlocSpacer from '../views/BlocSpacer';
+import BlocQuiz from '../views/BlocQuiz';
+import ButtonPrimary from '../views/UI/ButtonPrimary';
 
 class Step5 extends React.Component {
   state = {
     showNextModule: 0,
+    showSynthese: false,
+    showQuiz: false,
   };
 
   handleShowNextModule = e => {
+    console.log('test');
     this.setState({ showNextModule: this.state.showNextModule + 1 });
   };
 
-  handleGameIsFinished = () => {
-    return;
+  handleShowSynthese = () => {
+    this.setState({ showSynthese: true });
+  };
+
+  handleShowQuiz = e => {
+    Object.keys(this.state).forEach(key => {
+      this.setState({ [key]: false });
+    });
+    this.setState({ showQuiz: true });
   };
 
   render() {
     const isStep5 = this.props.match.path === '/step5';
 
-    // const { showNextModule } = this.state;
+    const { showNextModule, showSynthese, showQuiz } = this.state;
 
-    // const stepInStep1 = showNextModule > 0;
+    const stepInStep1 = showNextModule > 0;
+    const stepInStep2 = showNextModule > 1;
+    const stepInStep3 = showNextModule > 2;
 
     return (
       <Fade classProps="step step5" in={isStep5}>
         <GlobalInfosContext.Consumer>
           {context => {
             const step5 = context.state.step5;
-            return (
-              <React.Fragment>
-                <BlocStep step={step5.linkStep} />
-                <BlocStepTopContent step={step5} in={isStep5} scrollIntoView={isStep5} />
-                <BlocDivider in={isStep5} />
-                <BlocCardGameType1 in={isStep5} {...step5.module_02} gameIsFinished={this.handleShowNextModule} />
-                <BlocDivider in={isStep5} />
-                <BlocCardGameType2 in={isStep5} {...step5.module_03} gameIsFinished={this.handleShowNextModule} />
-                <BlocDivider in={isStep5} />
-                <BlocCardGameType3 in={isStep5} {...step5.module_04} gameIsFinished={this.handleShowNextModule} />
-              </React.Fragment>
-            );
+            if (!showQuiz) {
+              return (
+                <React.Fragment>
+                  <BlocStep step={step5.linkStep} />
+                  <BlocStepTopContent step={step5} in={isStep5} scrollIntoView={isStep5} />
+                  <BlocDivider in={isStep5} />
+                  <BlocCardGameType1 in={isStep5} {...step5.module_02} gameIsFinished={this.handleShowNextModule} />
+                  <BlocDivider in={stepInStep1} />
+                  <BlocCardGameType2 in={stepInStep1} {...step5.module_03} gameIsFinished={this.handleShowNextModule} />
+                  <BlocDivider in={stepInStep2} />
+                  <BlocCardGameType3 in={stepInStep2} {...step5.module_04} gameIsFinished={this.handleShowNextModule} />
+                  <BlocDivider in={stepInStep3} />
+                  <BlocCardGameType4
+                    in={stepInStep3}
+                    schema={{ ...step5.module_06 }}
+                    {...step5.module_05}
+                    gameIsFinished={this.handleShowSynthese}
+                  />
+                  {showSynthese && (
+                    <div className="step5__synthese step__synthese bloc">
+                      <BlocSpacer />
+                      <ButtonPrimary name={step5.module_07.button_1} onClick={this.handleShowQuiz} />
+                      <Link to="#" className="button">
+                        <ButtonPrimary name={step5.module_07.button_2} />
+                      </Link>
+                    </div>
+                  )}
+                </React.Fragment>
+              );
+            } else {
+              return (
+                <React.Fragment>
+                  <BlocQuiz in {...step5.module_08} scrollIntoView />
+                </React.Fragment>
+              );
+            }
           }}
         </GlobalInfosContext.Consumer>
       </Fade>

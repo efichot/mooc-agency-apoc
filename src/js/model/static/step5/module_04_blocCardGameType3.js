@@ -1,5 +1,5 @@
 import moduleTypes from '../moduleTypes';
-import { actorscolumn3, actorscolumn1, actorscolumn2 } from './module_03_blocCardGameType2';
+import { column3, column1, column2 } from './actors';
 
 const module_04_blocCardGameType3 = {
   /*position: 6,*/
@@ -14,73 +14,77 @@ const module_04_blocCardGameType3 = {
   game: [
     {
       column1: {
-        title: 'Émetteurs',
+        title: column1.columnName,
         actors: [
-          ...JSON.parse(JSON.stringify(actorscolumn1)).map(actor => {
-            if (actor.title === 'Enel' || actor.title === 'Crédit agricole' || actor.title === 'Carrefour') {
-              actor.answer = true;
+          ...JSON.parse(JSON.stringify(column1.actorsArray))
+            .map(actor => ({ ...actor.thirdCard, title: actor.title }))
+            .map(actor => {
+              actor.title === column1.actorsTitles.ENEL ||
+              actor.title === column1.actorsTitles.CREDITAGRICOLE ||
+              actor.title === column1.actorsTitles.CARREFOUR
+                ? (actor.answer = true)
+                : (actor.answer = false);
               return actor;
-            } else {
-              actor.answer = false;
-              return actor;
-            }
-          }),
+            }),
         ],
       },
       column2: {
-        title: 'Intermédiaires',
-        actors: [...actorscolumn2.filter(actor => actor.title === 'Compagnie financière tradition')],
+        title: column2.columnName,
+        actors: [
+          ...JSON.parse(JSON.stringify(column2.actorsArray))
+            .map(actor => ({ ...actor.thirdCard, title: actor.title }))
+            .filter(actor => actor.title === column2.actorsTitles.CFT),
+        ],
       },
       column3: {
-        title: 'Investisseurs',
+        title: column3.columnName,
         actors: [
-          ...JSON.parse(JSON.stringify(actorscolumn3)).map(actor => {
-            if (actor.title === 'Hsbc global asset management' || actor.title === 'Axa') {
-              actor.answer = true;
+          ...JSON.parse(JSON.stringify(column3.actorsArray))
+            .map(actor => ({ ...actor.thirdCard, title: actor.title, help: actor.help }))
+            .map(actor => {
+              actor.title === column3.actorsTitles.HSBC || actor.title === column3.actorsTitles.AXA
+                ? (actor.answer = true)
+                : (actor.answer = false);
               return actor;
-            } else {
-              actor.answer = false;
-              return actor;
-            }
-          }),
+            }),
         ],
       },
     },
     {
       column1: {
-        title: 'Émetteurs',
+        title: column1.columnName,
         actors: [
-          ...JSON.parse(JSON.stringify(actorscolumn1)).map(actor => {
-            if (actor.title === 'Lafarge' || actor.title === 'Spie batignolles') {
-              actor.answer = true;
+          ...JSON.parse(JSON.stringify(column1.actorsArray))
+            .map(actor => ({ ...actor.thirdCard, title: actor.title }))
+            .map(actor => {
+              actor.title === column1.actorsTitles.LAFARGE || actor.title === column1.actorsTitles.SPIE
+                ? (actor.answer = true)
+                : (actor.answer = false);
               return actor;
-            } else {
-              actor.answer = false;
-              return actor;
-            }
-          }),
+            }),
         ],
       },
       column2: {
-        title: 'Intermédiaires',
-        actors: [...actorscolumn2.filter(actor => actor.title === 'Crédit agricole CIB')],
+        title: column2.columnName,
+        actors: [
+          ...JSON.parse(JSON.stringify(column2.actorsArray))
+            .map(actor => ({ ...actor.thirdCard, title: actor.title }))
+            .filter(actor => actor.title === column2.actorsTitles.CACIB),
+        ],
       },
       column3: {
-        title: 'Investisseurs',
+        title: column3.columnName,
         actors: [
-          ...JSON.parse(JSON.stringify(actorscolumn3)).map(actor => {
-            if (
-              actor.title === 'Bnp paribas asset management' ||
-              actor.title === 'Amundi' ||
-              actor.title === 'Monsieur Martin'
-            ) {
-              actor.answer = true;
+          ...JSON.parse(JSON.stringify(column3.actorsArray))
+            .map(actor => ({ ...actor.thirdCard, title: actor.title, help: actor.help }))
+            .map(actor => {
+              actor.title === column3.actorsTitles.BNP ||
+              actor.title === column3.actorsTitles.AMUNDI ||
+              actor.title === column3.actorsTitles.MARTIN
+                ? (actor.answer = true)
+                : (actor.answer = false);
               return actor;
-            } else {
-              actor.answer = false;
-              return actor;
-            }
-          }),
+            }),
         ],
       },
     },

@@ -12,6 +12,7 @@ class ButtonWithDoubleArrow extends React.Component {
   };
 
   handleButtonClick = answer => {
+    console.log('answer', answer);
     this.props.onButtonClick(answer, this.props.attachedName);
   };
 
@@ -56,7 +57,7 @@ ButtonWithDoubleArrow.propTypes = {
   name: PropTypes.string,
   value: PropTypes.string,
   noButton: PropTypes.bool,
-  answer: PropTypes.string,
+  answer: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
 };
 
 ButtonWithDoubleArrow.defaultProps = {

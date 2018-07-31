@@ -11,14 +11,14 @@ const contains = (list, value) => {
 class DropCard extends React.Component {
   state = {
     title: null,
-    subtitle: null
+    subtitle: null,
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.reset) {
       return {
         title: null,
-        subtitle: null
+        subtitle: null,
       };
     }
     return prevState;
@@ -29,6 +29,7 @@ class DropCard extends React.Component {
     const isDragCard = contains(event.dataTransfer.types, 'drag-card');
     const isEndDropCard = this.props.startOrEnd === 'end';
     if (isDragCard && isEndDropCard) {
+      console.log('ta race');
       event.preventDefault();
     }
   };
@@ -42,7 +43,7 @@ class DropCard extends React.Component {
     const data = event.dataTransfer.getData('drag-card');
     await this.setState({
       title: data.split('+++')[0],
-      subtitle: data.split('+++')[1]
+      subtitle: data.split('+++')[1],
     });
     parseInt(data.split('+++')[2], 10) === parseInt(this.props.endPosition, 10)
       ? this.props.dragCard(true, this.props.endPosition)
@@ -60,15 +61,9 @@ class DropCard extends React.Component {
         className={`drop-card ${isDraggingOver ? 'dragging-over' : ''}`}
         onDragOver={this.handleDragOver}
         onDragLeave={this.handleDragExit}
-        onDrop={this.handleDrop}
-      >
-        {startOrEnd === 'end' &&
-          title && <span className="title">{title}</span>}
-        {startOrEnd === 'end' &&
-          subtitle &&
-          subtitle !== 'undefined' && (
-            <span className="subtitle">{subtitle}</span>
-          )}
+        onDrop={this.handleDrop}>
+        {startOrEnd === 'end' && title && <span className="title">{title}</span>}
+        {startOrEnd === 'end' && subtitle && subtitle !== 'undefined' && <span className="subtitle">{subtitle}</span>}
         {this.props.children}
       </div>
     );
@@ -80,13 +75,13 @@ DropCard.propTypes = {
   endPosition: PropTypes.number.isRequired,
   reset: PropTypes.bool,
   startOrEnd: PropTypes.string,
-  dragCard: PropTypes.func.isRequired
+  dragCard: PropTypes.func.isRequired,
 };
 
 DropCard.defaultProps = {
   id: '',
   reset: false,
-  startOrEnd: ''
+  startOrEnd: '',
 };
 
 export default DropCard;

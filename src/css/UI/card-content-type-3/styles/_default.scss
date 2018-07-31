@@ -75,5 +75,12 @@
       margin-bottom: 5px;
     }
   }
+  &--help {
+    margin-bottom: 0;
+    font-style: italic;
+    margin-top: auto;
+    position: absolute;
+    bottom: 0;
+  }
 
 }

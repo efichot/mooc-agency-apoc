@@ -27,6 +27,7 @@ const moduleTypes = {
   blocCardGameType3: 'bloc-card-game-type-3',
   blocCardGameType4: 'bloc-card-game-type-4',
   blocCardsType1: 'bloc-cards-type-1',
+  blocSchemaType1: 'bloc-schema-type-1',
 };
 
 export default moduleTypes;
