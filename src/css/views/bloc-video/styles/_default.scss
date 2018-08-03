@@ -13,11 +13,11 @@
     background-color: var(--white);
 
     &--container {
+      --videoWidth: calc(var(--innerContentWidth) - var(--stepWidth) - 2 * var(--blocPaddingX));
       margin-top: var(--videoMargin);
       margin-bottom: var(--videoMargin);
-      width: calc(var(--masterWidth) - 2 * var(--innerContentPaddingX) - 100px - 4 * var(--videoMargin));
-      height: calc((var(--masterWidth) - 2 * var(--innerContentPaddingX) - 100px - 2 * var(--videoMargin)) * 0.5625);
-      // padding-top: 56.25%;
+      width: var(--videoWidth);
+      height: calc((var(--videoWidth) + 2 * var(--videoMargin)) * 0.5625);
 
       position: relative;
       background-color: red;

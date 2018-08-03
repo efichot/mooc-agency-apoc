@@ -8,12 +8,6 @@ import stepNavigation from '../model/static/stepNavigation';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 class MenuStepNavigation extends React.Component {
-  state = {
-    score: 0.75,
-    progression: 0.87,
-    rank: 53
-  };
-
   handleClick = e => {
     this.props.changeShownPart(e);
   };
@@ -25,39 +19,29 @@ class MenuStepNavigation extends React.Component {
       <div className="menu-step-navigation">
         <div className="menu-step-navigation__frame">
           <div className="menu-step-navigation__title">
-            <span>
-              {showPart1
-                ? stepNavigation.toggleParts.part1
-                : stepNavigation.toggleParts.part2}
-            </span>
+            <span>{showPart1 ? stepNavigation.toggleParts.part1 : stepNavigation.toggleParts.part2}</span>
           </div>
-          <UserGameInfos classProps={`menu-step-navigation`} />
+          <UserGameInfos classProps={`menu-step-navigation`} part={showPart1 ? 'part1' : 'part2'} />
           {Object.keys(stepNavigation)
-            .filter(
-              key => stepNavigation[`${key}`].part === (showPart1 ? 1 : 2)
-            )
+            .filter(key => stepNavigation[`${key}`].part === (showPart1 ? 1 : 2))
             .map((key, i, stepsFiltered) => {
               return (
                 <Link
                   key={stepNavigation[`${key}`].name}
                   to={`step${stepNavigation[`${key}`].stepLink}`}
-                  className={`menu-step-navigation__step`}
-                >
+                  className={`menu-step-navigation__step`}>
                   <div className="menu-step-navigation__step--bullet">
                     <FontAwesomeIcon icon={['fas', 'check-circle']} />
                   </div>
                   <div
                     className={`menu-step-navigation__step--content ${
                       i === stepsFiltered.length - 1 ? 'last-step' : ''
-                    }`}
-                  >
+                    }`}>
                     <div className="menu-step-navigation__step--name">
                       <span>{stepNavigation[`${key}`].name}</span>
                     </div>
                     <div className="menu-step-navigation__step--durations">
-                      <span>
-                        Détail min: {stepNavigation[`${key}`].detailsMin}
-                      </span>
+                      <span>Détail min: {stepNavigation[`${key}`].detailsMin}</span>
                     </div>
                   </div>
                 </Link>
@@ -82,7 +66,7 @@ class MenuStepNavigation extends React.Component {
 
 MenuStepNavigation.propTypes = {
   showPart1: PropTypes.bool.isRequired,
-  changeShownPart: PropTypes.func.isRequired
+  changeShownPart: PropTypes.func.isRequired,
 };
 
 MenuStepNavigation.defaultProps = {};

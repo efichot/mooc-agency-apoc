@@ -6,6 +6,7 @@ import { GlobalInfosProvider } from '../model/react-context/GlobalInfosProvider'
 import Header from '../views/Header';
 import MenuMobile from '../views/MenuMobile';
 import MenuStepNavigation from '../views/MenuStepNavigation';
+import MenuTop from '../views/MenuTop';
 import Introduction from './Introduction';
 import Step1 from './Step1';
 import Step2 from './Step2';
@@ -24,44 +25,48 @@ fontawesome.library.add(solid);
 
 class App extends React.Component {
   state = {
-    showPart1: true
+    showPart1: true,
   };
 
   changeShownPart = () => {
     this.setState({ showPart1: !this.state.showPart1 });
   };
 
+  checkIfIntro = bool => {
+    this.setState({ isIntro: bool });
+  };
+
   render() {
+    // const isIntro = this.props.match.path === '/intro';
+    const { isIntro, showPart1 } = this.state;
+
     return (
       <GlobalInfosProvider>
         <Helmet>
           <title>APOC Serious Game</title>
         </Helmet>
         <BrowserRouter basename={`${process.env.REACT_APP_BASENAME}`}>
-          <Fade in classProps="master__outer-container">
+          <Fade in classProps="master__outer-container" component="App">
             <Header />
             <MenuMobile />
-            <MenuStepNavigation
-              showPart1={this.state.showPart1}
-              changeShownPart={this.changeShownPart}
-            />
-            <div className="master__inner-container">
+            <MenuStepNavigation showPart1={showPart1} changeShownPart={this.changeShownPart} />
+            <div className={`master__inner-container ${isIntro ? 'intro' : ''}`}>
+              {isIntro && <div className="hide-box-shadow" />}
+              <MenuTop />
               <Switch>
                 <Route exact path="/" render={() => <Redirect to="/intro" />} />
                 <Route
                   path="/intro"
-                  render={() => (
-                    <Introduction showPart1={this.state.showPart1} in />
-                  )}
+                  render={() => <Introduction tellAppIAmIntro={this.checkIfIntro} showPart1={showPart1} in />}
                 />
-                <Route path="/step1" render={route => <Step1 {...route} />} />
-                <Route path="/step2" render={route => <Step2 {...route} />} />
-                <Route path="/step3" render={route => <Step3 {...route} />} />
-                <Route path="/step4" render={route => <Step4 {...route} />} />
-                <Route path="/step5" render={route => <Step5 {...route} />} />
-                <Route path="/step6" render={route => <Step6 {...route} />} />
-                <Route path="/step7" render={route => <Step7 {...route} />} />
-                <Route path="/step8" render={route => <Step8 {...route} />} />
+                <Route path="/step1" render={route => <Step1 {...route} tellAppIAmIntro={this.checkIfIntro} />} />
+                <Route path="/step2" render={route => <Step2 {...route} tellAppIAmIntro={this.checkIfIntro} />} />
+                <Route path="/step3" render={route => <Step3 {...route} tellAppIAmIntro={this.checkIfIntro} />} />
+                <Route path="/step4" render={route => <Step4 {...route} tellAppIAmIntro={this.checkIfIntro} />} />
+                <Route path="/step5" render={route => <Step5 {...route} tellAppIAmIntro={this.checkIfIntro} />} />
+                <Route path="/step6" render={route => <Step6 {...route} tellAppIAmIntro={this.checkIfIntro} />} />
+                <Route path="/step7" render={route => <Step7 {...route} tellAppIAmIntro={this.checkIfIntro} />} />
+                <Route path="/step8" render={route => <Step8 {...route} tellAppIAmIntro={this.checkIfIntro} />} />
               </Switch>
             </div>
           </Fade>

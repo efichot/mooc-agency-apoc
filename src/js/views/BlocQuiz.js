@@ -132,7 +132,9 @@ class BlocQuiz extends React.Component {
         <BlocSpacer />
         <BlocDescription modulType={modulType} classProps="bloc__first-description" description={description} />
         <BlocSpacer />
-        {!quizStart && <ButtonPrimary name="Commencer" onClick={this.handleStartQuiz} classProps="bloc-quiz__start" />}
+        {!quizStart && (
+          <ButtonPrimary minWidth name="Commencer" onClick={this.handleStartQuiz} classProps="bloc-quiz__start" />
+        )}
         {quizStart && (
           <React.Fragment>
             <div className="chrono-question">
@@ -176,6 +178,7 @@ class BlocQuiz extends React.Component {
                 )}
               </div>
               <ButtonPrimary
+                minWidth
                 name={victoryMessage !== undefined ? 'suivant' : 'valider'}
                 onClick={this.handleValidate}
                 classProps={`bloc-quiz__validate`}

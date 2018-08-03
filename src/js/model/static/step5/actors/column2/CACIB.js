@@ -12,7 +12,7 @@ export default {
       },
       {
         __html:
-          "Participe au placement  des <em style='color: rgba(255,0,31,1.00)'>actions</em> émises par Lafarge en avril 2009",
+          "Participe au placement  des <em style='color: var(--action)'>actions</em> émises par Lafarge en avril 2009",
       },
       {
         __html: 'Participe au montage du fonds Spie Batignolles Actionnariat en mai 2009',
@@ -30,7 +30,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Placement d'une émission en <em style='color: rgba(255,0,31,1.00)'>actions</em>",
+        __html: "Placement d'une émission en <em style='color: var(--action)'>actions</em>",
       },
       {
         __html: 'Montage de l’opération réservée aux salariés',
@@ -42,7 +42,7 @@ export default {
     headList1: 'Besoins',
     list1: [
       {
-        __html: "Réaliser l’émission en <em style='color: rgba(255,0,31,1.00)'>actions</em> de Lafarge",
+        __html: "Réaliser l’émission en <em style='color: var(--action)'>actions</em> de Lafarge",
       },
       {
         __html: "Réaliser l’opération d'actionnariat salarié de Spie Batignolles",
@@ -51,8 +51,7 @@ export default {
     headList2: 'Opérations',
     list2: [
       {
-        __html:
-          "Placement de l’émission en <em style='color: rgba(255,0,31,1.00)'>actions</em> de Lafarge en avril 2009",
+        __html: "Placement de l’émission en <em style='color: var(--action)'>actions</em> de Lafarge en avril 2009",
       },
       {
         __html: 'Montage de l’opération réservée aux salariés de Spie Batignolles en mai 2009',

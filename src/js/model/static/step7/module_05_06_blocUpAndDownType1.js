@@ -5,8 +5,8 @@ const module_05_06_blocUpAndDownType1 = {
   modulType: moduleTypes.blocUpAndDownType1,
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   firstDescription: {
-    __html: `À la lumière de ce qui s’est réellement passé, déplacez sur l’axe vertical ci-dessous, « de moins à plus de performance », les obligations d’État précédemment classées sur l’axe horizontal du risque, à l’aide du bouton  , puis validez. 
-En cas de doute, visionnez à nouveau le début de la vidéo ci-dessus.`
+    __html: `À la lumière de ce qui s’est réellement passé, déplacez sur l’axe vertical ci-dessous, «&nbsp;de moins à plus de performance&nbsp;», les obligations d’État précédemment classées sur l’axe horizontal du risque, puis validez. 
+En cas de doute, visionnez à nouveau le début de la vidéo ci-dessus.`,
   },
   noChapter: false,
   chapter: 'Échelle de performance',
@@ -19,9 +19,9 @@ En cas de doute, visionnez à nouveau le début de la vidéo ci-dessus.`
       endPosition: 2,
       content: {
         isDraggable: true,
-        cardTitle: `Allemagne - 5 ans`
+        cardTitle: `Allemagne - 5 ans`,
         /*cardSubTitle: `BTP - non coté`,*/
-      }
+      },
     },
     {
       color: 'white',
@@ -29,9 +29,9 @@ En cas de doute, visionnez à nouveau le début de la vidéo ci-dessus.`
       endPosition: 3,
       content: {
         isDraggable: true,
-        cardTitle: `Italie - 5 ans`
+        cardTitle: `Italie - 5 ans`,
         /*cardSubTitle: `Consommation - coté`,*/
-      }
+      },
     },
     {
       color: 'white',
@@ -39,9 +39,9 @@ En cas de doute, visionnez à nouveau le début de la vidéo ci-dessus.`
       endPosition: 1,
       content: {
         isDraggable: true,
-        cardTitle: `Allemagne - 10 ans`
+        cardTitle: `Allemagne - 10 ans`,
         /*cardSubTitle: `Matériaux BTP - coté`,*/
-      }
+      },
     },
     {
       color: 'white',
@@ -49,11 +49,11 @@ En cas de doute, visionnez à nouveau le début de la vidéo ci-dessus.`
       endPosition: 4,
       content: {
         isDraggable: true,
-        cardTitle: `Italie - 10 ans`
+        cardTitle: `Italie - 10 ans`,
         /*cardSubTitle: `Matériaux BTP - coté`,*/
-      }
-    }
-  ]
+      },
+    },
+  ],
 };
 
 export default module_05_06_blocUpAndDownType1;

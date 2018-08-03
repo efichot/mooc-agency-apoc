@@ -8,12 +8,17 @@ import BlocQCMType3 from '../views/BlocQCMType3';
 
 class Step2_02 extends React.Component {
   state = {
-    showNextModule: 0
+    showNextModule: 0,
   };
 
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+
   handleShowNextModule = () => {
+    console.log('handleShowNextModule 202');
     this.setState({ showNextModule: this.state.showNextModule + 1 });
-    if (this.state.showNextModule > 0) {
+    if (this.state.showNextModule > 1) {
       this.props.endOfModules(true);
     }
   };
@@ -27,11 +32,7 @@ class Step2_02 extends React.Component {
 
     return (
       <React.Fragment>
-        <BlocVideo
-          in={this.props.in}
-          scrollIntoView={this.props.in}
-          {...step2.module_08_01}
-        />
+        <BlocVideo in={this.props.in} scrollIntoView={this.props.in} {...step2.module_08_01} />
         <BlocLink in={this.props.in} {...step2.module_08_02} />
         <BlocText in={this.props.in} {...step2.module_08_03} />
         <BlocQCMType3
@@ -54,11 +55,7 @@ class Step2_02 extends React.Component {
           {...step2.module_08_06}
           onClick={this.handleShowNextModule}
         />
-        <BlocLink
-          in={stepInStep2}
-          scrollIntoView={stepInStep2}
-          {...step2.module_08_07}
-        />
+        <BlocLink in={stepInStep2} scrollIntoView={stepInStep2} {...step2.module_08_07} />
         <BlocLink in={stepInStep2} {...step2.module_08_08} />
       </React.Fragment>
     );
@@ -67,7 +64,7 @@ class Step2_02 extends React.Component {
 
 Step2_02.propTypes = {
   context: PropTypes.object.isRequired,
-  endOfModules: PropTypes.func
+  endOfModules: PropTypes.func,
 };
 
 Step2_02.defaultProps = {};

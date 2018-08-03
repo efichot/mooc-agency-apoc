@@ -7,12 +7,8 @@ import Fade from '../transitions/Fade';
 class BlocSubMenu1 extends React.Component {
   state = {};
 
-  handleButtonClick = changeMarketToShow => {
-    this.props.action(changeMarketToShow);
-  };
-
   render() {
-    const { modulType, description, buttons, noDescription, scrollIntoView } = this.props;
+    const { modulType, description, buttons, noDescription, scrollIntoView, action } = this.props;
 
     return (
       <Fade
@@ -30,7 +26,10 @@ class BlocSubMenu1 extends React.Component {
                 classOrigin="bloc-sub-menu-1"
                 key={button.action}
                 button={button}
-                onClick={this.handleButtonClick}
+                onClick={value => {
+                  console.log('value', value);
+                  action(value);
+                }}
               />
             );
           })}

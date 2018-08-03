@@ -1,7 +1,7 @@
 
 :root {
-  --menuTopHeight: 100px;
+  --menuTopHeight: var(--menuTopItemHeight);
   --menuTopWidth: var(--innerContentWidth);
-  --menuTopPaddingTop: calc(var(--menuTopHeight) / 2);
+  --menuTopPaddingTop: calc(var(--menuTopHeight));
   --menuTopItemHeight: 50px;
 }

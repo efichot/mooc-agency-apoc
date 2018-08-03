@@ -31,12 +31,9 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
   };
 
   handleClick = ({ answer, currentQuestion }) => {
-    console.log('handleClick');
     const answers = [...this.state.answers];
     answers[currentQuestion] = answer;
 
-    console.log('this.props', this.props);
-    console.log('this.props.error', this.props.error);
     const showErrorMessage = this.props.error
       .map(
         errorSet =>
@@ -98,8 +95,6 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
 
     const cardToShow = cards.filter(card => card.index === cardNumberShown)[0];
 
-    cardToShow && console.log('cardToShow.cardTitle', cardToShow.cardTitle);
-
     const question =
       questions === undefined
         ? true
@@ -127,7 +122,7 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
           <React.Fragment>
             <BlocDescription
               modulType={modulType}
-              classProps="bloc__first-description"
+              classProps="bloc-en-savoir-plus-type-3-qcm-type-1__question"
               description={!noMoreQuestion ? question.description : descriptionWhenNoMoreQuestion}
             />
             <BlocSpacer height={25} />
@@ -184,6 +179,7 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
               )}
             </div>
             <ButtonPrimary
+              minWidth
               name={noMoreQuestion ? 'voir le reste du schéma' : 'valider'}
               onClick={noMoreQuestion ? this.handleShowAll : this.handleValidate}
               classProps={`bloc-QCM-type-1__validate`}
@@ -205,8 +201,7 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
                 .map(
                   condition => condition.map(answer => answers.includes(answer)).filter(value => !value).length === 0,
                 )
-                .filter(isTrue => isTrue).length > 0 &&
-              card.visibleIf[0].length <= currentQuestion;
+                .filter(isTrue => isTrue).length > 0;
             const alwaysVisible = card.visibleIf === 'always';
             if (card.cardTitle) {
               return (

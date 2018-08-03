@@ -8,13 +8,13 @@ const module_04_blocQCMType2 = {
   duration: 2,
   title: `Srri et objectifs d'investissement`,
   firstDescription: {
-    __html: `Quatre fonds constitués de plusieurs actifs (actions, obligations, titres monétaires) vous sont proposés. Affectez à chacun le niveau de risque et de rendement (SRRI) qui lui correspond à l’aide du bouton et en fonction de plusieurs paramètres : 
-    - la proportion d’actions indiquée rend-elle le fonds plus ou moins risqué ? 
-    - l’objectif d’investissement vise-t-il à encadrer ou limiter le risque du fonds ?
+    __html: `Quatre fonds constitués de plusieurs actifs (actions, obligations, titres monétaires) vous sont proposés. Affectez à chacun le niveau de risque et de rendement (SRRI) qui lui correspond à l’aide du bouton et en fonction de plusieurs paramètres&nbsp;: 
+    - la proportion d’actions indiquée rend-elle le fonds plus ou moins risqué&nbsp;? 
+    - l’objectif d’investissement vise-t-il à encadrer ou limiter le risque du fonds&nbsp;?
 
     Pour plus de détail sur l’objectif d’investissement, passez la souris sur les fonds concernés, sélectionnez la réponse puis validez.
     En cas de doute, visionnez à nouveau la toute fin de la vidéo MODE D’EMPLOI DU DICI.
-    Quel est le SRRI des fonds de type mixte ci-dessous ?`
+    Quel est le SRRI des fonds de type mixte ci-dessous&nbsp;?`,
   },
   questions: [
     {
@@ -24,22 +24,22 @@ const module_04_blocQCMType2 = {
       choices: [
         {
           value: 3,
-          label: 3
+          label: 3,
         },
         {
           value: 4,
-          label: 4
+          label: 4,
         },
         {
           value: 5,
-          label: 5
+          label: 5,
         },
         {
           value: 6,
-          label: 6
-        }
+          label: 6,
+        },
       ],
-      answer: 4
+      answer: 4,
     },
     {
       questionNumber: 2,
@@ -48,22 +48,22 @@ const module_04_blocQCMType2 = {
       choices: [
         {
           value: 3,
-          label: 3
+          label: 3,
         },
         {
           value: 4,
-          label: 4
+          label: 4,
         },
         {
           value: 5,
-          label: 5
+          label: 5,
         },
         {
           value: 6,
-          label: 6
-        }
+          label: 6,
+        },
       ],
-      answer: 6
+      answer: 6,
     },
     {
       questionNumber: 3,
@@ -72,22 +72,22 @@ const module_04_blocQCMType2 = {
       choices: [
         {
           value: 3,
-          label: 3
+          label: 3,
         },
         {
           value: 4,
-          label: 4
+          label: 4,
         },
         {
           value: 5,
-          label: 5
+          label: 5,
         },
         {
           value: 6,
-          label: 6
-        }
+          label: 6,
+        },
       ],
-      answer: 5
+      answer: 5,
     },
     {
       questionNumber: 4,
@@ -96,34 +96,34 @@ const module_04_blocQCMType2 = {
       choices: [
         {
           value: 3,
-          label: 3
+          label: 3,
         },
         {
           value: 4,
-          label: 4
+          label: 4,
         },
         {
           value: 5,
-          label: 5
+          label: 5,
         },
         {
           value: 6,
-          label: 6
-        }
+          label: 6,
+        },
       ],
-      answer: 3
-    }
+      answer: 3,
+    },
   ],
   synthese: {
     firstDescription: {
       __html: `Les Fonds B et C peuvent tous deux voir la part des actions (actif le plus risqué) passer à 100% sans contrainte géographique. Ils ont donc un SRRI élevé, mais l’objectif d’investissement du Fonds C est encadré et chiffré en annualisé à 5% sur 5 ans au-delà de l’EONIA capitalisé, ce qui explique qu’il ait un SRRI de 5, tandis que le Fonds B a un SRRI de 6. Le Fonds A est investi en moyenne à 50% en actions de la zone Euro/Europe (moins risquées que les actions internationales) et à 50% en obligations et titres monétaires. Il présente un SRRI intermédiaire de 4.
-      Le Fonds D garantissant à tout moment 90% de la plus élevée des valeurs liquidatives constatées, le risque de perte ne peut excéder 10%. Son SRRI est donc plus faible que celui des trois autres fonds qui sont tous totalement exposés aux fluctuations des marchés financiers sans protection.`
+      Le Fonds D garantissant à tout moment 90% de la plus élevée des valeurs liquidatives constatées, le risque de perte ne peut excéder 10%. Son SRRI est donc plus faible que celui des trois autres fonds qui sont tous totalement exposés aux fluctuations des marchés financiers sans protection.`,
     },
     title: 'Synthèse',
     secondDescription: {
-      __html: `Retrouvez la fiche synthèse "Document d'information Clé pour l'investisseur" dans la bibliothèque.`
-    }
-  }
+      __html: `Retrouvez la fiche synthèse "Document d'information Clé pour l'investisseur" dans la bibliothèque.`,
+    },
+  },
 };
 
 export default module_04_blocQCMType2;

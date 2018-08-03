@@ -12,7 +12,7 @@ export default {
       },
       {
         __html:
-          "Investit 100 millions d'€ en titres <em style='color: rgba(0,159,63,1.00)'>monétaires</em> émis par Crédit Agricole et Enel en mai 2009",
+          "Investit 100 millions d'€ en titres <em style='color: var(--monetaire)'>monétaires</em> émis par Crédit Agricole et Enel en mai 2009",
       },
     ],
   },
@@ -46,7 +46,7 @@ export default {
     list2: [
       {
         __html:
-          "Achat des titres <em style='color: rgba(0,159,63,1.00)'>monétaires</em> émis par Crédit Agricole et Enel en mai 2009",
+          "Achat des titres <em style='color: var(--monetaire)'>monétaires</em> émis par Crédit Agricole et Enel en mai 2009",
       },
     ],
   },

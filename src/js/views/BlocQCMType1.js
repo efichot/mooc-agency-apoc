@@ -86,7 +86,7 @@ class BlocQCMType1 extends React.Component {
             </PopupBlue>
           )}
         </div>
-        <ButtonPrimary name="valider" onClick={this.handleValidate} classProps={`bloc-QCM-type-1__validate`} />
+        <ButtonPrimary minWidth name="valider" onClick={this.handleValidate} classProps={`bloc-QCM-type-1__validate`} />
       </Fade>
     );
   }

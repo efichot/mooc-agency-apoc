@@ -2,15 +2,16 @@ const stepNavigation = {
   toggleParts: {
     part1: 'Investir mon épargne',
     part2: 'Comprendre les marchés',
-    visible: false
+    visible: false,
   },
   intro: {
     part: 'all',
     name: 'introduction',
+    secondClass: 'intro',
     description: `Frédéric Dubois vous présente ce parcours inédit créé pour les salariés du Groupe ADP. Cliquez sur la vidéo. 
 Attention à ne pas utiliser les flèches « page précédente » et « suivante » du navigateur !`,
     visible: true,
-    videoUrl: 'https://player.vimeo.com/video/259824721'
+    videoUrl: 'https://player.vimeo.com/video/259824721',
   },
   step1: {
     part: 1,
@@ -19,7 +20,7 @@ Attention à ne pas utiliser les flèches « page précédente » et « suivante
     visible: true,
     buttonName: 'Démarrer votre formation',
     videoUrl: 'https://player.vimeo.com/video/259824564',
-    detailsMin: '5 / 3 / 5 / 3'
+    detailsMin: '5 / 3 / 5 / 3',
   },
   step2: {
     part: 1,
@@ -28,7 +29,7 @@ Attention à ne pas utiliser les flèches « page précédente » et « suivante
     visible: true,
     buttonName: 'Démarrer votre formation',
     videoUrl: 'https://player.vimeo.com/video/259824583',
-    detailsMin: '6 / 6 / 7 / 6'
+    detailsMin: '6 / 6 / 7 / 6',
   },
   step3: {
     part: 1,
@@ -37,7 +38,7 @@ Attention à ne pas utiliser les flèches « page précédente » et « suivante
     visible: true,
     buttonName: 'Démarrer votre formation',
     videoUrl: 'https://player.vimeo.com/video/259824604',
-    detailsMin: '5 / 5 / 5 / 5'
+    detailsMin: '5 / 5 / 5 / 5',
   },
   step4: {
     part: 1,
@@ -46,7 +47,7 @@ Attention à ne pas utiliser les flèches « page précédente » et « suivante
     visible: true,
     buttonName: 'Démarrer votre formation',
     videoUrl: 'https://player.vimeo.com/video/259824621',
-    detailsMin: '5 / 5'
+    detailsMin: '5 / 5',
   },
   step5: {
     part: 2,
@@ -55,7 +56,7 @@ Attention à ne pas utiliser les flèches « page précédente » et « suivante
     visible: true,
     buttonName: 'Démarrer votre formation',
     videoUrl: 'https://player.vimeo.com/video/259824633',
-    detailsMin: '3 / 7 / 3 / 3'
+    detailsMin: '3 / 7 / 3 / 3',
   },
   step6: {
     part: 2,
@@ -64,7 +65,7 @@ Attention à ne pas utiliser les flèches « page précédente » et « suivante
     visible: true,
     buttonName: 'Démarrer votre formation',
     videoUrl: 'https://player.vimeo.com/video/259824646',
-    detailsMin: '4 / 4 / 4 / 2'
+    detailsMin: '4 / 4 / 4 / 2',
   },
   step7: {
     part: 2,
@@ -73,7 +74,7 @@ Attention à ne pas utiliser les flèches « page précédente » et « suivante
     visible: true,
     buttonName: 'Démarrer votre formation',
     videoUrl: 'https://player.vimeo.com/video/259824665',
-    detailsMin: '4 / 12 / 8 / 2 / 2'
+    detailsMin: '4 / 12 / 8 / 2 / 2',
   },
   step8: {
     part: 2,
@@ -82,15 +83,15 @@ Attention à ne pas utiliser les flèches « page précédente » et « suivante
     visible: true,
     buttonName: 'Démarrer votre formation',
     videoUrl: 'https://player.vimeo.com/video/259824710',
-    detailsMin: '5 / 2 / 3 / 1'
+    detailsMin: '5 / 2 / 3 / 1',
   },
   conclusion: {
     part: 'all',
     name: 'conclusion',
     description: `La conclusion des différents principes abordés.`,
     visible: true,
-    videoUrl: 'https://player.vimeo.com/video/259832924'
-  }
+    videoUrl: 'https://player.vimeo.com/video/259832924',
+  },
 };
 
 export default stepNavigation;

@@ -6,7 +6,7 @@ const module_02_blocLink = {
   modulType: moduleTypes.blocLink,
   noChapter: true,
   link: '#',
-  buttonName: 'Télécharger les fonds de sodexo'
+  buttonName: 'Télécharger les fonds de ADP',
 };
 
 export default module_02_blocLink;

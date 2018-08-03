@@ -28,6 +28,10 @@ class Step8 extends React.Component {
     showQuiz: false,
   };
 
+  componentDidMount() {
+    this.props.tellAppIAmIntro(false);
+  }
+
   handleShowNextModule = async module => {
     await this.setState({ showNextModule: this.state.showNextModule + 1 });
     if (this.state.showNextModule > 2) {
@@ -81,34 +85,34 @@ class Step8 extends React.Component {
                     padding={30}
                     in={isStep8 && show_01}
                     scrollIntoView={isStep8 && show_01}
-                    {...step8.module_03_01}
+                    {...step8.module_03.module_03_01}
                   />
-                  <BlocEnSavoirPlusType3 in={isStep8 && show_01} {...step8.module_03_02} />
+                  <BlocEnSavoirPlusType3 in={isStep8 && show_01} {...step8.module_03.module_03_02} />
                   <BlocDivider in={isStep8 && show_01} margins />
-                  <BlocEnSavoirPlusType3QCMType1 in={isStep8 && show_01} {...step8.module_03_03} />
+                  <BlocEnSavoirPlusType3QCMType1 in={isStep8 && show_01} {...step8.module_03.module_03_03} />
                   <BlocDivider in={isStep8 && show_01} margins />
-                  <BlocEnSavoirPlusType1 in={isStep8 && show_01} {...step8.module_03_04} />
+                  <BlocEnSavoirPlusType1 in={isStep8 && show_01} {...step8.module_03.module_03_04} />
                   <BlocDescription
                     padding={30}
                     in={isStep8 && show_02}
                     scrollIntoView={isStep8 && show_02}
-                    {...step8.module_04_01}
+                    {...step8.module_04.module_04_01}
                   />
-                  <BlocEnSavoirPlusType3QCMType1 in={isStep8 && show_02} {...step8.module_04_02} />
-                  <BlocEnSavoirPlusType1 in={isStep8 && show_02} {...step8.module_04_03} />
+                  <BlocEnSavoirPlusType3QCMType1 in={isStep8 && show_02} {...step8.module_04.module_04_02} />
+                  <BlocEnSavoirPlusType1 in={isStep8 && show_02} {...step8.module_04.module_04_03} />
                   <BlocDescription
                     padding={30}
                     in={isStep8 && show_03}
                     scrollIntoView={isStep8 && show_03}
-                    {...step8.module_05_01}
+                    {...step8.module_05.module_05_01}
                   />
-                  <BlocEnSavoirPlusType1 in={isStep8 && show_03} {...step8.module_05_02} />
-                  <BlocEnSavoirPlusType3QCMType1 in={isStep8 && show_03} {...step8.module_05_03} />
+                  <BlocEnSavoirPlusType1 in={isStep8 && show_03} {...step8.module_05.module_05_02} />
+                  <BlocEnSavoirPlusType3QCMType1 in={isStep8 && show_03} {...step8.module_05.module_05_03} />
                   <BlocDescription
                     padding={30}
                     in={isStep8 && show_04}
                     scrollIntoView={isStep8 && show_04}
-                    {...step8.module_06_01}
+                    {...step8.module_06.module_06_01}
                   />
                   {(showSynthese || show_01 || show_02 || show_03 || show_04) && (
                     <div className="step8__synthese step__synthese bloc">
@@ -116,19 +120,16 @@ class Step8 extends React.Component {
                       <span className="bloc__name">{step8.module_07.name}</span>
                       <BlocDescription
                         in={showSynthese || show_01 || show_02 || show_03 || show_04}
-                        scrollIntoView={showSynthese || show_01 || show_02 || show_03 || show_04}
                         modulType={step8.module_07.modulType}
                         description={step8.module_07.description_1}
                       />
                       <BlocDescription
                         in={showSynthese && show_02}
-                        scrollIntoView={showSynthese && show_02}
                         modulType={step8.module_07.modulType}
                         description={step8.module_07.description_2}
                       />
                       <BlocDescription
                         in={showSynthese && show_03}
-                        scrollIntoView={showSynthese && show_03}
                         modulType={step8.module_07.modulType}
                         description={step8.module_07.description_3}
                       />
@@ -144,9 +145,9 @@ class Step8 extends React.Component {
                         noDescription
                       />
                       <BlocSpacer />
-                      <ButtonPrimary name={step8.module_07.button_1} onClick={this.handleShowQuiz} />
+                      <ButtonPrimary minWidth name={step8.module_07.button_1} onClick={this.handleShowQuiz} />
                       <Link to="#" className="button">
-                        <ButtonPrimary name={step8.module_07.button_2} />
+                        <ButtonPrimary minWidth name={step8.module_07.button_2} />
                       </Link>
                     </div>
                   )}

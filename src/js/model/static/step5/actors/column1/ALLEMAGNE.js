@@ -8,11 +8,11 @@ export default {
     list: [
       {
         __html:
-          "Procède en janvier 2010 à une émission d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> à 10 ans de 24 milliards d'euros pour couvrir ses besoins de financement à long terme",
+          "Procède en janvier 2010 à une émission d'<em style='color: var(--obligation)'>obligations</em> à 10 ans de 24 milliards d'euros pour couvrir ses besoins de financement à long terme",
       },
       {
         __html:
-          "Procède en janvier 2010 à une émission d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> à 5 ans de 23 milliards d'euros pour couvrir ses besoins de financement à moyen terme ",
+          "Procède en janvier 2010 à une émission d'<em style='color: var(--obligation)'>obligations</em> à 5 ans de 23 milliards d'euros pour couvrir ses besoins de financement à moyen terme ",
       },
     ],
   },
@@ -30,10 +30,10 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Émission d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> à 10 ans",
+        __html: "Émission d'<em style='color: var(--obligation)'>obligations</em> à 10 ans",
       },
       {
-        __html: "Émission d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> à 5 ans",
+        __html: "Émission d'<em style='color: var(--obligation)'>obligations</em> à 5 ans",
       },
     ],
   },
@@ -52,11 +52,11 @@ export default {
     list2: [
       {
         __html:
-          "Émission d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> à 10 ans de 24 milliard d'€ en janvier 2010",
+          "Émission d'<em style='color: var(--obligation)'>obligations</em> à 10 ans de 24 milliard d'€ en janvier 2010",
       },
       {
         __html:
-          "Émission d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> à 5 ans de 23 milliard d'€ en janvier 2010",
+          "Émission d'<em style='color: var(--obligation)'>obligations</em> à 5 ans de 23 milliard d'€ en janvier 2010",
       },
     ],
   },

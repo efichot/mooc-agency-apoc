@@ -54,6 +54,7 @@ ButtonWithDoubleArrow.propTypes = {
   attachedName: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   button: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired,
+  onButtonClick: PropTypes.func,
   name: PropTypes.string,
   value: PropTypes.string,
   noButton: PropTypes.bool,
@@ -65,6 +66,9 @@ ButtonWithDoubleArrow.defaultProps = {
   answer: '',
   value: '',
   name: '',
+  onButtonClick: () => {
+    return;
+  },
 };
 
 export default ButtonWithDoubleArrow;

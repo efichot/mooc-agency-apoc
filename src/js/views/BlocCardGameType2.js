@@ -312,6 +312,7 @@ class BlocCardGameType2 extends React.Component {
                           />
                         ))}
                         <ButtonPrimary
+                          minWidth
                           name="valider"
                           onClick={this.handleValidate}
                           classProps={`button-validate`}
@@ -420,6 +421,7 @@ class BlocCardGameType2 extends React.Component {
                           />
                         ))}
                         <ButtonPrimary
+                          minWidth
                           name="valider"
                           onClick={this.handleValidate}
                           classProps={`button-validate`}
@@ -528,6 +530,7 @@ class BlocCardGameType2 extends React.Component {
                           />
                         ))}
                         <ButtonPrimary
+                          minWidth
                           name="valider"
                           onClick={this.handleValidate}
                           classProps={`button-validate`}

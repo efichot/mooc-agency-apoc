@@ -1,7 +1,15 @@
 .bloc-en-savoir-plus-type-3-qcm-type-1 {
   width: 100%;
-  .bloc__first-description {
+
+  &__question {
     min-height: 100px;
+  }
+
+  .game {
+    margin-top: 25px;
+  }
+
+  .bloc__first-description {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;

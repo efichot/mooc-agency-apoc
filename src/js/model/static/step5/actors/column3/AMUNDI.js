@@ -12,7 +12,7 @@ export default {
       },
       {
         __html:
-          "Investit en <em style='color: rgba(255,0,31,1.00)'>actions</em> Spie Batignolles cédées en mai 2009 par la Financière Spie Batignolles",
+          "Investit en <em style='color: var(--action)'>actions</em> Spie Batignolles cédées en mai 2009 par la Financière Spie Batignolles",
       },
     ],
   },
@@ -21,14 +21,13 @@ export default {
     title1: 'Besoins',
     list1: [
       {
-        __html:
-          "Investir l’épargne des salariés en <em style='color: rgba(255,0,31,1.00)'>actions</em> de l’entreprise",
+        __html: "Investir l’épargne des salariés en <em style='color: var(--action)'>actions</em> de l’entreprise",
       },
     ],
     title2: 'Opérations',
     list2: [
       {
-        __html: "Achat d'<em style='color: rgba(255,0,31,1.00)'>actions</em> existantes",
+        __html: "Achat d'<em style='color: var(--action)'>actions</em> existantes",
       },
     ],
   },
@@ -38,14 +37,14 @@ export default {
     list1: [
       {
         __html:
-          "Investir l’épargne des salariés  de Spie Batignolles en <em style='color: rgba(255,0,31,1.00)'>actions</em> de l’entreprise via le Plan d'Epargne Entreprise",
+          "Investir l’épargne des salariés  de Spie Batignolles en <em style='color: var(--action)'>actions</em> de l’entreprise via le Plan d'Epargne Entreprise",
       },
     ],
     headList2: 'Opérations',
     list2: [
       {
         __html:
-          "Achat d'<em style='color: rgba(255,0,31,1.00)'>actions</em> Spie Batignolles cédées par la Financière Spie Batignolles en mai 2009",
+          "Achat d'<em style='color: var(--action)'>actions</em> Spie Batignolles cédées par la Financière Spie Batignolles en mai 2009",
       },
     ],
   },

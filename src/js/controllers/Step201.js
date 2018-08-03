@@ -8,12 +8,17 @@ import BlocQCMType3 from '../views/BlocQCMType3';
 
 class Step2_01 extends React.Component {
   state = {
-    showNextModule: 0
+    showNextModule: 0,
   };
 
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+
   handleShowNextModule = () => {
+    console.log('handleShowNextModule 201');
     this.setState({ showNextModule: this.state.showNextModule + 1 });
-    if (this.state.showNextModule > 1) {
+    if (this.state.showNextModule > 2) {
       this.props.endOfModules(true);
     }
   };
@@ -29,18 +34,8 @@ class Step2_01 extends React.Component {
     return (
       <React.Fragment>
         {/*<BlocDivider in={this.props.in} />*/}
-        <BlocLink
-          in={this.props.in}
-          scrollIntoView={this.props.in}
-          {...step2.module_07_01}
-          margins
-        />
-        <BlocQCMType2
-          in={this.props.in}
-          margins
-          {...step2.module_07_02}
-          gameIsFinished={this.handleShowNextModule}
-        />
+        <BlocLink in={this.props.in} scrollIntoView={this.props.in} {...step2.module_07_01} />
+        <BlocQCMType2 in={this.props.in} {...step2.module_07_02} gameIsFinished={this.handleShowNextModule} />
         {/*<BlocDivider in={stepInStep0} />*/}
         <BlocQCMType3
           in={stepInStep0}
@@ -62,11 +57,7 @@ class Step2_01 extends React.Component {
           {...step2.module_07_05}
           onClick={this.handleShowNextModule}
         />
-        <BlocLink
-          in={stepInStep3}
-          scrollIntoView={stepInStep3}
-          {...step2.module_07_06}
-        />
+        <BlocLink in={stepInStep3} scrollIntoView={stepInStep3} {...step2.module_07_06} />
         <BlocLink in={stepInStep3} {...step2.module_07_07} />
         <BlocLink in={stepInStep3} {...step2.module_07_08} />
         <BlocLink in={stepInStep3} {...step2.module_07_09} />
@@ -77,7 +68,7 @@ class Step2_01 extends React.Component {
 
 Step2_01.propTypes = {
   context: PropTypes.object.isRequired,
-  endOfModules: PropTypes.func
+  endOfModules: PropTypes.func,
 };
 
 Step2_01.defaultProps = {};

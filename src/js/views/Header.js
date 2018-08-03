@@ -2,7 +2,6 @@ import React from 'react';
 /*import PropTypes from 'prop-types';*/
 import { Link } from 'react-router-dom';
 
-import MenuTop from './MenuTop';
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 
 class Header extends React.Component {
@@ -41,8 +40,6 @@ class Header extends React.Component {
             </React.Fragment>
           )}
         </GlobalInfosContext.Consumer>
-
-        <MenuTop />
       </div>
     );
   }

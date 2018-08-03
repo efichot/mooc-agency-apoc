@@ -29,6 +29,10 @@ class Step3 extends React.Component {
     reset: false,
   };
 
+  componentDidMount() {
+    this.props.tellAppIAmIntro(false);
+  }
+
   handleShowNextModule = async module => {
     await this.setState({ showNextModule: this.state.showNextModule + 1 });
     if (this.state.showNextModule > 2) {
@@ -141,10 +145,10 @@ class Step3 extends React.Component {
                         noDescription
                       />
                       <Link to="/step4" className="button">
-                        <ButtonPrimary name={step3.module_07.button_1} enableClick />
+                        <ButtonPrimary minWidth name={step3.module_07.button_1} enableClick />
                       </Link>
                       <Link to="#" className="button">
-                        <ButtonPrimary name={step3.module_07.button_2} />
+                        <ButtonPrimary minWidth name={step3.module_07.button_2} />
                       </Link>
                     </div>
                   )}

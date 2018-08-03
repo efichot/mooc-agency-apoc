@@ -13,7 +13,7 @@ export default {
       },
       {
         __html:
-          "Procède en avril 2010 à une émission d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> de 1 milliard d'euros pour se refinancer",
+          "Procède en avril 2010 à une émission d'<em style='color: var(--obligation)'>obligations</em> de 1 milliard d'euros pour se refinancer",
       },
     ],
   },
@@ -28,7 +28,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Émission d'<em style='color: rgba(163,12,146,1.00)'>obligations</em>",
+        __html: "Émission d'<em style='color: var(--obligation)'>obligations</em>",
       },
     ],
   },
@@ -43,7 +43,7 @@ export default {
     headList2: 'Opérations',
     list2: [
       {
-        __html: "Émission d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> de 1 milliard d'€ en avril 2010",
+        __html: "Émission d'<em style='color: var(--obligation)'>obligations</em> de 1 milliard d'€ en avril 2010",
       },
     ],
   },

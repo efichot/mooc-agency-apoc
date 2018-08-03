@@ -8,7 +8,7 @@ const module_09_blocDragAndDropType1 = {
   modulType: moduleTypes.blocDragAndDrop1,
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   firstDescription: {
-    __html: `Classez sur l’axe horizontal, « de moins à plus de risque », les fonds ci-dessous à l’aide du bouton et en fonction de l’évolution plus ou moins régulière de leur performance, puis validez.`
+    __html: `Classez sur l’axe horizontal, «&nbsp;de moins à plus de risque&nbsp;», les fonds ci-dessous à l’aide du bouton et en fonction de l’évolution plus ou moins régulière de leur performance, puis validez.`,
   },
   noChapter: false,
   chapter: 'Échelle de risque',
@@ -24,13 +24,9 @@ const module_09_blocDragAndDropType1 = {
         cardTitle: `fonds action B`,
         image: img1,
         /*cardSubTitle: `BTP - non coté`,*/
-        list: [
-          `1 an : performance -14,58%`,
-          `3 an : performance 28,49%`,
-          `5 an : performance 27,32%`
-        ],
-        legend: []
-      }
+        list: [`1 an : performance -14,58%`, `3 an : performance 28,49%`, `5 an : performance 27,32%`],
+        legend: [],
+      },
     },
     {
       color: 'white',
@@ -41,13 +37,9 @@ const module_09_blocDragAndDropType1 = {
         cardTitle: `fonds obligataire B`,
         image: img2,
         /*cardSubTitle: `BTP - non coté`,*/
-        list: [
-          `1 an : performance 1,15%`,
-          `3 an : performance 12,77%`,
-          `5 an : performance 29,07%`
-        ],
-        legend: []
-      }
+        list: [`1 an : performance 1,15%`, `3 an : performance 12,77%`, `5 an : performance 29,07%`],
+        legend: [],
+      },
     },
     {
       color: 'white',
@@ -58,15 +50,11 @@ const module_09_blocDragAndDropType1 = {
         cardTitle: `fonds monétaire A`,
         image: img3,
         /*cardSubTitle: `BTP - non coté`,*/
-        list: [
-          `1 an : performance -0,33%`,
-          `3 an : performance 0,12%%`,
-          `5 an : performance 0,34%`
-        ],
-        legend: []
-      }
-    }
-  ]
+        list: [`1 an : performance -0,33%`, `3 an : performance 0,12%%`, `5 an : performance 0,34%`],
+        legend: [],
+      },
+    },
+  ],
 };
 
 export default module_09_blocDragAndDropType1;

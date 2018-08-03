@@ -6,7 +6,7 @@
   overflow: hidden;
 
   &__game {
-    margin-left: -20px;
+    // margin-left: -20px;
     max-width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -101,6 +101,7 @@
   .button-primary {
     margin-top: 15px;
     margin-left: auto;
+    margin-right: 15px;
     width: 175px;
   }
 }

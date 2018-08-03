@@ -13,22 +13,22 @@ export default {
       },
       {
         __html:
-          "Investit 150 millions d'€ en <em style='color: rgba(163,12,146,1.00)'>obligations</em> émises par Pernod Ricard et Carrefour en mai 2009 et avril 2010",
+          "Investit 150 millions d'€ en <em style='color: var(--obligation)'>obligations</em> émises par Pernod Ricard et Carrefour en mai 2009 et avril 2010",
       },
     ],
   },
   secondCard: {
-    answerNumber: 15,
+    answerNumber: 14,
     title1: 'Besoins',
     list1: [
       {
-        __html: 'Investir l’épargne des clients ',
+        __html: 'Investir les sommes destinées à couvrir les besoins des bénéficiaires',
       },
     ],
     title2: 'Opérations',
     list2: [
       {
-        __html: "Achat de titres <em style='color: rgba(0,159,63,1.00)'>monétaires</em> nouvellement émis",
+        __html: "Achat d'<em style='color: var(--obligation)'>obligations</em> nouvelles",
       },
     ],
   },
@@ -44,7 +44,7 @@ export default {
     list2: [
       {
         __html:
-          "Achat d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> Pernod Ricard et Carrefour émises en mai 2009 et avril 2010",
+          "Achat d'<em style='color: var(--obligation)'>obligations</em> Pernod Ricard et Carrefour émises en mai 2009 et avril 2010",
       },
     ],
   },

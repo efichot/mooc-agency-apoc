@@ -24,14 +24,18 @@ class Step6 extends React.Component {
   state = {
     show_01: false,
     show_02: false,
-    show_03: false,
+    show_03: true,
     show_04: false,
-    showNextModule: 0,
+    showNextModule: 1,
     showSynthese: false,
     showQuiz: false,
     reset: false,
     selectedRow: 0,
   };
+
+  componentDidMount() {
+    this.props.tellAppIAmIntro(false);
+  }
 
   handleSelectedRow = ({ selectedRow }) => {
     this.setState({ selectedRow, showNextModule: 1 });
@@ -60,6 +64,7 @@ class Step6 extends React.Component {
   };
 
   handleShow3Back = () => {
+    console.log('handleShow3Back');
     this.setState({ showNextModule: this.state.showNextModule - 1, selectedRow: undefined });
   };
 
@@ -113,13 +118,14 @@ class Step6 extends React.Component {
                     {...step6.module_03_02}
                     in={show_01 && stepInStep0}
                     scrollIntoView={show_01 && stepInStep0}
-                    selectedRow={selectedRow || 0}
+                    selectedRow={(show_01 && stepInStep0 && selectedRow) || 0}
                     gameIsFinished={this.handleShowNextModule}
                   />
+                  <BlocDivider />
                   <BlocEnSavoirPlusType3
                     {...step6.module_03_03}
                     in={show_01 && stepInStep1}
-                    scrollIntoView={show_01 && stepInStep1}
+                    // scrollIntoView={show_01 && stepInStep1}
                   />
                   <BlocCardsType1
                     {...step6.module_04_01}
@@ -132,13 +138,14 @@ class Step6 extends React.Component {
                     {...step6.module_04_02}
                     in={show_02 && stepInStep0}
                     scrollIntoView={show_02 && stepInStep0}
-                    selectedRow={selectedRow || 0}
+                    selectedRow={(show_02 && stepInStep0 && selectedRow) || 0}
                     gameIsFinished={this.handleShowNextModule}
                   />
+                  <BlocDivider />
                   <BlocEnSavoirPlusType1
                     {...step6.module_04_03}
                     in={show_02 && stepInStep1}
-                    scrollIntoView={show_02 && stepInStep1}
+                    // scrollIntoView={show_02 && stepInStep1}
                   />
                   <BlocCardsType1
                     {...step6.module_05_01}
@@ -152,7 +159,7 @@ class Step6 extends React.Component {
                       {...step6.module_05_02}
                       in={show_03 && stepInStep0}
                       scrollIntoView={show_03 && stepInStep0}
-                      selectedRow={selectedRow || 0}
+                      selectedRow={(show_03 && stepInStep0 && selectedRow) || 0}
                       gameIsFinished={this.handleShowNextModule}
                     />
                   ) : (
@@ -163,12 +170,14 @@ class Step6 extends React.Component {
                       onButtonClick={this.handleShow3Back}
                     />
                   )}
+                  <BlocDivider />
                   <BlocEnSavoirPlusType1
                     {...step6.module_05_04}
                     in={show_03 && stepInStep1}
-                    scrollIntoView={show_03 && stepInStep1}
+                    // scrollIntoView={show_03 && stepInStep1}
                   />
                   <BlocVideo in={show_04} scrollIntoView={show_04} {...step6.module_06_01} />
+                  <BlocDivider />
                   <BlocEnSavoirPlusType3 {...step6.module_06_02} in={show_04} />
                   {showSynthese && (
                     <div className="step6__synthese step__synthese bloc">
@@ -204,9 +213,9 @@ class Step6 extends React.Component {
                         noDescription
                       />
                       <BlocSpacer />
-                      <ButtonPrimary name={step6.module_07.button_1} onClick={this.handleShowQuiz} />
+                      <ButtonPrimary minWidth name={step6.module_07.button_1} onClick={this.handleShowQuiz} />
                       <Link to="#" className="button">
-                        <ButtonPrimary name={step6.module_07.button_2} />
+                        <ButtonPrimary minWidth name={step6.module_07.button_2} />
                       </Link>
                     </div>
                   )}

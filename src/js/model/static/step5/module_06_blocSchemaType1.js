@@ -245,6 +245,4 @@ const module_06_blocSchemaType1 = {
   },
 };
 
-console.log('module_06_blocSchemaType1', module_06_blocSchemaType1);
-
 export default module_06_blocSchemaType1;

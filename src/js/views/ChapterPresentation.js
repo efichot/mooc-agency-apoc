@@ -12,23 +12,32 @@ const ChapterPresentation = ({
   name,
   description,
   button,
-  videoUrl
+  videoUrl,
+  secondClass,
+  zIndex,
+  step,
 }) => {
   return (
     <Fade
       in={inProps}
-      classProps={`${classProps}__chapter-presentation chapter-presentation`}
-    >
+      classProps={`${classProps}__chapter-presentation chapter-presentation ${secondClass}`}
+      styleProps={{
+        zIndex,
+      }}>
+      <div className="white-div">
+        {step && (
+          <React.Fragment>
+            <span className="step-title">Étape</span>
+            <span>{step}</span>
+          </React.Fragment>
+        )}
+      </div>
       <div className="left-column">
         <span className="title">{name}</span>
         <p className="description">{description}</p>
         {button && (
           <Link to={button.link}>
-            <ButtonPrimary
-              name={button.name}
-              classProps={button.classes}
-              enableClick
-            />
+            <ButtonPrimary minWidth name={button.name} classProps={button.classes} enableClick />
           </Link>
         )}
       </div>
@@ -43,7 +52,7 @@ const ChapterPresentation = ({
           allowFullScreen
           style={{
             width: '100%',
-            height: 'auto'
+            height: 'auto',
           }}
         />
       </div>
@@ -57,14 +66,14 @@ ChapterPresentation.propTypes = {
   videoUrl: PropTypes.string.isRequired,
   classProps: PropTypes.string,
   description: PropTypes.string,
-  button: PropTypes.object
+  button: PropTypes.object,
 };
 
 ChapterPresentation.defaultProps = {
   in: false,
   classProps: '',
   description: '',
-  button: undefined
+  button: undefined,
 };
 
 export default ChapterPresentation;

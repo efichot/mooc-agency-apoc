@@ -13,7 +13,7 @@ export default {
       },
       {
         __html:
-          "Procède aux transactions sur les <em style='color: rgba(163,12,146,1.00)'>obligations</em> émises par les Etats allemand, italien, et Banco Santander en janvier, février et octobre 2010",
+          "Procède aux transactions sur les <em style='color: var(--obligation)'>obligations</em> émises par les Etats allemand, italien, et Banco Santander en janvier, février et octobre 2010",
       },
     ],
   },
@@ -28,7 +28,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Transactions sur le marché <em style='color: rgba(163,12,146,1.00)'>obligataire</em>",
+        __html: "Transactions sur le marché <em style='color: var(--obligation)'>obligataire</em>",
       },
     ],
   },
@@ -44,7 +44,7 @@ export default {
     list2: [
       {
         __html:
-          "Transactions sur les <em style='color: rgba(163,12,146,1.00)'>obligations</em> émises par les Etats allemand et italien, et Banco Santander en janvier, février et octobre 2010",
+          "Transactions sur les <em style='color: var(--obligation)'>obligations</em> émises par les Etats allemand et italien, et Banco Santander en janvier, février et octobre 2010",
       },
     ],
   },

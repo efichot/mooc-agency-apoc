@@ -12,7 +12,7 @@ export default {
       },
       {
         __html:
-          "Investit en avril 2009 20 000 € en <em style='color: rgba(255,0,31,1.00)'>actions</em> Lafarge, car il anticipe, après la crise de 2008, une reprise de l’économie et le rebond de Lafarge qui devrait tirer parti de l’acquisition d'Orascom Cement et de son positionnement sur les pays émergents",
+          "Investit en avril 2009 20 000 € en <em style='color: var(--action)'>actions</em> Lafarge, car il anticipe, après la crise de 2008, une reprise de l’économie et le rebond de Lafarge qui devrait tirer parti de l’acquisition d'Orascom Cement et de son positionnement sur les pays émergents",
       },
     ],
   },
@@ -27,7 +27,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Achat d'<em style='color: rgba(255,0,31,1.00)'>actions</em> nouvelles",
+        __html: "Achat d'<em style='color: var(--action)'>actions</em> nouvelles",
       },
     ],
   },
@@ -42,7 +42,7 @@ export default {
     headList2: 'Opérations',
     list2: [
       {
-        __html: "Achat d'<em style='color: rgba(255,0,31,1.00)'>actions</em> Lafarge émises en avril 2009",
+        __html: "Achat d'<em style='color: var(--action)'>actions</em> Lafarge émises en avril 2009",
       },
     ],
   },

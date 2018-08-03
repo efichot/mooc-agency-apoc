@@ -3,6 +3,7 @@ import React from 'react';
 
 import BlocHeader from './BlocHeader';
 import BlocDescription from './BlocDescription';
+import BlocSpacer from './BlocSpacer';
 import CardContentType4 from './UI/CardContentType4';
 import Fade from '../transitions/Fade';
 
@@ -46,6 +47,7 @@ class BlocCardsType1 extends React.Component {
         {firstDescription && (
           <BlocDescription modulType={modulType} classProps="bloc__second-description" description={firstDescription} />
         )}
+        <BlocSpacer />
         <div className="bloc-cards-type-1__cards game">
           {cards.map((cardset, rowIndex) =>
             cardset.map((card, colIndex) => (

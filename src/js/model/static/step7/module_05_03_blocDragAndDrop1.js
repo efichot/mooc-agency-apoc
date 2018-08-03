@@ -5,11 +5,11 @@ const module_05_03_blocDragAndDrop1 = {
   modulType: moduleTypes.blocDragAndDrop1,
   /*linkWithBlocSubMenu1ButtonPosition: 2,*/
   firstDescription: {
-    __html: `Classez sur l’axe horizontal, « de moins à plus de risque », les obligations d’État ci-dessous en fonction de plusieurs paramètres : 
-    - la visibilité est-elle meilleure à 5 ou 10 ans ? 
-    - quel État est le mieux noté et le plus solide dans le contexte économique décrit ? 
+    __html: `Classez sur l’axe horizontal, « de moins à plus de risque », les obligations d’État ci-dessous en fonction de plusieurs paramètres&nbsp;: 
+    - la visibilité est-elle meilleure à 5 ou 10 ans&nbsp;? 
+    - quel État est le mieux noté et le plus solide dans le contexte économique décrit&nbsp;? 
 
-    Puis validez. En cas de doute, visionnez à nouveau la 2ième partie de la vidéo intitulée CONTEXTE ÉCONOMIQUE.`
+    Puis validez. En cas de doute, visionnez à nouveau la 2ième partie de la vidéo intitulée CONTEXTE ÉCONOMIQUE.`,
   },
   noChapter: false,
   chapter: 'Échelle de risque',
@@ -27,10 +27,10 @@ const module_05_03_blocDragAndDrop1 = {
         list: [
           `Noté en 2010 AAA par les agences Fitch et S&P, Aa2 par Moody’s`,
           `Après la chute d’activité de fin 2008-début 2009, rebond de l’économie dans un contexte de politique monétaire et fiscale accommodante, de reconstitution des stocks et de reprise des exportations notamment vers l’Asie `,
-          `Aggravation du déficit de 0 à 3,3% du PIB en 2009 sous l’effet des mesures de soutien à l’économie (infrastructures, santé)`
+          `Aggravation du déficit de 0 à 3,3% du PIB en 2009 sous l’effet des mesures de soutien à l’économie (infrastructures, santé)`,
         ],
-        legend: []
-      }
+        legend: [],
+      },
     },
     {
       color: 'white',
@@ -43,10 +43,10 @@ const module_05_03_blocDragAndDrop1 = {
         list: [
           `Émise en janvier 2010 et remboursée en janvier 2015`,
           `Cours de 100 (exprimé en % de la valeur nominale, soit 1 €)`,
-          `Montant total de 23 milliards d’€ pour couvrir les besoins de financement à moyen terme de l’État allemand`
+          `Montant total de 23 milliards d’€ pour couvrir les besoins de financement à moyen terme de l’État allemand`,
         ],
-        legend: []
-      }
+        legend: [],
+      },
     },
     {
       color: 'white',
@@ -58,10 +58,10 @@ const module_05_03_blocDragAndDrop1 = {
         cardSubTitle: `10 ans - 3,75%`,
         list: [
           `Émise en janvier 2010 et remboursée en janvier 2020`,
-          `Montant total de 24 milliards d’€ pour couvrir les besoins de financement à long terme de l’État allemand`
+          `Montant total de 24 milliards d’€ pour couvrir les besoins de financement à long terme de l’État allemand`,
         ],
-        legend: []
-      }
+        legend: [],
+      },
     },
     {
       color: 'white',
@@ -74,10 +74,10 @@ const module_05_03_blocDragAndDrop1 = {
         list: [
           `Noté en 2010 AA-, A+ et Aa2 par les agences Fitch, S&P et Moody’s`,
           `Chute de 5% du PIB en 2009 en raison de la baisse des exportations (-19% en volume), très orientées vers la zone euro (44% vs 2% vers la Chine), et de la demande intérieure (-12% en volume pour les investissements)`,
-          `Fort impact sur le déficit qui passe de 2,7 à 5,3% du PIB en 2009 sous l’effet des mesures de soutien à l’économie (infrastructures, santé)`
+          `Fort impact sur le déficit qui passe de 2,7 à 5,3% du PIB en 2009 sous l’effet des mesures de soutien à l’économie (infrastructures, santé)`,
         ],
-        legend: []
-      }
+        legend: [],
+      },
     },
     {
       color: 'white',
@@ -90,10 +90,10 @@ const module_05_03_blocDragAndDrop1 = {
         list: [
           `Émise en février 2010 et remboursée en février 2015`,
           `Cours de 100 (exprimé en % de la valeur nominale, soit 1 000 €)`,
-          `Montant total de 21,35 milliards d’€ pour couvrir les besoins de financement à moyen terme de l’État italien`
+          `Montant total de 21,35 milliards d’€ pour couvrir les besoins de financement à moyen terme de l’État italien`,
         ],
-        legend: []
-      }
+        legend: [],
+      },
     },
     {
       color: 'white',
@@ -106,12 +106,12 @@ const module_05_03_blocDragAndDrop1 = {
         list: [
           `Émise en février 2010 et remboursée en février 2020`,
           `Cours de 100 (exprimé en % de la valeur nominale, soit 1 000 €)`,
-          `Montant total de 22,66 milliards d’€ pour couvrir les besoins de financement à moyen terme de l’État italien`
+          `Montant total de 22,66 milliards d’€ pour couvrir les besoins de financement à moyen terme de l’État italien`,
         ],
-        legend: []
-      }
-    }
-  ]
+        legend: [],
+      },
+    },
+  ],
 };
 
 export default module_05_03_blocDragAndDrop1;

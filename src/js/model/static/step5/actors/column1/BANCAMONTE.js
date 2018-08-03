@@ -12,7 +12,7 @@ export default {
       },
       {
         __html:
-          "Détient fin 2010 un portefeuille d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> italiennes de 24 milliards d'euros (soit 10% de son bilan et 160% de ses fonds propres)",
+          "Détient fin 2010 un portefeuille d'<em style='color: var(--obligation)'>obligations</em> italiennes de 24 milliards d'euros (soit 10% de son bilan et 160% de ses fonds propres)",
       },
     ],
   },

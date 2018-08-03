@@ -6,8 +6,8 @@ const module_08_blocLink = {
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   modulType: moduleTypes.blocLink,
   noChapter: true,
-  linkName: 'Groupe sodexo peps',
-  link: pdf
+  linkName: 'Groupe adp peps',
+  link: pdf,
 };
 
 export default module_08_blocLink;

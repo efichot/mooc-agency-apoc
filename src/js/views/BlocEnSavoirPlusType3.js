@@ -90,8 +90,9 @@ class BlocEnSavoirPlusType3 extends React.Component {
             classProps="bloc-en-savoir-plus-type-3__cards--to-show"
             hidePopup={hideCard}
             styleProps={{
-              gridRow: `2 / ${grid.rows + 1}`,
-              gridColumn: `2 / ${grid.columns * 2}`,
+              position: 'absolute',
+              top: 30,
+              right: 60,
             }}>
             <span className="card-title">{!hideCard && cards[cardNumberShown - 1].cardTitle}</span>
             <span className="card-subtitle">{!hideCard && cards[cardNumberShown - 1].cardSubTitle}</span>

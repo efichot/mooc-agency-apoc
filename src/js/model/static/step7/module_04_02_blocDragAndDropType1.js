@@ -5,12 +5,12 @@ const module_04_02_blocDragAndDropType1 = {
   modulType: moduleTypes.blocDragAndDrop1,
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   firstDescription: {
-    __html: `Classez sur l’axe horizontal, « de moins à plus de risque », les entreprises ci-dessous en fonction de plusieurs paramètres : 
-      - pour être moins sensible au marché boursier, vaut-il mieux être cotée ou non ? 
-      - l’activité et la stratégie de l’entreprise résistent-elles plus ou moins bien à la crise ? 
-      - ses ventes se concentrent-elles sur une zone géographique plus ou moins touchée par la crise ? 
+    __html: `Classez sur l’axe horizontal, « de moins à plus de risque », les entreprises ci-dessous en fonction de plusieurs paramètres&nbsp;: 
+      - pour être moins sensible au marché boursier, vaut-il mieux être cotée ou non&nbsp;? 
+      - l’activité et la stratégie de l’entreprise résistent-elles plus ou moins bien à la crise&nbsp;? 
+      - ses ventes se concentrent-elles sur une zone géographique plus ou moins touchée par la crise&nbsp;? 
 
-      Puis validez. En cas de doute sur la façon dont l’Europe, les États-Unis et les pays émergents ont réagi à la crise, visionnez à nouveau la 2ième partie de la vidéo intitulée CONTEXTE ÉCONOMIQUE.`
+      Puis validez. En cas de doute sur la façon dont l’Europe, les États-Unis et les pays émergents ont réagi à la crise, visionnez à nouveau la 2ième partie de la vidéo intitulée CONTEXTE ÉCONOMIQUE.`,
   },
   /*noChapter: false,*/
   chapter: 'Échelle de risque',
@@ -28,31 +28,31 @@ const module_04_02_blocDragAndDropType1 = {
         list: [
           `Evaluée à dire d’expert une fois par an sous le contrôle du commissaire aux comptes et de l’AMF (données comptables de l’entreprise et décote liée à la faible liquidité des titres)`,
           `Très bon carnet de commandes pour 2010 et 2011`,
-          `Répartition des ventes (100% en France)`
+          `Répartition des ventes (100% en France)`,
         ],
         legend: [
           {
             legendColor: `rgba(111,151,73,1.00)`,
-            legendText: `35% - Construction`
+            legendText: `35% - Construction`,
           },
           {
             legendColor: `rgba(111,151,73,1.00)`,
-            legendText: `26% - Travaux publics`
+            legendText: `26% - Travaux publics`,
           },
           {
             legendColor: `rgba(191,219,177,1.00)`,
-            legendText: `20% - Génie civile et fondations`
+            legendText: `20% - Génie civile et fondations`,
           },
           {
             legendColor: `rgba(191,219,177,1.00)`,
-            legendText: `13% - Énergie et aménagement`
+            legendText: `13% - Énergie et aménagement`,
           },
           {
             legendColor: `rgba(191,219,177,1.00)`,
-            legendText: `6% - Immobilier et concessions`
-          }
-        ]
-      }
+            legendText: `6% - Immobilier et concessions`,
+          },
+        ],
+      },
     },
     {
       color: 'white',
@@ -64,72 +64,72 @@ const module_04_02_blocDragAndDropType1 = {
         cardSubTitle: `Consommation - coté`,
         list: [
           `Numéro 2 mondial des vins et spiritueux positionné plutôt sur le haut de gamme`,
-          `Répartition des ventes après acquisition du groupe suédois Vin & Spirit présent en Europe et Amérique du Nord`
+          `Répartition des ventes après acquisition du groupe suédois Vin & Spirit présent en Europe et Amérique du Nord`,
         ],
         legend: [
           {
             legendColor: `rgba(111,151,73,1.00)`,
-            legendText: `34% - Europe hors France`
+            legendText: `34% - Europe hors France`,
           },
           {
             legendColor: `rgba(132,182,81,1.00)`,
-            legendText: `28% - Amériques`
+            legendText: `28% - Amériques`,
           },
           {
             legendColor: `rgba(191,219,177,1.00)`,
-            legendText: `28% - Asie et reste du monde`
+            legendText: `28% - Asie et reste du monde`,
           },
           {
             legendColor: `rgba(191,219,177,1.00)`,
-            legendText: `10% - France`
-          }
-        ]
-      }
+            legendText: `10% - France`,
+          },
+        ],
+      },
     },
     {
       color: 'white',
       startPosition: 3,
-      endPosition: 3,
+      endPosition: 5,
       content: {
         isDraggable: true,
         cardTitle: `LAFARGE`,
         cardSubTitle: `Matériaux BTP - coté`,
         list: [
           `Stratégie axée sur le ciment (57% des ventes) et les marchés émergents`,
-          `Répartition des ventes après acquisition du cimentier Orascom Cement présent en Egypte, Irak, Algérie, Corée du Sud, Pakistan, Espagne, Turquie`
+          `Répartition des ventes après acquisition du cimentier Orascom Cement présent en Egypte, Irak, Algérie, Corée du Sud, Pakistan, Espagne, Turquie`,
         ],
         legend: [
           {
             legendColor: `rgba(111,151,73,1.00)`,
-            legendText: `32% - Europe de l'Ouest`
+            legendText: `32% - Europe de l'Ouest`,
           },
           {
             legendColor: `rgba(132,182,81,1.00)`,
-            legendText: `22% - Amérique du Nord`
+            legendText: `22% - Amérique du Nord`,
           },
           {
             legendColor: `rgba(132,182,81,1.00)`,
-            legendText: `21% - Bassin méditerranéen`
+            legendText: `21% - Bassin méditerranéen`,
           },
           {
             legendColor: `rgba(191,219,177,1.00)`,
-            legendText: `11% - Asie`
+            legendText: `11% - Asie`,
           },
           {
             legendColor: `rgba(191,219,177,1.00)`,
-            legendText: `9% - Europe de l'Est`
+            legendText: `9% - Europe de l'Est`,
           },
           {
             legendColor: `rgba(191,219,177,1.00)`,
-            legendText: `5% - Amérique Latine`
-          }
-        ]
-      }
+            legendText: `5% - Amérique Latine`,
+          },
+        ],
+      },
     },
     {
       color: 'white',
       startPosition: 4,
-      endPosition: 4,
+      endPosition: 3,
       content: {
         isDraggable: true,
         cardTitle: `BANCA MONTE DEI PASCHI`,
@@ -137,49 +137,49 @@ const module_04_02_blocDragAndDropType1 = {
         list: [
           `Principalement implantée en Toscane, dans le centre et le nord-est de l’Italie`,
           `Bilan et fonds propres constitués d’obligations de l’État italien à hauteur de respectivement 10% et 160%`,
-          `Répartition du résultat net`
+          `Répartition du résultat net`,
         ],
         legend: [
           {
             legendColor: `rgba(138,196,84,1.00)`,
-            legendText: `100% - Italie`
-          }
-        ]
-      }
+            legendText: `100% - Italie`,
+          },
+        ],
+      },
     },
     {
       color: 'white',
       startPosition: 5,
-      endPosition: 5,
+      endPosition: 4,
       content: {
         isDraggable: true,
         cardTitle: `HEIDELBERG CEMENT`,
         cardSubTitle: `Matériaux BTP - coté`,
         list: [
           `Stratégie d’intégration verticale (61% des ventes en bétons, granulats , matériaux et services)`,
-          `Répartition des ventes après acquisition du groupe de matériaux Hanson Plc présent en Amérique du Nord, Royaume-Uni, Australie-Asie et Europe continentale`
+          `Répartition des ventes après acquisition du groupe de matériaux Hanson Plc présent en Amérique du Nord, Royaume-Uni, Australie-Asie et Europe continentale`,
         ],
         legend: [
           {
             legendColor: `rgba(111,151,73,1.00)`,
-            legendText: `50% - Europe/Asie Centrale`
+            legendText: `50% - Europe/Asie Centrale`,
           },
           {
             legendColor: `rgba(132,182,81,1.00)`,
-            legendText: `28% - Amérique du Nord`
+            legendText: `28% - Amérique du Nord`,
           },
           {
             legendColor: `rgba(191,219,177,1.00)`,
-            legendText: `20% - Asie/Afrique/Australie`
+            legendText: `20% - Asie/Afrique/Australie`,
           },
           {
             legendColor: `rgba(191,219,177,1.00)`,
-            legendText: `2% - Services`
-          }
-        ]
-      }
-    }
-  ]
+            legendText: `2% - Services`,
+          },
+        ],
+      },
+    },
+  ],
 };
 
 export default module_04_02_blocDragAndDropType1;

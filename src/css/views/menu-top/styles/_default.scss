@@ -1,22 +1,26 @@
 .menu-top {
   height: var(--menuTopHeight);
   width: var(--menuTopWidth);
-  margin-bottom: 60px;
-
-  border-top-left-radius: var(--menuTopPaddingTop);
-  border-top-right-radius: var(--menuTopPaddingTop);
-  border: 1px solid var(--white);
-  background-color: var(--menuTopBgColor);
-
-  box-shadow: -2px 2px 10px rgba(0,0,0,0.2);
+  // margin-left: calc(var(--stepWidth) * -1);
+  box-shadow: var(--boxShadowToBottom);
 
   display: flex;
   justify-content: center;
   align-items: flex-start;
 
-  padding-top: var(--menuTopPaddingTop);
 
-  z-index: 10;
+  z-index: 50;
+
+  &__padding-top {
+    border-top-left-radius: var(--menuTopPaddingTop);
+    border-top-right-radius: var(--menuTopPaddingTop);
+    padding-top: var(--menuTopPaddingTop);
+    // margin-left: calc(var(--stepWidth) * -1);
+    width: var(--menuTopWidth);
+    background-color: var(--menuTopBgColor);
+    box-shadow: var(--boxShadowToBottom);
+    z-index: 51;
+  }
 
   &__item {
     flex-grow: 1;
@@ -29,7 +33,7 @@
     
     color: var(--menuTopItemColor);
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: 200;
     &--title {
       font-size: var(--defaultFontSize);
     }
@@ -39,14 +43,16 @@
     &-1 {
       color: var(--menuTopItemHomeColor);
       font-size: 1.25rem;
+      flex-basis: 90px;
+      flex-grow: 0;
     }
   }
 
   @for $i from 1 through 5 {
     .menu-item-#{$i} {
       background: var(--menuItem#{$i}BgColor); 
-      background: -webkit-linear-gradient(to bottom, var(--menuItem#{$i}BgColorOut), var(--menuItem#{$i}BgColorIn), var(--menuItem#{$i}BgColorOut));
-      background: linear-gradient(to bottom, var(--menuItem#{$i}BgColorOut), var(--menuItem#{$i}BgColorIn), var(--menuItem#{$i}BgColorOut));
+      // background: -webkit-linear-gradient(to bottom, var(--menuItem#{$i}BgColorOut), var(--menuItem#{$i}BgColorIn) 25%, var(--menuItem#{$i}BgColorIn));
+      // background: linear-gradient(to bottom, var(--menuItem#{$i}BgColorOut), var(--menuItem#{$i}BgColorIn) 25%, var(--menuItem#{$i}BgColorIn));
     }
   }
 }

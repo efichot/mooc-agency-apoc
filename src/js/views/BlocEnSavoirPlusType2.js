@@ -18,14 +18,14 @@ class BlocEnSavoirPlusType2 extends React.Component {
     buttonAnswer: '',
     gameIsFinished: false,
     victoryMessage: undefined,
-    correctAnswer: ''
+    correctAnswer: '',
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.answer !== '') {
       return {
         ...prevState,
-        correctAnswer: nextProps.answer
+        correctAnswer: nextProps.answer,
       };
     }
     return prevState;
@@ -52,47 +52,25 @@ class BlocEnSavoirPlusType2 extends React.Component {
       this.props.gameIsFinished(this.state.gameIsFinished);
     } else {
       this.setState({
-        victoryMessage: `Ce n'est pas la bonne réponse. Réessayez !`
+        victoryMessage: `Ce n'est pas la bonne réponse. Réessayez !`,
       });
     }
   };
 
   render = () => {
-    const {
-      modulType,
-      noChapter,
-      cards,
-      duration,
-      chapter,
-      title,
-      firstDescription,
-      scrollIntoView
-    } = this.props;
+    const { modulType, noChapter, cards, duration, chapter, title, firstDescription, scrollIntoView } = this.props;
 
-    const {
-      buttonAnswer,
-      gameIsFinished,
-      hideCard,
-      showCard,
-      victoryMessage
-    } = this.state;
+    const { buttonAnswer, gameIsFinished, hideCard, showCard, victoryMessage } = this.state;
 
     return (
       <Fade
         in={this.props.in}
         classProps={`bloc bloc-en-savoir-plus bloc-en-savoir-plus-type-2`}
         scrollIntoView={scrollIntoView}
-        margins={this.props.margins}
-      >
-        {!noChapter && (
-          <BlocHeader type="horloge" duration={duration} name={chapter} />
-        )}
+        margins={this.props.margins}>
+        {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
         <span className="bloc__name">{title}</span>
-        <BlocDescription
-          modulType={modulType}
-          classProps="bloc__first-description"
-          description={firstDescription}
-        />
+        <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
         <div className="bloc-en-savoir-plus-type-2__cards game">
           <div className="bloc-en-savoir-plus-type-2__cards--to-hover">
             {cards.map((card, index) => {
@@ -101,22 +79,18 @@ class BlocEnSavoirPlusType2 extends React.Component {
                   key={index}
                   className="button-groupe"
                   onMouseEnter={() => this.showCard(card)}
-                  onMouseLeave={() => this.hideCards(card)}
-                >
+                  onMouseLeave={() => this.hideCards(card)}>
                   <ButtonPrimary
                     color={card.color}
                     name={card.cardTitle}
-                    classProps={`button-QCM-type-1${
-                      buttonAnswer === card.cardTitle ? ' active' : ''
-                    }${gameIsFinished ? ' finished' : ''}`}
+                    classProps={`button-QCM-type-1${buttonAnswer === card.cardTitle ? ' active' : ''}${
+                      gameIsFinished ? ' finished' : ''
+                    }`}
                     onClick={this.handleClick}
                     answer={card.cardTitle}
                   />
                   {card.arrowFollowing && (
-                    <div
-                      className="arrow-following"
-                      style={{ backgroundImage: `url(${arrowDown})` }}
-                    />
+                    <div className="arrow-following" style={{ backgroundImage: `url(${arrowDown})` }} />
                   )}
                 </div>
               );
@@ -132,12 +106,11 @@ class BlocEnSavoirPlusType2 extends React.Component {
         <div className="bloc-en-savoir-plus-type-2__validate-victory">
           {victoryMessage && (
             <PopupBlue onCloseClick={this.handleClick}>
-              <span className="bloc-en-savoir-plus-type-2__victory-message">
-                {victoryMessage}
-              </span>
+              <span className="bloc-en-savoir-plus-type-2__victory-message">{victoryMessage}</span>
             </PopupBlue>
           )}
           <ButtonPrimary
+            minWidth
             name="valider"
             onClick={this.handleValidate}
             classProps={`bloc-en-savoir-plus-type-2__validate`}
@@ -159,8 +132,7 @@ BlocEnSavoirPlusType2.propTypes = {
   chapter: PropTypes.string,
   duration: PropTypes.number,
   title: PropTypes.string.isRequired,
-  firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired })
-    .isRequired,
+  firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }).isRequired,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
       color: PropTypes.string.isRequired,
@@ -169,9 +141,9 @@ BlocEnSavoirPlusType2.propTypes = {
       arrowFollowing: PropTypes.bool.isRequired,
       cardTitle: PropTypes.string.isRequired,
       cardContent: PropTypes.shape({ __html: PropTypes.string.isRequired }),
-      cardSubTitle: PropTypes.string.isRequired
-    }).isRequired
-  ).isRequired
+      cardSubTitle: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 BlocEnSavoirPlusType2.defaultProps = {
@@ -182,7 +154,7 @@ BlocEnSavoirPlusType2.defaultProps = {
 
   noChapter: false,
   duration: 0,
-  chapter: ''
+  chapter: '',
 };
 
 export default BlocEnSavoirPlusType2;

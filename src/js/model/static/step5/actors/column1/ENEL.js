@@ -9,11 +9,11 @@ export default {
     list: [
       {
         __html:
-          "Intervient sur le marché <em style='color: rgba(0,159,63,1.00)'>monétaire</em> pour des besoins de trésorerie à court terme  via sa filiale financière ENEL Finance",
+          "Intervient sur le marché <em style='color: var(--monetaire)'>monétaire</em> pour des besoins de trésorerie à court terme  via sa filiale financière ENEL Finance",
       },
       {
         __html:
-          "Procède le 20 mai 2009 à une émission <em style='color: rgba(0,159,63,1.00)'>monétaire</em> de 500 millions d'euros",
+          "Procède le 20 mai 2009 à une émission <em style='color: var(--monetaire)'>monétaire</em> de 500 millions d'euros",
       },
     ],
   },
@@ -28,7 +28,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Émission de titres <em style='color: rgba(0,159,63,1.00)'>monétaires</em>",
+        __html: "Émission de titres <em style='color: var(--monetaire)'>monétaires</em>",
       },
     ],
   },
@@ -44,7 +44,7 @@ export default {
     list2: [
       {
         __html:
-          "Émission de titres <em style='color: rgba(0,159,63,1.00)'>monétaires</em> de 500 millions d'€ le 20 mai 2009",
+          "Émission de titres <em style='color: var(--monetaire)'>monétaires</em> de 500 millions d'€ le 20 mai 2009",
       },
     ],
   },

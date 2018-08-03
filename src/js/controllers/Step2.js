@@ -33,27 +33,37 @@ class Step2 extends React.Component {
     showQuiz: false,
   };
 
-  handleShowNextModule = async module => {
-    await this.setState({ showNextModule: this.state.showNextModule + 1 });
-    if (this.state.showNextModule > 2) {
-      this.setState({ showSynthese: true });
-    }
+  componentDidMount() {
+    this.props.tellAppIAmIntro(false);
+  }
+
+  handleShowNextModule = () => {
+    console.log('handleShowNextModule');
+    const { showNextModule } = this.state;
+    this.setState({
+      showNextModule: showNextModule + 1,
+      showSynthese: showNextModule > 1 ? true : false,
+    });
   };
 
   changeMarketToShow = marketToShow => {
-    const stateCopy = { ...this.state };
-
-    Object.keys(stateCopy).forEach(stateAction => {
-      stateAction === marketToShow ? (stateCopy[`${stateAction}`] = true) : (stateCopy[`${stateAction}`] = false);
+    console.log('changeMarketToShow');
+    this.setState({
+      show_01: false,
+      show_02: false,
+      show_03: false,
+      show_04: false,
+      [marketToShow]: true,
     });
-    this.setState(stateCopy);
   };
 
   handleShowSynthese = bool => {
+    console.log('handleShowSynthese');
     this.setState({ showSynthese: bool });
   };
 
   handleShowQuiz = e => {
+    console.log('handleShowQuiz');
     Object.keys(this.state).forEach(key => {
       this.setState({ [key]: false });
     });
@@ -61,18 +71,18 @@ class Step2 extends React.Component {
   };
 
   render() {
-    const { show_01, show_02, show_03, show_04, showSynthese, showQuiz, showNextModule } = this.state;
+    const { show_01, show_02, show_03, show_04, showSynthese, showQuiz /*showNextModule*/ } = this.state;
 
-    const mainThread = !show_01 && !show_02 && !show_03 && !show_04;
+    // const mainThread = !show_01 && !show_02 && !show_03 && !show_04;
 
     const isStep2 = this.props.match.path === '/step2';
 
-    const stepInStep0 = showNextModule > 0;
+    // const stepInStep0 = showNextModule > 0;
     /*const stepInStep1 = showNextModule > 1;
     const stepInStep2 = showNextModule > 2;*/
 
     return (
-      <Fade classProps="step step2" in={isStep2}>
+      <Fade classProps="step step2" in={isStep2} component="Step2">
         <GlobalInfosContext.Consumer>
           {context => {
             const step2 = context.state.step2;
@@ -80,23 +90,34 @@ class Step2 extends React.Component {
               return (
                 <React.Fragment>
                   <BlocStep step={step2.linkStep} />
-                  <BlocStepTopContent in={isStep2} scrollIntoView={isStep2} step={step2} videoInIframe={!mainThread} />
-                  <BlocEnSavoirPlusType1 in={isStep2 && mainThread} {...step2.module_02} margins />
-                  <BlocDivider in={isStep2 && mainThread} noMarginTop />
-                  <BlocVideo in={isStep2 && mainThread} {...step2.module_03} />
-                  <BlocDivider in={isStep2 && mainThread} />
+                  <BlocStepTopContent
+                    in={isStep2}
+                    scrollIntoView={isStep2}
+                    step={step2} /*videoInIframe={!mainThread}*/
+                  />
+                  <BlocEnSavoirPlusType1 in={isStep2 /* && mainThread*/} {...step2.module_02} margins />
+                  <BlocDivider in={isStep2 /* && mainThread*/} noMarginTop />
+                  <BlocVideo in={isStep2 /* && mainThread*/} {...step2.module_03} />
+                  <BlocDivider in={isStep2 /* && mainThread*/} />
                   <BlocQCMType2
-                    in={isStep2 && mainThread}
+                    in={isStep2 /* && mainThread*/}
                     {...step2.module_04}
                     gameIsFinished={this.handleShowNextModule}
                   />
-                  <BlocSpacer />
+                  <BlocDivider in={isStep2 /* && mainThread*/} />
                   <BlocVideo
-                    in={stepInStep0 && mainThread}
-                    scrollIntoView={stepInStep0 && mainThread}
+                    in={isStep2 /* && mainThread*/}
+                    // in={stepInStep0 && mainThread}
+                    // scrollIntoView={stepInStep0 && mainThread}
                     {...step2.module_05}
                   />
-                  <BlocSubMenu1 {...step2.module_06} in={stepInStep0 && mainThread} action={this.changeMarketToShow} />
+                  <BlocSpacer />
+                  <BlocSubMenu1
+                    {...step2.module_06}
+                    in={isStep2 /* && mainThread*/}
+                    // in={stepInStep0 && mainThread}
+                    action={this.changeMarketToShow}
+                  />
                   <Step201 in={show_01} context={step2} endOfModules={this.handleShowSynthese} />
                   <Step202 in={show_02} context={step2} endOfModules={this.handleShowSynthese} />
                   <Step203 in={show_03} context={step2} endOfModules={this.handleShowSynthese} />
@@ -111,9 +132,10 @@ class Step2 extends React.Component {
                         action={this.changeMarketToShow}
                         noDescription
                       />
-                      <ButtonPrimary name={step2.module_11.button_1} onClick={this.handleShowQuiz} />
+                      <BlocSpacer />
+                      <ButtonPrimary minWidth name={step2.module_11.button_1} onClick={this.handleShowQuiz} />
                       <Link to="#" className="button">
-                        <ButtonPrimary name={step2.module_11.button_2} />
+                        <ButtonPrimary minWidth name={step2.module_11.button_2} />
                       </Link>
                     </div>
                   )}

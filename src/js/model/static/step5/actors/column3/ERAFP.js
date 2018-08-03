@@ -13,7 +13,7 @@ export default {
       },
       {
         __html:
-          "Investit 800 millions d'€ en <em style='color: rgba(163,12,146,1.00)'>obligations</em> à long et moyen terme émises par les Etats allemand et italien en janvier et février 2010, et en <em style='color: rgba(163,12,146,1.00)'>obligations</em> émises par Banco Santander en octobre 2010",
+          "Investit 800 millions d'€ en <em style='color: var(--obligation)'>obligations</em> à long et moyen terme émises par les Etats allemand et italien en janvier et février 2010, et en <em style='color: var(--obligation)'>obligations</em> émises par Banco Santander en octobre 2010",
       },
     ],
   },
@@ -28,7 +28,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Achat d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> nouvelles",
+        __html: "Achat d'<em style='color: var(--obligation)'>obligations</em> nouvelles",
       },
     ],
   },
@@ -44,11 +44,10 @@ export default {
     list2: [
       {
         __html:
-          "Achat d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> à 10 et 5 ans émises par les Etats allemand et italien en janvier et février 2010",
+          "Achat d'<em style='color: var(--obligation)'>obligations</em> à 10 et 5 ans émises par les Etats allemand et italien en janvier et février 2010",
       },
       {
-        __html:
-          "Achat d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> Banco Santander émises en octobre 2010",
+        __html: "Achat d'<em style='color: var(--obligation)'>obligations</em> Banco Santander émises en octobre 2010",
       },
     ],
   },

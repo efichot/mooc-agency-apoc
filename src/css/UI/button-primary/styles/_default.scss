@@ -11,7 +11,11 @@
   background: var(--buttonPrimaryDefaultColor);
   border-radius: 10px;
 
-  @extend %flex-row-center-center;
+  @extend %flex-column-center-center;
+
+  &.min-width {
+    min-width: 180px;
+  }
 
   span {
     margin-top: 1px;

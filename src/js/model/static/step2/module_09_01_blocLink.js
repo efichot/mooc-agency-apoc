@@ -12,9 +12,9 @@ const module_09_01_blocLink = {
   name: 'Évaluation du risque et rendement des fonds ',
   firstDescription: {
     __html: `Deux extraits de la fiche de reporting du fonds actions B sont proposés à votre analyse.
-    Pour trouver une définition, pensez au glossaire ou consultez la fiche annotée en vert du fonds actions B ! `
+    Pour trouver une définition, pensez au glossaire ou consultez la fiche annotée en vert du fonds actions B&nbsp;! `,
   },
-  link: pdf
+  link: pdf,
 };
 
 export default module_09_01_blocLink;

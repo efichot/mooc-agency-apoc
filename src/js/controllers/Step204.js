@@ -7,10 +7,15 @@ import BlocSpacer from '../views/BlocSpacer';
 
 class Step2_04 extends React.Component {
   state = {
-    showNextModule: 0
+    showNextModule: 0,
   };
 
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+
   handleShowNextModule = () => {
+    console.log('handleShowNextModule 204');
     this.setState({ showNextModule: this.state.showNextModule + 1 });
     // if (this.state.showNextModule = 0) {
     this.props.endOfModules(true);
@@ -39,11 +44,7 @@ class Step2_04 extends React.Component {
           {...step2.module_10_02}
           onClick={this.handleShowNextModule}
         />
-        <BlocLink
-          in={stepInStep1}
-          scrollIntoView={stepInStep1}
-          {...step2.module_10_03}
-        />
+        <BlocLink in={stepInStep1} scrollIntoView={stepInStep1} {...step2.module_10_03} />
         <BlocLink in={stepInStep1} {...step2.module_10_04} />
       </React.Fragment>
     );
@@ -52,7 +53,7 @@ class Step2_04 extends React.Component {
 
 Step2_04.propTypes = {
   context: PropTypes.object.isRequired,
-  endOfModules: PropTypes.func
+  endOfModules: PropTypes.func,
 };
 
 Step2_04.defaultProps = {};

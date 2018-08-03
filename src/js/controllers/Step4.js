@@ -6,7 +6,7 @@ import React from 'react';
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
 import Fade from '../transitions/Fade';
 import BlocStep from '../views/BlocStep';
-import BlocSpacer from '../views/BlocSpacer';
+// import BlocSpacer from '../views/BlocSpacer';
 import BlocStepTopContent from '../views/BlocStepTopContent';
 import BlocLink from '../views/BlocLink';
 import BlocQuiz from '../views/BlocQuiz';
@@ -16,6 +16,10 @@ class Step4 extends React.Component {
   state = {
     showNextModule: 0,
   };
+
+  componentDidMount() {
+    this.props.tellAppIAmIntro(false);
+  }
 
   handleShowNextModule = e => {
     this.setState({ showNextModule: this.state.showNextModule + 1 });
@@ -42,7 +46,6 @@ class Step4 extends React.Component {
               <React.Fragment>
                 <BlocStep step={step4.linkStep} />
                 <BlocStepTopContent step={step4} in={isStep4} />
-                <BlocSpacer />
                 <BlocLink in={isStep4} {...step4.module_02} onClick={this.handleShowNextModule} />
                 <BlocLink in={stepInStep1} scrollIntoView={stepInStep1} {...step4.module_03} />
                 <BlocLink in={stepInStep1} {...step4.module_04} />

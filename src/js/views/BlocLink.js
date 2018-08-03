@@ -7,90 +7,63 @@ import BlocDescription from './BlocDescription';
 import ButtonPrimary from './UI/ButtonPrimary';
 import Fade from '../transitions/Fade';
 
-class BlocLink extends React.Component {
-  state = {};
+const BlocLink = ({
+  buttonName,
+  chapter,
+  modulType,
+  noChapter,
+  iconType,
+  secondary,
+  name,
+  duration,
+  firstDescription,
+  secondDescription,
+  linkName,
+  link,
+  scrollIntoView,
+  onClick,
+  margins,
+  ...otherProps
+}) => {
+  let linkButton;
 
-  handleClick = e => {
-    this.props.onClick();
-  };
-
-  render() {
-    const {
-      modulType,
-      noChapter,
-      iconType,
-      chapter,
-      secondary,
-      name,
-      duration,
-      firstDescription,
-      secondDescription,
-      linkName,
-      link,
-      buttonName,
-      scrollIntoView
-    } = this.props;
-
-    return (
-      <Fade
-        classProps={`bloc-link bloc`}
-        in={this.props.in}
-        scrollIntoView={scrollIntoView}
-        margins={this.props.margins}
-      >
-        {!noChapter && (
-          <BlocHeader type={iconType} duration={duration} name={chapter} />
-        )}
-        {name && <span className={`bloc__name ${secondary}`}>{name}</span>}
-        {firstDescription && (
-          <BlocDescription
-            modulType={modulType}
-            classProps="bloc__second-description"
-            description={firstDescription}
-          />
-        )}
-        {secondDescription && (
-          <BlocDescription
-            modulType={modulType}
-            classProps="bloc__second-description"
-            description={secondDescription}
-          />
-        )}
-        {linkName && link !== '#' ? (
-          <div className="bloc-link__group-link">
-            {linkName && (
-              <span className="bloc-link__link-name">{linkName}</span>
-            )}
-            <a
-              className="bloc-link__link"
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ButtonPrimary name={buttonName} enableClick />
-            </a>
-          </div>
-        ) : link !== '#' ? (
-          <a
-            className="bloc-link__link"
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ButtonPrimary name={buttonName} enableClick />
+  if (link !== '#') {
+    if (linkName) {
+      linkButton = (
+        <div className="bloc-link__group-link">
+          {linkName && <span className="bloc-link__link-name">{linkName}</span>}
+          <a className="bloc-link__link" href={link} target="_blank" rel="noopener noreferrer">
+            <ButtonPrimary minWidth name={buttonName} enableClick />
           </a>
-        ) : (
-          <ButtonPrimary
-            classProps="bloc-link__link"
-            name={buttonName}
-            onClick={this.handleClick}
-          />
-        )}
-        <BlocSpacer />
-      </Fade>
-    );
+        </div>
+      );
+    } else {
+      linkButton = (
+        <a className="bloc-link__link" href={link} target="_blank" rel="noopener noreferrer">
+          <ButtonPrimary minWidth name={buttonName} enableClick />
+        </a>
+      );
+    }
+  } else {
+    linkButton = <ButtonPrimary minWidth classProps="bloc-link__link" name={buttonName} onClick={onClick} />;
   }
-}
+
+  return (
+    <Fade classProps={`bloc-link bloc`} in={otherProps.in} scrollIntoView={scrollIntoView} margins={margins}>
+      {!noChapter && <BlocHeader type={iconType} duration={duration} name={chapter} />}
+      {name && <span className={`bloc__name ${secondary}`}>{name}</span>}
+      {firstDescription && (
+        <BlocDescription modulType={modulType} classProps="bloc__second-description" description={firstDescription} />
+      )}
+      {secondDescription && (
+        <BlocDescription modulType={modulType} classProps="bloc__second-description" description={secondDescription} />
+      )}
+      <BlocSpacer />
+      {linkButton}
+      <BlocSpacer />
+    </Fade>
+  );
+};
 
 BlocLink.propTypes = {
   in: PropTypes.bool,
@@ -107,7 +80,7 @@ BlocLink.propTypes = {
   duration: PropTypes.number,
   firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
   secondDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
-  buttonName: PropTypes.string
+  buttonName: PropTypes.string,
 };
 
 BlocLink.defaultProps = {
@@ -122,7 +95,7 @@ BlocLink.defaultProps = {
   secondDescription: undefined,
   linkName: undefined,
   iconType: 'horloge',
-  buttonName: 'Télécharger'
+  buttonName: 'Télécharger',
 };
 
 export default BlocLink;

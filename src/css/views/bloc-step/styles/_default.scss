@@ -4,14 +4,15 @@
   position: absolute;
   top: 0;
   bottom: calc(var(--masterPaddingBottom) * -1);
-  left: -100px;
+  left: calc(var(--stepWidth) * -1);
   flex-grow: 0;
-  width: 100px !important;
+  width: var(--stepWidth) !important;
   font-size: 100px;
   font-weight: 300;
-  color: var(--black);
+  color: var(--blocStepColor);
   font-family: var(--defaultFontFamily2);
   background-color: var(--stepColor);
+  padding: 0;
 
   .step-title {
     font-size: 20px;

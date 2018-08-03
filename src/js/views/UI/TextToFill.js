@@ -18,7 +18,7 @@ class TextToFill extends React.Component {
     showAnswers: false,
     highlightUnchecked: false,
     gameIsFinished: false,
-    victoryMessage: undefined
+    victoryMessage: undefined,
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -33,7 +33,7 @@ class TextToFill extends React.Component {
       });
       return {
         ...prevState,
-        answers
+        answers,
       };
     }
     return prevState;
@@ -52,7 +52,7 @@ class TextToFill extends React.Component {
     });
     this.setState({
       correctAnswers,
-      answers
+      answers,
     });
   }
 
@@ -77,7 +77,7 @@ class TextToFill extends React.Component {
     });
     this.setState({
       filled,
-      filledCorrectly
+      filledCorrectly,
     });
     // this.props.textIsFilled(this.props.textStates, filled, correct);
   };
@@ -96,10 +96,9 @@ class TextToFill extends React.Component {
       this.setState({ checkValidated: true });
       this.setState({ highlightUnchecked: false });
       this.setState({ gameIsFinished: true });
-      this.props.gameIsFinished(true);
     } else {
       const victoryMessage = {
-        __html: victoryMessages.isDefeatHTML
+        __html: victoryMessages.isDefeatHTML,
       };
       this.setState({ checkValidated: true });
       this.setState({ highlightUnchecked: false });
@@ -113,30 +112,23 @@ class TextToFill extends React.Component {
       checkValidated: false,
       showAnswers: false,
       filled: false,
-      filledCorrectly: false
+      filledCorrectly: false,
     });
-    this.props.setTimeout(() => this.setState({ reset: false }), 200);
+    window.setTimeout(() => this.setState({ reset: false }), 200);
   };
 
   handleSeeAnswers = () => {
     this.setState({ showAnswers: true });
     if (!this.state.gameIsFinished) {
       this.setState({ gameIsFinished: true });
-      this.props.gameIsFinished(true);
+      this.props.gameIsFinished(false);
     }
   };
 
   render() {
     const { textToFill, title } = this.props;
 
-    const {
-      gameIsFinished,
-      victoryMessage,
-      checkValidated,
-      reset,
-      showAnswers,
-      highlightUnchecked
-    } = this.state;
+    const { gameIsFinished, victoryMessage, checkValidated, reset, showAnswers, highlightUnchecked } = this.state;
 
     return (
       <Fade in={this.props.in}>
@@ -159,9 +151,7 @@ class TextToFill extends React.Component {
                 />
               );
             } else {
-              text.content.__html = text.content.__html
-                .replace(/\r\n/g, '<br />')
-                .replace(/[\r\n]/g, '<br />');
+              text.content.__html = text.content.__html.replace(/\r\n/g, '<br />').replace(/[\r\n]/g, '<br />');
               return (
                 <span
                   key={text.position}
@@ -174,31 +164,41 @@ class TextToFill extends React.Component {
         </div>
         <div className="bloc-text-to-fill__validate-victory">
           <ButtonPrimary
+            minWidth
             name="valider"
             onClick={this.handleValidate}
             classProps={`bloc-text-to-fill__validate`}
           />
           <ButtonPrimary
+            minWidth
             name="voir la réponse"
             onClick={this.handleSeeAnswers}
             classProps={`bloc-text-to-fill__answers ${
-              (checkValidated || gameIsFinished) && !showAnswers
-                ? 'visible'
-                : 'hidden'
+              (checkValidated || gameIsFinished) && !showAnswers ? 'visible' : 'hidden'
             }`}
           />
           <ButtonPrimary
+            minWidth
             name="recommencer"
             onClick={this.handleReset}
-            classProps={`bloc-text-to-fill__reset ${
-              checkValidated || showAnswers ? 'visible' : 'hidden'
-            }`}
+            classProps={`bloc-text-to-fill__reset ${checkValidated || showAnswers ? 'visible' : 'hidden'}`}
           />
           {victoryMessage && (
             <PopupBlueInnerHtml
               classProps="bloc-text-to-fill__victory-message"
               description={victoryMessage}
-              onCloseClick={() => this.setState({ victoryMessage: undefined })}
+              onCloseClick={() => {
+                console.log('victoryMessage.__html', victoryMessage.__html);
+                console.log('victoryMessages.isVictory', victoryMessages.isVictory);
+                console.log(
+                  'victoryMessage === victoryMessages.isVictory',
+                  victoryMessage === victoryMessages.isVictory,
+                );
+                if (victoryMessage.__html === victoryMessages.isVictory) {
+                  this.props.gameIsFinished(true);
+                }
+                this.setState({ victoryMessage: undefined });
+              }}
             />
           )}
         </div>
@@ -216,22 +216,24 @@ TextToFill.propTypes = {
       PropTypes.shape({
         position: PropTypes.number.isRequired,
         toFill: PropTypes.bool.isRequired,
-        content: PropTypes.shape({ __html: PropTypes.string.isRequired })
+        content: PropTypes.shape({ __html: PropTypes.string.isRequired }),
       }),
       PropTypes.shape({
         position: PropTypes.number.isRequired,
         toFill: PropTypes.bool.isRequired,
         choices: PropTypes.arrayOf(PropTypes.string).isRequired,
-        answer: PropTypes.string.isRequired
-      })
-    ])
-  ).isRequired
+        answer: PropTypes.string.isRequired,
+      }),
+    ]),
+  ).isRequired,
 };
 
 TextToFill.defaultProps = {
   in: false,
-  gameIsFinished: undefined,
-  title: undefined
+  gameIsFinished: () => {
+    return;
+  },
+  title: undefined,
 };
 
 export default TextToFill;

@@ -19,7 +19,8 @@
           color: var(--menuStepNavigationStarEmpty);
         }
         &.isFull {
-          color: var(--menuStepNavigationStarFull);
+          &.part1 { color: var(--menuStepNavigationStarFullPart1) }
+          &.part2 { color: var(--menuStepNavigationStarFullPart2) }
         }
       }
       

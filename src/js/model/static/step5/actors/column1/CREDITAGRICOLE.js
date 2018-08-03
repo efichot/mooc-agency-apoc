@@ -9,11 +9,11 @@ export default {
     list: [
       {
         __html:
-          "Intervient sur le marché <em style='color: rgba(0,159,63,1.00)'>monétaire</em> pour des besoins de trésorerie à court terme",
+          "Intervient sur le marché <em style='color: var(--monetaire)'>monétaire</em> pour des besoins de trésorerie à court terme",
       },
       {
         __html:
-          "Procède le 27 mai 2009 à une émission <em style='color: rgba(0,159,63,1.00)'>monétaire</em> de 1,5 milliard d'euros",
+          "Procède le 27 mai 2009 à une émission <em style='color: var(--monetaire)'>monétaire</em> de 1,5 milliard d'euros",
       },
     ],
   },
@@ -28,7 +28,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Émission de titres <em style='color: rgba(0,159,63,1.00)'>monétaires</em>",
+        __html: "Émission de titres <em style='color: var(--monetaire)'>monétaires</em>",
       },
     ],
   },
@@ -44,7 +44,7 @@ export default {
     list2: [
       {
         __html:
-          "Émission de titres <em style='color: rgba(0,159,63,1.00)'>monétaires</em> de 1,5 milliard d'€ le 27 mai 2009",
+          "Émission de titres <em style='color: var(--monetaire)'>monétaires</em> de 1,5 milliard d'€ le 27 mai 2009",
       },
     ],
   },

@@ -24,7 +24,16 @@
       background-color: var(--blocUpAndDownButtonBgActive);
       border: 2px solid var(--blocUpAndDownButtonBorderFinished);
       box-shadow: none;
+    }
+    .drop-cards-start {
 
+      .drop-card {
+        height: 250px;
+      }
+
+      .drag-card {
+        height: 100%;
+      }
     }
   }
 

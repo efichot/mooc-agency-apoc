@@ -213,7 +213,8 @@ class BlocDragAndDropType2 extends React.Component {
     } = this.state;
 
     const gridTemplateColumns = grid.columns.map(c => '1fr ').reduce((a, b) => `${a}${b}`);
-    const gridTemplateRows = grid.rows.map(c => '1fr ').reduce((a, b) => `${a}${b}`);
+    // const gridTemplateRows = grid.rows.map(c => '1fr ').reduce((a, b) => `${a}${b}`);
+    const gridTemplateRows = '60px 60px 60px 20px 60px 60px 20px 60px 60px 20px';
 
     const gridTemplate = {
       gridTemplateColumns,
@@ -288,8 +289,8 @@ class BlocDragAndDropType2 extends React.Component {
               <span className="">{this.state.victoryMessage}</span>
             </PopupBlue>
           )}
-          <ButtonPrimary name="Recommencer" onClick={this.reset} />
-          <ButtonPrimary name="Valider" onClick={this.checkAnswers} />
+          <ButtonPrimary minWidth name="Recommencer" onClick={this.reset} />
+          <ButtonPrimary minWidth name="Valider" onClick={this.checkAnswers} />
         </div>
         <BlocSpacer height={20} />
       </Fade>

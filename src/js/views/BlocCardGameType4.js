@@ -198,6 +198,7 @@ class BlocCardGameType4 extends React.Component {
         )}
         {!exercise && <BlocSchemaType1 {...schema} />}
         <ButtonPrimary
+          minWidth
           onClick={() => this.setState({ exercise: !exercise })}
           name={exercise ? 'Voir le schéma' : "Retourner à l'exercice"}
         />

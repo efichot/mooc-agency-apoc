@@ -13,7 +13,7 @@ export default {
       },
       {
         __html:
-          "Procède en septembre 2009 à une émission d'<em style='color: rgba(255,0,31,1.00)'>actions</em> de 2,3 milliards d'euros pour réduire l’endettement dû à l’acquisition et au ralentissement économique des Etats-Unis et de l’Europe",
+          "Procède en septembre 2009 à une émission d'<em style='color: var(--action)'>actions</em> de 2,3 milliards d'euros pour réduire l’endettement dû à l’acquisition et au ralentissement économique des Etats-Unis et de l’Europe",
       },
     ],
   },
@@ -28,7 +28,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Émission d'<em style='color: rgba(255,0,31,1.00)'>actions</em>",
+        __html: "Émission d'<em style='color: var(--action)'>actions</em>",
       },
     ],
   },

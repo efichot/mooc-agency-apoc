@@ -13,7 +13,7 @@ export default {
       },
       {
         __html:
-          "Procède en mai 2009 à une cession de 3% des <em style='color: rgba(255,0,31,1.00)'>actions</em> détenues par la Financière Spie Batignolles pour augmenter la part réservée aux salariés",
+          "Procède en mai 2009 à une cession de 3% des <em style='color: var(--action)'>actions</em> détenues par la Financière Spie Batignolles pour augmenter la part réservée aux salariés",
       },
     ],
   },
@@ -22,13 +22,13 @@ export default {
     title1: 'Besoins',
     list1: [
       {
-        __html: "Augmenter la part d'<em style='color: rgba(255,0,31,1.00)'>actions</em> réservée aux salariés",
+        __html: "Augmenter la part d'<em style='color: var(--action)'>actions</em> réservée aux salariés",
       },
     ],
     title2: 'Opérations',
     list2: [
       {
-        __html: "Cession d'<em style='color: rgba(255,0,31,1.00)'>actions</em> détenues par la société de contrôle",
+        __html: "Cession d'<em style='color: var(--action)'>actions</em> détenues par la société de contrôle",
       },
     ],
   },
@@ -38,14 +38,14 @@ export default {
     list1: [
       {
         __html:
-          "Augmenter la part d'<em style='color: rgba(255,0,31,1.00)'>actions</em> Spie Batignolles réservée aux salariés via le Plan d'Epargne Entreprise",
+          "Augmenter la part d'<em style='color: var(--action)'>actions</em> Spie Batignolles réservée aux salariés via le Plan d'Epargne Entreprise",
       },
     ],
     headList2: 'Opérations',
     list2: [
       {
         __html:
-          "Cession de 3% des <em style='color: rgba(255,0,31,1.00)'>actions</em>  détenues par la Financière Spie Batignolles en mai 2009",
+          "Cession de 3% des <em style='color: var(--action)'>actions</em>  détenues par la Financière Spie Batignolles en mai 2009",
       },
     ],
   },

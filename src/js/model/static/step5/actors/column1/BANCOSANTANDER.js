@@ -12,7 +12,7 @@ export default {
       },
       {
         __html:
-          "Procède en octobre 2010 à une émission d'<em style='color: rgba(163,12,146,1.00)'>obligations</em>  de 1 milliard d'euros  dans le cadre de son activité de  banque commerciale auprès des entreprises et des particuliers",
+          "Procède en octobre 2010 à une émission d'<em style='color: var(--obligation)'>obligations</em>  de 1 milliard d'euros  dans le cadre de son activité de  banque commerciale auprès des entreprises et des particuliers",
       },
     ],
   },
@@ -27,7 +27,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Émission d'<em style='color: rgba(163,12,146,1.00)'>obligations</em>",
+        __html: "Émission d'<em style='color: var(--obligation)'>obligations</em>",
       },
     ],
   },
@@ -42,8 +42,7 @@ export default {
     headList2: 'Opérations',
     list2: [
       {
-        __html:
-          "Émission d'<em style='color: rgba(163,12,146,1.00)'>obligations</em> de 1 milliard d'€ en octobre 2010",
+        __html: "Émission d'<em style='color: var(--obligation)'>obligations</em> de 1 milliard d'€ en octobre 2010",
       },
     ],
   },

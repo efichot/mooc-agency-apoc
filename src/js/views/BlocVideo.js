@@ -83,7 +83,7 @@ class BlocVideo extends React.Component {
         {buttonCaption && (
           <React.Fragment>
             <BlocSpacer />
-            <ButtonPrimary name={buttonCaption} onClick={this.props.onButtonClick} />
+            <ButtonPrimary minWidth name={buttonCaption} onClick={this.props.onButtonClick} />
           </React.Fragment>
         )}
       </Fade>

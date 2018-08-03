@@ -185,6 +185,7 @@ class BlocCardGameType3 extends React.Component {
             );
           })}
           <ButtonPrimary
+            minWidth
             name="valider"
             onClick={this.handleValidate}
             classProps={`button-validate`}

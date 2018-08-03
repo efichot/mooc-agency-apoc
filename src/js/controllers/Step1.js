@@ -25,6 +25,10 @@ class Step1 extends React.Component {
     showQuiz: false,
   };
 
+  componentDidMount() {
+    this.props.tellAppIAmIntro(false);
+  }
+
   changeMarketToShow = marketToShow => {
     const stateCopy = { ...this.state };
 
@@ -123,9 +127,9 @@ class Step1 extends React.Component {
                         description={step1.module_11.description}
                       />
                       <BlocSpacer />
-                      <ButtonPrimary name={step1.module_11.button_1} onClick={this.handleShowQuiz} />
+                      <ButtonPrimary minWidth name={step1.module_11.button_1} onClick={this.handleShowQuiz} />
                       <Link to="#" className="button">
-                        <ButtonPrimary name={step1.module_11.button_2} />
+                        <ButtonPrimary minWidth name={step1.module_11.button_2} />
                       </Link>
                     </div>
                   )}

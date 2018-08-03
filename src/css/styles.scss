@@ -22,14 +22,6 @@
 @import "UI/select-QCM-type-2/styles";
 @import "UI/chrono/styles";
 
-@import "base";
-
-@import "views/header/styles";
-@import "views/menu-top/styles";
-@import "views/menu-mobile/styles";
-@import "views/menu-step-navigation/styles";
-@import "views/user-game-infos/styles";
-
 @import "views/bloc/styles";
 @import "views/bloc-step/styles";
 @import "views/bloc-title/styles";
@@ -69,6 +61,14 @@
 @import "controllers/introduction/styles";
 @import "controllers/step/styles";
 @import "controllers/step7/styles";
+
+@import "base";
+
+@import "views/header/styles";
+@import "views/menu-top/styles";
+@import "views/menu-mobile/styles";
+@import "views/menu-step-navigation/styles";
+@import "views/user-game-infos/styles";
 
 @import "transitions/fade";
 

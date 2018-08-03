@@ -13,7 +13,7 @@ export default {
       },
       {
         __html:
-          "Procède aux transactions sur les <em style='color: rgba(255,0,31,1.00)'>actions</em> et les <em style='color: rgba(163,12,146,1.00)'>obligations</em> émises par Pernod Ricard en avril et mai 2009, les <em style='color: rgba(255,0,31,1.00)'>actions</em> émises par Heidelberg Cement en septembre 2009 et les <em style='color: rgba(255,0,31,1.00)'>actions</em> Banca Monte Dei Paschi présentes sur le marché",
+          "Procède aux transactions sur les <em style='color: var(--action)'>actions</em> et les <em style='color: var(--obligation)'>obligations</em> émises par Pernod Ricard en avril et mai 2009, les <em style='color: var(--action)'>actions</em> émises par Heidelberg Cement en septembre 2009 et les <em style='color: var(--action)'>actions</em> Banca Monte Dei Paschi présentes sur le marché",
       },
     ],
   },
@@ -28,10 +28,10 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Transactions sur le marché <em style='color: rgba(163,12,146,1.00)'>obligataire</em>",
+        __html: "Transactions sur le marché <em style='color: var(--obligation)'>obligataire</em>",
       },
       {
-        __html: "Transactions sur le marché des <em style='color: rgba(255,0,31,1.00)'>actions</em>",
+        __html: "Transactions sur le marché des <em style='color: var(--action)'>actions</em>",
       },
     ],
   },
@@ -47,7 +47,7 @@ export default {
     list2: [
       {
         __html:
-          "Transactions sur les <em style='color: rgba(255,0,31,1.00)'>actions</em>  émises par Pernod Ricard et Heidelberg Cement en avril et septembre 2009, et sur les <em style='color: rgba(255,0,31,1.00)'>actions</em> Banca Monte Dei Paschi",
+          "Transactions sur les <em style='color: var(--action)'>actions</em>  émises par Pernod Ricard et Heidelberg Cement en avril et septembre 2009, et sur les <em style='color: var(--action)'>actions</em> Banca Monte Dei Paschi",
       },
     ],
   },

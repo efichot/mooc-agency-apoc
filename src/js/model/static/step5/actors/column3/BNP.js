@@ -12,7 +12,7 @@ export default {
       },
       {
         __html:
-          "Investit 30 millions d'€ en <em style='color: rgba(255,0,31,1.00)'>actions</em> Lafarge, Pernod Ricard  et Heidelberg Cement émises en avril et septembre 2009, et en <em style='color: rgba(255,0,31,1.00)'>actions</em> Banca Monte Dei Paschi acquises sur le marché",
+          "Investit 30 millions d'€ en <em style='color: var(--action)'>actions</em> Lafarge, Pernod Ricard  et Heidelberg Cement émises en avril et septembre 2009, et en <em style='color: var(--action)'>actions</em> Banca Monte Dei Paschi acquises sur le marché",
       },
     ],
   },
@@ -27,10 +27,10 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Achat d'<em style='color: rgba(255,0,31,1.00)'>actions</em> existantes",
+        __html: "Achat d'<em style='color: var(--action)'>actions</em> existantes",
       },
       {
-        __html: "Achat d'<em style='color: rgba(255,0,31,1.00)'>actions</em> nouvelles",
+        __html: "Achat d'<em style='color: var(--action)'>actions</em> nouvelles",
       },
     ],
   },
@@ -47,7 +47,7 @@ export default {
     list2: [
       {
         __html:
-          "Achat d'<em style='color: rgba(255,0,31,1.00)'>actions</em> Lafarge, Pernod Ricard et Heidelberg Cement émises en avril et septembre",
+          "Achat d'<em style='color: var(--action)'>actions</em> Lafarge, Pernod Ricard et Heidelberg Cement émises en avril et septembre",
       },
     ],
   },

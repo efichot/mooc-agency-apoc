@@ -36,6 +36,7 @@ class BlocQCMType4 extends React.Component {
     const { correctAnswers, proposedAnswers } = this.state;
 
     let correct = true;
+    Object.keys(proposedAnswers).length <= 0 && (correct = false);
     Object.keys(proposedAnswers).forEach(field => {
       Object.keys(proposedAnswers[field]).forEach(key => {
         if (!correct) {
@@ -72,6 +73,16 @@ class BlocQCMType4 extends React.Component {
     this.setState({ proposedAnswers });
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.in && prevProps.selectedRow !== this.props.selectedRow) {
+      console.log('scroll');
+      window.setTimeout(
+        () => window.scrollTo({ behavior: 'smooth', top: window.scrollY + this.top.getBoundingClientRect().top - 50 }),
+        1000,
+      );
+    }
+  }
+
   render() {
     const {
       modulType,
@@ -101,7 +112,9 @@ class BlocQCMType4 extends React.Component {
         scrollIntoView={scrollIntoView}
         margins={this.props.margins}>
         {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
-        <span className="bloc__name">{name}</span>
+        <span className="bloc__name" ref={top => (this.top = top)}>
+          {name}
+        </span>
         <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
         <div className="bloc-QCM-type-4__cards game">
           {cards[selectedRow].cardsSet.map((card, i) => (
@@ -156,7 +169,7 @@ class BlocQCMType4 extends React.Component {
           </div>
         </div>
         <BlocSpacer />
-        <ButtonPrimary name="valider" onClick={this.handleValidate} classProps={`bloc-QCM-type-4__validate`} />
+        <ButtonPrimary minWidth name="valider" onClick={this.handleValidate} classProps={`bloc-QCM-type-4__validate`} />
         <BlocSpacer />
         {gameIsFinished && (
           <BlocDescription modulType={modulType} classProps="bloc__first-description" description={thirdDescription} />

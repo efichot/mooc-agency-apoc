@@ -5,13 +5,13 @@ import Fade from '../transitions/Fade';
 
 class BlocDescription extends React.Component {
   render() {
-    const { description, classProps, padding } = this.props;
+    const { description, classProps, padding, scrollIntoView } = this.props;
 
     if (description.__html) {
       description.__html = description.__html.replace(/\r\n/g, '<br />').replace(/[\r\n]/g, '<br />');
 
       return (
-        <Fade in={this.props.in} margins={this.props.margins} classProps={classProps}>
+        <Fade in={this.props.in} scrollIntoView={scrollIntoView} margins={this.props.margins} classProps={classProps}>
           <p
             className={`bloc bloc-description ${classProps}`}
             dangerouslySetInnerHTML={description}
@@ -44,7 +44,7 @@ BlocDescription.propTypes = {
 BlocDescription.defaultProps = {
   in: true,
   classProps: '',
-  padding: 0,
+  padding: undefined,
   modulType: '',
 };
 

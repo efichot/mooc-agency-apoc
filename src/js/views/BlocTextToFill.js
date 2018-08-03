@@ -9,23 +9,24 @@ import Fade from '../transitions/Fade';
 
 class BlocTextToFill extends React.Component {
   state = {
-    showNextModule: 0
+    showNextModule: 0,
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.reset) {
       return {
         ...prevState,
-        showNextModule: 0
+        showNextModule: 0,
       };
     }
     return prevState;
   }
 
   handleTextFinished = bool => {
-    bool && this.setState({ showNextModule: this.state.showNextModule + 1 });
+    console.log('bool', bool);
+    this.setState({ showNextModule: this.state.showNextModule + 1 });
     if (this.state.showNextModule >= 0) {
-      this.props.gameIsFinished(true);
+      this.props.gameIsFinished(bool);
     }
   };
 
@@ -40,33 +41,23 @@ class BlocTextToFill extends React.Component {
       title2,
       description,
       firstText,
-      secondText
+      secondText,
     } = this.props;
 
     const { showNextModule } = this.state;
 
     return (
-      <Fade
-        in={this.props.in}
-        classProps={`bloc bloc-text-to-fill`}
-        margins={this.props.margins}
-      >
-        {!noChapter && (
-          <BlocHeader type={iconType} duration={duration} name={chapter} />
-        )}
+      <Fade in={this.props.in} classProps={`bloc bloc-text-to-fill`} margins={this.props.margins}>
+        {!noChapter && <BlocHeader type={iconType} duration={duration} name={chapter} />}
         <span className="bloc__name">{title}</span>
-        <BlocDescription
-          modulType={modulType}
-          classProps="bloc__first-description"
-          description={description}
-        />
+        <BlocDescription modulType={modulType} classProps="bloc__first-description" description={description} />
         {firstText && (
           <React.Fragment>
             <BlocSpacer />
             <TextToFill
               in={this.props.in}
               textToFill={firstText}
-              gameIsFinished={this.handleTextFinished}
+              gameIsFinished={() => this.handleTextFinished(false)}
             />
           </React.Fragment>
         )}
@@ -104,31 +95,31 @@ BlocTextToFill.propTypes = {
       PropTypes.shape({
         position: PropTypes.number.isRequired,
         toFill: PropTypes.bool.isRequired,
-        content: PropTypes.shape({ __html: PropTypes.string.isRequired })
+        content: PropTypes.shape({ __html: PropTypes.string.isRequired }),
       }),
       PropTypes.shape({
         position: PropTypes.number.isRequired,
         toFill: PropTypes.bool.isRequired,
         choices: PropTypes.arrayOf(PropTypes.string).isRequired,
-        answer: PropTypes.string.isRequired
-      })
-    ])
+        answer: PropTypes.string.isRequired,
+      }),
+    ]),
   ).isRequired,
   secondText: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({
         position: PropTypes.number.isRequired,
         toFill: PropTypes.bool.isRequired,
-        content: PropTypes.shape({ __html: PropTypes.string.isRequired })
+        content: PropTypes.shape({ __html: PropTypes.string.isRequired }),
       }),
       PropTypes.shape({
         position: PropTypes.number.isRequired,
         toFill: PropTypes.bool.isRequired,
         choices: PropTypes.arrayOf(PropTypes.string).isRequired,
-        answer: PropTypes.string.isRequired
-      })
-    ])
-  )
+        answer: PropTypes.string.isRequired,
+      }),
+    ]),
+  ),
 };
 
 BlocTextToFill.defaultProps = {
@@ -140,7 +131,7 @@ BlocTextToFill.defaultProps = {
   iconType: 'horloge',
   duration: 0,
   title2: undefined,
-  secondText: undefined
+  secondText: undefined,
 };
 
 export default BlocTextToFill;

@@ -1,33 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactTimeout from 'react-timeout';
 import PieChart from 'react-svg-piechart';
 
 class Chrono extends React.Component {
   state = {
     remaining: this.props.totalDuration,
-    timeout: null,
     context: this.props.context,
   };
 
   static getDerivedStateFromProps(nextProps, prevState, c) {
-    if (nextProps.restart) {
-      return {
-        ...prevState,
-      };
-    }
-    if (nextProps.reset && nextProps.context !== prevState.context) {
+    // if (nextProps.restart) {
+    //   return {
+    //     ...prevState,
+    //   };
+    // }
+    if (nextProps.reset && JSON.stringify(nextProps.context) !== JSON.stringify(prevState.context)) {
       return {
         ...prevState,
         remaining: nextProps.totalDuration,
         context: nextProps.context,
-      };
-    }
-    if (nextProps.stop) {
-      nextProps.clearTimeout(prevState.timeout);
-      return {
-        ...prevState,
-        timeout: null,
       };
     }
     if (nextProps.context !== prevState.context) {
@@ -40,22 +31,32 @@ class Chrono extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.reset !== true && prevState.timeout === null) {
+    Object.keys(this.props).forEach(key => {
+      if (this.props[key] !== prevProps[key]) {
+        console.log(key, 'changed from', prevProps[key], 'to', this.props[key]);
+      }
+    });
+    console.log('this.timeout', this.timeout);
+    if (!prevProps.reset && this.props.reset) {
       this.nextSecond();
     }
+    if (!prevProps.stop && this.props.stop) {
+      window.clearTimeout(this.timeout);
+    }
+    // if (!prevProps.restart && this.props.restart) {
+    //   window.clearTimeout(this.timeout);
+    // }
   }
 
   nextSecond = () => {
     if (this.state.remaining === 0) {
-      this.props.clearTimeout(this.state.timeout);
+      window.clearTimeout(this.timeout);
       return;
     }
-    const timeout = this.props.setTimeout(() => {
+    this.timeout = window.setTimeout(() => {
       this.setState({ remaining: this.state.remaining - 1 });
       this.nextSecond();
     }, 1000);
-
-    this.setState({ timeout });
   };
 
   componentDidMount() {
@@ -112,4 +113,4 @@ Chrono.defaultProps = {
   totalDuration: 10,
 };
 
-export default ReactTimeout(Chrono);
+export default Chrono;

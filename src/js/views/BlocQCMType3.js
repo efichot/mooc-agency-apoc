@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import BlocHeader from '../views/BlocHeader';
 import BlocDescription from './BlocDescription';
+import BlocSpacer from './BlocSpacer';
 import ButtonPrimary from './UI/ButtonPrimary';
 import PopupBlue from './UI/PopupBlue';
 import PopupBlueInnerHtml from './UI/PopupBlueInnerHtml';
@@ -71,11 +72,13 @@ class BlocQCMType3 extends React.Component {
 
   handleValidate = async e => {
     let correct = true;
-    Object.keys(this.state.answers).forEach(i => {
-      if (this.state.correctAnswers[i] !== this.state.answers[i]) {
-        correct = false;
-      }
-    });
+    const noAnswer = Object.keys(this.state.answers).length <= 0;
+    const answers = JSON.stringify(Object.values(this.state.answers).sort());
+    const correctAnswers = JSON.stringify(Object.values(this.state.correctAnswers).sort());
+    console.log('answers, correctAnswers', answers, correctAnswers);
+    if (answers !== correctAnswers || noAnswer) {
+      correct = false;
+    }
     this.setState({ hideExplanation: false });
     if (correct) {
       const victoryMessage = { __html: victoryMessages.isGoodAnswer };
@@ -176,21 +179,29 @@ class BlocQCMType3 extends React.Component {
               onCloseClick={() => this.setState({ victoryMessage: undefined })}
             />
           )}
-          <ButtonPrimary name="valider" onClick={this.handleValidate} classProps={`bloc-QCM-type-3__validate`} />
+          <ButtonPrimary
+            minWidth
+            name="valider"
+            onClick={this.handleValidate}
+            classProps={`bloc-QCM-type-3__validate`}
+          />
           {!hideExplanation &&
             !gameIsFinished && (
               <ButtonPrimary
+                minWidth
                 name="cacher l'explication"
                 onClick={this.handleHideExplanation}
                 classProps={`bloc-QCM-type-3__explanations`}
               />
             )}
         </div>
+        <BlocSpacer />
         {!hideExplanation && (
           <React.Fragment>
             <BlocDescription description={synthese.firstDescription} />
             {gameIsFinished && (
               <React.Fragment>
+                <BlocSpacer />
                 {synthese.title && <span className="bloc__name">{synthese.title}</span>}
                 {synthese.secondDescription && <BlocDescription description={synthese.secondDescription} />}
               </React.Fragment>

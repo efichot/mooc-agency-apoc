@@ -10,10 +10,12 @@ import BlocSpacer from './BlocSpacer';
 import PopupBlue from './UI/PopupBlue';
 import Fade from '../transitions/Fade';
 
+import victoryMessages from '../model/static/popupBlueMessages';
+
 class BlocPieChartPlay extends React.Component {
   state = {
     pieData: [],
-    hidePopup: true
+    hidePopup: true,
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -24,19 +26,19 @@ class BlocPieChartPlay extends React.Component {
         pieData[buttons.length - (button.position - 1)] = {
           name: button.name,
           value: button.value,
-          color: button.color
+          color: button.color,
         };
       });
 
       pieData[0] = {
         name: 'blank',
         value: 90,
-        color: 'rgba(255,255,255,1)'
+        color: 'rgba(255,255,255,1)',
       };
 
       return {
         ...prevState,
-        pieData
+        pieData,
       };
     }
     return prevState;
@@ -56,9 +58,7 @@ class BlocPieChartPlay extends React.Component {
 
   handleButtonClick = (plusOrMinus, name) => {
     const pieDataCopy = [...this.state.pieData];
-    const currentPieData = pieDataCopy.filter(
-      pieData => pieData.name === name
-    )[0];
+    const currentPieData = pieDataCopy.filter(pieData => pieData.name === name)[0];
     const index = pieDataCopy.indexOf(currentPieData);
     const { value } = pieDataCopy[index];
     const increment = 10;
@@ -67,10 +67,7 @@ class BlocPieChartPlay extends React.Component {
     if (plusOrMinus === 'plus' && !(value === 100 || remainingToDo === 0)) {
       pieDataCopy[index].value = parseInt(value + increment, 10);
       pieDataCopy[0].value = parseInt(remainingToDo - increment, 10);
-    } else if (
-      plusOrMinus === 'minus' &&
-      !(value === 0 || remainingToDo === 100)
-    ) {
+    } else if (plusOrMinus === 'minus' && !(value === 0 || remainingToDo === 100)) {
       pieDataCopy[index].value = parseInt(value - increment, 10);
       pieDataCopy[0].value = parseInt(remainingToDo + increment, 10);
     } else {
@@ -81,16 +78,7 @@ class BlocPieChartPlay extends React.Component {
   };
 
   render() {
-    const {
-      modulType,
-      noChapter,
-      duration,
-      chapter,
-      name,
-      description,
-      buttons,
-      scrollIntoView
-    } = this.props;
+    const { modulType, noChapter, duration, chapter, name, description, buttons, scrollIntoView } = this.props;
 
     const { pieData, hidePopup } = this.state;
 
@@ -99,11 +87,8 @@ class BlocPieChartPlay extends React.Component {
         classProps={`bloc bloc-pie-chart-play bloc`}
         in={this.props.in}
         scrollIntoView={scrollIntoView}
-        margins={this.props.margins}
-      >
-        {!noChapter && (
-          <BlocHeader type="horloge" duration={duration} name={chapter} />
-        )}
+        margins={this.props.margins}>
+        {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
         <span className="bloc__name">{name}</span>
         {description && (
           <BlocDescription
@@ -124,9 +109,7 @@ class BlocPieChartPlay extends React.Component {
                 button={button}
                 onClick={this.handleButtonClick}
                 name={`${button.name}`}
-                value={`${
-                  pieData[buttons.length - (button.position - 1)].value
-                }%`}
+                value={`${pieData[buttons.length - (button.position - 1)].value}%`}
               />
             );
           })}
@@ -134,17 +117,13 @@ class BlocPieChartPlay extends React.Component {
         <BlocSpacer />
         <div className="bloc-pie-chart-play__validate-victory">
           <ButtonPrimary
+            minWidth
             name="valider"
             onClick={this.handleValidateClick}
             classProps={`bloc-pie-chart-play__validate`}
           />
-          <PopupBlue
-            hidePopup={hidePopup}
-            onCloseClick={() => this.setState({ hidePopup: true })}
-          >
-            <span className="card-title">
-              La composition de votre fonds est incomplète. Réessayez !
-            </span>
+          <PopupBlue hidePopup={hidePopup} onCloseClick={() => this.setState({ hidePopup: true })}>
+            <span className="card-title">{victoryMessages.pieChartUnCompleted}</span>
           </PopupBlue>
         </div>
       </Fade>
@@ -165,17 +144,16 @@ BlocPieChartPlay.propTypes = {
   duration: PropTypes.number,
   chapter: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  description: PropTypes.shape({ __html: PropTypes.string.isRequired })
-    .isRequired,
+  description: PropTypes.shape({ __html: PropTypes.string.isRequired }).isRequired,
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
       position: PropTypes.number.isRequired,
       type: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       color: PropTypes.string.isRequired,
-      value: PropTypes.number.isRequired
-    }).isRequired
-  ).isRequired
+      value: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 BlocPieChartPlay.defaultProps = {
@@ -183,7 +161,7 @@ BlocPieChartPlay.defaultProps = {
   in: false,
   noChapter: false,
   duration: 0,
-  gameIsFinished: undefined
+  gameIsFinished: undefined,
 };
 
 export default BlocPieChartPlay;

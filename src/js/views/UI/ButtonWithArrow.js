@@ -6,21 +6,19 @@ import PropTypes from 'prop-types';
 class ButtonWithArrow extends React.Component {
   state = {};
 
-  handleClick = () => {
-    this.props.onClick(this.props.button.action);
-  };
-
   render() {
-    const { button, classOrigin } = this.props;
+    const { button, classOrigin, onClick } = this.props;
 
     return (
-      <div className={`${classOrigin}__group`} onClick={this.handleClick}>
+      <div className={`${classOrigin}__group`}>
         <ButtonPrimary
           className={`${classOrigin}__button`}
           name={button.name}
           color={button.color}
           borderColor={button.borderColor}
           fontColor={button.fontColor}
+          onClick={onClick}
+          answer={button.action}
         />
         <div className={`${classOrigin}__arrow`} style={{ backgroundImage: `url(${button_arrow_right})` }} />
       </div>

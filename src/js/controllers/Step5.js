@@ -23,6 +23,10 @@ class Step5 extends React.Component {
     showQuiz: false,
   };
 
+  componentDidMount() {
+    this.props.tellAppIAmIntro(false);
+  }
+
   handleShowNextModule = e => {
     console.log('test');
     this.setState({ showNextModule: this.state.showNextModule + 1 });
@@ -74,9 +78,9 @@ class Step5 extends React.Component {
                   {showSynthese && (
                     <div className="step5__synthese step__synthese bloc">
                       <BlocSpacer />
-                      <ButtonPrimary name={step5.module_07.button_1} onClick={this.handleShowQuiz} />
+                      <ButtonPrimary minWidth name={step5.module_07.button_1} onClick={this.handleShowQuiz} />
                       <Link to="#" className="button">
-                        <ButtonPrimary name={step5.module_07.button_2} />
+                        <ButtonPrimary minWidth name={step5.module_07.button_2} />
                       </Link>
                     </div>
                   )}

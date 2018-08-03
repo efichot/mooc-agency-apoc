@@ -5,8 +5,8 @@ const module_05_07_blocUpAndDownType1 = {
   modulType: moduleTypes.blocUpAndDownType1,
   linkWithBlocSubMenu1ButtonPosition: 1,
   firstDescription: {
-    __html: `Faites de même pour les portefeuilles précédemment classés sur l’axe horizontal du risque à l’aide du bouton. 
-        En cas de doute, visionnez à nouveau la dernière minute de la vidéo ci-dessus. `
+    __html: `Faites de même pour les portefeuilles précédemment classés sur l’axe horizontal du risque. 
+        En cas de doute, visionnez à nouveau la dernière minute de la vidéo ci-dessus. `,
   },
   noChapter: false,
   chapter: 'Échelle de performance',
@@ -19,9 +19,9 @@ const module_05_07_blocUpAndDownType1 = {
       endPosition: 3,
       content: {
         isDraggable: true,
-        cardTitle: `pernod ricard`
+        cardTitle: `pernod ricard`,
         /*cardSubTitle: `BTP - non coté`,*/
-      }
+      },
     },
     {
       color: 'white',
@@ -29,9 +29,9 @@ const module_05_07_blocUpAndDownType1 = {
       endPosition: 1,
       content: {
         isDraggable: true,
-        cardTitle: `carrefour`
+        cardTitle: `carrefour`,
         /*cardSubTitle: `Consommation - coté`,*/
-      }
+      },
     },
     {
       color: 'white',
@@ -39,11 +39,11 @@ const module_05_07_blocUpAndDownType1 = {
       endPosition: 2,
       content: {
         isDraggable: true,
-        cardTitle: `banco santander`
+        cardTitle: `banco santander`,
         /*cardSubTitle: `Matériaux BTP - coté`,*/
-      }
-    }
-  ]
+      },
+    },
+  ],
 };
 
 export default module_05_07_blocUpAndDownType1;

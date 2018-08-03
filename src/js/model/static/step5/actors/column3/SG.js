@@ -13,7 +13,7 @@ export default {
       },
       {
         __html:
-          "Procède le 29 mai 2009 à un prêt <em style='color: rgba(0,159,63,1.00)'>monétaire</em> de 10 millions d'€ auprès de la banque LCL ",
+          "Procède le 29 mai 2009 à un prêt <em style='color: var(--monetaire)'>monétaire</em> de 10 millions d'€ auprès de la banque LCL ",
       },
     ],
   },
@@ -28,7 +28,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Prêt <em style='color: rgba(0,159,63,1.00)'>monétaire</em>",
+        __html: "Prêt <em style='color: var(--monetaire)'>monétaire</em>",
       },
     ],
   },
@@ -44,7 +44,7 @@ export default {
     list2: [
       {
         __html:
-          "Prêt <em style='color: rgba(0,159,63,1.00)'>monétaire</em> de 10 millions d'€ à la banque LCL le 29 mai 2009",
+          "Prêt <em style='color: var(--monetaire)'>monétaire</em> de 10 millions d'€ à la banque LCL le 29 mai 2009",
       },
     ],
   },

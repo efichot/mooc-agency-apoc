@@ -9,7 +9,7 @@ import Fade from '../transitions/Fade';
 
 class BlocSimulatorsExternalLink extends React.Component {
   state = {
-    durationInMinutes: 1
+    durationInMinutes: 1,
   };
 
   handleClick = e => {};
@@ -26,33 +26,22 @@ class BlocSimulatorsExternalLink extends React.Component {
       secondDescription,
       button,
       link,
-      height
+      height,
     } = this.props;
 
     return (
-      <Fade
-        in={this.props.in}
-        classProps={`bloc-simulator bloc`}
-        margins={this.props.margins}
-      >
-        {!noChapter && (
-          <BlocHeader type="horloge" duration={duration} name={chapter} />
-        )}
+      <Fade in={this.props.in} classProps={`bloc-simulator bloc`} margins={this.props.margins}>
+        {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
         <span className="bloc__name">{name}</span>
         {firstDescription && (
-          <BlocDescription
-            modulType={modulType}
-            classProps="bloc__first-description"
-            description={firstDescription}
-          />
+          <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
         )}
         <BlocSpacer />
         <a
           className="bloc-simulator__link--picture bloc-simulator__link"
           href={link}
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           <div
             className="bloc-simulator__background-img"
             style={{ height, backgroundImage: `url(${backgroundImage})` }}
@@ -63,9 +52,8 @@ class BlocSimulatorsExternalLink extends React.Component {
           className="bloc-simulator__link--button bloc-simulator__link"
           href={link}
           target="_blank"
-          rel="noopener noreferrer"
-        >
-          <ButtonPrimary name={button} onClick={this.handleClick} />
+          rel="noopener noreferrer">
+          <ButtonPrimary minWidth name={button} onClick={this.handleClick} />
         </a>
         <BlocSpacer />
         {secondDescription && (
@@ -89,12 +77,11 @@ BlocSimulatorsExternalLink.propTypes = {
   duration: PropTypes.number,
   height: PropTypes.number,
   name: PropTypes.string.isRequired,
-  firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired })
-    .isRequired,
+  firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }).isRequired,
   backgroundImage: PropTypes.string.isRequired,
   button: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
-  secondDescription: PropTypes.shape({ __html: PropTypes.string.isRequired })
+  secondDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
 };
 
 BlocSimulatorsExternalLink.defaultProps = {
@@ -103,7 +90,7 @@ BlocSimulatorsExternalLink.defaultProps = {
   chapter: '',
   duration: 0,
   height: 500,
-  secondDescription: undefined
+  secondDescription: undefined,
 };
 
 export default BlocSimulatorsExternalLink;
