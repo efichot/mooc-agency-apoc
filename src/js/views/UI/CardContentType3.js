@@ -18,6 +18,7 @@ class CardContentType3 extends React.Component {
   render() {
     const {
       bigBorder,
+      questionMark,
       bigTitle,
       isDraggable,
       cardTitle,
@@ -37,9 +38,12 @@ class CardContentType3 extends React.Component {
         draggable={isDraggable}
         style={{
           backgroundImage: image ? `url(${image})` : '',
-          display: bigTitle ? 'flex' : 'block',
+          display: bigTitle || questionMark ? 'flex' : 'block',
           cursor: bigTitle ? 'pointer' : 'initial',
+          fontSize: questionMark && 130,
+          paddingTop: questionMark && 60,
         }}>
+        {questionMark && <span>?</span>}
         {isDraggable && (
           <div className="card-content__type-3--drag-image" style={{ backgroundImage: `url(${draggableIcon})` }} />
         )}
@@ -71,11 +75,12 @@ class CardContentType3 extends React.Component {
 
 CardContentType3.propTypes = {
   bigBorder: PropTypes.bool,
+  bigTitle: PropTypes.string,
+  questionMark: PropTypes.bool,
   /***************** DATA ******************/
 
   isDraggable: PropTypes.bool,
   cardTitle: PropTypes.string,
-  bigTitle: PropTypes.string,
   cardSubTitle: PropTypes.string,
   image: PropTypes.string,
   list: PropTypes.array,
@@ -88,6 +93,8 @@ CardContentType3.propTypes = {
 
 CardContentType3.defaultProps = {
   bigBorder: false,
+  questionMark: false,
+  bigTitle: undefined,
   /***************** DATA ******************/
 
   isDraggable: false,

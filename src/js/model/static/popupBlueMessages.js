@@ -3,6 +3,8 @@ export default {
   isGoodAnswer: "Bravo, c'est la bonne réponse !",
   isDefeat: "Ce n'est pas la bonne réponse. Réessayez !",
   isDefeatOneShot: "Ce n'est pas la bonne réponse. Continuez !",
+  isDefeatQuizFinished: "Ce n'est pas la bonne réponse.",
+  quizIsOver: 'Vous avez fini ! Dirigez-vous vers la prochaine étape.',
   isGoodAnswerDragAndDropStep5:
     'Bravo ! Vous avez identifié les différentes catégories d’émetteurs, d’investisseurs et d’intermédiaires présents sur les marchés financiers.',
   isDefeatHTML: "Ce n'est pas la bonne réponse.<br/>Réessayez&nbsp;!",

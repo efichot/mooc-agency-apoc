@@ -16,6 +16,7 @@ const module_03_blocSimulator = {
     En faisant varier votre durée de placement, vous verrez que plus elle s’allonge, plus la part des actions et obligations est importante.`,
   },
   backgroundImage,
+  backgroundColor: 'rgba(157,102,147,1.00)',
   secondDescription: {
     __html: `L’allocation d’actifs qui vous est proposée dépend à la fois de votre propension à prendre ou à ne pas prendre de risque (profil d’investisseur) et de votre horizon de placement. Plus votre horizon est éloigné, plus votre capacité à prendre du risque est forte et vous pouvez donc investir une part plus importante de votre épargne en obligations et en actions ; n’ayant pas besoin de liquidités à brève échéance, vous n’êtes pas contraint de sécuriser vos placements pour éviter d’avoir à les vendre au plus mauvais moment, en cas de baisse brutale des marchés.`,
   },

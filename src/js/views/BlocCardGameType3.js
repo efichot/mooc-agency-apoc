@@ -60,13 +60,15 @@ class BlocCardGameType3 extends React.Component {
 
     if (answersAreCorrect) {
       this.setState({ victoryMessage: victoryMessages.isGoodAnswer });
-      this.props.gameIsFinished();
     } else {
       this.setState({ victoryMessage: victoryMessages.isDefeat });
     }
   };
 
   handleClosePopupBlue = () => {
+    if (this.state.victoryMessage === victoryMessages.isGoodAnswer) {
+      this.props.gameIsFinished();
+    }
     this.setState({ victoryMessage: undefined });
   };
 

@@ -44,9 +44,9 @@ class BlocCardGameType1 extends React.Component {
         (cardSet, index, array) =>
           index === 0 || cardSet.secondCard.answerNumber !== array[index - 1].secondCard.answerNumber,
       ),
-    column1card2currentIndex: 0,
-    column2card2currentIndex: 0,
-    column3card2currentIndex: 0,
+    column1card2currentIndex: undefined,
+    column2card2currentIndex: undefined,
+    column3card2currentIndex: undefined,
     victoryMessage: undefined,
   };
 
@@ -93,17 +93,30 @@ class BlocCardGameType1 extends React.Component {
   handleCard2Click = (plusorminus, column) => {
     const indexName = `${column}card2currentIndex`;
     const index = this.state[indexName];
+    console.log(plusorminus, column, indexName, index);
 
     if (plusorminus === 'plus') {
       if (index === this.state[`${column}SecondCards`].length - 1) {
+        console.log(1);
         return;
+      } else if (index === undefined) {
+        console.log(2);
+        this.setState({ [indexName]: 1 });
+      } else {
+        console.log(3);
+        this.setState({ [indexName]: index + 1 });
       }
-      this.setState({ [indexName]: index + 1 });
     } else {
       if (index === 0) {
+        console.log(4);
         return;
+      } else if (index === undefined) {
+        console.log(5);
+        this.setState({ [indexName]: this.state[`${column}SecondCards`].length - 1 });
+      } else {
+        console.log(6);
+        this.setState({ [indexName]: index - 1 });
       }
-      this.setState({ [indexName]: index - 1 });
     }
   };
 
@@ -121,7 +134,6 @@ class BlocCardGameType1 extends React.Component {
       if (column === 'column2') {
         console.log('column2');
         this.setState({ column2card3: true });
-        this.props.gameIsFinished();
       }
     } else {
       this.setState({
@@ -131,6 +143,9 @@ class BlocCardGameType1 extends React.Component {
   };
 
   handleClosePopupBlue = () => {
+    if (this.state.victoryMessage === victoryMessages.isVictory && this.state.column2card3) {
+      this.props.gameIsFinished();
+    }
     this.setState({ victoryMessage: undefined });
   };
 
@@ -232,12 +247,16 @@ class BlocCardGameType1 extends React.Component {
                     onButtonClick={this.handleCard2ButtonClick}
                   />
                 )}
-                <CardContentType3
-                  title1={column1SecondCards[column1card2currentIndex].secondCard.title1}
-                  title2={column1SecondCards[column1card2currentIndex].secondCard.title2}
-                  list1={column1SecondCards[column1card2currentIndex].secondCard.list1}
-                  list2={column1SecondCards[column1card2currentIndex].secondCard.list2}
-                />
+                {column1card2currentIndex !== undefined ? (
+                  <CardContentType3
+                    title1={column1SecondCards[column1card2currentIndex].secondCard.title1}
+                    title2={column1SecondCards[column1card2currentIndex].secondCard.title2}
+                    list1={column1SecondCards[column1card2currentIndex].secondCard.list1}
+                    list2={column1SecondCards[column1card2currentIndex].secondCard.list2}
+                  />
+                ) : (
+                  <CardContentType3 questionMark />
+                )}
               </React.Fragment>
             ) : (
               <CardContentType3 image={backCard} />
@@ -311,12 +330,16 @@ class BlocCardGameType1 extends React.Component {
                     onButtonClick={this.handleCard2ButtonClick}
                   />
                 )}
-                <CardContentType3
-                  title1={column2SecondCards[column2card2currentIndex].secondCard.title1}
-                  title2={column2SecondCards[column2card2currentIndex].secondCard.title2}
-                  list1={column2SecondCards[column2card2currentIndex].secondCard.list1}
-                  list2={column2SecondCards[column2card2currentIndex].secondCard.list2}
-                />
+                {column2card2currentIndex !== undefined ? (
+                  <CardContentType3
+                    title1={column2SecondCards[column2card2currentIndex].secondCard.title1}
+                    title2={column2SecondCards[column2card2currentIndex].secondCard.title2}
+                    list1={column2SecondCards[column2card2currentIndex].secondCard.list1}
+                    list2={column2SecondCards[column2card2currentIndex].secondCard.list2}
+                  />
+                ) : (
+                  <CardContentType3 questionMark />
+                )}
               </React.Fragment>
             ) : (
               <CardContentType3 image={backCard} />
@@ -390,12 +413,16 @@ class BlocCardGameType1 extends React.Component {
                     onButtonClick={this.handleCard2ButtonClick}
                   />
                 )}
-                <CardContentType3
-                  title1={column3SecondCards[column3card2currentIndex].secondCard.title1}
-                  title2={column3SecondCards[column3card2currentIndex].secondCard.title2}
-                  list1={column3SecondCards[column3card2currentIndex].secondCard.list1}
-                  list2={column3SecondCards[column3card2currentIndex].secondCard.list2}
-                />
+                {column3card2currentIndex !== undefined ? (
+                  <CardContentType3
+                    title1={column3SecondCards[column3card2currentIndex].secondCard.title1}
+                    title2={column3SecondCards[column3card2currentIndex].secondCard.title2}
+                    list1={column3SecondCards[column3card2currentIndex].secondCard.list1}
+                    list2={column3SecondCards[column3card2currentIndex].secondCard.list2}
+                  />
+                ) : (
+                  <CardContentType3 questionMark />
+                )}
               </React.Fragment>
             ) : (
               <CardContentType3 image={backCard} />

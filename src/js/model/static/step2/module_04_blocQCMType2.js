@@ -1,4 +1,5 @@
 import moduleTypes from '../moduleTypes';
+import button_down_right from '../../../../assets/img/icons/button-down-right.png';
 
 const module_04_blocQCMType2 = {
   position: 1,
@@ -8,7 +9,7 @@ const module_04_blocQCMType2 = {
   duration: 2,
   title: `Srri et objectifs d'investissement`,
   firstDescription: {
-    __html: `Quatre fonds constitués de plusieurs actifs (actions, obligations, titres monétaires) vous sont proposés. Affectez à chacun le niveau de risque et de rendement (SRRI) qui lui correspond à l’aide du bouton et en fonction de plusieurs paramètres&nbsp;: 
+    __html: `Quatre fonds constitués de plusieurs actifs (actions, obligations, titres monétaires) vous sont proposés. Affectez à chacun le niveau de risque et de rendement (SRRI) qui lui correspond à l’aide du bouton  <div class="button-in-description" style="background-image: url(${button_down_right})"></div> et en fonction de plusieurs paramètres&nbsp;: 
     - la proportion d’actions indiquée rend-elle le fonds plus ou moins risqué&nbsp;? 
     - l’objectif d’investissement vise-t-il à encadrer ou limiter le risque du fonds&nbsp;?
 

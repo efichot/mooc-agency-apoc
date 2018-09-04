@@ -1,5 +1,7 @@
 import moduleTypes from '../moduleTypes';
 import { column1, column2, column3 } from './actors';
+import button_down_right from '../../../../assets/img/icons/button-down-right.png';
+import button_up_left from '../../../../assets/img/icons/button-up-left.png';
 
 const module_02_blocCardGameType1 = {
   /*position: 6,*/
@@ -7,7 +9,7 @@ const module_02_blocCardGameType1 = {
   firstDescription: {
     __html: `Ce jeu se déroule en deux temps à partir de cas réels: 
     1. Découvrez ce que fait l'acteur dont vous tirez la casre;
-    2. Trouvez la carte « Besoins et Opérations » qui correspond au cas de cet acteur en faisant défiler les cartes.`,
+    2. Trouvez la carte « Besoins et Opérations » qui correspond au cas de cet acteur en faisant défiler les cartes grâce aux boutons  <div class="button-in-description left" style="background-image: url(${button_up_left})"></div><div class="button-in-description right" style="background-image: url(${button_down_right})"></div>.`,
   },
   /*noChapter: false,*/
   chapter: 'Jeu des acteurs des marchés financiers',

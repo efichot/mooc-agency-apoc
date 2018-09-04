@@ -10,7 +10,7 @@ import Fade from '../transitions/Fade';
 
 class Step7_01 extends React.Component {
   state = {
-    showNextModule: 0
+    showNextModule: 0,
   };
 
   handleShowNextModule = () => {
@@ -36,32 +36,24 @@ class Step7_01 extends React.Component {
           description={step7.module_04_01.description}
           padding={20}
         />
-        <BlocDragAndDropType1
-          in={this.props.in}
-          {...step7.module_04_02}
-          gameIsFinished={this.handleShowNextModule}
-        />
+        <BlocDragAndDropType1 in={this.props.in} {...step7.module_04_02} gameIsFinished={this.handleShowNextModule} />
         <BlocDivider in={stepInStep0} />
         <BlocDragAndDropType1
-          in={stepInStep0}
+          in={this.props.in}
           scrollIntoView={stepInStep0}
           {...step7.module_04_03}
           gameIsFinished={this.handleShowNextModule}
         />
-        <BlocDivider in={stepInStep1} />
-        <BlocVideo
-          in={stepInStep1}
-          scrollIntoView={stepInStep1}
-          {...step7.module_04_04}
-        />
+        <BlocDivider in={this.props.in} />
+        <BlocVideo in={this.props.in} scrollIntoView={stepInStep1} {...step7.module_04_04} />
         <BlocUpAndDownType1
-          in={stepInStep1}
+          in={this.props.in}
           {...step7.module_04_05}
           gameIsFinished={this.handleShowNextModule}
           margins
         />
         <BlocUpAndDownType1
-          in={stepInStep2}
+          in={this.props.in}
           scrollIntoView={stepInStep2}
           {...step7.module_04_06}
           gameIsFinished={this.handleShowNextModule}
@@ -74,7 +66,7 @@ class Step7_01 extends React.Component {
 
 Step7_01.propTypes = {
   context: PropTypes.object.isRequired,
-  endOfModules: PropTypes.func
+  endOfModules: PropTypes.func,
 };
 
 Step7_01.defaultProps = {};

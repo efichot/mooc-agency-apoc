@@ -45,7 +45,7 @@ class BlocCardGameType4 extends React.Component {
         })
     ) {
       this.setState({ victoryMessage: victoryMessages.isGoodAnswerDragAndDropStep5 });
-      this.props.gameIsFinished();
+      // this.props.gameIsFinished();
     }
   }
 
@@ -177,7 +177,11 @@ class BlocCardGameType4 extends React.Component {
                 <div className="popup-victory-container">
                   <PopupBlue
                     classProps="popup-victory"
-                    onCloseClick={() => this.setState({ victoryMessage: undefined })}>
+                    onCloseClick={() => {
+                      this.state.victoryMessage === victoryMessages.isGoodAnswerDragAndDropStep5 &&
+                        this.props.gameIsFinished();
+                      this.setState({ victoryMessage: undefined });
+                    }}>
                     <span className="">{victoryMessage}</span>
                   </PopupBlue>
                 </div>

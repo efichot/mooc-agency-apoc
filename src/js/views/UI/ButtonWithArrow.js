@@ -20,7 +20,11 @@ class ButtonWithArrow extends React.Component {
           onClick={onClick}
           answer={button.action}
         />
-        <div className={`${classOrigin}__arrow`} style={{ backgroundImage: `url(${button_arrow_right})` }} />
+        <div
+          className={`${classOrigin}__arrow`}
+          style={{ backgroundImage: `url(${button_arrow_right})` }}
+          onClick={() => onClick(button.action)}
+        />
       </div>
     );
   }

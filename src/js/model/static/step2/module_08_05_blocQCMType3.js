@@ -1,47 +1,48 @@
 import moduleTypes from '../moduleTypes';
 import image from '../../../../assets/img/step2/module_08_05_blocQCMType3.png';
+import button_down_right from '../../../../assets/img/icons/button-down-right.png';
 
 const choices = [
   {
     value: 'Italie',
-    label: 'Italie'
+    label: 'Italie',
   },
   {
     value: 'France',
-    label: 'France'
+    label: 'France',
   },
   {
     value: 'Allemagne',
-    label: 'Allemagne'
+    label: 'Allemagne',
   },
   {
     value: 'Espagne',
-    label: 'Espagne'
+    label: 'Espagne',
   },
   {
     value: 'Belgique',
-    label: 'Belgique'
+    label: 'Belgique',
   },
   {
     value: 'Pays-Bas',
-    label: 'Pays-Bas'
+    label: 'Pays-Bas',
   },
   {
     value: 'Autriche',
-    label: 'Autriche'
+    label: 'Autriche',
   },
   {
     value: 'Finlande',
-    label: 'Finlande'
+    label: 'Finlande',
   },
   {
     value: 'Irlande',
-    label: 'Irlande'
+    label: 'Irlande',
   },
   {
     value: 'États-Unis',
-    label: 'États-Unis'
-  }
+    label: 'États-Unis',
+  },
 ];
 
 const module_08_05_blocQCMType3 = {
@@ -56,15 +57,15 @@ const module_08_05_blocQCMType3 = {
   firstDescription: {
     __html: `La stratégie d’investissement du fonds actions est-elle défensive ou offensive ?
 
-À partir des données fournies ci-dessous, identifiez les principaux choix sectoriels faits par le gérant du fonds actions C en sélectionnant la bonne réponse
+À partir des données fournies ci-dessous, identifiez les principaux choix sectoriels faits par le gérant du fonds actions C en sélectionnant la bonne réponse grâce au bouton  <div class="button-in-description" style="background-image: url(${button_down_right})"></div>.
 
-    <img src="${image}" alt="extrait de fiche de reporting" />`
+    <img src="${image}" alt="extrait de fiche de reporting" />`,
   },
   questions: [
     {
       questionNumber: 1,
       title: `Quels sont les 2 pays les plus surpondérés ?`,
-      selects: []
+      selects: [],
     },
     {
       questionNumber: 2,
@@ -73,14 +74,14 @@ const module_08_05_blocQCMType3 = {
         {
           selectNumber: 21,
           choices,
-          answer: 'Italie'
+          answer: 'Italie',
         },
         {
           selectNumber: 22,
           choices,
-          answer: 'Espagne'
-        }
-      ]
+          answer: 'Espagne',
+        },
+      ],
     },
     {
       questionNumber: 3,
@@ -89,19 +90,19 @@ const module_08_05_blocQCMType3 = {
         {
           selectNumber: 31,
           choices,
-          answer: 'Italie'
+          answer: 'Italie',
         },
         {
           selectNumber: 32,
           choices,
-          answer: 'Espagne'
-        }
-      ]
+          answer: 'Espagne',
+        },
+      ],
     },
     {
       questionNumber: 4,
       title: `Quels sont les 2 pays les plus sous-pondérés ?`,
-      selects: []
+      selects: [],
     },
     {
       questionNumber: 5,
@@ -110,14 +111,14 @@ const module_08_05_blocQCMType3 = {
         {
           selectNumber: 51,
           choices,
-          answer: 'Allemagne'
+          answer: 'Allemagne',
         },
         {
           selectNumber: 52,
           choices,
-          answer: 'France'
-        }
-      ]
+          answer: 'France',
+        },
+      ],
     },
     {
       questionNumber: 6,
@@ -126,23 +127,23 @@ const module_08_05_blocQCMType3 = {
         {
           selectNumber: 61,
           choices,
-          answer: 'Allemagne'
+          answer: 'Allemagne',
         },
         {
           selectNumber: 62,
           choices,
-          answer: 'Belgique'
-        }
-      ]
-    }
+          answer: 'Belgique',
+        },
+      ],
+    },
   ],
   synthese: {
     firstDescription: {
       __html: `En sensibilité et % d’actif, l’Italie et l’Espagne sont les États les plus surpondérés et l’Allemagne l’État le plus sous-pondéré. Quant à la France, elle occupe la 2ième place pour la sous-pondération en sensibilité, même si la Belgique est le 2ième pays le plus sous-pondéré en % d’actif.
       La répartition en % de l’actif n’est pas forcément révélatrice de l’exposition d’un fonds obligataire. Il faut aussi tenir compte de la sensibilité des titres aux mouvements des taux d’intérêts.
-      La composition du fonds obligataire A au 31/03/2016 le rend donc plus sensible aux mouvements des taux d’intérêt italiens et espagnols, et moins sensible aux mouvements des taux d’intérêt allemands et français que son indice de référence.`
-    }
-  }
+      La composition du fonds obligataire A au 31/03/2016 le rend donc plus sensible aux mouvements des taux d’intérêt italiens et espagnols, et moins sensible aux mouvements des taux d’intérêt allemands et français que son indice de référence.`,
+    },
+  },
 };
 
 export default module_08_05_blocQCMType3;

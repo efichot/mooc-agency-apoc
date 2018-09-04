@@ -23,7 +23,6 @@ class BlocTextToFill extends React.Component {
   }
 
   handleTextFinished = bool => {
-    console.log('bool', bool);
     this.setState({ showNextModule: this.state.showNextModule + 1 });
     if (this.state.showNextModule >= 0) {
       this.props.gameIsFinished(bool);
@@ -66,6 +65,7 @@ class BlocTextToFill extends React.Component {
             <BlocSpacer />
             <TextToFill
               in={showNextModule > 0}
+              scrollIntoView={showNextModule > 0}
               title={title2}
               textToFill={secondText}
               gameIsFinished={this.handleTextFinished}

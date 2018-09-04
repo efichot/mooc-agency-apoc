@@ -1,11 +1,12 @@
 import moduleTypes from '../moduleTypes';
+import button_finger from '../../../../assets/img/icons/button-finger.png';
 
 const module_04_03_blocDragAndDropType1 = {
   /*position: 6.1,*/
   modulType: moduleTypes.blocDragAndDrop1,
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   firstDescription: {
-    __html: `Classez à présent sur un nouvel axe horizontal, «&nbsp;de moins à plus de risque&nbsp;», les portefeuilles (ou fonds) des investisseurs qui ont acheté ces actions à l’aide du bouton et en fonction du degré de risque que présente la composition de leur portefeuille dans le contexte décrit, puis validez.`,
+    __html: `Classez à présent sur un nouvel axe horizontal, «&nbsp;de moins à plus de risque&nbsp;», les portefeuilles (ou fonds) des investisseurs qui ont acheté ces actions à l’aide du bouton  <div class="button-in-description" style="background-image: url(${button_finger})"></div> et en fonction du degré de risque que présente la composition de leur portefeuille dans le contexte décrit, puis validez.`,
   },
   noChapter: false,
   chapter: 'Échelle de risque',

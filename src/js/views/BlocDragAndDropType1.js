@@ -88,7 +88,7 @@ class BlocDragAndDropType1 extends React.Component {
     if (falseAnswers.length === 0) {
       this.setState({ victoryMessage: victoryMessages.isVictory });
       this.setState({ gameIsFinished: true });
-      this.props.gameIsFinished(this.props.module);
+      // this.props.gameIsFinished(this.props.module);
       return;
     } else {
       this.setState({
@@ -139,7 +139,12 @@ class BlocDragAndDropType1 extends React.Component {
             <div className="risk-scale">
               <span className="risk-low">Moins de risque</span>
               {this.state.victoryMessage && (
-                <PopupBlue onCloseClick={() => this.setState({ victoryMessage: undefined })}>
+                <PopupBlue
+                  onCloseClick={() => {
+                    this.state.victoryMessage === victoryMessages.isVictory &&
+                      this.props.gameIsFinished(this.props.module);
+                    this.setState({ victoryMessage: undefined });
+                  }}>
                   <span className="">{this.state.victoryMessage}</span>
                 </PopupBlue>
               )}

@@ -28,7 +28,7 @@ class BlocQCMType4 extends React.Component {
         },
       },
     });
-    this.setState({ victoryMessage: null });
+    this.setState({ victoryMessage: undefined });
     this.setState({ gameIsFinished: false });
   };
 
@@ -50,7 +50,7 @@ class BlocQCMType4 extends React.Component {
     if (correct) {
       this.setState({ victoryMessage: victoryMessages.isGoodAnswer });
       this.setState({ gameIsFinished: true });
-      this.props.gameIsFinished(this.state.gameIsFinished);
+      // this.props.gameIsFinished(this.state.gameIsFinished);
     } else {
       this.setState({
         victoryMessage: victoryMessages.isDefeat,
@@ -162,7 +162,12 @@ class BlocQCMType4 extends React.Component {
               </div>
             ))}
             {victoryMessage && (
-              <PopupBlue onCloseClick={() => this.setState({ victoryMessage: undefined })}>
+              <PopupBlue
+                onCloseClick={() => {
+                  victoryMessage === victoryMessages.isGoodAnswer &&
+                    this.props.gameIsFinished(this.state.gameIsFinished);
+                  this.setState({ victoryMessage: undefined });
+                }}>
                 <span className="">{this.state.victoryMessage}</span>
               </PopupBlue>
             )}

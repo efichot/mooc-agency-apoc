@@ -35,8 +35,8 @@ const module_02_blocEnSavoirPlusType1 = {
       cardSubTitle: `cf. Glossaire`,
     },
     {
-      color: 'var(--mixte)',
-      hoverColor: 'var(--mixteOpaque)',
+      color: 'linear-gradient(to right, var(--action), var(--obligation), var(--monetaire))',
+      hoverColor: 'linear-gradient(to right, var(--actionOpaque), var(--obligationOpaque), var(--monetaireOpaque))',
       startPosition: 3,
       arrowFollowing: false,
       cardTitle: `Indices composites`,

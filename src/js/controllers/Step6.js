@@ -24,9 +24,9 @@ class Step6 extends React.Component {
   state = {
     show_01: false,
     show_02: false,
-    show_03: true,
+    show_03: false,
     show_04: false,
-    showNextModule: 1,
+    showNextModule: 0,
     showSynthese: false,
     showQuiz: false,
     reset: false,
@@ -88,7 +88,7 @@ class Step6 extends React.Component {
     const isStep6 = this.props.match.path === '/step6';
 
     const stepInStep0 = showNextModule > 0;
-    const stepInStep1 = showNextModule > 1;
+    // const stepInStep1 = showNextModule > 1;
     /*const stepInStep6 = showNextModule > 2;*/
 
     return (
@@ -116,7 +116,7 @@ class Step6 extends React.Component {
                   <BlocDivider in={show_01 && stepInStep0} />
                   <BlocQCMType4
                     {...step6.module_03_02}
-                    in={show_01 && stepInStep0}
+                    in={show_01}
                     scrollIntoView={show_01 && stepInStep0}
                     selectedRow={(show_01 && stepInStep0 && selectedRow) || 0}
                     gameIsFinished={this.handleShowNextModule}
@@ -124,7 +124,7 @@ class Step6 extends React.Component {
                   <BlocDivider />
                   <BlocEnSavoirPlusType3
                     {...step6.module_03_03}
-                    in={show_01 && stepInStep1}
+                    in={show_01}
                     // scrollIntoView={show_01 && stepInStep1}
                   />
                   <BlocCardsType1
@@ -136,7 +136,7 @@ class Step6 extends React.Component {
                   <BlocDivider in={show_02 && stepInStep0} />
                   <BlocQCMType4
                     {...step6.module_04_02}
-                    in={show_02 && stepInStep0}
+                    in={show_02}
                     scrollIntoView={show_02 && stepInStep0}
                     selectedRow={(show_02 && stepInStep0 && selectedRow) || 0}
                     gameIsFinished={this.handleShowNextModule}
@@ -144,7 +144,7 @@ class Step6 extends React.Component {
                   <BlocDivider />
                   <BlocEnSavoirPlusType1
                     {...step6.module_04_03}
-                    in={show_02 && stepInStep1}
+                    in={show_02}
                     // scrollIntoView={show_02 && stepInStep1}
                   />
                   <BlocCardsType1
@@ -157,14 +157,14 @@ class Step6 extends React.Component {
                   {selectedRow !== 2 ? (
                     <BlocQCMType4
                       {...step6.module_05_02}
-                      in={show_03 && stepInStep0}
+                      in={show_03}
                       scrollIntoView={show_03 && stepInStep0}
                       selectedRow={(show_03 && stepInStep0 && selectedRow) || 0}
                       gameIsFinished={this.handleShowNextModule}
                     />
                   ) : (
                     <BlocVideo
-                      in={show_03 && stepInStep0}
+                      in={show_03}
                       scrollIntoView={show_03 && stepInStep0}
                       {...step6.module_05_03}
                       onButtonClick={this.handleShow3Back}
@@ -173,7 +173,7 @@ class Step6 extends React.Component {
                   <BlocDivider />
                   <BlocEnSavoirPlusType1
                     {...step6.module_05_04}
-                    in={show_03 && stepInStep1}
+                    in={show_03}
                     // scrollIntoView={show_03 && stepInStep1}
                   />
                   <BlocVideo in={show_04} scrollIntoView={show_04} {...step6.module_06_01} />

@@ -71,13 +71,13 @@ class Step2 extends React.Component {
   };
 
   render() {
-    const { show_01, show_02, show_03, show_04, showSynthese, showQuiz /*showNextModule*/ } = this.state;
+    const { show_01, show_02, show_03, show_04, showSynthese, showQuiz, showNextModule } = this.state;
 
     // const mainThread = !show_01 && !show_02 && !show_03 && !show_04;
 
     const isStep2 = this.props.match.path === '/step2';
 
-    // const stepInStep0 = showNextModule > 0;
+    const stepInStep0 = showNextModule > 0;
     /*const stepInStep1 = showNextModule > 1;
     const stepInStep2 = showNextModule > 2;*/
 
@@ -108,7 +108,7 @@ class Step2 extends React.Component {
                   <BlocVideo
                     in={isStep2 /* && mainThread*/}
                     // in={stepInStep0 && mainThread}
-                    // scrollIntoView={stepInStep0 && mainThread}
+                    scrollIntoView={stepInStep0}
                     {...step2.module_05}
                   />
                   <BlocSpacer />
@@ -123,11 +123,11 @@ class Step2 extends React.Component {
                   <Step203 in={show_03} context={step2} endOfModules={this.handleShowSynthese} />
                   <Step204 in={show_04} context={step2} endOfModules={this.handleShowSynthese} />
 
-                  {showSynthese && (
+                  {(showSynthese || show_01 || show_02 || show_03 || show_04) && (
                     <div className="step2__synthese step__synthese bloc">
                       <BlocSubMenu1
                         {...step2.module_06}
-                        in={showSynthese}
+                        in={showSynthese || show_01 || show_02 || show_03 || show_04}
                         scrollIntoView={showSynthese}
                         action={this.changeMarketToShow}
                         noDescription

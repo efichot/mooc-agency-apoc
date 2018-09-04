@@ -18,7 +18,7 @@ class BlocQCMType1 extends React.Component {
 
   handleClick = answer => {
     this.setState({ buttonActive: answer });
-    this.setState({ victoryMessage: null });
+    this.setState({ victoryMessage: undefined });
     this.setState({ gameIsFinished: false });
   };
 
@@ -26,7 +26,7 @@ class BlocQCMType1 extends React.Component {
     if (this.state.buttonActive === this.state.correctAnswer) {
       this.setState({ victoryMessage: victoryMessages.isGoodAnswer });
       this.setState({ gameIsFinished: true });
-      this.props.gameIsFinished(this.state.gameIsFinished);
+      // this.props.gameIsFinished(this.state.gameIsFinished);
     } else {
       this.setState({
         victoryMessage: victoryMessages.isDefeat,
@@ -81,7 +81,12 @@ class BlocQCMType1 extends React.Component {
             })}
           </div>
           {this.state.victoryMessage && (
-            <PopupBlue>
+            <PopupBlue
+              onCloseClick={() => {
+                this.state.victoryMessage === victoryMessages.isGoodAnswer &&
+                  this.props.gameIsFinished(this.state.gameIsFinished);
+                this.setState({ victoryMessage: undefined });
+              }}>
               <span className="">{this.state.victoryMessage}</span>
             </PopupBlue>
           )}

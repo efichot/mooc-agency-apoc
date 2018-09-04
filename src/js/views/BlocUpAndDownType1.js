@@ -22,9 +22,11 @@ class BlocUpAndDownType1 extends React.Component {
   };
 
   handleArrowClick = e => {
-    this.setState({ reset: false });
-    this.setState({ victoryMessage: undefined });
-    this.setState({ gameIsFinished: false });
+    this.setState({
+      reset: false,
+      victoryMessage: undefined,
+      gameIsFinished: false,
+    });
     if (e.target.dataset.moveRow === 'up') {
       if (this.state.positions[`${e.target.dataset.column}`] === 0) {
         return;
@@ -51,7 +53,7 @@ class BlocUpAndDownType1 extends React.Component {
     if (falseAnswers.length === 0) {
       this.setState({ victoryMessage: victoryMessages.isVictory });
       this.setState({ gameIsFinished: true });
-      this.props.gameIsFinished(this.state.gameIsFinished);
+      // this.props.gameIsFinished(this.state.gameIsFinished);
       return;
     } else {
       this.setState({
@@ -62,9 +64,11 @@ class BlocUpAndDownType1 extends React.Component {
   };
 
   reset() {
-    this.setState({ reset: true });
-    this.setState({ victoryMessage: undefined });
-    this.setState({ gameIsFinished: false });
+    this.setState({
+      reset: true,
+      victoryMessage: undefined,
+      gameIsFinished: false,
+    });
   }
 
   componentWillMount() {
@@ -173,7 +177,12 @@ class BlocUpAndDownType1 extends React.Component {
         <div className="bloc-up-and-down-type-1__buttons">
           <ButtonPrimary minWidth name="Recommencer" onClick={this.reset} />
           {this.state.victoryMessage && (
-            <PopupBlue>
+            <PopupBlue
+              onCloseClick={() => {
+                this.state.victoryMessage === victoryMessages.isVictory &&
+                  this.props.gameIsFinished(this.state.gameIsFinished);
+                this.setState({ victoryMessage: undefined });
+              }}>
               <span className="">{this.state.victoryMessage}</span>
             </PopupBlue>
           )}

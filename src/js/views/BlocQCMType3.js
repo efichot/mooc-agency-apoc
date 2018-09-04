@@ -84,7 +84,7 @@ class BlocQCMType3 extends React.Component {
       const victoryMessage = { __html: victoryMessages.isGoodAnswer };
       this.setState({ victoryMessage });
       this.setState({ gameIsFinished: true });
-      this.props.gameIsFinished(this.state.gameIsFinished);
+      // this.props.gameIsFinished(this.state.gameIsFinished);
     } else {
       const victoryMessage = {
         __html: victoryMessages.isDefeatHTML,
@@ -176,7 +176,11 @@ class BlocQCMType3 extends React.Component {
             <PopupBlueInnerHtml
               classProps="bloc-QCM-type-3__victory-message"
               description={victoryMessage}
-              onCloseClick={() => this.setState({ victoryMessage: undefined })}
+              onCloseClick={() => {
+                victoryMessage.__html === victoryMessages.isGoodAnswer &&
+                  this.props.gameIsFinished(this.state.gameIsFinished);
+                this.setState({ victoryMessage: undefined });
+              }}
             />
           )}
           <ButtonPrimary

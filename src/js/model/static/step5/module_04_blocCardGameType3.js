@@ -1,11 +1,13 @@
 import moduleTypes from '../moduleTypes';
 import { column3, column1, column2 } from './actors';
+import button_down_right from '../../../../assets/img/icons/button-down-right.png';
+import button_up_left from '../../../../assets/img/icons/button-up-left.png';
 
 const module_04_blocCardGameType3 = {
   /*position: 6,*/
   modulType: moduleTypes.blocCardGameType3,
   firstDescription: {
-    __html: `Qui intéragit avec qui ? Sélectionnez les acteurs manquants et validez quand tous ont été identifiés.`,
+    __html: `Qui intéragit avec qui ? Sélectionnez les acteurs manquants  grâce aux boutons  <div class="button-in-description left" style="background-image: url(${button_up_left})"></div><div class="button-in-description right" style="background-image: url(${button_down_right})"></div> et validez quand tous ont été identifiés. Pensez à fermer les pop-ups !`,
   },
   /*noChapter: false,*/
   chapter: 'Jeu des acteurs des marchés financiers',

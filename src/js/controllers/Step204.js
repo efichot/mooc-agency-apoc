@@ -10,10 +10,6 @@ class Step2_04 extends React.Component {
     showNextModule: 0,
   };
 
-  componentDidMount() {
-    console.log('componentDidMount');
-  }
-
   handleShowNextModule = () => {
     console.log('handleShowNextModule 204');
     this.setState({ showNextModule: this.state.showNextModule + 1 });
@@ -39,13 +35,13 @@ class Step2_04 extends React.Component {
         />
         <BlocSpacer />
         <BlocLink
-          in={stepInStep0}
+          in={this.props.in}
           scrollIntoView={stepInStep0}
           {...step2.module_10_02}
           onClick={this.handleShowNextModule}
         />
-        <BlocLink in={stepInStep1} scrollIntoView={stepInStep1} {...step2.module_10_03} />
-        <BlocLink in={stepInStep1} {...step2.module_10_04} />
+        <BlocLink in={this.props.in} scrollIntoView={stepInStep1} {...step2.module_10_03} />
+        <BlocLink in={this.props.in} {...step2.module_10_04} />
       </React.Fragment>
     );
   }

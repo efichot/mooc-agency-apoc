@@ -1,11 +1,12 @@
 import moduleTypes from '../moduleTypes';
+import button_finger from '../../../../assets/img/icons/button-finger.png';
 
 const module_05_03_blocDragAndDrop1 = {
   /*position: 9,*/
   modulType: moduleTypes.blocDragAndDrop1,
   /*linkWithBlocSubMenu1ButtonPosition: 2,*/
   firstDescription: {
-    __html: `Classez sur l’axe horizontal, « de moins à plus de risque », les obligations d’État ci-dessous en fonction de plusieurs paramètres&nbsp;: 
+    __html: `Classez sur l’axe horizontal, « de moins à plus de risque », les obligations d’État ci-dessous à l’aide du bouton  <div class="button-in-description" style="background-image: url(${button_finger})"></div> en fonction de plusieurs paramètres&nbsp;: 
     - la visibilité est-elle meilleure à 5 ou 10 ans&nbsp;? 
     - quel État est le mieux noté et le plus solide dans le contexte économique décrit&nbsp;? 
 

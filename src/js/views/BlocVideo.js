@@ -22,7 +22,7 @@ class BlocVideo extends React.Component {
       player
         .getDuration()
         .then(duration => {
-          this.setState({ durationInMinutes: Math.ceil(duration / 60) });
+          this.setState({ durationInMinutes: duration / 60 });
         })
         .catch(error => {
           console.error('no duration for the video');
@@ -62,10 +62,6 @@ class BlocVideo extends React.Component {
             className="video bloc-video__video"
             position="relative"
             display="block"
-            styles={{
-              width: '100%',
-              height: 'auto',
-            }}
             allowFullScreen
             frameBorder="0"
           />

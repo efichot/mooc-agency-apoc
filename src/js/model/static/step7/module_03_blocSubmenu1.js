@@ -1,10 +1,11 @@
 import moduleTypes from '../moduleTypes';
+import button_finger from '../../../../assets/img/icons/button-arrow-right.png';
 
 const module_03_blocSubmenu1 = {
   /*position: 4,*/
   modulType: moduleTypes.blocSubMenuType1,
   description: {
-    __html: `Choisissez le marché financier (actions, obligations, monétaire) sur lequel vous souhaitez d’abord travailler&nbsp;:`,
+    __html: `Choisissez le marché financier (actions, obligations, monétaire) sur lequel vous souhaitez d’abord travailler à l'aide du bouton  <div class="button-in-description" style="background-image: url(${button_finger})"></div>&nbsp;:`,
   },
   buttons: [
     {

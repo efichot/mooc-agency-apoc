@@ -26,10 +26,7 @@ class BlocSubMenu1 extends React.Component {
                 classOrigin="bloc-sub-menu-1"
                 key={button.action}
                 button={button}
-                onClick={value => {
-                  console.log('value', value);
-                  action(value);
-                }}
+                onClick={value => action(value)}
               />
             );
           })}

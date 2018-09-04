@@ -13,6 +13,7 @@ const module_02_blocSimulator = {
     À la fin de la simulation, pensez à refermer la fenêtre ouverte pour revenir au parcours&nbsp;!`,
   },
   backgroundImage,
+  backgroundColor: 'rgba(255,255,255,1.00)',
   /*secondDescription: {
     __html: ``
   },*/

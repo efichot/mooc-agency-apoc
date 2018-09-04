@@ -23,7 +23,7 @@
         .button-groupe {
           flex-grow: 1;
           flex-shrink: 1;
-          max-width: 50%;
+          // max-width: 50%;
         }
 
         .select-QCM-type-2 {
@@ -104,7 +104,10 @@
     .button-groupe {
       flex-grow: 1;
       flex-shrink: 1;
-      max-width: 30%;
+      // max-width: 30%;
+      .button {
+        align-items: flex-start;
+      }
     }
   }
 

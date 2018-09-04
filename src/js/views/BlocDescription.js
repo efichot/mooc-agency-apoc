@@ -12,7 +12,7 @@ class BlocDescription extends React.Component {
 
       return (
         <Fade in={this.props.in} scrollIntoView={scrollIntoView} margins={this.props.margins} classProps={classProps}>
-          <p
+          <div
             className={`bloc bloc-description ${classProps}`}
             dangerouslySetInnerHTML={description}
             style={{ padding: `${padding}px` }}
@@ -22,9 +22,9 @@ class BlocDescription extends React.Component {
     } else {
       return (
         <Fade>
-          <p className={`bloc bloc-description${classProps}`} style={{ padding: `${padding}px` }}>
+          <div className={`bloc bloc-description${classProps}`} style={{ padding: `${padding}px` }}>
             {description}
-          </p>
+          </div>
         </Fade>
       );
     }

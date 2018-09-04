@@ -58,7 +58,7 @@ ButtonWithDoubleArrow.propTypes = {
   name: PropTypes.string,
   value: PropTypes.string,
   noButton: PropTypes.bool,
-  answer: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
+  answer: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 ButtonWithDoubleArrow.defaultProps = {

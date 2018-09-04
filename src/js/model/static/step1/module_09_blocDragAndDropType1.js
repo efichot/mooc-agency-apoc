@@ -2,13 +2,14 @@ import moduleTypes from '../moduleTypes';
 import img1 from '../../../../assets/img/step1/module_09_01.png';
 import img2 from '../../../../assets/img/step1/module_09_02.png';
 import img3 from '../../../../assets/img/step1/module_09_03.png';
+import button_finger from '../../../../assets/img/icons/button-finger.png';
 
 const module_09_blocDragAndDropType1 = {
   /*position: 6.1,*/
   modulType: moduleTypes.blocDragAndDrop1,
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   firstDescription: {
-    __html: `Classez sur l’axe horizontal, «&nbsp;de moins à plus de risque&nbsp;», les fonds ci-dessous à l’aide du bouton et en fonction de l’évolution plus ou moins régulière de leur performance, puis validez.`,
+    __html: `Classez sur l’axe horizontal, «&nbsp;de moins à plus de risque&nbsp;», les fonds ci-dessous à l’aide du bouton  <div class="button-in-description" style="background-image: url(${button_finger})"></div> et en fonction de l’évolution plus ou moins régulière de leur performance, puis validez.`,
   },
   noChapter: false,
   chapter: 'Échelle de risque',

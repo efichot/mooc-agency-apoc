@@ -45,16 +45,16 @@ class Step4 extends React.Component {
             return (
               <React.Fragment>
                 <BlocStep step={step4.linkStep} />
-                <BlocStepTopContent step={step4} in={isStep4} />
+                <BlocStepTopContent step={step4} in={isStep4} scrollIntoView={isStep4} />
                 <BlocLink in={isStep4} {...step4.module_02} onClick={this.handleShowNextModule} />
-                <BlocLink in={stepInStep1} scrollIntoView={stepInStep1} {...step4.module_03} />
-                <BlocLink in={stepInStep1} {...step4.module_04} />
-                <BlocLink in={stepInStep1} {...step4.module_05} />
-                <BlocLink in={stepInStep1} {...step4.module_06} />
-                <BlocLink in={stepInStep1} {...step4.module_07} />
-                <BlocLink in={stepInStep1} {...step4.module_08} />
-                <BlocLink in={stepInStep1} {...step4.module_09} />
-                <BlocLink in={stepInStep1} {...step4.module_10} />
+                <BlocLink in={isStep4} scrollIntoView={stepInStep1} {...step4.module_03} />
+                <BlocLink in={isStep4} {...step4.module_04} />
+                <BlocLink in={isStep4} {...step4.module_05} />
+                <BlocLink in={isStep4} {...step4.module_06} />
+                <BlocLink in={isStep4} {...step4.module_07} />
+                <BlocLink in={isStep4} {...step4.module_08} />
+                <BlocLink in={isStep4} {...step4.module_09} />
+                <BlocLink in={isStep4} {...step4.module_10} />
                 <BlocDragAndDropType2 in={isStep4} {...step4.module_11} gameIsFinished={this.handleGameIsFinished} />
                 <BlocQuiz in={stepInStep2} {...step4.module_12} />
               </React.Fragment>

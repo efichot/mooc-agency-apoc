@@ -72,30 +72,30 @@ class Step7 extends React.Component {
                   <Step702 in={show_02} context={step7} endOfModules={this.handleShowSynthese} />
                   <Step703 in={show_03} context={step7} endOfModules={this.handleShowSynthese} />
 
-                  {showSynthese && (
+                  {isStep7 && (
                     <div className="step7__synthese step__synthese bloc">
                       <BlocSpacer />
-                      <span className="bloc__name">{step7.module_07.name}</span>
+                      {(show_01 || show_02 || show_03) && <span className="bloc__name">{step7.module_07.name}</span>}
                       <BlocDescription
-                        in={showSynthese && show_01}
+                        in={show_01}
                         scrollIntoView={showSynthese && show_01}
                         modulType={step7.module_07.modulType}
                         description={step7.module_07.description_1}
                       />
                       <BlocDescription
-                        in={showSynthese && show_02}
+                        in={show_02}
                         scrollIntoView={showSynthese && show_02}
                         modulType={step7.module_07.modulType}
                         description={step7.module_07.description_2}
                       />
                       <BlocDescription
-                        in={showSynthese && show_03}
+                        in={show_03}
                         scrollIntoView={showSynthese && show_03}
                         modulType={step7.module_07.modulType}
                         description={step7.module_07.description_3}
                       />
                       <BlocSubMenu1
-                        in={showSynthese}
+                        in={show_01 || show_02 || show_03}
                         {...step7.module_03}
                         action={this.changeMarketToShow}
                         noDescription

@@ -5,7 +5,7 @@
   background: var(--popupBgColor);
   color: var(--popupContentColor);
   font-size: 0.95rem;
-  pointer-events: none;
+  // pointer-events: none;
   .cross {
     position: absolute;
     top: 10px;
@@ -13,4 +13,5 @@
     cursor: pointer;
     pointer-events: initial;
   }
+  z-index: 1;
 }

@@ -10,7 +10,7 @@ import Fade from '../transitions/Fade';
 
 class Step7_03 extends React.Component {
   state = {
-    showNextModule: 0
+    showNextModule: 0,
   };
 
   handleShowNextModule = () => {
@@ -33,17 +33,9 @@ class Step7_03 extends React.Component {
         />
         <BlocEnSavoirPlusType1 in={this.props.in} {...step7.module_06_02} />
         <BlocDivider in={this.props.in} />
-        <BlocQCMType1
-          in={this.props.in}
-          {...step7.module_06_03}
-          gameIsFinished={this.handleShowNextModule}
-        />
-        <BlocDivider in={stepInStep0} />
-        <BlocVideo
-          in={stepInStep0}
-          scrollIntoView={stepInStep0}
-          {...step7.module_06_04}
-        />
+        <BlocQCMType1 in={this.props.in} {...step7.module_06_03} gameIsFinished={this.handleShowNextModule} />
+        <BlocDivider in={this.props.in} />
+        <BlocVideo in={this.props.in} scrollIntoView={stepInStep0} {...step7.module_06_04} />
       </Fade>
     );
   }
@@ -52,11 +44,11 @@ class Step7_03 extends React.Component {
 Step7_03.propTypes = {
   in: PropTypes.bool,
   context: PropTypes.object.isRequired,
-  endOfModules: PropTypes.func.isRequired
+  endOfModules: PropTypes.func.isRequired,
 };
 
 Step7_03.defaultProps = {
-  in: false
+  in: false,
 };
 
 export default Step7_03;

@@ -17,9 +17,11 @@
       &--question {
         display: flex;
         justify-content: space-between; 
+        align-items: center;
 
         .button-groupe {
           width: 80%;
+          align-items: flex-start;
         }
 
         .button-primary {
@@ -29,6 +31,7 @@
           text-transform: unset;
           text-align: left;
           justify-content: flex-start;
+          align-items: flex-start;
           // max-width: 75%;
         }
       }

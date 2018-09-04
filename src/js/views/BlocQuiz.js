@@ -47,13 +47,14 @@ class BlocQuiz extends React.Component {
     if (this.state.victoryMessage === popupVictoryMessage) {
       return;
     }
-    this.setState({ buttonActive: answer });
-    this.setState({ victoryMessage: undefined });
-    this.setState({ gameIsFinished: false });
+    this.setState({
+      buttonActive: answer,
+      victoryMessage: undefined,
+      gameIsFinished: false,
+    });
   };
 
   handleValidate = e => {
-    this.setState({ help: true });
     if (this.state.buttonActive === this.state.correctAnswer) {
       if (this.state.victoryMessage === popupVictoryMessage) {
         this.showNextQuestion();
@@ -66,15 +67,24 @@ class BlocQuiz extends React.Component {
         this.showNextQuestion();
         return;
       }
-      this.setState({ victoryMessage: popupDefeatMessage });
-      this.setState({ victoryMessageIsVisible: true });
+      if (this.state.currentQuestionIndex === this.state.questions.length - 1) {
+        this.setState({
+          victoryMessage: victoryMessages.isDefeatQuizFinished,
+          victoryMessageIsVisible: true,
+        });
+      } else {
+        this.setState({
+          victoryMessage: popupDefeatMessage,
+          victoryMessageIsVisible: true,
+        });
+      }
     }
   };
 
   showNextQuestion = async () => {
     const { currentQuestionIndex, questions } = this.state;
 
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < questions.length - 1) {
       const nextQIndex = currentQuestionIndex + 1;
       this.setState({ currentQuestionIndex: nextQIndex });
       this.setTheCorrectAnswer(questions[nextQIndex]);
@@ -170,19 +180,24 @@ class BlocQuiz extends React.Component {
                     classProps={`popup-blue__victory-message`}
                     hidePopup={!victoryMessageIsVisible}
                     onCloseClick={() => {
-                      console.log('ta gugle');
-                      this.setState({ victoryMessageIsVisible: false });
+                      if (currentQuestionIndex === questions.length - 1) {
+                        this.setState({ help: true, victoryMessage: victoryMessages.quizIsOver });
+                      } else {
+                        this.setState({ help: true, victoryMessageIsVisible: false });
+                      }
                     }}>
                     <span>{victoryMessage}</span>
                   </PopupBlue>
                 )}
               </div>
-              <ButtonPrimary
-                minWidth
-                name={victoryMessage !== undefined ? 'suivant' : 'valider'}
-                onClick={this.handleValidate}
-                classProps={`bloc-quiz__validate`}
-              />
+              {!(currentQuestionIndex === questions.length - 1 && victoryMessage !== undefined) && (
+                <ButtonPrimary
+                  minWidth
+                  name={victoryMessage !== undefined ? 'suivant' : 'valider'}
+                  onClick={this.handleValidate}
+                  classProps={`bloc-quiz__validate`}
+                />
+              )}
             </div>
             {help && <PopupBlueInnerHtml classes={`popup-blue__explication`} description={explication} noCross />}
           </React.Fragment>

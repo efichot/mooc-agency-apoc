@@ -1,11 +1,12 @@
 import moduleTypes from '../moduleTypes';
+import button_finger from '../../../../assets/img/icons/button-finger.png';
 
 const module_04_02_blocDragAndDropType1 = {
   /*position: 6,*/
   modulType: moduleTypes.blocDragAndDrop1,
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   firstDescription: {
-    __html: `Classez sur l’axe horizontal, « de moins à plus de risque », les entreprises ci-dessous en fonction de plusieurs paramètres&nbsp;: 
+    __html: `Classez sur l’axe horizontal, « de moins à plus de risque », les entreprises ci-dessous à l’aide du bouton  <div class="button-in-description" style="background-image: url(${button_finger})"></div> en fonction de plusieurs paramètres&nbsp;: 
       - pour être moins sensible au marché boursier, vaut-il mieux être cotée ou non&nbsp;? 
       - l’activité et la stratégie de l’entreprise résistent-elles plus ou moins bien à la crise&nbsp;? 
       - ses ventes se concentrent-elles sur une zone géographique plus ou moins touchée par la crise&nbsp;? 

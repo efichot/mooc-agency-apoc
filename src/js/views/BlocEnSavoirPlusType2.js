@@ -7,6 +7,7 @@ import ButtonPrimary from './UI/ButtonPrimary';
 import PopupBlue from './UI/PopupBlue';
 import PopupBlueInnerHtml from './UI/PopupBlueInnerHtml';
 import Fade from '../transitions/Fade';
+import victoryMessages from '../model/static/popupBlueMessages';
 
 import arrowDown from '../../assets/img/icons/arrow-down.png';
 
@@ -40,19 +41,23 @@ class BlocEnSavoirPlusType2 extends React.Component {
   };
 
   handleClick = answer => {
-    this.setState({ buttonAnswer: answer });
-    this.setState({ victoryMessage: undefined });
-    this.setState({ gameIsFinished: false });
+    this.state.victoryMessage === victoryMessages.isVictory && this.props.gameIsFinished(this.state.gameIsFinished);
+    this.setState({
+      buttonAnswer: answer,
+      victoryMessage: undefined,
+      gameIsFinished: false,
+    });
   };
 
-  handleValidate = async e => {
+  handleValidate = e => {
     if (this.state.buttonAnswer === this.state.correctAnswer) {
-      this.setState({ victoryMessage: `Bravo ! C'est la bonne réponse.` });
-      await this.setState({ gameIsFinished: true });
-      this.props.gameIsFinished(this.state.gameIsFinished);
+      this.setState({
+        victoryMessage: victoryMessages.isVictory,
+        gameIsFinished: true,
+      });
     } else {
       this.setState({
-        victoryMessage: `Ce n'est pas la bonne réponse. Réessayez !`,
+        victoryMessage: victoryMessages.isDefeat,
       });
     }
   };

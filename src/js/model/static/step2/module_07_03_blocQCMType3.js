@@ -1,5 +1,6 @@
 import moduleTypes from '../moduleTypes';
 import image from '../../../../assets/img/step2/module_07_03_blocQCMType3.png';
+import button_down_right from '../../../../assets/img/icons/button-down-right.png';
 
 const module_07_03_blocQCMType3 = {
   position: 1,
@@ -12,7 +13,7 @@ const module_07_03_blocQCMType3 = {
   firstDescription: {
     __html: `Un fonds peut-il être performant tout en délivrant une performance négative&nbsp;? 
 
-    À partir des données fournies ci-dessous, qualifiez les performances du fonds B en sélectionnant les bonnes réponses.
+    À partir des données fournies ci-dessous, qualifiez les performances du fonds B en sélectionnant les bonnes réponses grâce au bouton  <div class="button-in-description" style="background-image: url(${button_down_right})"></div>.
 
     <img src="${image}" alt="extrait de fiche de reporting" />`,
   },

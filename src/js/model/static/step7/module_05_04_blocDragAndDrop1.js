@@ -1,11 +1,12 @@
 import moduleTypes from '../moduleTypes';
+import button_finger from '../../../../assets/img/icons/button-finger.png';
 
 const module_05_04_blocDragAndDrop1 = {
   /*position: 9,*/
   modulType: moduleTypes.blocDragAndDrop1,
   /*linkWithBlocSubMenu1ButtonPosition: 2,*/
   firstDescription: {
-    __html: `Faites de même pour les obligations d’entreprise ci-dessous&nbsp;: 
+    __html: `Faites de même pour les obligations d’entreprise ci-dessous à l’aide du bouton  <div class="button-in-description" style="background-image: url(${button_finger})"></div>&nbsp;: 
 - quel secteur d’activité résiste le mieux à la crise&nbsp;? 
 - quelle visibilité donne la durée de l’obligation&nbsp;? 
 - les ventes ou le résultat sont-ils concentrés sur une zone géographique très touchée par la crise&nbsp;? 

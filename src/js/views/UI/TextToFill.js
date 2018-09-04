@@ -126,12 +126,12 @@ class TextToFill extends React.Component {
   };
 
   render() {
-    const { textToFill, title } = this.props;
+    const { textToFill, title, scrollIntoView } = this.props;
 
     const { gameIsFinished, victoryMessage, checkValidated, reset, showAnswers, highlightUnchecked } = this.state;
 
     return (
-      <Fade in={this.props.in}>
+      <Fade in={this.props.in} scrollIntoView={scrollIntoView}>
         {title && <span className="bloc__name">{title}</span>}
         <div className="bloc-text-to-fill__text">
           {textToFill.map(text => {
@@ -209,6 +209,7 @@ class TextToFill extends React.Component {
 
 TextToFill.propTypes = {
   in: PropTypes.bool,
+  scrollIntoView: PropTypes.bool,
   gameIsFinished: PropTypes.func,
   title: PropTypes.string,
   textToFill: PropTypes.arrayOf(
@@ -230,6 +231,7 @@ TextToFill.propTypes = {
 
 TextToFill.defaultProps = {
   in: false,
+  scrollIntoView: false,
   gameIsFinished: () => {
     return;
   },

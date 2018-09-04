@@ -23,6 +23,7 @@ class BlocSimulatorsExternalLink extends React.Component {
       chapter,
       firstDescription,
       backgroundImage,
+      backgroundColor,
       secondDescription,
       button,
       link,
@@ -44,7 +45,7 @@ class BlocSimulatorsExternalLink extends React.Component {
           rel="noopener noreferrer">
           <div
             className="bloc-simulator__background-img"
-            style={{ height, backgroundImage: `url(${backgroundImage})` }}
+            style={{ height, backgroundImage: `url(${backgroundImage})`, backgroundColor }}
           />
         </a>
         <BlocSpacer />

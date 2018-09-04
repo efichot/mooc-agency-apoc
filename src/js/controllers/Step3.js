@@ -51,7 +51,7 @@ class Step3 extends React.Component {
   };
 
   handleShowSynthese = bool => {
-    this.setState({ showSynthese: bool });
+    this.setState({ showSynthese: true });
     this.setState({ reset: false });
   };
 
@@ -135,12 +135,12 @@ class Step3 extends React.Component {
                       reset={this.state.reset}
                     />
                   )}
-                  {showSynthese && (
+                  {(showSynthese || show_01 || show_02 || show_03 || show_04) && (
                     <div className="step3__synthese step__synthese bloc">
                       <BlocSubMenu1
                         {...step3.module_02}
-                        in={showSynthese}
-                        scrollIntoView={showSynthese}
+                        in={showSynthese || show_01 || show_02 || show_03 || show_04}
+                        // scrollIntoView={showSynthese}
                         action={this.changeMarketToShow}
                         noDescription
                       />

@@ -61,7 +61,7 @@ class Step1 extends React.Component {
     } else {
       this.setState({ fund: 'Fonds de type mixte' });
     }
-    this.handleShowNextModule(module);
+    module && this.handleShowNextModule(module);
   };
 
   handleShowNextModule = async module => {
@@ -91,37 +91,33 @@ class Step1 extends React.Component {
                   <BlocStep step={step1.linkStep} />
                   <BlocStepTopContent in={isStep1} step={step1} scrollIntoView={isStep1} />
                   <BlocDivider in={isStep1} />
-                  <BlocSimulatorsExternalLink in={isStep1} {...step1.module_02} />
-                  <BlocSimulatorsExternalLink in={isStep1} height={350} {...step1.module_03} />
+                  <BlocSimulatorsExternalLink in={isStep1} height={310} {...step1.module_02} />
+                  <BlocSimulatorsExternalLink in={isStep1} height={365} {...step1.module_03} />
                   <BlocDivider in={isStep1} />
                   <BlocPieChartPlay in={isStep1} {...step1.module_04} gameIsFinished={this.handleGetPieChartData} />
                   <BlocEnSavoirPlusType2
-                    in={stepInStep0}
+                    in={isStep1}
                     scrollIntoView={stepInStep0}
                     margins
                     answer={this.state.fund}
                     {...step1.module_04_bis}
                     gameIsFinished={this.handleShowNextModule}
                   />
-                  <BlocDivider in={stepInStep1} noMarginTop />
-                  <BlocText in={stepInStep1} scrollIntoView={stepInStep1} {...step1.module_05} />
-                  <BlocVideo in={stepInStep1} {...step1.module_06} />
-                  <BlocVideo in={stepInStep1} {...step1.module_07} />
-                  <BlocVideo in={stepInStep1} {...step1.module_08} />
-                  <BlocDivider in={stepInStep1} />
-                  <BlocDragAndDropType1
-                    in={stepInStep1}
-                    {...step1.module_09}
-                    gameIsFinished={this.handleShowNextModule}
-                  />
-                  <BlocDivider in={stepInStep2} />
-                  <BlocVideo in={stepInStep2} scrollIntoView={stepInStep2} {...step1.module_10} />
-                  {showSynthese && (
+                  <BlocDivider in={isStep1} noMarginTop />
+                  <BlocText in={isStep1} scrollIntoView={stepInStep1} {...step1.module_05} />
+                  <BlocVideo in={isStep1} {...step1.module_06} />
+                  <BlocVideo in={isStep1} {...step1.module_07} />
+                  <BlocVideo in={isStep1} {...step1.module_08} />
+                  <BlocDivider in={isStep1} />
+                  <BlocDragAndDropType1 in={isStep1} {...step1.module_09} gameIsFinished={this.handleShowNextModule} />
+                  <BlocDivider in={isStep1} />
+                  <BlocVideo in={isStep1} scrollIntoView={stepInStep2} {...step1.module_10} />
+                  {isStep1 && (
                     <div className="step1__synthese step__synthese bloc">
                       <BlocSpacer />
                       <span className="bloc__name">{step1.module_11.name}</span>
                       <BlocDescription
-                        in={showSynthese}
+                        in={isStep1}
                         scrollIntoView={showSynthese}
                         modulType={step1.module_11.modulType}
                         description={step1.module_11.description}

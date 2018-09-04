@@ -11,10 +11,6 @@ class Step2_03 extends React.Component {
     showNextModule: 0,
   };
 
-  componentDidMount() {
-    console.log('componentDidMount');
-  }
-
   handleShowNextModule = () => {
     console.log('handleShowNextModule 203');
     this.setState({ showNextModule: this.state.showNextModule + 1 });
@@ -38,20 +34,20 @@ class Step2_03 extends React.Component {
         {/*<BlocDivider in={stepInStep0} />*/}
         <BlocQCMType3
           margins
-          in={stepInStep0}
+          in={this.props.in}
           scrollIntoView={stepInStep0}
           {...step2.module_09_03}
           classSelect="step2-module_09_03"
           gameIsFinished={this.handleShowNextModule}
         />
         <BlocLink
-          in={stepInStep1}
+          in={this.props.in}
           scrollIntoView={stepInStep1}
           {...step2.module_09_04}
           onClick={this.handleShowNextModule}
         />
-        <BlocLink in={stepInStep2} scrollIntoView={stepInStep2} {...step2.module_09_05} />
-        <BlocLink in={stepInStep2} {...step2.module_09_06} />
+        <BlocLink in={this.props.in} scrollIntoView={stepInStep2} {...step2.module_09_05} />
+        <BlocLink in={this.props.in} {...step2.module_09_06} />
       </React.Fragment>
     );
   }

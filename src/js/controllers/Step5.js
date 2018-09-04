@@ -46,7 +46,7 @@ class Step5 extends React.Component {
   render() {
     const isStep5 = this.props.match.path === '/step5';
 
-    const { showNextModule, showSynthese, showQuiz } = this.state;
+    const { showNextModule, /*showSynthese,*/ showQuiz } = this.state;
 
     const stepInStep1 = showNextModule > 0;
     const stepInStep2 = showNextModule > 1;
@@ -63,19 +63,35 @@ class Step5 extends React.Component {
                   <BlocStep step={step5.linkStep} />
                   <BlocStepTopContent step={step5} in={isStep5} scrollIntoView={isStep5} />
                   <BlocDivider in={isStep5} />
-                  <BlocCardGameType1 in={isStep5} {...step5.module_02} gameIsFinished={this.handleShowNextModule} />
-                  <BlocDivider in={stepInStep1} />
-                  <BlocCardGameType2 in={stepInStep1} {...step5.module_03} gameIsFinished={this.handleShowNextModule} />
-                  <BlocDivider in={stepInStep2} />
-                  <BlocCardGameType3 in={stepInStep2} {...step5.module_04} gameIsFinished={this.handleShowNextModule} />
-                  <BlocDivider in={stepInStep3} />
+                  <BlocCardGameType1
+                    in={isStep5}
+                    // scrollIntoView={isStep5}
+                    {...step5.module_02}
+                    gameIsFinished={this.handleShowNextModule}
+                  />
+                  <BlocDivider in={isStep5} />
+                  <BlocCardGameType2
+                    in={isStep5}
+                    scrollIntoView={stepInStep1}
+                    {...step5.module_03}
+                    gameIsFinished={this.handleShowNextModule}
+                  />
+                  <BlocDivider in={isStep5} />
+                  <BlocCardGameType3
+                    in={isStep5}
+                    scrollIntoView={stepInStep2}
+                    {...step5.module_04}
+                    gameIsFinished={this.handleShowNextModule}
+                  />
+                  <BlocDivider in={isStep5} />
                   <BlocCardGameType4
-                    in={stepInStep3}
+                    in={isStep5}
+                    scrollIntoView={stepInStep3}
                     schema={{ ...step5.module_06 }}
                     {...step5.module_05}
                     gameIsFinished={this.handleShowSynthese}
                   />
-                  {showSynthese && (
+                  {isStep5 && (
                     <div className="step5__synthese step__synthese bloc">
                       <BlocSpacer />
                       <ButtonPrimary minWidth name={step5.module_07.button_1} onClick={this.handleShowQuiz} />

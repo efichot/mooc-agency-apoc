@@ -1,43 +1,44 @@
 import moduleTypes from '../moduleTypes';
 import image from '../../../../assets/img/step2/module_09_03_blocQCMType3.png';
+import button_down_right from '../../../../assets/img/icons/button-down-right.png';
 
 const choices = [
   {
     value: 'Sensibilité',
-    label: 'Sensibilité'
+    label: 'Sensibilité',
   },
   {
     value: 'Notation',
-    label: 'Notation'
+    label: 'Notation',
   },
   {
     value: 'Taux de rendement',
-    label: 'Taux de rendement'
+    label: 'Taux de rendement',
   },
   {
     value: 'SPS',
-    label: 'SPS'
+    label: 'SPS',
   },
   {
     value: 'Spread',
-    label: 'Spread'
+    label: 'Spread',
   },
   {
     value: 'Nombre de lignes',
-    label: 'Nombre de lignes'
+    label: 'Nombre de lignes',
   },
   {
     value: 'Volatilité',
-    label: 'Volatilité'
+    label: 'Volatilité',
   },
   {
     value: 'Ratio d’information',
-    label: 'Ratio d’information'
+    label: 'Ratio d’information',
   },
   {
     value: 'Ratio de Sharpe',
-    label: 'Ratio de Sharpe'
-  }
+    label: 'Ratio de Sharpe',
+  },
 ];
 
 const module_09_03_blocQCMType3 = {
@@ -51,9 +52,9 @@ const module_09_03_blocQCMType3 = {
   firstDescription: {
     __html: `Comment choisir entre un fonds obligataire États et un fonds obligataire crédit (investi en obligations émises par des entreprises) ? Sont-ils différents en terme de risque et de rendement ?
     L’indicateur de SPS (Sensibilité Pondérée par le Spread) présente l’intérêt de mesurer l’exposition du fonds aux mouvements des taux d’intérêt (sensibilité) en fonction du risque pris sur les émetteurs (spread).
-    Comparez les extraits proposés ci-dessous et analysez l’exposition des fonds obligataires A et B en sélectionnant les bonnes réponses.
+    Comparez les extraits proposés ci-dessous et analysez l’exposition des fonds obligataires A et B en sélectionnant les bonnes réponses grâce au bouton  <div class="button-in-description" style="background-image: url(${button_down_right})"></div>.
 
-    <img src="${image}" alt="extrait de fiche de reporting" />`
+    <img src="${image}" alt="extrait de fiche de reporting" />`,
   },
   questions: [
     {
@@ -63,25 +64,25 @@ const module_09_03_blocQCMType3 = {
         {
           selectNumber: 11,
           choices,
-          answer: 'Taux de rendement'
+          answer: 'Taux de rendement',
         },
         {
           selectNumber: 12,
           choices,
-          answer: 'Spread'
+          answer: 'Spread',
         },
         {
           selectNumber: 13,
           choices,
-          answer: 'SPS'
+          answer: 'SPS',
         },
         {
           selectNumber: 14,
           choices,
-          answer: 'Nombre de lignes'
-        }
-      ]
-    }
+          answer: 'Nombre de lignes',
+        },
+      ],
+    },
   ],
   synthese: {
     firstDescription: {
@@ -89,9 +90,9 @@ const module_09_03_blocQCMType3 = {
       - le taux de rendement exigé par les investisseurs qui est d’autant plus faible que le risque pris est faible,
       - le spread qui mesure le risque de l’émetteur par l’écart de rendement par rapport au taux sans risque de l’obligation allemande,
       - la SPS (sensibilité pondérée par le spread) qui mesure l’exposition du fonds aux mouvements des taux d’intérêt (sensibilité) en fonction du risque pris sur les émetteurs (spread).
-      Le quatrième indicateur est le nombre de lignes qui est généralement plus faible dans un fonds obligataire États que dans un fonds obligataire crédit. Le marché des obligations d’État se caractérise en effet par un nombre plus limité d’émetteurs mais aussi par des besoins financiers et donc des montants émis beaucoup plus importants.`
-    }
-  }
+      Le quatrième indicateur est le nombre de lignes qui est généralement plus faible dans un fonds obligataire États que dans un fonds obligataire crédit. Le marché des obligations d’État se caractérise en effet par un nombre plus limité d’émetteurs mais aussi par des besoins financiers et donc des montants émis beaucoup plus importants.`,
+    },
+  },
 };
 
 export default module_09_03_blocQCMType3;

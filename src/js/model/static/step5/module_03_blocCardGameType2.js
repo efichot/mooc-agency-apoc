@@ -1,4 +1,6 @@
 import moduleTypes from '../moduleTypes';
+import button_down_right from '../../../../assets/img/icons/button-down-right.png';
+import button_up_left from '../../../../assets/img/icons/button-up-left.png';
 
 import { column3, column1, column2 } from './actors';
 
@@ -29,7 +31,7 @@ const module_03_blocCardGameType2 = {
   modulType: moduleTypes.blocCardGameType2,
   firstDescription: {
     __html: `Les trois acteurs di-desus ont des « Besoins et Opérations » différents ; ils appartiennent à trois catégories d'acteurs que vous allez analyser.
-    Pour chaque question, sélectionnez la ou les bonnes(s) réponse(s) en vous aidant des informations contenues dans les cartes à faire défiler.`,
+    Pour chaque question, sélectionnez la ou les bonnes(s) réponse(s) en vous aidant des informations contenues dans les cartes à faire défiler  grâce aux boutons  <div class="button-in-description left" style="background-image: url(${button_up_left})"></div><div class="button-in-description right" style="background-image: url(${button_down_right})"></div>. Pensez à fermer les pop-ups !`,
   },
   /*noChapter: false,*/
   chapter: 'Questionnaire des acteurs',

@@ -50,9 +50,10 @@ class BlocPieChartPlay extends React.Component {
       .reduce((total, data) => total + data.value, 0);
 
     if (percent === 100) {
-      this.props.gameIsFinished(this.props.module, this.state.pieData);
+      this.props.gameIsFinished(e !== undefined ? this.props.module : undefined, this.state.pieData);
     } else {
-      this.setState({ hidePopup: false });
+      this.props.gameIsFinished(undefined, this.state.pieData);
+      e !== undefined && this.setState({ hidePopup: false });
     }
   };
 
@@ -74,7 +75,7 @@ class BlocPieChartPlay extends React.Component {
       return;
     }
 
-    this.setState({ pieData: pieDataCopy });
+    this.setState({ pieData: pieDataCopy }, this.handleValidateClick());
   };
 
   render() {

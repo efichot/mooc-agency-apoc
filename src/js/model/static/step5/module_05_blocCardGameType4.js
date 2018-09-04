@@ -1,4 +1,5 @@
 import moduleTypes from '../moduleTypes';
+import button_finger from '../../../../assets/img/icons/button-finger.png';
 
 import { column3, column1, column2, types } from './actors';
 
@@ -36,7 +37,7 @@ const module_05_blocCardGameType4 = {
   /*position: 6,*/
   modulType: moduleTypes.blocCardGameType4,
   firstDescription: {
-    __html: `Qui intéragit avec qui ? Sélectionnez les acteurs manquants et validez quand tous ont été identifiés.`,
+    __html: `Glissez successivement les cartes "Acteur" ci-dessous vers la droite dans la catégorie correspondante, à l'aide du bouton  <div class="button-in-description" style="background-image: url(${button_finger})"></div>. Seule la bonne réponse est acceptée. Pensez à fermer les pop-up !`,
   },
   /*noChapter: false,*/
   chapter: 'Schéma des acteurs de marchés',
