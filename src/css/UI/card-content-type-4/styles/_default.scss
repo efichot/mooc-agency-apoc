@@ -5,8 +5,8 @@
   border-radius: 10px;
 
   background-color: var(--cardContentType1BgColor);
-  font-size: 0.6rem;
-  padding: 10px;
+  font-size: 0.75rem;
+  padding: 5px 10px;
   @extend %background-contain;
   background-size: 90% 90%;
 
@@ -48,30 +48,30 @@
   &--title {
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 0.70rem;
-    margin-bottom: 0;
-    max-width: 75%;
-    margin-left: 20px; 
+    font-size: 0.84rem;
+    margin-bottom: 5px;
+    // max-width: 75%;
+    margin-left: 0px; 
     margin-top: 10px;    
   }
 
   &--title-lower {
-    font-size: 0.70rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    margin-bottom: 0;
+    margin-bottom: 5px;
     max-width: 75%;
-    margin-left: 20px;    
+    margin-left: 5px;    
     margin-top: 10px;    
     margin-bottom: 10px;    
   }
 
   &--subtitle {
     font-size: 0.55rem;
-    margin-left: 20px;    
+    margin-left: 15px;    
   }
 
   &--list {
-    padding-left: 20px;
+    padding-left: 10px;
     > * {
       margin-bottom: 5px;
     }

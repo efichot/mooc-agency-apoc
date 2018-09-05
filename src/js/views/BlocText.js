@@ -17,25 +17,14 @@ class BlocText extends React.Component {
       duration,
       firstDescription,
       secondDescription,
-      scrollIntoView
+      scrollIntoView,
     } = this.props;
 
     return (
-      <Fade
-        classProps={`bloc-video bloc`}
-        in={this.props.in}
-        scrollIntoView={scrollIntoView}
-        margins={this.props.margins}
-      >
-        {!noChapter && (
-          <BlocHeader type={iconType} duration={duration} name={chapter} />
-        )}
+      <Fade classProps="bloc bloc-text" in={this.props.in} scrollIntoView={scrollIntoView} margins={this.props.margins}>
+        {!noChapter && <BlocHeader type={iconType} duration={duration} name={chapter} />}
         <span className={`bloc__name${secondary}`}>{name}</span>
-        <BlocDescription
-          modulType={modulType}
-          classProps="bloc__first-description"
-          description={firstDescription}
-        />
+        <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
         {secondDescription && (
           <BlocDescription
             modulType={modulType}
@@ -59,7 +48,7 @@ BlocText.propTypes = {
   duration: PropTypes.number,
   firstDescription: PropTypes.object.isRequired,
   secondDescription: PropTypes.object,
-  modulType: PropTypes.string.isRequired
+  modulType: PropTypes.string.isRequired,
 };
 
 BlocText.defaultProps = {
@@ -68,7 +57,7 @@ BlocText.defaultProps = {
   noChapter: false,
   duration: 0,
   secondary: '',
-  secondDescription: undefined
+  secondDescription: undefined,
 };
 
 export default BlocText;

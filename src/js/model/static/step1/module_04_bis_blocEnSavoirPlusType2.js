@@ -67,6 +67,10 @@ const module_04_bis_blocEnSavoirPlusType2 = {
       cardSubTitle: `cf. Glossaire`,
     },
   ],
+  secondDescription: {
+    __html: `L’AMF classifie les fonds à partir de la classe d’actifs la plus risquée présente dans le fonds, excepté pour les fonds monétaires qui sont définis par rapport à la durée des titres qui les composent. 
+À compter du 1er janvier 2018, les classifications « fonds actions » et « fonds obligataire » deviennent optionnelles.`,
+  },
 };
 
 export default module_04_bis_blocEnSavoirPlusType2;

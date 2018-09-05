@@ -19,9 +19,10 @@ class BlocDragAndDropType1 extends React.Component {
     solutions: {},
     cardCounter: 0,
     gameIsFinished: false,
+    showExplanation: false,
   };
 
-  renderDropCard = (dropStartOrEnd, dropPosition, dragCards) => {
+  renderDropCard = ({ dropStartOrEnd, dropPosition, dragCards, dropCardTitleStyles }) => {
     const dropCoordinatesAsString = `droppable-${dropStartOrEnd}-${dropPosition}`;
     let cardToShow;
 
@@ -38,7 +39,8 @@ class BlocDragAndDropType1 extends React.Component {
         endPosition={dropPosition}
         reset={this.state.reset}
         startOrEnd={dropStartOrEnd}
-        dragCard={this.handleSolutionChecking}>
+        dragCard={this.handleSolutionChecking}
+        dropCardTitleStyles={dropCardTitleStyles}>
         {cardToShow}
       </DropCard>
     );
@@ -88,7 +90,7 @@ class BlocDragAndDropType1 extends React.Component {
     if (falseAnswers.length === 0) {
       this.setState({ victoryMessage: victoryMessages.isVictory });
       this.setState({ gameIsFinished: true });
-      // this.props.gameIsFinished(this.props.module);
+      // this.props.gameIsFinished(this.props.modulType);
       return;
     } else {
       this.setState({
@@ -120,7 +122,19 @@ class BlocDragAndDropType1 extends React.Component {
   }
 
   render() {
-    const { modulType, noChapter, cards, duration, chapter, title, firstDescription, scrollIntoView } = this.props;
+    const {
+      modulType,
+      noChapter,
+      cards,
+      duration,
+      chapter,
+      title,
+      firstDescription,
+      scrollIntoView,
+      dropCardTitleStyles,
+      explication,
+    } = this.props;
+    const { victoryMessage, gameIsFinished, showExplanation } = this.state;
 
     return (
       <Fade
@@ -134,26 +148,40 @@ class BlocDragAndDropType1 extends React.Component {
         <div className="bloc-drag-and-drop-1__cards game">
           <React.Fragment>
             <div className="drop-cards-start">
-              {cards.map((onlyForIndex, indexDrop) => this.renderDropCard('start', indexDrop + 1, cards))}
+              {cards.map((onlyForIndex, indexDrop) =>
+                this.renderDropCard({
+                  dropStartOrEnd: 'start',
+                  dropPosition: indexDrop + 1,
+                  dragCards: cards,
+                  dropCardTitleStyles,
+                }),
+              )}
             </div>
             <div className="risk-scale">
               <span className="risk-low">Moins de risque</span>
-              {this.state.victoryMessage && (
+              {victoryMessage && (
                 <PopupBlue
                   onCloseClick={() => {
-                    this.state.victoryMessage === victoryMessages.isVictory &&
-                      this.props.gameIsFinished(this.props.module);
+                    if (victoryMessage === victoryMessages.isVictory) {
+                      this.props.gameIsFinished(modulType);
+                      this.setState({ showExplanation: true });
+                    }
                     this.setState({ victoryMessage: undefined });
                   }}>
-                  <span className="">{this.state.victoryMessage}</span>
+                  <span className="">{victoryMessage}</span>
                 </PopupBlue>
               )}
               <span className="risk-high">Plus de risque</span>
             </div>
-            <div className={`drop-cards-end${this.state.gameIsFinished ? ' finished' : ''}`}>
-              {cards
-                .filter(card => card.content.isDraggable)
-                .map((card, indexDrop) => this.renderDropCard('end', indexDrop + 1, cards))}
+            <div className={`drop-cards-end${gameIsFinished ? ' finished' : ''}`}>
+              {cards.filter(card => card.content.isDraggable).map((card, indexDrop) =>
+                this.renderDropCard({
+                  dropStartOrEnd: 'end',
+                  dropPosition: indexDrop + 1,
+                  dragCards: cards,
+                  dropCardTitleStyles,
+                }),
+              )}
             </div>
           </React.Fragment>
         </div>
@@ -162,6 +190,13 @@ class BlocDragAndDropType1 extends React.Component {
           <ButtonPrimary minWidth name="Recommencer" onClick={this.reset} />
           <ButtonPrimary minWidth name="Valider" onClick={this.checkAnswers} />
         </div>
+        {showExplanation && (
+          <React.Fragment>
+            <BlocSpacer />
+            <span className="bloc__name">{explication.title}</span>
+            <BlocDescription description={explication.description} />
+          </React.Fragment>
+        )}
       </Fade>
     );
   }

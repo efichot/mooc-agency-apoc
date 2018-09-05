@@ -6,41 +6,21 @@ class CardContentType4 extends React.Component {
   super = {};
 
   render() {
-    const {
-      bigBorder,
-      bigTitle,
-      isDraggable,
-      cardTitle,
-      content,
-      image
-    } = this.props;
+    const { bigBorder, bigTitle, isDraggable, cardTitle, content, image } = this.props;
 
     return (
       <div
         className={`card-content__type-4 ${bigBorder ? 'big-border' : ''}`}
         style={{
           backgroundImage: image ? `url(${image})` : '',
-          display: bigTitle ? 'flex' : 'block'
-        }}
-      >
+          display: bigTitle ? 'flex' : 'block',
+        }}>
         {isDraggable && (
-          <div
-            className="card-content__type-3--drag-image"
-            style={{ backgroundImage: `url(${draggableIcon})` }}
-          />
+          <div className="card-content__type-4--drag-image" style={{ backgroundImage: `url(${draggableIcon})` }} />
         )}
-        {cardTitle && (
-          <div className="card-content__type-3--title">{cardTitle}</div>
-        )}
-        {bigTitle && (
-          <div className="card-content__type-3--big-title">{bigTitle}</div>
-        )}
-        {content && (
-          <div
-            className="card-content__type-3--content"
-            dangerouslySetInnerHTML={content}
-          />
-        )}
+        {cardTitle && <div className="card-content__type-4--title">{cardTitle}</div>}
+        {bigTitle && <div className="card-content__type-4--big-title">{bigTitle}</div>}
+        {content && <div className="card-content__type-4--content" dangerouslySetInnerHTML={content} />}
       </div>
     );
   }
@@ -59,7 +39,7 @@ CardContentType4.propTypes = {
   title1: PropTypes.string,
   title2: PropTypes.string,
   list1: PropTypes.array,
-  list2: PropTypes.array
+  list2: PropTypes.array,
 };
 
 CardContentType4.defaultProps = {
@@ -68,7 +48,7 @@ CardContentType4.defaultProps = {
 
   isDraggable: false,
   cardSubTitle: '',
-  image: ''
+  image: '',
 };
 
 export default CardContentType4;

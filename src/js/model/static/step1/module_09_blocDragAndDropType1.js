@@ -15,6 +15,10 @@ const module_09_blocDragAndDropType1 = {
   chapter: 'Échelle de risque',
   duration: 5,
   title: 'Risque des fonds',
+  dropCardTitleStyles: {
+    fontSize: '1rem',
+    marginTop: 7,
+  },
   cards: [
     {
       color: 'white',
@@ -56,6 +60,15 @@ const module_09_blocDragAndDropType1 = {
       },
     },
   ],
+  explication: {
+    title: 'Du moins au plus risqué',
+    description: {
+      __html: `La performance du Fonds Monétaire A est peu volatile et le fonds est donc peu risqué.
+La performance du Fonds Obligataire B est plus volatile que celle du Fonds Monétaire A et le fonds est donc plus risqué.
+La performance du Fonds Actions B est encore plus volatile. Le risque est fort de voir la valeur du fonds soit beaucoup baisser, soit beaucoup monter.
+Cette hiérarchie des fonds en terme de risque est révélatrice de celle des marchés sur lesquels ils sont investis, à savoir que le marché monétaire est moins risqué que le marché obligataire, qui est lui-même moins risqué que celui des actions.`,
+    },
+  },
 };
 
 export default module_09_blocDragAndDropType1;

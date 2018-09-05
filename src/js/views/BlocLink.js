@@ -49,7 +49,7 @@ const BlocLink = ({
   }
 
   return (
-    <Fade classProps={`bloc-link bloc`} in={otherProps.in} scrollIntoView={scrollIntoView} margins={margins}>
+    <Fade classProps="bloc-link bloc" in={otherProps.in} scrollIntoView={scrollIntoView} margins={margins}>
       {!noChapter && <BlocHeader type={iconType} duration={duration} name={chapter} />}
       {name && <span className={`bloc__name ${secondary}`}>{name}</span>}
       {firstDescription && (

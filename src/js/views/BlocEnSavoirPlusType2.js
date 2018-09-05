@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import BlocHeader from '../views/BlocHeader';
+import BlocSpacer from '../views/BlocSpacer';
 import BlocDescription from './BlocDescription';
 import ButtonPrimary from './UI/ButtonPrimary';
 import PopupBlue from './UI/PopupBlue';
@@ -41,7 +42,7 @@ class BlocEnSavoirPlusType2 extends React.Component {
   };
 
   handleClick = answer => {
-    this.state.victoryMessage === victoryMessages.isVictory && this.props.gameIsFinished(this.state.gameIsFinished);
+    this.state.victoryMessage === victoryMessages.isVictory && this.props.gameIsFinished(this.props.modulType);
     this.setState({
       buttonAnswer: answer,
       victoryMessage: undefined,
@@ -63,7 +64,17 @@ class BlocEnSavoirPlusType2 extends React.Component {
   };
 
   render = () => {
-    const { modulType, noChapter, cards, duration, chapter, title, firstDescription, scrollIntoView } = this.props;
+    const {
+      modulType,
+      noChapter,
+      cards,
+      duration,
+      chapter,
+      title,
+      firstDescription,
+      secondDescription,
+      scrollIntoView,
+    } = this.props;
 
     const { buttonAnswer, gameIsFinished, hideCard, showCard, victoryMessage } = this.state;
 
@@ -121,6 +132,9 @@ class BlocEnSavoirPlusType2 extends React.Component {
             classProps={`bloc-en-savoir-plus-type-2__validate`}
           />
         </div>
+        <BlocSpacer />
+        <span className="bloc__name">Synthèse</span>
+        <BlocDescription modulType={modulType} classProps="bloc__second-description" description={secondDescription} />
       </Fade>
     );
   };

@@ -1,0 +1,14 @@
+
+.step3 {
+  .bloc-sub-menu-1 {
+    .button-primary {
+      @include equalSides(140px);
+      border-radius: 50%;
+      position: relative;
+      span {
+        margin-top: 275px;
+        color: var(--defaultTextColor);
+      }
+    }
+  }
+}

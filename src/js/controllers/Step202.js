@@ -5,6 +5,7 @@ import BlocVideo from '../views/BlocVideo';
 import BlocLink from '../views/BlocLink';
 import BlocText from '../views/BlocText';
 import BlocQCMType3 from '../views/BlocQCMType3';
+import BlocDivider from '../views/BlocDivider';
 
 class Step2_02 extends React.Component {
   state = {
@@ -30,6 +31,7 @@ class Step2_02 extends React.Component {
       <React.Fragment>
         <BlocVideo in={this.props.in} scrollIntoView={this.props.in} {...step2.module_08_01} />
         <BlocLink in={this.props.in} {...step2.module_08_02} />
+        <BlocDivider in={this.props.in} noMarginTop />
         <BlocText in={this.props.in} {...step2.module_08_03} />
         <BlocQCMType3
           in={this.props.in}

@@ -25,6 +25,16 @@
     }
 
   }
+
+
+  .bloc__name {
+    
+    &.secondary {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+  }
+
   
   .button-primary {
     margin-left: auto;

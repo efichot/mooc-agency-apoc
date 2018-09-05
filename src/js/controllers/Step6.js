@@ -88,7 +88,7 @@ class Step6 extends React.Component {
     const isStep6 = this.props.match.path === '/step6';
 
     const stepInStep0 = showNextModule > 0;
-    // const stepInStep1 = showNextModule > 1;
+    const stepInStep1 = showNextModule > 1;
     /*const stepInStep6 = showNextModule > 2;*/
 
     return (
@@ -121,12 +121,8 @@ class Step6 extends React.Component {
                     selectedRow={(show_01 && stepInStep0 && selectedRow) || 0}
                     gameIsFinished={this.handleShowNextModule}
                   />
-                  <BlocDivider />
-                  <BlocEnSavoirPlusType3
-                    {...step6.module_03_03}
-                    in={show_01}
-                    // scrollIntoView={show_01 && stepInStep1}
-                  />
+                  <BlocDivider in={show_01} />
+                  <BlocEnSavoirPlusType3 {...step6.module_03_03} in={show_01} scrollIntoView={show_01 && stepInStep1} />
                   <BlocCardsType1
                     {...step6.module_04_01}
                     in={show_02}
@@ -141,12 +137,8 @@ class Step6 extends React.Component {
                     selectedRow={(show_02 && stepInStep0 && selectedRow) || 0}
                     gameIsFinished={this.handleShowNextModule}
                   />
-                  <BlocDivider />
-                  <BlocEnSavoirPlusType1
-                    {...step6.module_04_03}
-                    in={show_02}
-                    // scrollIntoView={show_02 && stepInStep1}
-                  />
+                  <BlocDivider in={show_02} />
+                  <BlocEnSavoirPlusType1 {...step6.module_04_03} in={show_02} scrollIntoView={show_02 && stepInStep1} />
                   <BlocCardsType1
                     {...step6.module_05_01}
                     in={show_03}
@@ -170,12 +162,8 @@ class Step6 extends React.Component {
                       onButtonClick={this.handleShow3Back}
                     />
                   )}
-                  <BlocDivider />
-                  <BlocEnSavoirPlusType1
-                    {...step6.module_05_04}
-                    in={show_03}
-                    // scrollIntoView={show_03 && stepInStep1}
-                  />
+                  <BlocDivider in={show_03} />
+                  <BlocEnSavoirPlusType1 {...step6.module_05_04} in={show_03} scrollIntoView={show_03 && stepInStep1} />
                   <BlocVideo in={show_04} scrollIntoView={show_04} {...step6.module_06_01} />
                   <BlocDivider />
                   <BlocEnSavoirPlusType3 {...step6.module_06_02} in={show_04} />
@@ -185,19 +173,19 @@ class Step6 extends React.Component {
                       <span className="bloc__name">{step6.module_07.name}</span>
                       <BlocDescription
                         in={showSynthese && show_01}
-                        scrollIntoView={showSynthese && show_01}
+                        // scrollIntoView={showSynthese && show_01}
                         modulType={step6.module_07.modulType}
                         description={step6.module_07.description_1}
                       />
                       <BlocDescription
                         in={showSynthese && show_02}
-                        scrollIntoView={showSynthese && show_02}
+                        // scrollIntoView={showSynthese && show_02}
                         modulType={step6.module_07.modulType}
                         description={step6.module_07.description_2}
                       />
                       <BlocDescription
                         in={showSynthese && show_03}
-                        scrollIntoView={showSynthese && show_03}
+                        // scrollIntoView={showSynthese && show_03}
                         modulType={step6.module_07.modulType}
                         description={step6.module_07.description_3}
                       />

@@ -2,7 +2,7 @@
 .bloc-divider {
   height: 10px;
   width: calc(100% + var(--stepWidth));
-  margin-left: calc(var(--stepWidth) * -1);
+  // margin-left: calc(var(--stepWidth) * -1);
   background: var(--dividerBgColor);  /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, var(--masterBgColor), var(--dividerBgColor));  
   background: linear-gradient(to bottom, var(--masterBgColor), var(--dividerBgColor));

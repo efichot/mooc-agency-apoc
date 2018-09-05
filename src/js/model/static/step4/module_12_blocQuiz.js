@@ -19,7 +19,7 @@ const module_12_blocQuiz = {
       },
       answers: [
         {
-          content: '',
+          content: 'Une fraction de capital',
           correctAnswer: true,
         },
         {

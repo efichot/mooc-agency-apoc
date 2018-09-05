@@ -18,6 +18,8 @@ import ButtonPrimary from '../views/UI/ButtonPrimary';
 import BlocDescription from '../views/BlocDescription';
 import BlocQuiz from '../views/BlocQuiz';
 
+import moduleTypes from '../model/static/moduleTypes';
+
 class Step1 extends React.Component {
   state = {
     showNextModule: 0,
@@ -46,6 +48,7 @@ class Step1 extends React.Component {
   };
 
   handleGetPieChartData = (module, data) => {
+    console.log('module', module);
     const actions = data.filter(item => item.name === 'actions')[0];
     /*const obligations = data.filter(item => item.name === 'obligations')[0]*/
     const monetary = data.filter(item => item.name === 'monétaire')[0];
@@ -64,15 +67,22 @@ class Step1 extends React.Component {
     module && this.handleShowNextModule(module);
   };
 
-  handleShowNextModule = async module => {
-    await this.setState({ showNextModule: this.state.showNextModule + 1 });
-    if (this.state.showNextModule > 2) {
-      this.setState({ showSynthese: true });
+  handleShowNextModule = module => {
+    console.log('module', module);
+    if (module === moduleTypes.blocDragAndDrop1) {
+      this.setState({
+        showNextModule: 3,
+        showSynthese: true,
+      });
+    } else if (module === moduleTypes.blocPicChartPlay) {
+      this.setState({ showNextModule: 1 });
+    } else if (module === moduleTypes.blocEnSavoirPlusType2) {
+      this.setState({ showNextModule: 2 });
     }
   };
 
   render() {
-    const { showSynthese, showQuiz, showNextModule } = this.state;
+    const { /*showSynthese,*/ showQuiz, showNextModule } = this.state;
 
     const isStep1 = this.props.match.path === '/step1';
 
@@ -118,7 +128,7 @@ class Step1 extends React.Component {
                       <span className="bloc__name">{step1.module_11.name}</span>
                       <BlocDescription
                         in={isStep1}
-                        scrollIntoView={showSynthese}
+                        // scrollIntoView={showSynthese}
                         modulType={step1.module_11.modulType}
                         description={step1.module_11.description}
                       />

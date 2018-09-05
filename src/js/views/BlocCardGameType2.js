@@ -82,7 +82,7 @@ class BlocCardGameType2 extends React.Component {
   };
 
   handleValidate = ({ column }) => {
-    console.log('column', column);
+    // console.log('column', column);
     const { questionNumber } = this.state;
     const { game } = this.props;
     const correctAnswers = {};
@@ -94,7 +94,7 @@ class BlocCardGameType2 extends React.Component {
       answer => this.state[`column${column}Choices`][answer] !== correctAnswers[answer] && (answersAreCorrect = false),
     );
 
-    console.log('answersAreCorrect', answersAreCorrect);
+    // console.log('answersAreCorrect', answersAreCorrect);
     if (answersAreCorrect) {
       this.setState({
         victoryMessage: victoryMessages.isGoodAnswer,
@@ -128,7 +128,7 @@ class BlocCardGameType2 extends React.Component {
   handleClosePopupBlue = ({ column }) => {
     const { questionNumber } = this.state;
     const { game } = this.props;
-    console.log('questionNumber', questionNumber, 'game.length - 1', game.length - 1);
+    // console.log('questionNumber', questionNumber, 'game.length - 1', game.length - 1);
 
     if (this.state.victoryMessage === victoryMessages.isGoodAnswer) {
       game[questionNumber].steps.indexOf(`column${column}`) === game[questionNumber].steps.length - 1
@@ -162,6 +162,9 @@ class BlocCardGameType2 extends React.Component {
               column: game[questionNumber].steps[game[questionNumber].steps.indexOf(`column${column}`) + 1],
             },
             [`column${column}IsFinished`]: true,
+            column1currentIndex: 0,
+            column2currentIndex: 0,
+            column3currentIndex: 0,
           });
     } else {
       this.setState({ victoryMessage: undefined });
@@ -205,6 +208,8 @@ class BlocCardGameType2 extends React.Component {
     const column2Card = game[questionNumber].column2 && cards.actorscolumn2[column2currentIndex - 1];
     const column3Card = game[questionNumber].column3 && cards.actorscolumn3[column3currentIndex - 1];
 
+    console.log('column2Card', column2Card);
+
     return (
       <Fade
         classProps="bloc-card-game-type-2 bloc"
@@ -230,7 +235,7 @@ class BlocCardGameType2 extends React.Component {
                   gridRow: 1,
                   gridColumnStart: questionIndex * 4 + 1,
                   gridColumnEnd: questionIndex * 4 + 4,
-                  paddingLeft: 20,
+                  // paddingLeft: 20,
                 }}>
                 <BlocDescription
                   key={question.title__html}

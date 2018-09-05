@@ -16,7 +16,7 @@ const module_07_04_blocQCMType2 = {
 
     À partir des données fournies ci-dessous, analysez la performance des fonds monétaire court terme et monétaire en sélectionnant les bonnes réponses grâce au bouton  <div class="button-in-description" style="background-image: url(${button_down_right})"></div>.
 
-    FONDS B
+    FONDS A
     <img src="${image1}" alt="extrait de fiche de reporting" />
 
     FONDS B

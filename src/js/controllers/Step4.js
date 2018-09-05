@@ -35,7 +35,7 @@ class Step4 extends React.Component {
     const { showNextModule } = this.state;
 
     const stepInStep1 = showNextModule > 0;
-    const stepInStep2 = showNextModule > 1;
+    // const stepInStep2 = showNextModule > 1;
 
     return (
       <Fade classProps="step step4" in={isStep4}>
@@ -56,7 +56,7 @@ class Step4 extends React.Component {
                 <BlocLink in={isStep4} {...step4.module_09} />
                 <BlocLink in={isStep4} {...step4.module_10} />
                 <BlocDragAndDropType2 in={isStep4} {...step4.module_11} gameIsFinished={this.handleGameIsFinished} />
-                <BlocQuiz in={stepInStep2} {...step4.module_12} />
+                <BlocQuiz in={isStep4} {...step4.module_12} />
               </React.Fragment>
             );
           }}

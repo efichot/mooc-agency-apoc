@@ -11,6 +11,11 @@ class BlocHeader extends React.Component {
   render() {
     const { duration, type, name: nameProp, margins } = this.props;
 
+    const minutesAndSeconds = Math.ceil(duration * 100) / 100;
+    const minutes = Math.floor(minutesAndSeconds);
+    const seconds = Math.round((minutesAndSeconds - minutes) * 60);
+    const durationToShow = seconds !== 0 ? `${minutes} min ${seconds} sec` : `${minutes} min`;
+
     const picType = type === 'video' ? video : type === 'horloge' ? horloge : type === 'chrono' ? chrono : '';
     const name = type === 'video' ? 'Vidéo' : nameProp;
 
@@ -19,7 +24,7 @@ class BlocHeader extends React.Component {
         <div className="bloc-header__picture" style={{ backgroundImage: `url(${picType})` }} />
         <div className="bloc-header__infos">
           <span className="bloc-header__infos--name">{name}</span>
-          <span className="bloc-header__infos--duration">Durée: {Math.ceil(duration * 100) / 100} min</span>
+          <span className="bloc-header__infos--duration">Durée: {durationToShow}</span>
         </div>
       </Fade>
     );

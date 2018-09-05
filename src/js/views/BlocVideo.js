@@ -45,7 +45,7 @@ class BlocVideo extends React.Component {
 
     return (
       <Fade
-        classProps={`bloc-video bloc`}
+        classProps="bloc-video bloc"
         in={this.props.in}
         scrollIntoView={scrollIntoView}
         margins={this.props.margins}>
@@ -54,7 +54,11 @@ class BlocVideo extends React.Component {
         {firstDescription && (
           <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
         )}
-        <div className="bloc-video__video--container game">
+        <div
+          className="bloc-video__video--container game"
+          style={{
+            marginTop: !firstDescription && secondary ? 0 : 25,
+          }}>
           <iframe
             ref={this.video}
             title={name}

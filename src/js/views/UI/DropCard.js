@@ -52,7 +52,7 @@ class DropCard extends React.Component {
   };
 
   render() {
-    const { startOrEnd } = this.props;
+    const { startOrEnd, dropCardTitleStyles } = this.props;
 
     const { title, subtitle, isDraggingOver } = this.state;
 
@@ -62,7 +62,12 @@ class DropCard extends React.Component {
         onDragOver={this.handleDragOver}
         onDragLeave={this.handleDragExit}
         onDrop={this.handleDrop}>
-        {startOrEnd === 'end' && title && <span className="title">{title}</span>}
+        {startOrEnd === 'end' &&
+          title && (
+            <span className="title" style={{ ...dropCardTitleStyles }}>
+              {title}
+            </span>
+          )}
         {startOrEnd === 'end' && subtitle && subtitle !== 'undefined' && <span className="subtitle">{subtitle}</span>}
         {this.props.children}
       </div>

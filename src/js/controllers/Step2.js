@@ -95,7 +95,8 @@ class Step2 extends React.Component {
                     scrollIntoView={isStep2}
                     step={step2} /*videoInIframe={!mainThread}*/
                   />
-                  <BlocEnSavoirPlusType1 in={isStep2 /* && mainThread*/} {...step2.module_02} margins />
+                  <BlocDivider in={isStep2 /* && mainThread*/} />
+                  <BlocEnSavoirPlusType1 in={isStep2 /* && mainThread*/} {...step2.module_02} />
                   <BlocDivider in={isStep2 /* && mainThread*/} noMarginTop />
                   <BlocVideo in={isStep2 /* && mainThread*/} {...step2.module_03} />
                   <BlocDivider in={isStep2 /* && mainThread*/} />
@@ -118,6 +119,7 @@ class Step2 extends React.Component {
                     // in={stepInStep0 && mainThread}
                     action={this.changeMarketToShow}
                   />
+                  <BlocSpacer />
                   <Step201 in={show_01} context={step2} endOfModules={this.handleShowSynthese} />
                   <Step202 in={show_02} context={step2} endOfModules={this.handleShowSynthese} />
                   <Step203 in={show_03} context={step2} endOfModules={this.handleShowSynthese} />
