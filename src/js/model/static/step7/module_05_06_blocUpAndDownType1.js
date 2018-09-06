@@ -21,7 +21,7 @@ En cas de doute, visionnez à nouveau le début de la vidéo ci-dessus.`,
       endPosition: 2,
       content: {
         isDraggable: true,
-        cardTitle: `Allemagne - 5 ans`,
+        cardTitle: `Allemagne (5 ans)`,
         /*cardSubTitle: `BTP - non coté`,*/
       },
     },
@@ -31,7 +31,7 @@ En cas de doute, visionnez à nouveau le début de la vidéo ci-dessus.`,
       endPosition: 3,
       content: {
         isDraggable: true,
-        cardTitle: `Italie - 5 ans`,
+        cardTitle: `Italie (5 ans)`,
         /*cardSubTitle: `Consommation - coté`,*/
       },
     },
@@ -41,7 +41,7 @@ En cas de doute, visionnez à nouveau le début de la vidéo ci-dessus.`,
       endPosition: 1,
       content: {
         isDraggable: true,
-        cardTitle: `Allemagne - 10 ans`,
+        cardTitle: `Allemagne (10 ans)`,
         /*cardSubTitle: `Matériaux BTP - coté`,*/
       },
     },
@@ -51,7 +51,7 @@ En cas de doute, visionnez à nouveau le début de la vidéo ci-dessus.`,
       endPosition: 4,
       content: {
         isDraggable: true,
-        cardTitle: `Italie - 10 ans`,
+        cardTitle: `Italie (10 ans)`,
         /*cardSubTitle: `Matériaux BTP - coté`,*/
       },
     },

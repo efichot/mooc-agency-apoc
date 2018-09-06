@@ -8,12 +8,14 @@ export default {
     subTitle: 'Entreprise du secteur électrique cotée en Bourse',
     list: [
       {
-        __html:
-          "Intervient sur le marché <em style='color: var(--monetaire)'>monétaire</em> pour des besoins de trésorerie à court terme  via sa filiale financière ENEL Finance",
+        __html: `Intervient sur le marché <em style='color: ${
+          process.env.REACT_APP_MONETAIRE
+        }'>monétaire</em> pour des besoins de trésorerie à court terme  via sa filiale financière ENEL Finance`,
       },
       {
-        __html:
-          "Procède le 20 mai 2009 à une émission <em style='color: var(--monetaire)'>monétaire</em> de 500 millions d'euros",
+        __html: `Procède le 20 mai 2009 à une émission <em style='color: ${
+          process.env.REACT_APP_MONETAIRE
+        }'>monétaire</em> de 500 millions d'euros`,
       },
     ],
   },
@@ -28,7 +30,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Émission de titres <em style='color: var(--monetaire)'>monétaires</em>",
+        __html: `Émission de titres <em style='color: ${process.env.REACT_APP_MONETAIRE}'>monétaires</em>`,
       },
     ],
   },
@@ -43,8 +45,9 @@ export default {
     headList2: 'Opérations',
     list2: [
       {
-        __html:
-          "Émission de titres <em style='color: var(--monetaire)'>monétaires</em> de 500 millions d'€ le 20 mai 2009",
+        __html: `Émission de titres <em style='color: ${
+          process.env.REACT_APP_MONETAIRE
+        }'>monétaires</em> de 500 millions d'€ le 20 mai 2009`,
       },
     ],
   },

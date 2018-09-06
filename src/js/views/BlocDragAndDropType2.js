@@ -212,7 +212,7 @@ class BlocDragAndDropType2 extends React.Component {
       dragCards,
     } = this.state;
 
-    const gridTemplateColumns = grid.columns.map(c => '1fr ').reduce((a, b) => `${a}${b}`);
+    const gridTemplateColumns = grid.columns.map(c => '1fr ').reduce((a, b) => `${a}${b}`); //FIXME
     // const gridTemplateRows = grid.rows.map(c => '1fr ').reduce((a, b) => `${a}${b}`);
     const gridTemplateRows = '60px 60px 60px 20px 60px 60px 20px 60px 60px 20px';
 
@@ -226,13 +226,17 @@ class BlocDragAndDropType2 extends React.Component {
         return (
           <div
             key={`${headerRow}${headerCol}`}
-            className={`grid-cell ${col === 0 || row === grid.rows.length - 1 ? 'grid-header' : ''}`}
-            style={{
-              gridRowStart: row + 1,
-              gridRowEnd: row + 1,
-              gridColumnStart: col + 1,
-              gridColumnEnd: col + 1,
-            }}>
+            className={`grid-cell ${
+              col === 0 || row === grid.rows.length - 1 ? 'grid-header' : ''
+            } grid-row-start-${row + 1}-end-${row + 1} grid-column-start-${col + 1}-end${col + 1}`}
+            style={
+              {
+                // gridRowStart: row + 1,
+                // gridRowEnd: row + 1,
+                // gridColumnStart: col + 1,
+                // gridColumnEnd: col + 1,
+              }
+            }>
             {col === 0 && headerRow}
             {row === grid.rows.length - 1 && headerCol}
             {cards.filter(card => card.isDraggable).map((card, indexDrop) => {

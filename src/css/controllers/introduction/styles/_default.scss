@@ -10,18 +10,17 @@
     padding-bottom: 15px;
     padding-left: 30px;
     padding-right: 30px;
-    width: var(--menuTopWidth);
-    // margin-left: calc(var(--stepWidth) * -1);
+    width: $menuTopWidth;
   }
 
   .actualities {
     display: flex;
     justify-content: flex-start;
-    box-shadow: var(--boxShadowToBottom);
-    background-color: var(--masterBgColor);
-    border-left: 1px solid var(--white);
-    border-right: 1px solid var(--white);
-    height: var(--actualitiesHeight);
+    box-shadow: $boxShadowToBottom;
+    background-color: $masterBgColor;
+    border-left: 1px solid $white;
+    border-right: 1px solid $white;
+    height: $actualitiesHeight;
     z-index: 38;
 
     > * {
@@ -59,11 +58,11 @@
   &__user-game-infos {
     display: flex;
     justify-content: flex-start;
-    box-shadow: var(--boxShadowToBottom);
-    background-color: var(--masterBgColor);
-    border-left: 1px solid var(--white);
-    border-right: 1px solid var(--white);
-    height: var(--userInfoHeight);
+    box-shadow: $boxShadowToBottom;
+    background-color: $masterBgColor;
+    border-left: 1px solid $white;
+    border-right: 1px solid $white;
+    height: $userInfoHeight;
     z-index: 39;
 
     > * {
@@ -76,7 +75,7 @@
       .title {
         margin-bottom: 5px;
       }
-      border-left: 1px solid var(--userInfoBorderColor);
+      border-left: 1px solid $userInfoBorderColor;
     }
 
     &__progression {
@@ -104,15 +103,15 @@
     display: flex;
     justify-content: space-between;
     align-items: space-between;
-    border: 1px solid var(--white);
-    border-top-left-radius: var(--menuTopPaddingTop);
-    border-bottom-left-radius: var(--menuTopPaddingTop);
+    border: 1px solid $white;
+    border-top-left-radius: $menuTopPaddingTop;
+    border-bottom-left-radius: $menuTopPaddingTop;
     box-shadow: -2px 2px 10px rgba(0,0,0,0.2);
-    background-color: var(--masterBgColor);
+    background-color: $masterBgColor;
 
     .white-div {
-      border-top-left-radius: var(--menuTopPaddingTop);
-      border-bottom-left-radius: var(--menuTopPaddingTop);
+      border-top-left-radius: $menuTopPaddingTop;
+      border-bottom-left-radius: $menuTopPaddingTop;
     }
 
     &.intro {
@@ -138,7 +137,7 @@
       .title {
         font-size: 2rem;
         text-transform: uppercase;
-        color: var(--introTitleColor);
+        color: $introTitleColor;
       }
 
       .description {
@@ -169,8 +168,8 @@
 
 .white-div {
   @extend %flex-column-center-center;
-  width: var(--stepWidth);
-  background-color: var(--stepColor);
+  width: $stepWidth;
+  background-color: $stepColor;
   margin-top: -15px;
   margin-bottom: -15px;
   margin-left: -30px;
@@ -179,8 +178,8 @@
   flex-shrink: 0;
   font-size: 100px;
   font-weight: 300;
-  color: var(--blocStepColor);
-  font-family: var(--defaultFontFamily2);
+  color: $blocStepColor;
+  font-family: $defaultFontFamily2;
 
   .step-title {
     font-size: 20px;

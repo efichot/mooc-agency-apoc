@@ -4,6 +4,7 @@ const module_09_blocQuiz = {
   /*position: 6.2,*/
   modulType: moduleTypes.blocQuiz,
   name: `Évaluation de l'étape 7`,
+  step: 7,
   chapter: 'Quiz',
   noChapter: false,
   duration: 5,

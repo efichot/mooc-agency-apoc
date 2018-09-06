@@ -2,7 +2,7 @@
   width: 100%;
 
   &__question {
-    min-height: 100px;
+    min-height: 75px;
   }
 
   .game {
@@ -30,7 +30,7 @@
     &--answer {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: center;
 
     }
     &--file {
@@ -39,7 +39,7 @@
       justify-content: flex-end;
       align-items: flex-start;
       font-size: 0.6875rem;
-      width: 200px;
+      width: 150px;
       margin-left: 15px;
       margin-bottom: 10px;
 
@@ -80,7 +80,7 @@
     }
 
     .button {
-      color: var(--defaultTextColor);
+      color: $defaultTextColor;
       font-size: 0.875rem;
       font-size: 0.6875rem;
       padding: 10%;
@@ -100,5 +100,40 @@
       @extend %background-contain;
       background-position: center center;
     }
+  }
+
+  .question-and-answers {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    //align-content: center;
+    margin-top: 10px;
+    
+  }
+
+  .ecusson {
+    grid-row: 1 / 4;
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    &__cercle {
+      height: 70px;
+      width: 70px;
+      border: 2px solid $white;
+      border-radius: 50%;
+    }
+
+    &__texte {
+      text-transform: uppercase;
+      font-size: 0.625rem;
+      width: 70px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
   }
 }

@@ -1,6 +1,6 @@
 .button-circle {
-  height: var(--buttonCircleRadius);
-  width: var(--buttonCircleRadius);
+  height: $buttonCircleRadius;
+  width: $buttonCircleRadius;
   border-radius: 50%;
   display: flex;
   justify-content: center;

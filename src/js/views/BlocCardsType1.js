@@ -53,7 +53,8 @@ class BlocCardsType1 extends React.Component {
             cardset.map((card, colIndex) => (
               <div
                 key={colIndex}
-                style={{ gridRow: rowIndex + 1, gridColumn: colIndex + 1 }}
+                className={`grid-row-start-${rowIndex + 1} grid-column-start-${colIndex + 1}`}
+                // style={{ gridRow: rowIndex + 1, gridColumn: colIndex + 1 }}
                 onClick={() => this.handleCardClick(rowIndex)}
                 data-index={rowIndex}>
                 <CardContentType4 cardTitle={card.title} content={card.content} bigBorder={selectedRow === rowIndex} />

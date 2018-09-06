@@ -12,8 +12,9 @@ export default {
           'Intervient sur le marché interbancaire pour assurer au jour le jour l’adéquation entre ses ressources à placer et ses besoins à financer',
       },
       {
-        __html:
-          "Procède le 29 mai 2009 à un prêt <em style='color: var(--monetaire)'>monétaire</em> de 10 millions d'€ auprès de la banque LCL ",
+        __html: `Procède le 29 mai 2009 à un prêt <em style='color: ${
+          process.env.REACT_APP_MONETAIRE
+        }'>monétaire</em> de 10 millions d'€ auprès de la banque LCL `,
       },
     ],
   },
@@ -28,7 +29,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Prêt <em style='color: var(--monetaire)'>monétaire</em>",
+        __html: `Prêt <em style='color: ${process.env.REACT_APP_MONETAIRE}'>monétaire</em>`,
       },
     ],
   },
@@ -43,8 +44,9 @@ export default {
     headList2: 'Opérations',
     list2: [
       {
-        __html:
-          "Prêt <em style='color: var(--monetaire)'>monétaire</em> de 10 millions d'€ à la banque LCL le 29 mai 2009",
+        __html: `Prêt <em style='color: ${
+          process.env.REACT_APP_MONETAIRE
+        }'>monétaire</em> de 10 millions d'€ à la banque LCL le 29 mai 2009`,
       },
     ],
   },

@@ -68,7 +68,6 @@ class Step1 extends React.Component {
   };
 
   handleShowNextModule = module => {
-    console.log('module', module);
     if (module === moduleTypes.blocDragAndDrop1) {
       this.setState({
         showNextModule: 3,
@@ -86,9 +85,9 @@ class Step1 extends React.Component {
 
     const isStep1 = this.props.match.path === '/step1';
 
-    const stepInStep0 = showNextModule > 0;
-    const stepInStep1 = showNextModule > 1;
-    const stepInStep2 = showNextModule > 2;
+    const stepInStep0 = showNextModule === 1;
+    const stepInStep1 = showNextModule === 2;
+    // const stepInStep2 = showNextModule === 3;
 
     return (
       <Fade classProps="step step1" in={isStep1}>
@@ -121,7 +120,7 @@ class Step1 extends React.Component {
                   <BlocDivider in={isStep1} />
                   <BlocDragAndDropType1 in={isStep1} {...step1.module_09} gameIsFinished={this.handleShowNextModule} />
                   <BlocDivider in={isStep1} />
-                  <BlocVideo in={isStep1} scrollIntoView={stepInStep2} {...step1.module_10} />
+                  <BlocVideo in={isStep1} /*scrollIntoView={stepInStep2} */ {...step1.module_10} />
                   {isStep1 && (
                     <div className="step1__synthese step__synthese bloc">
                       <BlocSpacer />

@@ -7,11 +7,17 @@ const module_05_04_blocDragAndDrop1 = {
   /*linkWithBlocSubMenu1ButtonPosition: 2,*/
   firstDescription: {
     __html: `Faites de même pour les obligations d’entreprise ci-dessous à l’aide du bouton  <div class="button-in-description" style="background-image: url(${button_finger})"></div>&nbsp;: 
-- quel secteur d’activité résiste le mieux à la crise&nbsp;? 
-- quelle visibilité donne la durée de l’obligation&nbsp;? 
-- les ventes ou le résultat sont-ils concentrés sur une zone géographique très touchée par la crise&nbsp;? 
+    - quel secteur d’activité résiste le mieux à la crise&nbsp;? 
+    - quelle visibilité donne la durée de l’obligation&nbsp;? 
+    - les ventes ou le résultat sont-ils concentrés sur une zone géographique très touchée par la crise&nbsp;? 
 
-En cas de doute, visionnez à nouveau le début de la 2ième partie de la vidéo intitulée CONTEXTE ÉCONOMIQUE.`,
+    En cas de doute, visionnez à nouveau le début de la 2ième partie de la vidéo intitulée CONTEXTE ÉCONOMIQUE.`,
+  },
+  explication: {
+    title: 'Du moins au plus risqué',
+    description: {
+      __html: `PERNOD RICARD et CARREFOUR ont en commun d’être dans la consommation alimentaire, mais CARREFOUR présente, en dépit d’une meilleure notation initiale, une échéance plus éloignée et donc moins de visibilité, ainsi qu’une forte exposition à l’Amérique Latine. BANCO SANTANDER, bien que bien notée à l’émission et de durée inférieure, pâtit de l’impact de la crise sur le secteur bancaire et de sa très forte exposition à l’Amérique Latine.`,
+    },
   },
   noChapter: true,
   chapter: 'Échelle de risque',
@@ -136,7 +142,7 @@ En cas de doute, visionnez à nouveau le début de la 2ième partie de la vidéo
     {
       color: 'white',
       startPosition: 5,
-      endPosition: 2,
+      endPosition: 3,
       content: {
         isDraggable: true,
         cardTitle: `Obligation Banco Santander`,
@@ -152,7 +158,7 @@ En cas de doute, visionnez à nouveau le début de la 2ième partie de la vidéo
     {
       color: 'white',
       startPosition: 6,
-      endPosition: 3,
+      endPosition: 2,
       content: {
         isDraggable: true,
         cardTitle: `obligation carrefour`,

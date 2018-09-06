@@ -135,8 +135,8 @@ class Step3 extends React.Component {
                       reset={this.state.reset}
                     />
                   )}
-                  {(showSynthese || show_01 || show_02 || show_03 || show_04) && (
-                    <div className="step3__synthese step__synthese bloc">
+                  <div className="step3__synthese step__synthese bloc">
+                    {(showSynthese || show_01 || show_02 || show_03 || show_04) && (
                       <BlocSubMenu1
                         {...step3.module_02}
                         in={showSynthese || show_01 || show_02 || show_03 || show_04}
@@ -144,14 +144,14 @@ class Step3 extends React.Component {
                         action={this.changeMarketToShow}
                         noDescription
                       />
-                      <Link to="/step4" className="button">
-                        <ButtonPrimary minWidth name={step3.module_07.button_1} enableClick />
-                      </Link>
-                      <Link to="#" className="button">
-                        <ButtonPrimary minWidth name={step3.module_07.button_2} />
-                      </Link>
-                    </div>
-                  )}
+                    )}
+                    <Link to="/step4" className="button first">
+                      <ButtonPrimary minWidth name={step3.module_07.button_1} enableClick />
+                    </Link>
+                    <Link to="#" className="button">
+                      <ButtonPrimary minWidth name={step3.module_07.button_2} />
+                    </Link>
+                  </div>
                 </React.Fragment>
               );
             } else {

@@ -10,14 +10,14 @@ const module_08_03_blocText = {
   chapter: 'Analyse comparative ',
   name: 'Évaluation de l’exposition des fonds',
   firstDescription: {
-    __html: `Pourquoi s’intéresser à l’exposition d’un fonds actions, obligataire, monétaire ou diversifié ?
+    __html: `Pourquoi s’intéresser à l’exposition d’un fonds actions, obligataire, monétaire ou diversifié&nbsp;?
 
 Deux façons de mesurer l’exposition existent : 
-- la répartition en % d’actif est calculée pour tous les fonds ; comment l’interpréter ? 
-- la répartition en sensibilité est une notion propre aux fonds obligataires et monétaires ; quelles informations en tirer ? 
+- la répartition en % d’actif est calculée pour tous les fonds ; comment l’interpréter&nbsp;? 
+- la répartition en sensibilité est une notion propre aux fonds obligataires et monétaires ; quelles informations en tirer&nbsp;? 
 
-Des extraits de plusieurs fiches de reporting sont proposés à votre analyse.`
-  }
+Des extraits de plusieurs fiches de reporting sont proposés à votre analyse.`,
+  },
 };
 
 export default module_08_03_blocText;

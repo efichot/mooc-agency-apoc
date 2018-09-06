@@ -1,33 +1,33 @@
 .menu-step-navigation {
   position: fixed;
-  width: calc(var(--innerContentPaddingX) * 0.9);
+  width: $innerContentPaddingX * 0.9;
   padding: 5px;
   bottom: 0;
-  margin-left: 100px;
+  margin-left: $menuStepNavigationMarginLeft;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
 
-  color: var(--defaultTextColor);
-  font-size: var(--defaultFontSize);
+  color: $defaultTextColor;
+  font-size: $defaultFontSize;
   text-transform: uppercase;
 
-  z-index: 30;
+  z-index: 300;
 
   &__button {
       margin-top: 10px;
       height: 75px;
-      box-shadow: 2px 1px 1px var(--shadow);
+      box-shadow: 2px 1px 1px $shadow;
   }
 
 
   &__frame {
     border-radius: 10px;
-    background-color: var(--menuStepNavigationBg);
+    background-color: $menuStepNavigationBg;
     padding: 10px;
-    box-shadow: 2px 1px 1px var(--shadow);
+    box-shadow: 2px 1px 1px $shadow;
     margin-bottom: 15px;
   }
 
@@ -49,12 +49,12 @@
     }
     
     &--bullet {
-      color: var(--menuStepNavigationBullet);
+      color: $menuStepNavigationBullet;
       margin-right: 5px;
     }
 
     &--content {
-      border-bottom: 1px dotted var(--menuStepNavigationBorder);
+      border-bottom: 1px dotted $menuStepNavigationBorder;
       flex-grow: 1;
       &.last-step {
         border: none

@@ -12,8 +12,9 @@ export default {
           'Intervient sur le marché interbancaire pour assurer au jour le jour l’adéquation entre ses ressources à placer et ses besoins à financer ',
       },
       {
-        __html:
-          "Procède le 29 mai 2009 à un emprunt <em style='color: var(--monetaire)'>monétaire</em> de 10 millions d'€ auprès de la banque Société Générale ",
+        __html: `Procède le 29 mai 2009 à un emprunt <em style='color: ${
+          process.env.REACT_APP_MONETAIRE
+        }'>monétaire</em> de 10 millions d'€ auprès de la banque Société Générale `,
       },
     ],
   },
@@ -28,7 +29,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Emprunt <em style='color: var(--monetaire)'>monétaire</em>",
+        __html: `Emprunt <em style='color: ${process.env.REACT_APP_MONETAIRE}'>monétaire</em>`,
       },
     ],
   },
@@ -43,8 +44,9 @@ export default {
     headList2: 'Opérations',
     list2: [
       {
-        __html:
-          "Emprunt <em style='color: var(--monetaire)'>monétaire</em> de 10 millions d'€ auprès de la banque Société Générale le 29 mai 2009",
+        __html: `Emprunt <em style='color: ${
+          process.env.REACT_APP_MONETAIRE
+        }'>monétaire</em> de 10 millions d'€ auprès de la banque Société Générale le 29 mai 2009`,
       },
     ],
   },

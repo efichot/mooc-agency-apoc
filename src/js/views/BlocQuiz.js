@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import BlocHeader from './BlocHeader';
 import BlocSpacer from './BlocSpacer';
@@ -26,6 +27,10 @@ class BlocQuiz extends React.Component {
     help: false,
     questions: [],
     chrono: 60,
+    quizIsOver: false,
+    goodAnswers: 0,
+    bonusTime: 0,
+    remainingTime: 0,
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -55,19 +60,36 @@ class BlocQuiz extends React.Component {
   };
 
   handleValidate = e => {
-    if (this.state.buttonActive === this.state.correctAnswer) {
-      if (this.state.victoryMessage === popupVictoryMessage) {
+    const {
+      currentQuestionIndex,
+      questions,
+      buttonActive,
+      correctAnswer,
+      victoryMessage,
+      goodAnswers,
+      remainingTime,
+      bonusTime,
+    } = this.state;
+
+    if (buttonActive === correctAnswer) {
+      if (victoryMessage === popupVictoryMessage) {
+        this.setState({
+          bonusTime: bonusTime + remainingTime,
+        });
         this.showNextQuestion();
         return;
       }
-      this.setState({ victoryMessage: popupVictoryMessage });
-      this.setState({ victoryMessageIsVisible: true });
+      this.setState({
+        victoryMessage: popupVictoryMessage,
+        victoryMessageIsVisible: true,
+        goodAnswers: goodAnswers + 10,
+      });
     } else {
-      if (this.state.victoryMessage === popupDefeatMessage) {
+      if (victoryMessage === popupDefeatMessage) {
         this.showNextQuestion();
         return;
       }
-      if (this.state.currentQuestionIndex === this.state.questions.length - 1) {
+      if (currentQuestionIndex === questions.length - 1) {
         this.setState({
           victoryMessage: victoryMessages.isDefeatQuizFinished,
           victoryMessageIsVisible: true,
@@ -97,6 +119,13 @@ class BlocQuiz extends React.Component {
     });
   };
 
+  handleStoreTime = ({ remainingTime, currentQuestionIndex }) => {
+    console.log('handleStoreTime', remainingTime);
+    this.setState({
+      remainingTime,
+    });
+  };
+
   setTheCorrectAnswer = question => {
     let correctAnswer = null;
     question.answers.forEach((answer, index) => {
@@ -115,7 +144,7 @@ class BlocQuiz extends React.Component {
   };
 
   render() {
-    const { modulType, noChapter, duration, chapter, name, scrollIntoView, description } = this.props;
+    const { modulType, noChapter, duration, chapter, name, scrollIntoView, description, step } = this.props;
 
     const {
       questions,
@@ -126,10 +155,15 @@ class BlocQuiz extends React.Component {
       correctAnswer,
       help,
       quizStart,
+      quizIsOver,
       victoryMessageIsVisible,
+      goodAnswers,
+      bonusTime,
+      remainingTime,
     } = this.state;
 
     const { question, answers, explication } = questions[currentQuestionIndex];
+    const lastQuestion = currentQuestionIndex === questions.length - 1;
 
     return (
       <Fade
@@ -145,61 +179,112 @@ class BlocQuiz extends React.Component {
         {!quizStart && (
           <ButtonPrimary minWidth name="Commencer" onClick={this.handleStartQuiz} classProps="bloc-quiz__start" />
         )}
-        {quizStart && (
-          <React.Fragment>
-            <div className="chrono-question">
-              <Chrono
-                totalDuration={chrono}
-                stop={this.state.help}
-                reset={!this.state.help}
-                context={currentQuestionIndex}
-              />
-              <BlocDescription modulType={modulType} classProps="bloc__first-description" description={question} />
-            </div>
-            <BlocSpacer />
-            <div className="bloc-quiz__answers">
-              {answers.map((answer, index) => {
-                return (
-                  <ButtonPrimary
-                    key={index}
-                    id={`QCM_question_1_answer_${index}`}
-                    name={answer.content}
-                    classProps={`button-quiz${buttonActive === index + 1 ? ' active' : ''}${
-                      victoryMessage !== undefined ? ' finished' : ''
-                    }${correctAnswer === index + 1 ? ' correct' : ''}`}
-                    onClick={this.handleClick}
-                    answer={index + 1}
-                  />
-                );
-              })}
-            </div>
-            <div className="validate-and-popup">
-              <div className="bloc-quiz__popup-space">
-                {victoryMessage && (
-                  <PopupBlue
-                    classProps={`popup-blue__victory-message`}
-                    hidePopup={!victoryMessageIsVisible}
-                    onCloseClick={() => {
-                      if (currentQuestionIndex === questions.length - 1) {
-                        this.setState({ help: true, victoryMessage: victoryMessages.quizIsOver });
-                      } else {
+        {quizStart &&
+          !quizIsOver && (
+            <React.Fragment>
+              <div className="chrono-question">
+                <Chrono
+                  totalDuration={chrono}
+                  stop={this.state.victoryMessageIsVisible}
+                  reset={!this.state.help}
+                  context={currentQuestionIndex}
+                  currentQuestionIndex={currentQuestionIndex}
+                  timeRemaining={this.handleStoreTime}
+                />
+                <BlocDescription modulType={modulType} classProps="bloc__first-description" description={question} />
+              </div>
+              <BlocSpacer />
+              <div className="bloc-quiz__answers">
+                {answers.map((answer, index) => {
+                  return (
+                    <ButtonPrimary
+                      key={index}
+                      id={`QCM_question_1_answer_${index}`}
+                      name={answer.content}
+                      classProps={`button-quiz${buttonActive === index + 1 ? ' active' : ''}${
+                        victoryMessage !== undefined ? ' finished' : ''
+                      }${correctAnswer === index + 1 ? ' correct' : ''}`}
+                      onClick={this.handleClick}
+                      answer={index + 1}
+                    />
+                  );
+                })}
+              </div>
+              <div className="validate-and-popup">
+                <div className="bloc-quiz__popup-space">
+                  {victoryMessage && (
+                    <PopupBlue
+                      classProps={`popup-blue__victory-message`}
+                      hidePopup={!victoryMessageIsVisible}
+                      onCloseClick={() => {
                         this.setState({ help: true, victoryMessageIsVisible: false });
-                      }
-                    }}>
-                    <span>{victoryMessage}</span>
-                  </PopupBlue>
+                        if (lastQuestion) {
+                          this.setState({ quizIsOver: true });
+                          if (victoryMessage === popupVictoryMessage) {
+                            this.setState({
+                              bonusTime: bonusTime + remainingTime,
+                            });
+                          }
+                        }
+                      }}>
+                      <span>{victoryMessage}</span>
+                    </PopupBlue>
+                  )}
+                </div>
+                {!victoryMessageIsVisible && (
+                  <ButtonPrimary
+                    minWidth
+                    name={victoryMessage !== undefined ? 'suivant' : 'valider'}
+                    onClick={this.handleValidate}
+                    classProps={`bloc-quiz__validate`}
+                  />
                 )}
               </div>
-              {!(currentQuestionIndex === questions.length - 1 && victoryMessage !== undefined) && (
-                <ButtonPrimary
-                  minWidth
-                  name={victoryMessage !== undefined ? 'suivant' : 'valider'}
-                  onClick={this.handleValidate}
-                  classProps={`bloc-quiz__validate`}
-                />
+              {help && <PopupBlueInnerHtml classes={`popup-blue__explication`} description={explication} noCross />}
+            </React.Fragment>
+          )}
+        {quizIsOver && (
+          <React.Fragment>
+            <span className="endquiz">Bravo ! Vous avez terminé le quiz d'évaluation</span>
+            <span className="endquiz">
+              Vous obtenez <span className="points">{goodAnswers}</span> pts de bonnes réponses pour votre score
+            </span>
+            <span className="endquiz">
+              Vous obtenez <span className="bonusTime">{bonusTime}</span> pts de bonus temps pour votre classement
+            </span>
+            <BlocSpacer />
+            {step !== 8 &&
+              step !== 4 && (
+                <Link to={`step${step + 1}`}>
+                  <ButtonPrimary minWidth name="Continuez votre formation" enableClick />
+                </Link>
               )}
-            </div>
-            {help && <PopupBlueInnerHtml classes={`popup-blue__explication`} description={explication} noCross />}
+            {step === 8 && (
+              <React.Fragment>
+                <Link to="#">
+                  <ButtonPrimary minWidth name="Terminer votre formation" enableClick />
+                </Link>
+                <Link to="#">
+                  <ButtonPrimary minWidth name="Donner votre avis" enableClick />
+                </Link>
+                <Link to="#">
+                  <ButtonPrimary minWidth name="Entrer sur le forum" enableClick />
+                </Link>
+              </React.Fragment>
+            )}
+            {step === 4 && (
+              <React.Fragment>
+                <Link to="step5">
+                  <ButtonPrimary minWidth name="Poursuivre vers comprendre les marchés" enableClick />
+                </Link>
+                <Link to="#">
+                  <ButtonPrimary minWidth name="Donner votre avis" enableClick />
+                </Link>
+                <Link to="#">
+                  <ButtonPrimary minWidth name="Entrer sur le forum" enableClick />
+                </Link>
+              </React.Fragment>
+            )}
           </React.Fragment>
         )}
       </Fade>
@@ -210,6 +295,7 @@ class BlocQuiz extends React.Component {
 BlocQuiz.propTypes = {
   in: PropTypes.bool,
   scrollIntoView: PropTypes.bool,
+  step: PropTypes.number.isRequired,
 
   /***************** DATA ******************/
 

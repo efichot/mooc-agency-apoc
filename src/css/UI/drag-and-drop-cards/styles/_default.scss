@@ -21,7 +21,7 @@
 }
 
 .drop-cards-start {
-  --dropCardMargin: var(--blocPaddingX);
+
   @extend %flex-row-top-center;
   justify-content: flex-start;
   align-items: flex-start;
@@ -29,13 +29,12 @@
   flex-wrap: wrap;
   width: 100%;
   .drop-card {
-    width: calc((100% - 2 * var(--dropCardMargin)) / 3);
+    width: ($innerContentWidth - $stepWidth - 5 * $dropCardMargin) / 3;
     min-height: 230px;
-    margin-top: var(--dropCardMargin);
+    margin-top: $dropCardMargin;
     &:not(:nth-child(3n + 1)) {
-      margin-left: var(--dropCardMargin);
+      margin-left: $dropCardMargin;
     }
-    // background: var(--dropStartBgColor);
     &.finished {
       background-color: #fff;
     }
@@ -76,7 +75,7 @@
 
 .drop-cards-end {
   .drop-card {
-    background: var(--dropEndBgColor);
+    background: $dropEndBgColor;
   }
 }
 

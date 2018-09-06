@@ -5,6 +5,7 @@ const module_12_blocQuiz = {
   modulType: moduleTypes.blocQuiz,
   name: `Caractéristiques des fonds de votre plan`,
   chapter: 'Questionnaire des fonds',
+  step: 4,
   noChapter: false,
   duration: 5,
   description: {
@@ -15,7 +16,7 @@ const module_12_blocQuiz = {
     {
       questionNumber: 1,
       question: {
-        __html: `1 - Qu’est-ce qu’une action ?`,
+        __html: `1 - Qu’est-ce qu’une action&nbsp;?`,
       },
       answers: [
         {
@@ -38,7 +39,7 @@ const module_12_blocQuiz = {
     {
       questionNumber: 2,
       question: {
-        __html: `2 - Qu’implique obligatoirement le titre action ?`,
+        __html: `2 - Qu’implique obligatoirement le titre action&nbsp;?`,
       },
       answers: [
         {
@@ -61,7 +62,7 @@ const module_12_blocQuiz = {
     {
       questionNumber: 3,
       question: {
-        __html: `3 - Qu’est-ce qu’une action à droit de vote double ?`,
+        __html: `3 - Qu’est-ce qu’une action à droit de vote double&nbsp;?`,
       },
       answers: [
         {
@@ -84,7 +85,7 @@ const module_12_blocQuiz = {
     {
       questionNumber: 4,
       question: {
-        __html: `4 - Quel statut a le détenteur d’une obligation vis-à-vis de l’émetteur ?`,
+        __html: `4 - Quel statut a le détenteur d’une obligation vis-à-vis de l’émetteur&nbsp;?`,
       },
       answers: [
         {
@@ -107,7 +108,7 @@ const module_12_blocQuiz = {
     {
       questionNumber: 5,
       question: {
-        __html: `5 - Quelle(s) obligation(s) doit remplir l’émetteur d’une obligation ?`,
+        __html: `5 - Quelle(s) obligation(s) doit remplir l’émetteur d’une obligation&nbsp;?`,
       },
       answers: [
         {
@@ -130,7 +131,7 @@ const module_12_blocQuiz = {
     {
       questionNumber: 6,
       question: {
-        __html: `6 - Qu’est-ce qu’une obligation à taux variable ?`,
+        __html: `6 - Qu’est-ce qu’une obligation à taux variable&nbsp;?`,
       },
       answers: [
         {
@@ -153,7 +154,7 @@ const module_12_blocQuiz = {
     {
       questionNumber: 7,
       question: {
-        __html: `7 - Qu’est-ce qui différencie une action d’une obligation ?`,
+        __html: `7 - Qu’est-ce qui différencie une action d’une obligation&nbsp;?`,
       },
       answers: [
         {
@@ -176,7 +177,7 @@ const module_12_blocQuiz = {
     {
       questionNumber: 8,
       question: {
-        __html: `8 - Qu’est-ce qui différencie un titre monétaire -ou titre de créance négociable (TCN)- d’une obligation ?`,
+        __html: `8 - Qu’est-ce qui différencie un titre monétaire -ou titre de créance négociable (TCN)- d’une obligation&nbsp;?`,
       },
       answers: [
         {
@@ -199,7 +200,7 @@ const module_12_blocQuiz = {
     {
       questionNumber: 9,
       question: {
-        __html: `9 - Dans quel cas le Titre de créance négociable (TCN) et l’obligation ne sont pas remboursés ?`,
+        __html: `9 - Dans quel cas le Titre de créance négociable (TCN) et l’obligation ne sont pas remboursés&nbsp;?`,
       },
       answers: [
         {
@@ -222,7 +223,7 @@ const module_12_blocQuiz = {
     {
       questionNumber: 10,
       question: {
-        __html: `10 - A quoi sert un produit dérivé ?`,
+        __html: `10 - A quoi sert un produit dérivé&nbsp;?`,
       },
       answers: [
         {

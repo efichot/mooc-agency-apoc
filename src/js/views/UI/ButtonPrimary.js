@@ -63,7 +63,7 @@ ButtonPrimary.propTypes = {
 ButtonPrimary.defaultProps = {
   classProps: '',
   subname: '',
-  color: 'var(--buttonPrimaryDefaultColor)',
+  color: process.env.REACT_APP_BUTTON_PRIMARY_DEFAULT_COLOR,
   borderColor: '',
   fontColor: '',
   answer: undefined,

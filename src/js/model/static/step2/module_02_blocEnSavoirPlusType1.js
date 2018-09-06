@@ -9,8 +9,8 @@ const module_02_blocEnSavoirPlusType1 = {
   title: `Principaux indices de référence (ou benchmark en anglais) du marché des actions`,
   cards: [
     {
-      color: 'var(--action)',
-      hoverColor: 'var(--actionOpaque)',
+      color: process.env.REACT_APP_ACTION,
+      hoverColor: process.env.REACT_APP_ACTION_OPAQUE,
       startPosition: 1,
       arrowFollowing: false,
       cardTitle: 'Indice du marché actions',
@@ -22,8 +22,10 @@ const module_02_blocEnSavoirPlusType1 = {
       cardSubTitle: `cf. Glossaire`,
     },
     {
-      color: 'linear-gradient(to right, var(--obligation), var(--monetaire))',
-      hoverColor: 'linear-gradient(to right, var(--obligationOpaque), var(--monetaireOpaque))',
+      color: `linear-gradient(to right, ${process.env.REACT_APP_OBLIGATION}, ${process.env.REACT_APP_MONETAIRE})`,
+      hoverColor: `linear-gradient(to right, ${process.env.REACT_APP_OBLIGATION_OPAQUE}, ${
+        process.env.REACT_APP_MONETAIRE_OPAQUE
+      })`,
       startPosition: 2,
       arrowFollowing: false,
       cardTitle: 'Indice des marchés obligataire et monétaire',
@@ -35,8 +37,12 @@ const module_02_blocEnSavoirPlusType1 = {
       cardSubTitle: `cf. Glossaire`,
     },
     {
-      color: 'linear-gradient(to right, var(--action), var(--obligation), var(--monetaire))',
-      hoverColor: 'linear-gradient(to right, var(--actionOpaque), var(--obligationOpaque), var(--monetaireOpaque))',
+      color: `linear-gradient(to right, ${process.env.REACT_APP_ACTION}, ${process.env.REACT_APP_OBLIGATION} 33%, ${
+        process.env.REACT_APP_MONETAIRE
+      } 95%)`,
+      hoverColor: `linear-gradient(to right, ${process.env.REACT_APP_ACTION_OPAQUE}, ${
+        process.env.REACT_APP_OBLIGATION_OPAQUE
+      } 33%, ${process.env.REACT_APP_MONETAIRE_OPAQUE} 95%)`,
       startPosition: 3,
       arrowFollowing: false,
       cardTitle: `Indices composites`,

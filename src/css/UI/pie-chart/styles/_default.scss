@@ -1,6 +1,6 @@
 .bloc-pie-chart-play > svg {
-  height: var(--pieChartRadius);
-  width: var(--pieChartRadius);
+  height: $pieChartRadius;
+  width: $pieChartRadius;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -4,7 +4,7 @@
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 
-  background-color: var(--cardContentType1BgColor);
+  background-color: $cardContentType1BgColor;
   font-size: 0.75rem;
   padding: 5px 10px;
   @extend %background-contain;
@@ -22,7 +22,7 @@
   }
 
   &.big-border {
-    border: 3px solid var(--cardContentType1bigBorderColor);
+    border: 3px solid $cardContentType1bigBorderColor;
   }
 
   &--big-title {

@@ -9,15 +9,14 @@
     right: 0;
     width: 100% !important;
     height: 100% !important;
-    padding: var(--videoMargin);
-    background-color: var(--white);
+    padding: $videoMargin;
+    background-color: $white;
 
     &--container {
-      --videoWidth: calc(var(--innerContentWidth) - var(--stepWidth) - 2 * var(--blocPaddingX));
-      margin-top: var(--videoMargin);
-      margin-bottom: var(--videoMargin);
-      width: var(--videoWidth);
-      height: calc((var(--videoWidth) + 2 * var(--videoMargin)) * 0.5625);
+      margin-top: $videoMargin;
+      margin-bottom: $videoMargin;
+      width: $videoWidth;
+      height: ($videoWidth + 2 * $videoMargin) * 0.5625;
 
       position: relative;
       background-color: red;

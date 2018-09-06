@@ -5,6 +5,7 @@ const module_08_blocQuiz = {
   modulType: moduleTypes.blocQuiz,
   name: `Caractéristiques des fonds de votre plan`,
   chapter: 'Questionnaire des fonds',
+  step: 5,
   noChapter: false,
   duration: 5,
   description: {

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import BlocQCMType2 from '../views/BlocQCMType2';
 import BlocLink from '../views/BlocLink';
 import BlocSpacer from '../views/BlocSpacer';
+// import moduleTypes from '../model/static/moduleTypes';
 
 class Step2_04 extends React.Component {
   state = {
@@ -21,7 +22,7 @@ class Step2_04 extends React.Component {
   render() {
     const step2 = this.props.context.module_10;
 
-    const stepInStep0 = this.state.showNextModule > 0;
+    // const stepInStep0 = this.state.showNextModule > 0;
     const stepInStep1 = this.state.showNextModule > 1;
 
     return (
@@ -36,7 +37,7 @@ class Step2_04 extends React.Component {
         <BlocSpacer />
         <BlocLink
           in={this.props.in}
-          scrollIntoView={stepInStep0}
+          // scrollIntoView={stepInStep0}
           {...step2.module_10_02}
           onClick={this.handleShowNextModule}
         />

@@ -16,8 +16,8 @@ const module_03_04_blocEnSavoirPlusType1 = {
   // },
   cards: [
     {
-      color: 'rgba(255,92,49,1.00)',
-      hoverColor: 'rgba(255,92,49,1.00)',
+      color: process.env.REACT_APP_ACTION_OPAQUE,
+      hoverColor: process.env.REACT_APP_ACTION,
       startPosition: 1,
       arrowFollowing: false,
       cardTitle: 'Gestion de croissance ou growth en anglais ',
@@ -25,8 +25,8 @@ const module_03_04_blocEnSavoirPlusType1 = {
       cardContent: `Elle consiste à sélectionner les titres en retenant comme critère principal la croissance du chiffre d’affaires et des résultats des entreprises qui les ont émis. Ces titres correspondent à des entreprises bien valorisées par le marché mais dont la croissance à venir devrait entraîner le cours à la hausse.`,
     },
     {
-      color: 'rgba(255,92,49,1.00)',
-      hoverColor: 'rgba(255,92,49,1.00)',
+      color: process.env.REACT_APP_ACTION_OPAQUE,
+      hoverColor: process.env.REACT_APP_ACTION,
       startPosition: 2,
       arrowFollowing: false,
       cardTitle: 'Gestion de valeur ou value en anglais',
@@ -34,8 +34,8 @@ const module_03_04_blocEnSavoirPlusType1 = {
       cardContent: `Elle consiste à sélectionner les titres en retenant comme critère principal la sous-évaluation, en terme de valeur d’actif ou de rendement, des entreprises qui les ont émis. Ces titres correspondent à des entreprises dont le cours devrait se réapprécier à l’avenir.`,
     },
     {
-      color: 'rgba(255,92,49,1.00)',
-      hoverColor: 'rgba(255,92,49,1.00)',
+      color: process.env.REACT_APP_ACTION_OPAQUE,
+      hoverColor: process.env.REACT_APP_ACTION,
       startPosition: 3,
       arrowFollowing: false,
       cardTitle: 'Gestion sectorielle ',
@@ -43,8 +43,8 @@ const module_03_04_blocEnSavoirPlusType1 = {
       cardContent: `Elle consiste à sélectionner les titres des entreprises qui appartiennent au secteur d’activité retenu, comme par exemple les matières premières, la santé ou les télécommunications.`,
     },
     {
-      color: 'rgba(255,92,49,1.00)',
-      hoverColor: 'rgba(255,92,49,1.00)',
+      color: process.env.REACT_APP_ACTION_OPAQUE,
+      hoverColor: process.env.REACT_APP_ACTION,
       startPosition: 4,
       arrowFollowing: false,
       cardTitle: 'Gestion thématique',
@@ -52,8 +52,8 @@ const module_03_04_blocEnSavoirPlusType1 = {
       cardContent: `Elle consiste à sélectionner les titres des entreprises liées au thème retenu, comme par exemple les petites et moyennes capitalisations, le vieillissement de la population, le rendement, les situations spéciales. Ce dernier thème consiste à sélectionner les titres des entreprises pour lesquelles une situation de rupture (fusion, réorganisation, contrat important, changement d’hommes ou de réglementation…) et donc une réappréciation du cours sont anticipées.`,
     },
     {
-      color: 'rgba(255,92,49,1.00)',
-      hoverColor: 'rgba(255,92,49,1.00)',
+      color: process.env.REACT_APP_ACTION_OPAQUE,
+      hoverColor: process.env.REACT_APP_ACTION,
       startPosition: 5,
       arrowFollowing: false,
       cardTitle: 'Finance comportementale',

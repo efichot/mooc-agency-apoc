@@ -10,6 +10,7 @@ import PopupBlueInnerHtml from './UI/PopupBlueInnerHtml';
 import SelectQCM from './UI/SelectQCM';
 import Fade from '../transitions/Fade';
 import victoryMessages from '../model/static/popupBlueMessages';
+import { scrollIntoView as scrollItemIntoView } from '../transitions/transitionUtils';
 
 import arrowDown from '../../assets/img/icons/arrow-down.svg';
 
@@ -17,7 +18,7 @@ class BlocQCMType2 extends React.Component {
   state = {
     hideQuestion: true,
     showQuestion: 1,
-    gameIsFinished: false,
+    gameIsFinished: undefined,
     victoryMessage: undefined,
     answers: [],
     correctAnswers: [],
@@ -54,15 +55,25 @@ class BlocQCMType2 extends React.Component {
   };
 
   handleQCMAnswer = (index, answer) => {
-    this.setState({ victoryMessage: undefined });
+    this.setState({ victoryMessage: undefined, gameIsFinished: undefined });
     const answers = [...this.state.answers];
     answers[index - 1] = answer;
     this.setState({ answers });
   };
 
   handleHideExplanation = () => {
-    this.setState({ hideExplanation: true });
-    this.setState({ victoryMessage: undefined });
+    this.setState({
+      hideExplanation: true,
+      victoryMessage: undefined,
+      gameIsFinished: undefined,
+    });
+  };
+
+  handleShowExplanation = () => {
+    this.setState({
+      hideExplanation: false,
+      victoryMessage: undefined,
+    });
   };
 
   handleValidate = async e => {
@@ -73,19 +84,19 @@ class BlocQCMType2 extends React.Component {
         correct = false;
       }
     });
-    this.setState({ hideExplanation: false });
+    // this.setState({ hideExplanation: false });
     if (correct) {
       const victoryMessage = { __html: victoryMessages.isGoodAnswer };
       this.setState({
         victoryMessage,
-        gameIsFinished: true,
+        gameIsFinished: 'victory',
       });
       // this.props.gameIsFinished(this.state.gameIsFinished);
     } else {
       const victoryMessage = {
         __html: victoryMessages.isDefeatHTML,
       };
-      this.setState({ victoryMessage });
+      this.setState({ victoryMessage, gameIsFinished: 'defeat' });
     }
   };
 
@@ -133,7 +144,7 @@ class BlocQCMType2 extends React.Component {
                     className="button-groupe"
                     onMouseEnter={() => this.showQuestion(question)}
                     onMouseLeave={() => this.hideQuestions(question)}>
-                    <ButtonPrimary name={question.title} />
+                    <ButtonPrimary name={{ __html: question.title }} />
                     {question.arrowFollowing && (
                       <div className="arrow-following" style={{ backgroundImage: `url(${arrowDown})` }} />
                     )}
@@ -169,7 +180,10 @@ class BlocQCMType2 extends React.Component {
               classProps="bloc-QCM-type-2__victory-message"
               description={victoryMessage}
               onCloseClick={() => {
-                victoryMessage.__html === victoryMessages.isGoodAnswer && this.props.gameIsFinished(gameIsFinished);
+                if (victoryMessage.__html === victoryMessages.isGoodAnswer) {
+                  this.props.gameIsFinished(modulType);
+                  this.setState({ hideExplanation: false });
+                }
                 this.setState({ victoryMessage: undefined });
               }}
             />
@@ -180,29 +194,37 @@ class BlocQCMType2 extends React.Component {
             onClick={this.handleValidate}
             classProps={`bloc-QCM-type-2__validate`}
           />
-          {!hideExplanation &&
-            !gameIsFinished && (
-              <ButtonPrimary
-                minWidth
-                name="cacher l'explication"
-                onClick={this.handleHideExplanation}
-                classProps={`bloc-QCM-type-2__explanations`}
-              />
-            )}
+          {gameIsFinished && (
+            <ButtonPrimary
+              minWidth
+              name={!hideExplanation ? "Cacher l'explication" : "Voir l'explication"}
+              onClick={() => (!hideExplanation ? this.handleHideExplanation() : this.handleShowExplanation())}
+              classProps={`bloc-QCM-type-2__explanations`}
+            />
+          )}
         </div>
-        {!hideExplanation && <BlocSpacer />}
-        {!hideExplanation && (
-          <React.Fragment>
-            <BlocDescription description={synthese.firstDescription} />
-            {gameIsFinished && (
-              <React.Fragment>
-                <BlocSpacer />
-                {synthese.title && <span className="bloc__name">{synthese.title}</span>}
-                {synthese.secondDescription && <BlocDescription description={synthese.secondDescription} />}
-              </React.Fragment>
-            )}
-          </React.Fragment>
-        )}
+        {gameIsFinished && !hideExplanation && <BlocSpacer />}
+        {gameIsFinished &&
+          !hideExplanation && (
+            <div
+              className="it-is-the-end"
+              ref={syn => {
+                this.synthese = syn;
+                if (gameIsFinished === 'victory') {
+                  scrollItemIntoView(syn);
+                }
+              }}>
+              <BlocDescription description={synthese.firstDescription} />
+              {gameIsFinished === 'victory' &&
+                synthese && (
+                  <React.Fragment>
+                    <BlocSpacer />
+                    {synthese.title && <span className="bloc__name">{synthese.title}</span>}
+                    {synthese.secondDescription && <BlocDescription description={synthese.secondDescription} />}
+                  </React.Fragment>
+                )}
+            </div>
+          )}
       </Fade>
     );
   };

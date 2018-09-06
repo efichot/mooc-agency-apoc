@@ -5,13 +5,13 @@ export default {
     banques: 'Banques',
   },
   column2: {
-    investisseurs: "Entreprises d'investissement",
+    investisseurs: `Entreprises d'investissement`,
     courtiers: 'Courtiers',
     banques: 'Banques',
   },
   column3: {
     institutionnels: 'Institutionnels',
     particuliers: 'Particuliers',
-    societes: "Sociétés de gestion d'actifs",
+    societes: `Sociétés de gestion d'actifs`,
   },
 };

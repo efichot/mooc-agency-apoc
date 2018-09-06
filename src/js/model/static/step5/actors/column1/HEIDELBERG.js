@@ -8,12 +8,12 @@ export default {
     subTitle: 'Entreprise du secteur du BTP cotée en Bourse',
     list: [
       {
-        __html:
-          "A acquis en mai 2007 le groupe de matériaux de construction anglais Hanson PLC pour 11,7 milliards d'euros",
+        __html: `A acquis en mai 2007 le groupe de matériaux de construction anglais Hanson PLC pour 11,7 milliards d'euros`,
       },
       {
-        __html:
-          "Procède en septembre 2009 à une émission d'<em style='color: var(--action)'>actions</em> de 2,3 milliards d'euros pour réduire l’endettement dû à l’acquisition et au ralentissement économique des Etats-Unis et de l’Europe",
+        __html: `Procède en septembre 2009 à une émission d'<em style='color: ${
+          process.env.REACT_APP_ACTION
+        }'>actions</em> de 2,3 milliards d'euros pour réduire l’endettement dû à l’acquisition et au ralentissement économique des Etats-Unis et de l’Europe`,
       },
     ],
   },
@@ -28,7 +28,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Émission d'<em style='color: var(--action)'>actions</em>",
+        __html: `Émission d'<em style='color: ${process.env.REACT_APP_ACTION}'>actions</em>`,
       },
     ],
   },

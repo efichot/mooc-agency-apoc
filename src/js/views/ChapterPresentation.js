@@ -25,12 +25,12 @@ const ChapterPresentation = ({
         zIndex,
       }}>
       <div className="white-div">
-        {step && (
+        {/*step && (
           <React.Fragment>
             <span className="step-title">Étape</span>
             <span>{step}</span>
           </React.Fragment>
-        )}
+        )*/}
       </div>
       <div className="left-column">
         <span className="title">{name}</span>

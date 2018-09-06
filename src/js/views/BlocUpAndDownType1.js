@@ -88,6 +88,7 @@ class BlocUpAndDownType1 extends React.Component {
 
   render() {
     const { modulType, noChapter, cards, duration, chapter, name, firstDescription, scrollIntoView } = this.props;
+    const { positions, gameIsFinished, victoryMessage } = this.state;
 
     return (
       <Fade
@@ -98,13 +99,22 @@ class BlocUpAndDownType1 extends React.Component {
         {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
         <span className="bloc__name">{name}</span>
         <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
-        <span className="legend legend-high">Plus de performance</span>
         <div
           className="bloc-up-and-down-type-1__grid game"
           style={{
-            display: 'grid',
-            gridTemplateColumns: `repeat(${cards.length}, 1fr 5px)`,
+            display: 'grid', //FIXME
+            gridTemplateColumns: `repeat(${cards.length}, 1fr 5px)`, //FIXME
           }}>
+          <span
+            className={`legend grid-row-start-1 grid-column-start-1`}
+            style={
+              {
+                // gridColumn: 1,
+                // gridRow: 1,
+              }
+            }>
+            Plus de performance
+          </span>
           {cards.map((card, index) => {
             return (
               <React.Fragment key={index}>
@@ -114,13 +124,17 @@ class BlocUpAndDownType1 extends React.Component {
                       <div
                         key={indexDrop}
                         className={`bloc-up-and-down-type-1__button${
-                          indexDrop === this.state.positions[index + 1] ? ' active' : ''
-                        }${this.state.gameIsFinished ? ' finished' : ''}`}
-                        style={{
-                          gridColumn: `${2 * index + 1}`,
-                          gridRow: `${2 * indexDrop + 1}`,
-                        }}>
-                        {indexDrop === this.state.positions[index + 1] && <span>{card.content.cardTitle}</span>}
+                          indexDrop === positions[index + 1] ? ' active' : ''
+                        }${gameIsFinished ? ' finished' : ''} grid-row-start-${2 * index + 1} grid-column-start-${2 *
+                          indexDrop +
+                          2}`}
+                        style={
+                          {
+                            // gridColumn: `${2 * index + 1}`,
+                            // gridRow: `${2 * indexDrop + 2}`,
+                          }
+                        }>
+                        {indexDrop === positions[index + 1] && <span>{card.content.cardTitle}</span>}
                       </div>
                     );
                   } else {
@@ -128,21 +142,28 @@ class BlocUpAndDownType1 extends React.Component {
                       <React.Fragment key={indexDrop}>
                         <div
                           className={`bloc-up-and-down-type-1__button ${
-                            indexDrop === this.state.positions[index + 1] ? 'active' : ''
-                          }${this.state.gameIsFinished ? ' finished' : ''}`}
-                          style={{
-                            gridColumn: `${2 * index + 1}`,
-                            gridRow: `${2 * indexDrop + 1}`,
-                          }}>
-                          {indexDrop === this.state.positions[index + 1] && <span>{card.content.cardTitle}</span>}
+                            indexDrop === positions[index + 1] ? 'active' : ''
+                          }${gameIsFinished ? ' finished' : ''} grid-row-start-${2 * index + 1} grid-column-start-${2 *
+                            indexDrop +
+                            2}`}
+                          style={
+                            {
+                              // gridColumn: `${2 * index + 1}`,
+                              // gridRow: `${2 * indexDrop + 2}`,
+                            }
+                          }>
+                          {indexDrop === positions[index + 1] && <span>{card.content.cardTitle}</span>}
                         </div>
                         <div
-                          className="bloc-up-and-down-type-1__arrows"
+                          className={`bloc-up-and-down-type-1__arrows grid-row-start-${2 * index +
+                            1} grid-column-start-${2 * (indexDrop + 1) + 2}`}
                           key={indexDrop + 1}
-                          style={{
-                            gridColumn: `${2 * index + 1}`,
-                            gridRow: `${2 * (indexDrop + 1) + 1}`,
-                          }}>
+                          style={
+                            {
+                              // gridColumn: `${2 * index + 1}`,
+                              // gridRow: `${2 * (indexDrop + 1) + 2}`,
+                            }
+                          }>
                           <div
                             data-column={index + 1}
                             data-move-row="up"
@@ -169,24 +190,39 @@ class BlocUpAndDownType1 extends React.Component {
               </React.Fragment>
             );
           })}
-        </div>
-        <div className="legend legend__low">
-          <div className="legend__low--left">Moins</div>
-          <div className="legend__low--right">Plus de risque</div>
-        </div>
-        <div className="bloc-up-and-down-type-1__buttons">
-          <ButtonPrimary minWidth name="Recommencer" onClick={this.reset} />
-          {this.state.victoryMessage && (
+          <span
+            className={`legend grid-row-start-${2 * cards.length + 3} grid-column-start-1`}
+            style={
+              {
+                // gridColumn: 1,
+                // gridRow: 2 * cards.length + 3
+              }
+            }>
+            Moins de risque
+          </span>
+          <span
+            className={`legend grid-row-start-${2 * cards.length + 3} grid-column-start-${2 * cards.length - 1}`}
+            style={
+              {
+                // gridColumn: 2 * cards.length - 1,
+                // gridRow: 2 * cards.length + 3
+              }
+            }>
+            Plus de risque
+          </span>
+          {victoryMessage && (
             <PopupBlue
               onCloseClick={() => {
-                this.state.victoryMessage === victoryMessages.isVictory &&
-                  this.props.gameIsFinished(this.state.gameIsFinished);
+                victoryMessage === victoryMessages.isVictory && this.props.gameIsFinished(modulType);
                 this.setState({ victoryMessage: undefined });
               }}>
               <span className="">{this.state.victoryMessage}</span>
             </PopupBlue>
           )}
-          <ButtonPrimary minWidth name="Valider" onClick={this.checkAnswers} />
+        </div>
+        <div className="bloc-up-and-down-type-1__buttons">
+          <ButtonPrimary minWidth name="Recommencer" classProps="recommencer" onClick={this.reset} />
+          <ButtonPrimary minWidth name="Valider" classProps="valider" onClick={this.checkAnswers} />
         </div>
       </Fade>
     );

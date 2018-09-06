@@ -11,7 +11,7 @@ const module_09_02_blocQCMType2 = {
   duration: 2,
   title: `Par rapport au taux sans risque et à l’indice de référence`,
   firstDescription: {
-    __html: `Préférez-vous un fonds performant avec beaucoup de risque ou un fonds qui a la même performance avec moins de risque ?
+    __html: `Préférez-vous un fonds performant avec beaucoup de risque ou un fonds qui a la même performance avec moins de risque&nbsp;?
     Deux ratios permettent d’analyser la performance (ou le rendement) d’un fonds en fonction du risque pris :
     - le Ratio de Sharpe mesure la performance par rapport au taux sans risque, et le risque par la volatilité ; 
     - le Ratio d’information mesure la performance par rapport à l’indice de référence, et le risque par l’écart par rapport à ce même indice (Tracking Error). 
@@ -23,7 +23,7 @@ const module_09_02_blocQCMType2 = {
   questions: [
     {
       questionNumber: 1,
-      title: `Sur quelle période y a-t-il surperformance par rapport ?`,
+      title: `Sur quelle période y a-t-il surperformance par rapport&nbsp;?`,
       answer: 'no-question',
     },
     {
@@ -66,7 +66,7 @@ const module_09_02_blocQCMType2 = {
     },
     {
       questionNumber: 4,
-      title: `En période de sous-performance, le gérant a-t-il eu tendance par rapport à l’indice à ?`,
+      title: `En période de sous-performance, le gérant a-t-il eu tendance par rapport à l’indice à&nbsp;?`,
       choices: [
         {
           value: 'Accroître la prise de risque',
@@ -81,7 +81,7 @@ const module_09_02_blocQCMType2 = {
     },
     {
       questionNumber: 5,
-      title: `Quel est selon vous l’objectif de cette décision ?`,
+      title: `Quel est selon vous l’objectif de cette décision&nbsp;?`,
       choices: [
         {
           value: 'Stabiliser la performance',

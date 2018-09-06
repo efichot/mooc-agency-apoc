@@ -13,6 +13,7 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
     hideCard: true,
     cardNumberShown: 1,
     answers: [],
+    futureAnswers: [],
     currentQuestion: 0,
     showAll: false,
   };
@@ -46,12 +47,18 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
     if (showErrorMessage) {
       this.setState({ showErrorMessage });
     } else {
-      this.setState({ answers });
+      //activate card on validate click
+      this.setState({ futureAnswers: answers });
+      //activate card on card click
+      // this.setState({ answers });
     }
   };
 
   handleValidate = () => {
-    this.setState({ currentQuestion: this.state.currentQuestion + 1 });
+    this.setState({
+      answers: this.state.futureAnswers, //in case activate card on validate click
+      currentQuestion: this.state.currentQuestion + 1,
+    });
   };
 
   handleShowAll = () => {
@@ -72,9 +79,18 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
       questions,
       descriptionWhenNoMoreQuestion,
       showMoreQuestionsConditions,
+      ecusson,
     } = this.props;
 
-    const { hideCard, cardNumberShown, currentQuestion, answers, showAll, showErrorMessage } = this.state;
+    const {
+      hideCard,
+      cardNumberShown,
+      currentQuestion,
+      answers,
+      futureAnswers,
+      showAll,
+      showErrorMessage,
+    } = this.state;
 
     const showMoreQuestions =
       questions !== undefined &&
@@ -125,73 +141,85 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
               classProps="bloc-en-savoir-plus-type-3-qcm-type-1__question"
               description={!noMoreQuestion ? question.description : descriptionWhenNoMoreQuestion}
             />
-            <BlocSpacer height={25} />
-            <div className="bloc-en-savoir-plus-type-3-qcm-type-1__answers">
-              {!noMoreQuestion &&
-                question &&
-                question.description &&
-                question.answers.map((answer, index) => (
-                  <div key={index} className="bloc-en-savoir-plus-type-3-qcm-type-1__answers--answer">
-                    <ButtonPrimary
-                      id={`QCM_question_1_answer_${index}`}
-                      name={answer}
-                      classProps={`button-QCM-type-1${answers[currentQuestion] === answer ? ' active' : ''}`}
-                      onClick={this.handleClick}
-                      answer={{ answer, currentQuestion }}
-                      styleProps={{
-                        height: 40,
-                        width: question.width,
-                        padding: 0,
-                        fontSize: '0.875rem',
-                        lineHeight: '1em',
-                        boxShadow: '2px 2px 2px 1px rgba(0, 0, 0, 0.2)',
-                      }}
-                    />
-                    {question.files &&
-                      question.files[index].map((file, fileIndex) => (
-                        <div
-                          key={file.fileName}
-                          className="bloc-en-savoir-plus-type-3-qcm-type-1__answers--file"
-                          style={{
-                            visibility: answers[currentQuestion] === answer ? 'visible' : 'hidden',
-                          }}>
-                          {file.title && <span>{file.title}</span>}
-                          <a href={file.fileUrl} target="_blank" rel="noopener noreferrer">
-                            {file.fileName}
-                          </a>
-                          {file.subTitle && <span>{file.subTitle}</span>}
-                        </div>
+            <div className="question-and-answers">
+              <div className="bloc-en-savoir-plus-type-3-qcm-type-1__answers">
+                {!noMoreQuestion &&
+                  question &&
+                  question.description &&
+                  question.answers.map((answer, index) => (
+                    <div key={index} className="bloc-en-savoir-plus-type-3-qcm-type-1__answers--answer">
+                      <ButtonPrimary
+                        id={`QCM_question_1_answer_${index}`}
+                        name={answer}
+                        classProps={`button-QCM-type-1${futureAnswers[currentQuestion] === answer ? ' active' : ''}`}
+                        onClick={this.handleClick}
+                        answer={{ answer, currentQuestion }}
+                        styleProps={{
+                          height: 40,
+                          width: question.width,
+                          padding: 0,
+                          fontSize: '0.875rem',
+                          lineHeight: '1em',
+                          boxShadow: '2px 2px 2px 1px rgba(0, 0, 0, 0.2)',
+                        }}
+                      />
+                      {question.files &&
+                        question.files[index].map((file, fileIndex) => (
+                          <div
+                            key={file.fileName}
+                            className="bloc-en-savoir-plus-type-3-qcm-type-1__answers--file"
+                            style={{
+                              visibility: futureAnswers[currentQuestion] === answer ? 'visible' : 'hidden',
+                            }}>
+                            {file.title && <span>{file.title}</span>}
+                            <a href={file.fileUrl} target="_blank" rel="noopener noreferrer">
+                              {file.fileName}
+                            </a>
+                            {file.subTitle && <span>{file.subTitle}</span>}
+                          </div>
+                        ))}
+                    </div>
+                  ))}
+                {!noMoreQuestion && (
+                  <PopupBlue
+                    classProps="bloc-en-savoir-plus-type-3-qcm-type-1__error"
+                    hidePopup={!showErrorMessage}
+                    onCloseClick={this.handleClosePopupBlue}>
+                    {showErrorMessage &&
+                      (showErrorMessage.__html ? (
+                        <p className="card-content" dangerouslySetInnerHTML={showErrorMessage} />
+                      ) : (
+                        <p className="card-content">{showErrorMessage}</p>
                       ))}
-                  </div>
-                ))}
-              {!noMoreQuestion && (
-                <PopupBlue
-                  classProps="bloc-en-savoir-plus-type-3-qcm-type-1__error"
-                  hidePopup={!showErrorMessage}
-                  onCloseClick={this.handleClosePopupBlue}>
-                  {showErrorMessage &&
-                    (showErrorMessage.__html ? (
-                      <p className="card-content" dangerouslySetInnerHTML={showErrorMessage} />
-                    ) : (
-                      <p className="card-content">{showErrorMessage}</p>
-                    ))}
-                </PopupBlue>
-              )}
+                  </PopupBlue>
+                )}
+              </div>
+              <ButtonPrimary
+                minWidth
+                name={noMoreQuestion ? 'voir le reste du schéma' : 'valider'}
+                onClick={noMoreQuestion ? this.handleShowAll : this.handleValidate}
+                classProps={`bloc-QCM-type-1__validate`}
+              />
             </div>
-            <ButtonPrimary
-              minWidth
-              name={noMoreQuestion ? 'voir le reste du schéma' : 'valider'}
-              onClick={noMoreQuestion ? this.handleShowAll : this.handleValidate}
-              classProps={`bloc-QCM-type-1__validate`}
-            />
           </React.Fragment>
         )}
         <div
           className="bloc-en-savoir-plus-type-3-qcm-type-1__cards game"
           style={{
-            gridAutoRows: grid.gridAutoRows,
-            gridTemplateColumns: grid.gridTemplateColumns,
+            gridAutoRows: grid.gridAutoRows, //FIXME
+            gridTemplateColumns: grid.gridTemplateColumns, //FIXME
           }}>
+          {ecusson && (
+            <div className="ecusson">
+              <div
+                className="ecusson__cercle"
+                style={{
+                  background: ecusson.background,
+                }}
+              />
+              <div className="ecusson__texte">{ecusson.text}</div>
+            </div>
+          )}
           {cards.map((card, index) => {
             const hover = cardNumberShown === card.index && !hideCard;
             const showThis =
@@ -217,7 +245,10 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
                     color={hover ? card.hoverColor : card.color}
                     name={card.cardTitleToShow || card.cardTitle}
                     styleProps={{
-                      color: showAll || showThis || alwaysVisible || hover ? 'var(--defaultTextColor)' : 'transparent',
+                      color:
+                        showAll || showThis || alwaysVisible || hover
+                          ? process.env.REACT_APP_DEFAULT_TEXT_COLOR
+                          : 'transparent',
                       ...card.buttonStyle,
                       height: `${card.height * grid.gridAutoRows}px`,
                     }}
@@ -239,13 +270,17 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
             return null;
           })}
           <PopupBlue
-            classProps="bloc-en-savoir-plus-type-3-qcm-type-1__cards--to-show"
+            classProps={`bloc-en-savoir-plus-type-3-qcm-type-1__cards--to-show grid-row-start-${
+              grid.rows
+            }-end-${grid.rows + grid.popupRows} grid-column-start-1-end--1`}
             hidePopup={hideCard}
             noCross
-            styleProps={{
-              gridRow: `${grid.rows} / ${grid.rows + grid.popupRows}`,
-              gridColumn: `1 / -1`,
-            }}>
+            styleProps={
+              {
+                // gridRow: `${grid.rows} / ${grid.rows + grid.popupRows}`,
+                // gridColumn: `1 / -1`,
+              }
+            }>
             {!hideCard &&
               cardToShow.cardTitle &&
               (cardToShow.cardTitle.__html ? (
@@ -278,6 +313,10 @@ BlocEnSavoirPlusType3QCMType1.propTypes = {
   chapter: PropTypes.string.isRequired,
   duration: PropTypes.number,
   title: PropTypes.string.isRequired,
+  ecusson: PropTypes.shape({
+    backgroundColor: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+  }),
   grid: PropTypes.shape({
     rows: PropTypes.number.isRequired,
     columns: PropTypes.number.isRequired,
@@ -316,6 +355,7 @@ BlocEnSavoirPlusType3QCMType1.defaultProps = {
   },
   noChapter: false,
   duration: 0,
+  ecusson: undefined,
 };
 
 export default BlocEnSavoirPlusType3QCMType1;

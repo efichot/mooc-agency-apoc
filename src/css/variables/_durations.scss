@@ -1,3 +1,10 @@
+$duration: 0.25s;
+
+$hamburgerTransDurationFactor: 1;
+$hamburgerTransDuration: $duration * $hamburgerTransDurationFactor;
+
+$menuMobileTogglingFactor: $hamburgerTransDurationFactor;
+$menuMobileTogglingDuration: $hamburgerTransDurationFactor * $duration;
 
 :root {
   --duration: 0.25s;

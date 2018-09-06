@@ -12,7 +12,7 @@ const module_07_04_blocQCMType2 = {
   duration: 2,
   title: `Performances comparées `,
   firstDescription: {
-    __html: `Peut-on perdre de l’argent en investissant dans un fonds monétaire ?
+    __html: `Peut-on perdre de l’argent en investissant dans un fonds monétaire&nbsp;?
 
     À partir des données fournies ci-dessous, analysez la performance des fonds monétaire court terme et monétaire en sélectionnant les bonnes réponses grâce au bouton  <div class="button-in-description" style="background-image: url(${button_down_right})"></div>.
 
@@ -20,10 +20,7 @@ const module_07_04_blocQCMType2 = {
     <img src="${image1}" alt="extrait de fiche de reporting" />
 
     FONDS B
-    <img src="${image2}" alt="extrait de fiche de reporting" />
-
-
-    `,
+    <img src="${image2}" alt="extrait de fiche de reporting" />`,
   },
   questions: [
     {
@@ -33,7 +30,7 @@ const module_07_04_blocQCMType2 = {
     },
     {
       questionNumber: 2,
-      title: `Le fonds monétaire court terme (A) ?`,
+      title: `Le fonds monétaire court terme (A)&nbsp;?`,
       choices: [
         {
           value: '1 mois',
@@ -87,7 +84,7 @@ const module_07_04_blocQCMType2 = {
     },
     {
       questionNumber: 4,
-      title: `Depuis quand la performance de l’indice de référence de ces deux fonds est-elle négative ?`,
+      title: `Depuis quand la performance de l’indice de référence de ces deux fonds est-elle négative&nbsp;?`,
       choices: [
         {
           value: '1 mois',
@@ -114,7 +111,7 @@ const module_07_04_blocQCMType2 = {
     },
     {
       questionNumber: 5,
-      title: `Comment s’explique la différence de performance en faveur du fonds monétaire ?`,
+      title: `Comment s’explique la différence de performance en faveur du fonds monétaire&nbsp;?`,
       choices: [
         {
           value: "Par l'indice de référence",

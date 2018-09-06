@@ -1,14 +1,14 @@
 .button-quiz {
   
   @extend %flex-row-center-center;
-  color: var(--buttonQCMType1Color);
+  color: $buttonQCMType1Color;
   font-size: 0.75rem;
   text-transform: initial;
 
   cursor: pointer;
   text-align: left;
 
-  background-color: var(--buttonQCMType1BgColor) !important;
+  background-color: $buttonQCMType1BgColor !important;
   border-radius: 20px;
   border: 3px solid transparent;
 
@@ -16,15 +16,15 @@
   width: 250px;
 
   &:hover {
-    background-color: var(--buttonQCMType1HoverBgColor) !important;
-    color: var(--buttonQCMType1BgColor);
+    background-color: $buttonQCMType1HoverBgColor !important;
+    color: $buttonQCMType1BgColor;
   }
 
   &.active {
-    border-color: var(--buttonQCMType1ActivBorderColor);
+    border-color: $buttonQCMType1ActivBorderColor;
   }
   &.correct.finished {
-      border-color: var(--blocUpAndDownButtonBorderFinished);
+      border-color: $blocUpAndDownButtonBorderFinished;
   }
 
   
@@ -32,6 +32,37 @@
     pointer-events: none;
   }
 
+}
 
+.bloc-quiz {
 
+    a {
+      width: 100%;
+
+      .button-primary {
+        margin-top: 10px;
+        margin-left: auto;
+        float: right;
+      }
+
+    }
+
+  .endquiz {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    height: 30px;
+    
+
+    .points {
+      color: rgba(245,189,72,1.00);
+      font-weight: 700;
+    }
+
+    .bonusTime {
+      color: rgba(0,161,222,1.00);
+      font-weight: 700;
+    }
+  }
+  
 }

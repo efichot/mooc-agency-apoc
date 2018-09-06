@@ -13,6 +13,12 @@ const module_04_02_blocDragAndDropType1 = {
 
       Puis validez. En cas de doute sur la façon dont l’Europe, les États-Unis et les pays émergents ont réagi à la crise, visionnez à nouveau la 2ième partie de la vidéo intitulée CONTEXTE ÉCONOMIQUE.`,
   },
+  explication: {
+    title: 'Du moins au plus risqué',
+    description: {
+      __html: `Bien qu’exposée à la crise par son activité de BTP, SPIE BATIGNOLLES a un très bon carnet de commandes et une implantation française ; de plus, elle n’est pas cotée. PERNOD RICARD est présent dans les boissons haut de gamme, majoritairement en Europe et Amérique. Bien que dans la banque, BANCA MONTE DEI PASCHI n’est présente qu’en Italie. HEIDELBERG CEMENT et LAFARGE ont en commun d’être dans les matériaux et le BTP, notamment hors Europe et États-Unis, mais avec, pour LAFARGE, moins d’intégration et une forte exposition aux pays émergents.`,
+    },
+  },
   /*noChapter: false,*/
   chapter: 'Échelle de risque',
   duration: 4,
@@ -89,7 +95,7 @@ const module_04_02_blocDragAndDropType1 = {
     },
     {
       color: 'white',
-      startPosition: 3,
+      startPosition: 5,
       endPosition: 5,
       content: {
         isDraggable: true,
@@ -129,7 +135,7 @@ const module_04_02_blocDragAndDropType1 = {
     },
     {
       color: 'white',
-      startPosition: 4,
+      startPosition: 3,
       endPosition: 3,
       content: {
         isDraggable: true,
@@ -150,7 +156,7 @@ const module_04_02_blocDragAndDropType1 = {
     },
     {
       color: 'white',
-      startPosition: 5,
+      startPosition: 4,
       endPosition: 4,
       content: {
         isDraggable: true,

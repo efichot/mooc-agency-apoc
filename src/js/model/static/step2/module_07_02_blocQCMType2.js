@@ -20,7 +20,7 @@ const module_07_02_blocQCMType2 = {
   questions: [
     {
       questionNumber: 1,
-      title: `Quelle année la performance absolue est-elle ?`,
+      title: `Quelle année la performance absolue est-elle&nbsp;?`,
       answer: 'no-question',
     },
     {
@@ -119,7 +119,7 @@ const module_07_02_blocQCMType2 = {
     },
     {
       questionNumber: 4,
-      title: `Quelle année la performance relative est-elle ?`,
+      title: `Quelle année la performance relative est-elle&nbsp;?`,
       answer: 'no-question',
     },
     {
@@ -218,7 +218,7 @@ const module_07_02_blocQCMType2 = {
     },
     {
       questionNumber: 7,
-      title: `Quelle année la performance absolue est-elle négative en dépit d’une performance relative positive ?`,
+      title: `Quelle année la performance absolue est-elle négative en dépit d’une performance relative positive&nbsp;?`,
       choices: [
         {
           value: 2015,

@@ -1,20 +1,20 @@
 .header {
   position: relative;
   width: 100%;
-  height: var(--headerHeight);
-  padding-left: var(--innerContentPaddingX);
-  padding-right: var(--innerContentPaddingX);
+  height: $headerHeight;
+  padding-left: $innerContentPaddingX;
+  padding-right: $innerContentPaddingX;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
-  font-family: var(--headerFontFamily);
+  font-family: $headerFontFamily;
   font-weight: 300;
-  color: var(--headerInfosColor);
+  color: $headerInfosColor;
 
-  background: var(--headerBgColor);
+  background: $headerBgColor;
 
 
   /**************************/
@@ -26,7 +26,7 @@
 
     > * {
       width: 50%;
-      height: var(--headerContentHeight);
+      height: $headerContentHeight;
     }
   }
 
@@ -44,8 +44,8 @@
 
     &--avatar {
       background-image: url('./../assets/img/home/idPhoto.png');
-      width: var(--avatarWidth);
-      height: var(--avatarHeight);
+      width: $avatarWidth;
+      height: $avatarHeight;
     }
 
     &--infos {
@@ -60,7 +60,7 @@
     }
     &--info {
       &.formation {
-        color: var(--headerFormationColor);
+        color: $headerFormationColor;
         font-size: 1.125rem;
         line-height: 1.625rem;
         font-weight: 500;

@@ -12,7 +12,7 @@ const module_04_bis_blocEnSavoirPlusType2 = {
   },
   cards: [
     {
-      color: 'var(--action)',
+      color: process.env.REACT_APP_ACTION,
       hoverColor: 'rgba(250,250,250,1.00)',
       startPosition: 1,
       arrowFollowing: false,
@@ -23,7 +23,7 @@ const module_04_bis_blocEnSavoirPlusType2 = {
       cardSubTitle: `cf. Glossaire`,
     },
     {
-      color: 'var(--obligation)',
+      color: process.env.REACT_APP_OBLIGATION,
       hoverColor: 'rgba(250,250,250,1.00)',
       startPosition: 2,
       arrowFollowing: false,
@@ -34,7 +34,7 @@ const module_04_bis_blocEnSavoirPlusType2 = {
       cardSubTitle: `cf. Glossaire`,
     },
     {
-      color: 'var(--monetaire)',
+      color: process.env.REACT_APP_MONETAIRE,
       hoverColor: 'rgba(250,250,250,1.00)',
       startPosition: 3,
       arrowFollowing: false,

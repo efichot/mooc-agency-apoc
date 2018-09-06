@@ -26,7 +26,7 @@
     align-items: safe center;
     
     content: '';
-    background-color: var(--masterBgColor);
+    background-color: $masterBgColor;
     border-radius: 100%;
   }
 }

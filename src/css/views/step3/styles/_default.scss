@@ -7,8 +7,12 @@
       position: relative;
       span {
         margin-top: 275px;
-        color: var(--defaultTextColor);
+        color: $defaultTextColor;
       }
     }
+  }
+
+  &__synthese .button.first {
+    margin-top: 55px;
   }
 }

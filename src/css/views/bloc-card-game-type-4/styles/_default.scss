@@ -32,10 +32,10 @@
       width: 100%;
       flex-grow: 1;
       flex-shrink: 0;
-      color: var(--buttonQCMType1Color);
+      color: $buttonQCMType1Color;
       font-size: 0.65rem;
       text-transform: uppercase;
-      background-color: var(--buttonQCMType1BgColor) !important;
+      background-color: $buttonQCMType1BgColor !important;
       border-radius: 15px;
       border: 3px solid transparent;
       margin-bottom: 2px;
@@ -54,15 +54,15 @@
 
       &__answer {
         font-size: 0.8rem;
-        color: var(--black);
+        color: $black;
         text-align: center;
       }
 
       &.dragging-over {
-        border-color: var(--buttonQCMType1ActivBorderColor);
+        border-color: $buttonQCMType1ActivBorderColor;
       }
       &.finished {
-        border-color: var(--blocUpAndDownButtonBorderFinished);
+        border-color: $blocUpAndDownButtonBorderFinished;
       }
     }
   }

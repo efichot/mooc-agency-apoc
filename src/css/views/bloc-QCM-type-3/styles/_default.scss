@@ -34,7 +34,7 @@
 
         .button-primary {
           background-color: transparent !important;
-          color: var(--defaultTextColor);
+          color: $defaultTextColor;
           font-size: 0.875rem;
           text-transform: unset;
           text-align: left;
@@ -63,6 +63,7 @@
   }
 
   &__validate-victory {
+    margin-top: 20px;
     width: 100%;
     height: 80px;
     position: relative;

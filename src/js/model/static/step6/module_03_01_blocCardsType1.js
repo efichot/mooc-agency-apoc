@@ -15,8 +15,9 @@ const module_03_01_blocCardsType1 = {
       {
         title: 'Spie batignolles',
         content: {
-          __html:
-            "Cession de 3% des <em style='color: var(--action)'>actions</em> détenues par la Financière Spie Batignolles en mai 2009",
+          __html: `Cession de 3% des <em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> détenues par la Financière Spie Batignolles en mai 2009`,
         },
       },
       {
@@ -28,8 +29,9 @@ const module_03_01_blocCardsType1 = {
       {
         title: 'Amundi',
         content: {
-          __html:
-            "Achat d'<em style='color: var(--action)'>actions</em> Spie Batignolles cédées par la Financière Spie Batignolles en mai 2009",
+          __html: `Achat d'<em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> Spie Batignolles cédées par la Financière Spie Batignolles en mai 2009`,
         },
       },
     ],
@@ -37,19 +39,25 @@ const module_03_01_blocCardsType1 = {
       {
         title: 'Lafarge',
         content: {
-          __html: "Émission d'<em style='color: var(--action)'>actions</em> de 1,5 milliard d'euros en avril 2009",
+          __html: `Émission d'<em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> de 1,5 milliard d'euros en avril 2009`,
         },
       },
       {
         title: 'Crédit agricole CIB',
         content: {
-          __html: "Placement de l’émission en <em style='color: var(--action)'>actions</em> de Lafarge en avril 2009",
+          __html: `Placement de l’émission en <em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> de Lafarge en avril 2009`,
         },
       },
       {
         title: 'Monsieur Martin',
         content: {
-          __html: "Achat d'<em style='color: var(--action)'>actions</em> Lafarge émises en avril 2009",
+          __html: `Achat d'<em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> Lafarge émises en avril 2009`,
         },
       },
     ],
@@ -57,19 +65,25 @@ const module_03_01_blocCardsType1 = {
       {
         title: 'Lafarge',
         content: {
-          __html: "Émission d'<em style='color: var(--action)'>actions</em> de 1,5 milliard d'euros en avril 2009",
+          __html: `Émission d'<em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> de 1,5 milliard d'euros en avril 2009`,
         },
       },
       {
         title: 'Crédit agricole CIB',
         content: {
-          __html: "Placement de l’émission en <em style='color: var(--action)'>actions</em> de Lafarge en avril 2009",
+          __html: `Placement de l’émission en <em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> de Lafarge en avril 2009`,
         },
       },
       {
         title: 'Bnp paribas asset management',
         content: {
-          __html: "Achat d'<em style='color: var(--action)'>actions</em> Lafarge émises en avril 2009",
+          __html: `Achat d'<em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> Lafarge émises en avril 2009`,
         },
       },
     ],
@@ -77,20 +91,25 @@ const module_03_01_blocCardsType1 = {
       {
         title: 'Heidelberg cement',
         content: {
-          __html: "Émission d'<em style='color: var(--action)'>actions</em> de 2,3 milliards d'euros en septembre 2009",
+          __html: `Émission d'<em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> de 2,3 milliards d'euros en septembre 2009`,
         },
       },
       {
         title: 'Crédit agricole cheuvreux',
         content: {
-          __html:
-            "Transaction sur les <em style='color: var(--action)'>actions</em> émises par Heidelberg Cement en septembre 2009",
+          __html: `Transaction sur les <em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> émises par Heidelberg Cement en septembre 2009`,
         },
       },
       {
         title: 'Bnp paribas asset management',
         content: {
-          __html: "Achat d'<em style='color: var(--action)'>actions</em> Heidelberg Cement émises en septembre 2009",
+          __html: `Achat d'<em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> Heidelberg Cement émises en septembre 2009`,
         },
       },
     ],
@@ -98,20 +117,25 @@ const module_03_01_blocCardsType1 = {
       {
         title: 'Pernod ricard',
         content: {
-          __html: "Émission d'<em style='color: var(--action)'>actions</em> de 1 milliard d'euros en avril 2009",
+          __html: `Émission d'<em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> de 1 milliard d'euros en avril 2009`,
         },
       },
       {
         title: 'Crédit agricole cheuvreux',
         content: {
-          __html:
-            "Transaction sur les <em style='color: var(--action)'>actions</em> émises par Pernod Ricard en avril 2009",
+          __html: `Transaction sur les <em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> émises par Pernod Ricard en avril 2009`,
         },
       },
       {
         title: 'Bnp paribas asset management',
         content: {
-          __html: "Achat d'<em style='color: var(--action)'>actions</em> Pernod Ricard émises en avril 2009",
+          __html: `Achat d'<em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> Pernod Ricard émises en avril 2009`,
         },
       },
     ],
@@ -125,13 +149,17 @@ const module_03_01_blocCardsType1 = {
       {
         title: 'Crédit agricole cheuvreux',
         content: {
-          __html: "Transaction sur les <em style='color: var(--action)'>actions</em> Banca Monte Dei Paschi",
+          __html: `Transaction sur les <em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> Banca Monte Dei Paschi`,
         },
       },
       {
         title: 'Bnp paribas asset management',
         content: {
-          __html: "Achat d'<em style='color: var(--action)'>actions</em> Banca Monte Dei Paschi sur le marché",
+          __html: `Achat d'<em style='color: ${
+            process.env.REACT_APP_ACTION
+          }'>actions</em> Banca Monte Dei Paschi sur le marché`,
         },
       },
     ],

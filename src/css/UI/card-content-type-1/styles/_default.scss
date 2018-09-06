@@ -1,15 +1,15 @@
 .card-content__type-1 {
-  width: calc(97% / 3);
+  width: 33%;
   min-height: 230px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 
-  background-color: var(--cardContentType1BgColor);
+  background-color: $cardContentType1BgColor;
   font-size: 0.60rem;
   padding: 10px;
 
   &.big-border {
-    border: 3px solid var(--cardContentType1bigBorderColor);
+    border: 3px solid $cardContentType1bigBorderColor;
   }
 
   > * {

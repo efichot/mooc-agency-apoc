@@ -35,6 +35,7 @@ class BlocEnSavoirPlusType3 extends React.Component {
       title,
       firstDescription,
       scrollIntoView,
+      module,
     } = this.props;
 
     const { hideCard, cardNumberShown } = this.state;
@@ -42,7 +43,7 @@ class BlocEnSavoirPlusType3 extends React.Component {
     return (
       <Fade
         in={this.props.in}
-        classProps={`bloc bloc-en-savoir-plus bloc-en-savoir-plus-type-3`}
+        classProps={`bloc bloc-en-savoir-plus bloc-en-savoir-plus-type-3 ${module}`}
         scrollIntoView={scrollIntoView}
         margins={this.props.margins}>
         {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
@@ -51,20 +52,23 @@ class BlocEnSavoirPlusType3 extends React.Component {
         <div
           className="bloc-en-savoir-plus-type-3__cards game"
           style={{
-            gridTemplateColumns: `repeat(${2 * grid.columns}, 1fr)`,
+            gridTemplateColumns: `repeat(${2 * grid.columns}, 1fr)`, //FIXME
           }}>
           <React.Fragment>
             {cards.map((card, index) => {
-              const hover = cardNumberShown === card.startPosition && !hideCard;
+              const hover = cardNumberShown === card.index && !hideCard;
               return (
                 <React.Fragment key={index}>
                   <div
-                    className="button-groupe"
+                    className={`button-groupe grid-row-start-${card.position.row} grid-column-start-${card.position
+                      .column *
+                      2 -
+                      1}`}
                     onMouseEnter={() => this.cardNumberShown(card)}
                     onMouseLeave={() => this.hideCards(card)}
                     style={{
-                      gridRow: card.position.row,
-                      gridColumn: card.position.column * 2 - 1,
+                      // gridRow: card.position.row,
+                      // gridColumn: card.position.column * 2 - 1,
                       width: card.width,
                     }}>
                     <ButtonPrimary color={hover ? card.hoverColor : card.color} name={card.cardTitle} />
@@ -74,10 +78,11 @@ class BlocEnSavoirPlusType3 extends React.Component {
                   </div>
                   {card.arrowRight && (
                     <div
-                      className="arrow-right"
+                      className={`arrow-right grid-row-start-${card.position.row} grid-column-start-${card.position
+                        .column * 2}`}
                       style={{
-                        gridRow: card.position.row,
-                        gridColumn: card.position.column * 2,
+                        // gridRow: card.position.row,
+                        // gridColumn: card.position.column * 2,
                         backgroundImage: `url(${arrowRight})`,
                       }}
                     />
@@ -91,7 +96,7 @@ class BlocEnSavoirPlusType3 extends React.Component {
             hidePopup={hideCard}
             styleProps={{
               position: 'absolute',
-              top: 30,
+              bottom: 30,
               right: 60,
             }}>
             <span className="card-title">{!hideCard && cards[cardNumberShown - 1].cardTitle}</span>
@@ -115,6 +120,7 @@ BlocEnSavoirPlusType3.propTypes = {
   /***************** DATA ******************/
 
   modulType: PropTypes.string.isRequired,
+  module: PropTypes.string,
   noChapter: PropTypes.bool,
   chapter: PropTypes.string.isRequired,
   duration: PropTypes.number,
@@ -146,6 +152,7 @@ BlocEnSavoirPlusType3.propTypes = {
 
 BlocEnSavoirPlusType3.defaultProps = {
   in: false,
+  module: '',
 
   /***************** DATA ******************/
   firstDescription: {

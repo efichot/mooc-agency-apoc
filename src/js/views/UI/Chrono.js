@@ -31,16 +31,19 @@ class Chrono extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    Object.keys(this.props).forEach(key => {
-      if (this.props[key] !== prevProps[key]) {
-        console.log(key, 'changed from', prevProps[key], 'to', this.props[key]);
-      }
-    });
-    console.log('this.timeout', this.timeout);
+    // Object.keys(this.props).forEach(key => {
+    //   if (this.props[key] !== prevProps[key]) {
+    //     console.log(key, 'changed from', prevProps[key], 'to', this.props[key]);
+    //   }
+    // });
     if (!prevProps.reset && this.props.reset) {
       this.nextSecond();
     }
     if (!prevProps.stop && this.props.stop) {
+      this.props.timeRemaining({
+        remainingTime: prevState.remaining,
+        currentQuestionIndex: prevProps.currentQuestionIndex,
+      });
       window.clearTimeout(this.timeout);
     }
     // if (!prevProps.restart && this.props.restart) {
@@ -49,12 +52,13 @@ class Chrono extends React.Component {
   }
 
   nextSecond = () => {
-    if (this.state.remaining === 0) {
+    const { remaining } = this.state;
+    if (remaining === 0) {
       window.clearTimeout(this.timeout);
       return;
     }
     this.timeout = window.setTimeout(() => {
-      this.setState({ remaining: this.state.remaining - 1 });
+      this.setState({ remaining: remaining - 1 });
       this.nextSecond();
     }, 1000);
   };
@@ -77,7 +81,7 @@ class Chrono extends React.Component {
           data={[
             {
               value: white,
-              color: 'var(--white)',
+              color: process.env.REACT_APP_WHITE,
             },
             {
               value: grey,
@@ -101,9 +105,11 @@ class Chrono extends React.Component {
 
 Chrono.propTypes = {
   totalDuration: PropTypes.number,
+  currentQuestionIndex: PropTypes.number,
   stop: PropTypes.bool,
   restart: PropTypes.bool,
   reset: PropTypes.bool,
+  timeRemaining: PropTypes.func,
 };
 
 Chrono.defaultProps = {
@@ -111,6 +117,10 @@ Chrono.defaultProps = {
   restart: false,
   reset: false,
   totalDuration: 10,
+  currentQuestionIndex: undefined,
+  timeRemaining: () => {
+    return;
+  },
 };
 
 export default Chrono;

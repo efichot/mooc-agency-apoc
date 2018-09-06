@@ -11,7 +11,7 @@ const module_10_01_blocQCMType2 = {
   duration: 1,
   title: `Mécanisme de garantie des fonds structurés`,
   firstDescription: {
-    __html: `En quoi consistent les mécanismes de garantie ?
+    __html: `En quoi consistent les mécanismes de garantie&nbsp;?
     Ils font souvent référence à la Valeur Liquidative (ou VL) qui représente le prix auquel s’effectuent les achats et les ventes de parts du fonds. 
 
     À partir des données fournies ci-dessous, analysez la performance du fonds de type mixte D en sélectionnant les bonnes réponses grâce au bouton  <div class="button-in-description" style="background-image: url(${button_down_right})"></div>.
@@ -21,7 +21,7 @@ const module_10_01_blocQCMType2 = {
   questions: [
     {
       questionNumber: 1,
-      title: `Quel type de garantie offre le fonds ?`,
+      title: `Quel type de garantie offre le fonds&nbsp;?`,
       choices: [
         {
           value: "À l'échéance",
@@ -40,7 +40,7 @@ const module_10_01_blocQCMType2 = {
     },
     {
       questionNumber: 2,
-      title: 'Sur quoi porte la garantie ?',
+      title: 'Sur quoi porte la garantie&nbsp;?',
       choices: [
         {
           value: '100% du capital investi',

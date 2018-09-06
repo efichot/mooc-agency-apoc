@@ -12,8 +12,9 @@ export default {
           'Gère  les sommes destinées à couvrir les dommages et la protection des biens des assurés en cas de sinistre',
       },
       {
-        __html:
-          "Investit 150 millions d'€ en <em style='color: var(--obligation)'>obligations</em> émises par Pernod Ricard et Carrefour en mai 2009 et avril 2010",
+        __html: `Investit 150 millions d'€ en <em style='color: ${
+          process.env.REACT_APP_OBLIGATION
+        }'>obligations</em> émises par Pernod Ricard et Carrefour en mai 2009 et avril 2010`,
       },
     ],
   },
@@ -28,7 +29,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Achat d'<em style='color: var(--obligation)'>obligations</em> nouvelles",
+        __html: `Achat d'<em style='color: ${process.env.REACT_APP_OBLIGATION}'>obligations</em> nouvelles`,
       },
     ],
   },
@@ -43,8 +44,9 @@ export default {
     headList2: 'Opérations',
     list2: [
       {
-        __html:
-          "Achat d'<em style='color: var(--obligation)'>obligations</em> Pernod Ricard et Carrefour émises en mai 2009 et avril 2010",
+        __html: `Achat d'<em style='color: ${
+          process.env.REACT_APP_OBLIGATION
+        }'>obligations</em> Pernod Ricard et Carrefour émises en mai 2009 et avril 2010`,
       },
     ],
   },

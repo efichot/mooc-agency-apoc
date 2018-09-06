@@ -9,6 +9,6 @@ export default {
     'Bravo ! Vous avez identifié les différentes catégories d’émetteurs, d’investisseurs et d’intermédiaires présents sur les marchés financiers.',
   isDefeatHTML: "Ce n'est pas la bonne réponse.<br/>Réessayez&nbsp;!",
   casesNotFilled: "Vous n'avez pas rempli toutes les cases.",
-  textNotFilled: "Vous n'avez pas rempli tout le texte.",
+  textNotFilled: 'Il vous manque au moins une réponse.',
   pieChartUnCompleted: 'La composition de votre fonds est incomplète. Réessayez !',
 };

@@ -1,14 +1,14 @@
 .button-primary {
   padding: 15px 20px;
   
-  color: var(--white);
-  font-size: var(--defaultFontSize);
+  color: $white;
+  font-size: $defaultFontSize;
   text-transform: uppercase;
 
   cursor: pointer;
   text-align: center;
 
-  background: var(--buttonPrimaryDefaultColor);
+  background: $buttonPrimaryDefaultColor;
   border-radius: 10px;
 
   @extend %flex-column-center-center;

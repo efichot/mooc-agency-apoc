@@ -6,48 +6,28 @@ class CardContentType1 extends React.Component {
   super = {};
 
   render() {
-    const {
-      bigBorder,
-      isDraggable,
-      cardTitle,
-      cardSubTitle,
-      image,
-      list,
-      legend
-    } = this.props;
+    const { bgColor, bigBorder, isDraggable, cardTitle, cardSubTitle, image, list, legend } = this.props;
 
     return (
-      <div className={`card-content__type-1 ${bigBorder ? 'big-border' : ''}`}>
+      <div
+        className={`card-content__type-1 ${bigBorder ? 'big-border' : ''}`}
+        style={{
+          backgroundColor: bgColor,
+          boxShadow: bgColor === 'transparent' && 'none',
+        }}>
         {isDraggable && (
-          <div
-            className="card-content__type-1--drag-image"
-            style={{ backgroundImage: `url(${draggableIcon})` }}
-          />
+          <div className="card-content__type-1--drag-image" style={{ backgroundImage: `url(${draggableIcon})` }} />
         )}
         <div className="card-content__type-1--title">{cardTitle}</div>
-        {image && (
-          <div
-            className="card-content__type-1--image"
-            style={{ backgroundImage: `url(${image})` }}
-          />
-        )}
-        {cardSubTitle && (
-          <div className="card-content__type-1--subtitle">{cardSubTitle}</div>
-        )}
-        {list && (
-          <ul className="card-content__type-1--list">
-            {list.map(item => <li key={item}>{item}</li>)}
-          </ul>
-        )}
+        {image && <div className="card-content__type-1--image" style={{ backgroundImage: `url(${image})` }} />}
+        {cardSubTitle && <div className="card-content__type-1--subtitle">{cardSubTitle}</div>}
+        {list && <ul className="card-content__type-1--list">{list.map(item => <li key={item}>{item}</li>)}</ul>}
         {legend && (
           <ul className="card-content__type-1--legend">
             {legend.map(item => {
               return (
                 <li key={item.legendText}>
-                  <div
-                    className="legend-square"
-                    style={{ backgroundColor: item.legendColor }}
-                  />
+                  <div className="legend-square" style={{ backgroundColor: item.legendColor }} />
                   <div className="legend-text">{item.legendText}</div>
                 </li>
               );
@@ -68,7 +48,7 @@ CardContentType1.propTypes = {
   cardSubTitle: PropTypes.string,
   image: PropTypes.string,
   list: PropTypes.array.isRequired,
-  legend: PropTypes.array.isRequired
+  legend: PropTypes.array.isRequired,
 };
 
 CardContentType1.defaultProps = {
@@ -77,7 +57,7 @@ CardContentType1.defaultProps = {
 
   isDraggable: false,
   cardSubTitle: '',
-  image: ''
+  image: '',
 };
 
 export default CardContentType1;

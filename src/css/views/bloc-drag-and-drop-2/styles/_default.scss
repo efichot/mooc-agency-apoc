@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     flex-wrap: wrap;
-    background-color: var(--white);
+    background-color: $white;
 
     .icon-draggable {
       @extend %background-contain;
@@ -26,7 +26,7 @@
       margin-right: 30px;
       margin-top: 3px;
       margin-bottom: 3px;
-      border: 1px solid var(--gridLinesColor);
+      border: 1px solid $gridLinesColor;
     }
     
   }
@@ -39,13 +39,13 @@
 
   .grid-cell {
     // height: 60px;
-    border: 1px solid var(--gridLinesColor);
+    border: 1px solid $gridLinesColor;
     display: flex;
     justify-content: center;
     align-items: center;
     &.grid-header {
       font-family: 'Helvetica Neue LT Std 75 Bold';
-      color: var(--headerColor);
+      color: $headerColor;
     }
 
     .drop-card {
@@ -57,7 +57,7 @@
   .drop-card {
     font-size: 0.5rem;
     text-transform: uppercase;
-    background-color: var(--white);
+    background-color: $white;
     border-radius: 10px;
     display: flex;
     justify-content: start;
@@ -112,8 +112,8 @@
 
     list-style: none;
 
-    background-color: var(--white);
-    border: 1px solid var(--gridLinesColor);
+    background-color: $white;
+    border: 1px solid $gridLinesColor;
     border-radius: 20px;
     > * {
       margin-bottom: 2px;
@@ -133,7 +133,7 @@
   }
 
   &__axis {
-    color: var(--blocNameColor);
+    color: $blocNameColor;
     max-width: 200px;
     &.horizontal {
       margin-left: auto;

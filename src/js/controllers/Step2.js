@@ -21,6 +21,7 @@ import Step201 from './Step201';
 import Step202 from './Step202';
 import Step203 from './Step203';
 import Step204 from './Step204';
+import moduleTypes from '../model/static/moduleTypes';
 
 class Step2 extends React.Component {
   state = {
@@ -37,13 +38,10 @@ class Step2 extends React.Component {
     this.props.tellAppIAmIntro(false);
   }
 
-  handleShowNextModule = () => {
-    console.log('handleShowNextModule');
-    const { showNextModule } = this.state;
-    this.setState({
-      showNextModule: showNextModule + 1,
-      showSynthese: showNextModule > 1 ? true : false,
-    });
+  handleShowNextModule = module => {
+    if (module === moduleTypes.blocQCMType2) {
+      this.setState({ showNextModule: 1 });
+    }
   };
 
   changeMarketToShow = marketToShow => {
@@ -71,13 +69,13 @@ class Step2 extends React.Component {
   };
 
   render() {
-    const { show_01, show_02, show_03, show_04, showSynthese, showQuiz, showNextModule } = this.state;
+    const { show_01, show_02, show_03, show_04, showSynthese, showQuiz /*showNextModule*/ } = this.state;
 
     // const mainThread = !show_01 && !show_02 && !show_03 && !show_04;
 
     const isStep2 = this.props.match.path === '/step2';
 
-    const stepInStep0 = showNextModule > 0;
+    // const stepInStep0 = showNextModule === 1;
     /*const stepInStep1 = showNextModule > 1;
     const stepInStep2 = showNextModule > 2;*/
 
@@ -109,7 +107,7 @@ class Step2 extends React.Component {
                   <BlocVideo
                     in={isStep2 /* && mainThread*/}
                     // in={stepInStep0 && mainThread}
-                    scrollIntoView={stepInStep0}
+                    // scrollIntoView={stepInStep0}
                     {...step2.module_05}
                   />
                   <BlocSpacer />
@@ -130,7 +128,7 @@ class Step2 extends React.Component {
                       <BlocSubMenu1
                         {...step2.module_06}
                         in={showSynthese || show_01 || show_02 || show_03 || show_04}
-                        scrollIntoView={showSynthese}
+                        // scrollIntoView={showSynthese}
                         action={this.changeMarketToShow}
                         noDescription
                       />

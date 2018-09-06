@@ -144,7 +144,7 @@ class BlocCardGameType1 extends React.Component {
 
   handleClosePopupBlue = () => {
     if (this.state.victoryMessage === victoryMessages.isVictory && this.state.column2card3) {
-      this.props.gameIsFinished();
+      this.props.gameIsFinished(this.props.modulType);
     }
     this.setState({ victoryMessage: undefined });
   };
@@ -212,11 +212,13 @@ class BlocCardGameType1 extends React.Component {
               </PopupBlue>
             )}
           <div
-            className="card column-1 row-1"
-            style={{
-              gridRow: 1,
-              gridColumn: 1,
-            }}
+            className="card column-1 row-1 grid-row-start-1 grid-column-start-1"
+            style={
+              {
+                //   gridRow: 1,
+                //   gridColumn: 1,
+              }
+            }
             onClick={this.handleColumn1Card1Click}>
             {column1card1 ? (
               <CardContentType3
@@ -231,11 +233,13 @@ class BlocCardGameType1 extends React.Component {
             )}
           </div>
           <div
-            className="card column-1 row-2"
-            style={{
-              gridRow: 2,
-              gridColumn: 1,
-            }}>
+            className="card column-1 row-2 grid-row-start-2 grid-column-start-1"
+            style={
+              {
+                // gridRow: 2,
+                // gridColumn: 1,
+              }
+            }>
             {column1card1 ? (
               <React.Fragment>
                 {!column1card3 && (
@@ -263,11 +267,13 @@ class BlocCardGameType1 extends React.Component {
             )}
           </div>
           <div
-            className="card column-1 row-3"
-            style={{
-              gridRow: 3,
-              gridColumn: 1,
-            }}>
+            className="card column-1 row-3  grid-row-start-3 grid-column-start-1"
+            style={
+              {
+                // gridRow: 3,
+                // gridColumn: 1,
+              }
+            }>
             {column1card3 ? (
               <React.Fragment>
                 <CardContentType3
@@ -295,11 +301,13 @@ class BlocCardGameType1 extends React.Component {
               </PopupBlue>
             )}
           <div
-            className="card column-2 row-1"
-            style={{
-              gridRow: 1,
-              gridColumn: 2,
-            }}
+            className="card column-2 row-1  grid-row-start-1 grid-column-start-2"
+            style={
+              {
+                // gridRow: 1,
+                // gridColumn: 2,
+              }
+            }
             onClick={this.handleColumn2Card1Click}>
             {column2card1 ? (
               <CardContentType3
@@ -314,11 +322,13 @@ class BlocCardGameType1 extends React.Component {
             )}
           </div>
           <div
-            className="card column-2 row-2"
-            style={{
-              gridRow: 2,
-              gridColumn: 2,
-            }}>
+            className="card column-2 row-2 grid-row-start-2 grid-column-start-2"
+            style={
+              {
+                // gridRow: 2,
+                // gridColumn: 2,
+              }
+            }>
             {column2card1 ? (
               <React.Fragment>
                 {!column2card3 && (
@@ -346,11 +356,13 @@ class BlocCardGameType1 extends React.Component {
             )}
           </div>
           <div
-            className="card column-2 row-3"
-            style={{
-              gridRow: 3,
-              gridColumn: 2,
-            }}>
+            className="card column-2 row-3 grid-row-start-3 grid-column-start-2"
+            style={
+              {
+                // gridRow: 3,
+                // gridColumn: 2,
+              }
+            }>
             {column2card3 ? (
               <React.Fragment>
                 <CardContentType3
@@ -378,11 +390,13 @@ class BlocCardGameType1 extends React.Component {
               </PopupBlue>
             )}
           <div
-            className="card column-3 row-1"
-            style={{
-              gridRow: 1,
-              gridColumn: 3,
-            }}
+            className="card column-3 row-1 grid-row-start-1 grid-column-start-3"
+            style={
+              {
+                // gridRow: 1,
+                // gridColumn: 3,
+              }
+            }
             onClick={this.handleColumn3Card1Click}>
             {column3card1 ? (
               <CardContentType3
@@ -397,11 +411,13 @@ class BlocCardGameType1 extends React.Component {
             )}
           </div>
           <div
-            className="card column-3 row-2"
-            style={{
-              gridRow: 2,
-              gridColumn: 3,
-            }}>
+            className="card column-3 row-2 grid-row-start-2 grid-column-start-3"
+            style={
+              {
+                // gridRow: 2,
+                // gridColumn: 3,
+              }
+            }>
             {column3card1 ? (
               <React.Fragment>
                 {!column3card3 && (
@@ -429,11 +445,13 @@ class BlocCardGameType1 extends React.Component {
             )}
           </div>
           <div
-            className="card column-3 row-3"
-            style={{
-              gridRow: 3,
-              gridColumn: 3,
-            }}>
+            className="card column-3 row-3 grid-row-start-3 grid-column-start-3"
+            style={
+              {
+                // gridRow: 3,
+                // gridColumn: 3,
+              }
+            }>
             {column3card3 ? (
               <React.Fragment>
                 <CardContentType3

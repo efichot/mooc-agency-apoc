@@ -55,7 +55,7 @@ const module_08_05_blocQCMType3 = {
   lineHeight: 70,
   title: `En % de l’actif par secteur (pour les fonds actions)`,
   firstDescription: {
-    __html: `La stratégie d’investissement du fonds actions est-elle défensive ou offensive ?
+    __html: `La stratégie d’investissement du fonds actions est-elle défensive ou offensive&nbsp;?
 
 À partir des données fournies ci-dessous, identifiez les principaux choix sectoriels faits par le gérant du fonds actions C en sélectionnant la bonne réponse grâce au bouton  <div class="button-in-description" style="background-image: url(${button_down_right})"></div>.
 
@@ -64,7 +64,7 @@ const module_08_05_blocQCMType3 = {
   questions: [
     {
       questionNumber: 1,
-      title: `Quels sont les 2 pays les plus surpondérés ?`,
+      title: `Quels sont les 2 pays les plus surpondérés&nbsp;?`,
       selects: [],
     },
     {
@@ -101,7 +101,7 @@ const module_08_05_blocQCMType3 = {
     },
     {
       questionNumber: 4,
-      title: `Quels sont les 2 pays les plus sous-pondérés ?`,
+      title: `Quels sont les 2 pays les plus sous-pondérés&nbsp;?`,
       selects: [],
     },
     {

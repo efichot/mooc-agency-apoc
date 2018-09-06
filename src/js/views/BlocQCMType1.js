@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import BlocHeader from './BlocHeader';
+import BlocSpacer from './BlocSpacer';
 import BlocDescription from './BlocDescription';
 import CardContentType1 from './UI/CardContentType1';
 import ButtonPrimary from './UI/ButtonPrimary';
@@ -57,11 +58,13 @@ class BlocQCMType1 extends React.Component {
         margins={this.props.margins}>
         {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
         <span className="bloc__name">{name}</span>
+        <BlocSpacer />
         <div className="bloc-QCM-type-1__cards">
           {cards.map(card => {
             return <CardContentType1 key={card.startPosition} {...card.content} />;
           })}
         </div>
+        <BlocSpacer />
         <BlocDescription modulType={modulType} classProps="bloc__first-description" description={question} />
         <div className="bloc-QCM-type-1__answer-and-popup game">
           <div className="bloc-QCM-type-1__answers">

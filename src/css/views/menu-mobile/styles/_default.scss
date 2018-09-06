@@ -1,27 +1,28 @@
 .menu-mobile {
   position: fixed;
-  /* top: calc(var(--headerHeight) - var(--menuTopHeight) + var(--menuTopPaddingTop)); */
   bottom: 0;
-  right: calc((100vw - var(--masterWidth)) / 2 + var(--innerContentPaddingX) / 2 - var(--buttonCircleRadius) / 2);
-  right: calc((100vw - var(--masterWidth)) / 2 - 10px);
+  margin-left: $menuMobileMarginLeft;
+
+  // right: calc((100vw - $masterWidth) / 2 + $innerContentPaddingX / 2 - $buttonCircleRadius / 2);
+  // right: (100vw - $masterWidth) / 2 - 10px; //FIXME
 
   z-index: 10;
   
   &__item {
     margin-bottom: 5px;
-    width: var(--innerContentPaddingX);
+    width: $innerContentPaddingX;
     padding: 0 10px;
 
     display: flex;
     justify-content: flex-start;
     align-items: center;
     
-    color: var(--menuMobileItemColor);
+    color: $menuMobileItemColor;
     text-transform: uppercase;
     
     visibility: hidden;
     opacity: 0;
-    transition: all var(--menuMobileTogglingDuration) ease-in-out;
+    transition: all $menuMobileTogglingDuration ease-in-out;
 
     &.active {
       visibility: visible;
@@ -30,7 +31,7 @@
     
     &--title {
       display: block;
-      font-size: var(--defaultFontSize);
+      font-size: $defaultFontSize;
     }
     &--subtitle {
       display: block;
@@ -41,16 +42,26 @@
     }
 
     &--icon {
-      color: var(--menuMobileIconColor);
+      color: $menuMobileIconColor;
       font-size: 1.5rem;
     }
     .button-circle__1 {
-      color: var(--menuTopItemHomeColor);
+      color: $menuTopItemHomeColor;
     }
-    @for $i from 1 through 5 {
-      .button-circle__#{$i} {
-        background: var(--menuItem#{$i}BgColor); 
-      }
+    .button-circle__1 {
+      background: $menuItem1BgColor; 
+    }
+    .button-circle__2 {
+      background: $menuItem2BgColor; 
+    }
+    .button-circle__3 {
+      background: $menuItem3BgColor; 
+    }
+    .button-circle__4 {
+      background: $menuItem4BgColor; 
+    }
+    .button-circle__5 {
+      background: $menuItem5BgColor; 
     }
     
   }

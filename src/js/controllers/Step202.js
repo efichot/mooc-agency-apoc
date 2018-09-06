@@ -6,6 +6,7 @@ import BlocLink from '../views/BlocLink';
 import BlocText from '../views/BlocText';
 import BlocQCMType3 from '../views/BlocQCMType3';
 import BlocDivider from '../views/BlocDivider';
+import moduleTypes from '../model/static/moduleTypes';
 
 class Step2_02 extends React.Component {
   state = {
@@ -13,7 +14,6 @@ class Step2_02 extends React.Component {
   };
 
   handleShowNextModule = () => {
-    console.log('handleShowNextModule 202');
     this.setState({ showNextModule: this.state.showNextModule + 1 });
     if (this.state.showNextModule > 1) {
       this.props.endOfModules(true);
@@ -24,7 +24,7 @@ class Step2_02 extends React.Component {
     const step2 = this.props.context.module_08;
 
     // const stepInStep0 = this.props.in && this.state.showNextModule > 0;
-    const stepInStep1 = this.props.in && this.state.showNextModule > 1;
+    // const stepInStep1 = this.props.in && this.state.showNextModule > 1;
     const stepInStep2 = this.props.in && this.state.showNextModule > 2;
 
     return (
@@ -38,6 +38,7 @@ class Step2_02 extends React.Component {
           margins
           classSelect="step2-module_08_04"
           {...step2.module_08_04}
+          modulType={`${moduleTypes.blocQCMType3}-1`}
           gameIsFinished={this.handleShowNextModule}
         />
         <BlocQCMType3
@@ -45,11 +46,12 @@ class Step2_02 extends React.Component {
           margins
           classSelect="step2-module_08_04"
           {...step2.module_08_05}
+          modulType={`${moduleTypes.blocQCMType3}-2`}
           gameIsFinished={this.handleShowNextModule}
         />
         <BlocLink
           in={this.props.in}
-          scrollIntoView={stepInStep1}
+          // scrollIntoView={stepInStep1}
           {...step2.module_08_06}
           onClick={this.handleShowNextModule}
         />

@@ -132,10 +132,13 @@ class BlocCardGameType4 extends React.Component {
                         type={modulType}
                         id={column.title}
                         endPosition={0}
-                        styleProps={{
-                          gridRow: ind + 1,
-                          gridColumn: 1,
-                        }}
+                        classProps={`grid-row-start-${ind + 1} grid-column-start-1`}
+                        styleProps={
+                          {
+                            // gridRow: ind + 1,
+                            // gridColumn: 1,
+                          }
+                        }
                         content={{
                           isDraggable: true,
                           list: column.actors[index].list,
@@ -148,19 +151,23 @@ class BlocCardGameType4 extends React.Component {
                       />
                     )}
                     <div
-                      className="category"
-                      style={{
-                        gridRow: ind + 1,
-                        gridColumn: 2,
-                      }}>
+                      className={`category grid-row-start-${ind + 1} grid-column-start-2`}
+                      style={
+                        {
+                          // gridRow: ind + 1,
+                          // gridColumn: 2,
+                        }
+                      }>
                       {column.title}
                     </div>
                     <div
-                      className="types"
-                      style={{
-                        gridRow: ind + 1,
-                        gridColumn: 3,
-                      }}>
+                      className={`types grid-row-start-${ind + 1} grid-column-start-3`}
+                      style={
+                        {
+                          // gridRow: ind + 1,
+                          // gridColumn: 3,
+                        }
+                      }>
                       {column.types.map(type => (
                         <DropCardForGame
                           key={type.type}
@@ -179,7 +186,7 @@ class BlocCardGameType4 extends React.Component {
                     classProps="popup-victory"
                     onCloseClick={() => {
                       this.state.victoryMessage === victoryMessages.isGoodAnswerDragAndDropStep5 &&
-                        this.props.gameIsFinished();
+                        this.props.gameIsFinished(this.props.modulType);
                       this.setState({ victoryMessage: undefined });
                     }}>
                     <span className="">{victoryMessage}</span>

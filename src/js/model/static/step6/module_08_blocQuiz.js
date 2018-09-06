@@ -3,7 +3,8 @@ import moduleTypes from '../moduleTypes';
 const module_08_blocQuiz = {
   /*position: 6.2,*/
   modulType: moduleTypes.blocQuiz,
-  name: `Ëvaluation de l'étape 6`,
+  name: `Évaluation de l'étape 6`,
+  step: 6,
   chapter: 'Quiz',
   noChapter: false,
   duration: 5,

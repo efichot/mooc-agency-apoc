@@ -45,16 +45,27 @@ class DropCard extends React.Component {
       title: data.split('+++')[0],
       subtitle: data.split('+++')[1],
     });
-    parseInt(data.split('+++')[2], 10) === parseInt(this.props.endPosition, 10)
-      ? this.props.dragCard(true, this.props.endPosition)
-      : this.props.dragCard(false, this.props.endPosition);
+
+    const { checkPositionInHere, dragCard, endPosition: endPositionNotParsed } = this.props;
+
+    const supposedEndPosition = parseInt(endPositionNotParsed, 10);
+    const currentEndPosition = parseInt(data.split('+++')[2], 10);
+    const startPosition = parseInt(data.split('+++')[5], 10);
+
+    /*check correct position here */
+    if (checkPositionInHere) {
+      dragCard(currentEndPosition === supposedEndPosition, supposedEndPosition);
+    } else {
+      /*check correct position in parent */
+      dragCard(currentEndPosition, supposedEndPosition, startPosition);
+    }
     /*event.preventDefault();*/
   };
 
   render() {
     const { startOrEnd, dropCardTitleStyles } = this.props;
 
-    const { title, subtitle, isDraggingOver } = this.state;
+    const { title, /*subtitle,*/ isDraggingOver } = this.state;
 
     return (
       <div
@@ -68,7 +79,7 @@ class DropCard extends React.Component {
               {title}
             </span>
           )}
-        {startOrEnd === 'end' && subtitle && subtitle !== 'undefined' && <span className="subtitle">{subtitle}</span>}
+        {/*startOrEnd === 'end' && subtitle && subtitle !== 'undefined' && <span className="subtitle">{subtitle}</span>*/}
         {this.props.children}
       </div>
     );
@@ -81,11 +92,13 @@ DropCard.propTypes = {
   reset: PropTypes.bool,
   startOrEnd: PropTypes.string,
   dragCard: PropTypes.func.isRequired,
+  checkPositionInHere: PropTypes.bool,
 };
 
 DropCard.defaultProps = {
   id: '',
   reset: false,
+  checkPositionInHere: true,
   startOrEnd: '',
 };
 

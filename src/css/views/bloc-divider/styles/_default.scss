@@ -1,11 +1,10 @@
 
 .bloc-divider {
   height: 10px;
-  width: calc(100% + var(--stepWidth));
-  // margin-left: calc(var(--stepWidth) * -1);
-  background: var(--dividerBgColor);  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, var(--masterBgColor), var(--dividerBgColor));  
-  background: linear-gradient(to bottom, var(--masterBgColor), var(--dividerBgColor));
+  width: $innerContentWidth + $stepWidth;
+  background: $dividerBgColor;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, $masterBgColor, $dividerBgColor);  
+  background: linear-gradient(to bottom, $masterBgColor, $dividerBgColor);
   // background: black;
 
 }

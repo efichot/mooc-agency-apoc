@@ -50,7 +50,7 @@ const module_09_03_blocQCMType3 = {
   duration: 2,
   title: `Risque et rendement des fonds obligataires`,
   firstDescription: {
-    __html: `Comment choisir entre un fonds obligataire États et un fonds obligataire crédit (investi en obligations émises par des entreprises) ? Sont-ils différents en terme de risque et de rendement ?
+    __html: `Comment choisir entre un fonds obligataire États et un fonds obligataire crédit (investi en obligations émises par des entreprises)&nbsp;? Sont-ils différents en terme de risque et de rendement&nbsp;?
     L’indicateur de SPS (Sensibilité Pondérée par le Spread) présente l’intérêt de mesurer l’exposition du fonds aux mouvements des taux d’intérêt (sensibilité) en fonction du risque pris sur les émetteurs (spread).
     Comparez les extraits proposés ci-dessous et analysez l’exposition des fonds obligataires A et B en sélectionnant les bonnes réponses grâce au bouton  <div class="button-in-description" style="background-image: url(${button_down_right})"></div>.
 
@@ -59,7 +59,8 @@ const module_09_03_blocQCMType3 = {
   questions: [
     {
       questionNumber: 1,
-      title: `Quels indicateurs permettent de distinguer très clairement les deux fonds ?`,
+      maxWidth: 363,
+      title: `Quels indicateurs permettent de distinguer très clairement les deux fonds&nbsp;?`,
       selects: [
         {
           selectNumber: 11,

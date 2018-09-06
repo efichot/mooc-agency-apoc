@@ -8,7 +8,7 @@ class BlocSubMenu1 extends React.Component {
   state = {};
 
   render() {
-    const { modulType, description, buttons, noDescription, scrollIntoView, action } = this.props;
+    const { modulType, description, buttons, noDescription, scrollIntoView, action, activateLastItem } = this.props;
 
     return (
       <Fade
@@ -21,14 +21,26 @@ class BlocSubMenu1 extends React.Component {
         )}
         <div className="bloc-sub-menu-1__buttons game">
           {buttons.map((button, i) => {
-            return (
-              <ButtonWithArrow
-                classOrigin="bloc-sub-menu-1"
-                key={button.action}
-                button={button}
-                onClick={value => action(value)}
-              />
-            );
+            if (i === buttons.length - 1) {
+              return (
+                <ButtonWithArrow
+                  classOrigin="bloc-sub-menu-1"
+                  key={button.action}
+                  activate={activateLastItem}
+                  button={button}
+                  onClick={value => action(value)}
+                />
+              );
+            } else {
+              return (
+                <ButtonWithArrow
+                  classOrigin="bloc-sub-menu-1"
+                  key={button.action}
+                  button={button}
+                  onClick={value => action(value)}
+                />
+              );
+            }
           })}
         </div>
       </Fade>
@@ -39,6 +51,7 @@ class BlocSubMenu1 extends React.Component {
 BlocSubMenu1.propTypes = {
   in: PropTypes.bool,
   action: PropTypes.func.isRequired,
+  activateLastItem: PropTypes.bool,
   /***************** DATA ******************/
 
   modulType: PropTypes.string.isRequired,
@@ -59,6 +72,7 @@ BlocSubMenu1.defaultProps = {
   in: false,
   scrollIntoView: false,
   noDescription: false,
+  activateLastItem: true,
 };
 
 export default BlocSubMenu1;

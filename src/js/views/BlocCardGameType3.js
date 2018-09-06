@@ -67,7 +67,7 @@ class BlocCardGameType3 extends React.Component {
 
   handleClosePopupBlue = () => {
     if (this.state.victoryMessage === victoryMessages.isGoodAnswer) {
-      this.props.gameIsFinished();
+      this.props.gameIsFinished(this.props.modulType);
     }
     this.setState({ victoryMessage: undefined });
   };
@@ -160,11 +160,13 @@ class BlocCardGameType3 extends React.Component {
             return (
               <div
                 key={key}
-                className="card column-1"
-                style={{
-                  gridRow: ind + 1,
-                  gridColumn: 1,
-                }}>
+                className={`card column-1 grid-row-start-${ind + 1} grid-column-start-1`}
+                style={
+                  {
+                    // gridRow: ind + 1,
+                    // gridColumn: 1,
+                  }
+                }>
                 <ButtonWithDoubleArrow
                   button={{ name: 'Valider' }}
                   attachedName={{ column: 'column1', row: ind }}
@@ -190,21 +192,25 @@ class BlocCardGameType3 extends React.Component {
             minWidth
             name="valider"
             onClick={this.handleValidate}
-            classProps={`button-validate`}
-            styleProps={{
-              gridRow: 2,
-              gridColumn: 2,
-            }}
+            classProps={`button-validate grid-row-start-2 grid-column-start-2`}
+            styleProps={
+              {
+                // gridRow: 2,
+                // gridColumn: 2,
+              }
+            }
           />
           {victoryMessage && (
             <PopupBlue
-              classProps="popup"
+              classProps="popup grid-row-start-2 grid-column-start-2"
               onCloseClick={this.handleClosePopupBlue}
               column={1}
-              styleProps={{
-                gridRow: 2,
-                gridColumn: 2,
-              }}>
+              styleProps={
+                {
+                  // gridRow: 2,
+                  // gridColumn: 2,
+                }
+              }>
               <span className="">{victoryMessage}</span>
             </PopupBlue>
           )}
@@ -213,11 +219,13 @@ class BlocCardGameType3 extends React.Component {
             return (
               <div
                 key={key}
-                className="card column-1"
-                style={{
-                  gridRow: ind + 1,
-                  gridColumn: 2,
-                }}>
+                className={`card column-1 grid-row-start-${ind + 1} grid-column-start-2`}
+                style={
+                  {
+                    // gridRow: ind + 1,
+                    // gridColumn: 2,
+                  }
+                }>
                 <CardContentType3
                   cardTitle={card.title}
                   cardSubTitle={card.subTitle}
@@ -235,11 +243,13 @@ class BlocCardGameType3 extends React.Component {
             return (
               <div
                 key={key}
-                className="card column-1"
-                style={{
-                  gridRow: ind + 1,
-                  gridColumn: 3,
-                }}>
+                className={`card column-1 grid-row-start-${ind + 1} grid-column-start-3`}
+                style={
+                  {
+                    // gridRow: ind + 1,
+                    // gridColumn: 3,
+                  }
+                }>
                 <ButtonWithDoubleArrow
                   button={{ name: 'Valider' }}
                   attachedName={{ column: 'column3', row: ind }}

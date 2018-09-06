@@ -17,8 +17,12 @@ const module_05_02_blocEnSavoirPlusType1 = {
   // },
   cards: [
     {
-      color: 'rgba(209,93,64,1.00)',
-      hoverColor: 'rgba(209,93,64,1.00)',
+      color: `linear-gradient(to right, ${process.env.REACT_APP_ACTION_OPAQUE}, ${
+        process.env.REACT_APP_OBLIGATION_OPAQUE
+      }, ${process.env.REACT_APP_MONETAIRE_OPAQUE})`,
+      hoverColor: `linear-gradient(to right, ${process.env.REACT_APP_ACTION}, ${process.env.REACT_APP_OBLIGATION}, ${
+        process.env.REACT_APP_MONETAIRE
+      })`,
       startPosition: 1,
       arrowFollowing: true,
       cardTitle: 'Indice de référence composite',
@@ -26,8 +30,12 @@ const module_05_02_blocEnSavoirPlusType1 = {
       cardContent: `Il synthétise l’évolution de plusieurs indices de façon à refléter la composition cible du fonds de type mixte.`,
     },
     {
-      color: 'rgba(239,157,142,1.00)',
-      hoverColor: 'rgba(209,93,64,1.00)',
+      color: `linear-gradient(to right, ${process.env.REACT_APP_ACTION_OPAQUE}, ${
+        process.env.REACT_APP_OBLIGATION_OPAQUE
+      }, ${process.env.REACT_APP_MONETAIRE_OPAQUE})`,
+      hoverColor: `linear-gradient(to right, ${process.env.REACT_APP_ACTION}, ${process.env.REACT_APP_OBLIGATION}, ${
+        process.env.REACT_APP_MONETAIRE
+      })`,
       startPosition: 2,
       arrowFollowing: false,
       cardTitle: 'Exemple',

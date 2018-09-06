@@ -7,14 +7,14 @@ class ButtonWithArrow extends React.Component {
   state = {};
 
   render() {
-    const { button, classOrigin, onClick } = this.props;
+    const { button, classOrigin, onClick, activate } = this.props;
 
     return (
       <div className={`${classOrigin}__group`}>
         <ButtonPrimary
           className={`${classOrigin}__button`}
           name={button.name}
-          color={button.color}
+          color={activate ? button.color : 'rgba(216,216,216,1.00)'}
           borderColor={button.borderColor}
           fontColor={button.fontColor}
           onClick={onClick}
@@ -22,7 +22,7 @@ class ButtonWithArrow extends React.Component {
         />
         <div
           className={`${classOrigin}__arrow`}
-          style={{ backgroundImage: `url(${button_arrow_right})` }}
+          style={{ backgroundImage: `url(${button_arrow_right})`, visibility: activate ? 'visible' : 'hidden' }}
           onClick={() => onClick(button.action)}
         />
       </div>
@@ -32,6 +32,7 @@ class ButtonWithArrow extends React.Component {
 
 ButtonWithArrow.propTypes = {
   classOrigin: PropTypes.string.isRequired,
+  activate: PropTypes.bool,
   button: PropTypes.shape({
     position: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
@@ -44,6 +45,8 @@ ButtonWithArrow.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-ButtonWithArrow.defaultProps = {};
+ButtonWithArrow.defaultProps = {
+  activate: true,
+};
 
 export default ButtonWithArrow;

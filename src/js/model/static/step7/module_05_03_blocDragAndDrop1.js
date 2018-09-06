@@ -16,6 +16,12 @@ const module_05_03_blocDragAndDrop1 = {
   chapter: 'Échelle de risque',
   duration: 3,
   title: `Risque des obligations d'état`,
+  explication: {
+    title: 'Du moins au plus risqué',
+    description: {
+      __html: `L’ALLEMAGNE 5 ANS et l’ITALIE 5 ANS ont en commun la visibilité que leur donne leur durée, mais l’ITALIE 5 ANS pâtit des moins bonnes notation et solidité de l’État italien. L’échéance plus lointaine de l’ALLEMAGNE 10 ANS et de l’ITALIE 10 ANS présente plus de risque et, là aussi, l’ITALIE 10 ANS paraît moins sûre.`,
+    },
+  },
   cards: [
     {
       color: 'white',

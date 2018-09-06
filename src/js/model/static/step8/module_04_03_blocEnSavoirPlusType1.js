@@ -16,10 +16,12 @@ const module_04_03_blocEnSavoirPlusType1 = {
   // },
   cards: [
     {
-      color: 'rgba(0,149,60,1.00)',
-      hoverColor: 'rgba(0,149,60,1.00)',
-      /*      color: 'linear-gradient(rgba(127,0,114,1.00), rgba(0,149,60,1.00))',
-      hoverColor: 'linear-gradient(rgba(127,0,114,1.00), rgba(0,149,60,1.00))',
+      color: `linear-gradient(to right, ${process.env.REACT_APP_OBLIGATION_OPAQUE}, ${
+        process.env.REACT_APP_MONETAIRE_OPAQUE
+      })`,
+      hoverColor: `linear-gradient(to right, ${process.env.REACT_APP_OBLIGATION}, ${process.env.REACT_APP_MONETAIRE})`,
+      /*      color: `linear-gradient(rgba(127,0,114,1.00), rgba(0,149,60,1.00))`,
+      hoverColor: `linear-gradient(rgba(127,0,114,1.00), rgba(0,149,60,1.00))`,
 */ startPosition: 1,
       arrowFollowing: true,
       cardTitle: 'Indice de référence',
@@ -27,10 +29,12 @@ const module_04_03_blocEnSavoirPlusType1 = {
       cardContent: `Panier d’obligations respectant des critères de devise, catégorie d’émetteur (État, entreprises…), maturité comprise dans une certaine plage (typiquement : 1-3 ans, 3-5 ans, 7-10 ans, 10 ans et +). Il sert de repère pour analyser la performance des fonds. Il n’inclut ni frais de transaction, ni frais de gestion.`,
     },
     {
-      color: 'rgba(116,194,146,1.00)',
-      hoverColor: 'rgba(0,149,60,1.00)',
-      /*      color: 'linear-gradient(rgba(184,121,175,1.00), rgba(116,194,146,1.00))',
-      hoverColor: 'linear-gradient(rgba(127,0,114,1.00), rgba(0,149,60,1.00))',
+      color: `linear-gradient(to right, ${process.env.REACT_APP_OBLIGATION_OPAQUE}, ${
+        process.env.REACT_APP_MONETAIRE_OPAQUE
+      })`,
+      hoverColor: `linear-gradient(to right, ${process.env.REACT_APP_OBLIGATION}, ${process.env.REACT_APP_MONETAIRE})`,
+      /*      color: `linear-gradient(rgba(184,121,175,1.00), rgba(116,194,146,1.00))`,
+      hoverColor: `linear-gradient(rgba(127,0,114,1.00), rgba(0,149,60,1.00))`,
 */ startPosition: 2,
       arrowFollowing: false,
       cardTitle: 'Ftse mts global',
@@ -38,10 +42,12 @@ const module_04_03_blocEnSavoirPlusType1 = {
       cardContent: `Indice composé de titres obligataires à taux fixe libellés en euros, émis par les États de la zone Euro et ayant une durée résiduelle d’au moins un an.`,
     },
     {
-      color: 'rgba(116,194,146,1.00)',
-      hoverColor: 'rgba(0,149,60,1.00)',
-      /*      color: 'linear-gradient(rgba(184,121,175,1.00), rgba(116,194,146,1.00))',
-      hoverColor: 'linear-gradient(rgba(127,0,114,1.00), rgba(0,149,60,1.00))',
+      color: `linear-gradient(to right, ${process.env.REACT_APP_OBLIGATION_OPAQUE}, ${
+        process.env.REACT_APP_MONETAIRE_OPAQUE
+      })`,
+      hoverColor: `linear-gradient(to right, ${process.env.REACT_APP_OBLIGATION}, ${process.env.REACT_APP_MONETAIRE})`,
+      /*      color: `linear-gradient(rgba(184,121,175,1.00), rgba(116,194,146,1.00))`,
+      hoverColor: `linear-gradient(rgba(127,0,114,1.00), rgba(0,149,60,1.00))`,
 */ startPosition: 3,
       arrowFollowing: false,
       cardTitle: 'Barclays euro-aggregate corporate',
@@ -49,10 +55,12 @@ const module_04_03_blocEnSavoirPlusType1 = {
       cardContent: `Indice représentatif des emprunts obligataires à taux fixe libellés en euros et émis par des émetteurs privés qui reçoivent une note allant de AAA à BBB- par les agences de notation.`,
     },
     {
-      color: 'rgba(116,194,146,1.00)',
-      hoverColor: 'rgba(0,149,60,1.00)',
-      /*      color: 'linear-gradient(rgba(184,121,175,1.00), rgba(116,194,146,1.00))',
-      hoverColor: 'linear-gradient(rgba(127,0,114,1.00), rgba(0,149,60,1.00))',
+      color: `linear-gradient(to right, ${process.env.REACT_APP_OBLIGATION_OPAQUE}, ${
+        process.env.REACT_APP_MONETAIRE_OPAQUE
+      })`,
+      hoverColor: `linear-gradient(to right, ${process.env.REACT_APP_OBLIGATION}, ${process.env.REACT_APP_MONETAIRE})`,
+      /*      color: `linear-gradient(rgba(184,121,175,1.00), rgba(116,194,146,1.00))`,
+      hoverColor: `linear-gradient(rgba(127,0,114,1.00), rgba(0,149,60,1.00))`,
 */ startPosition: 4,
       arrowFollowing: false,
       cardTitle: 'Eonia ou euro overnight index average',

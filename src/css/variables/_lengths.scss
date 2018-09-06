@@ -8,18 +8,44 @@ $tab-width: 700px;
 $desktop-width: 100px;
 $xl-screen-width: 1400px;
 
+$masterWidth: 1200px;
+$innerContentWidth: 800px;
+$innerContentPaddingX: ($masterWidth - $innerContentWidth) / 2;
+$masterPaddingBottom: 400px;
+$stepWidth: 90px;
+
+$menuTopItemHeight: 50px;
+$menuTopHeight: $menuTopItemHeight;
+$menuTopWidth: $innerContentWidth;
+$menuTopPaddingTop: $menuTopHeight;
+
+$menuStepNavigationMarginLeft: 100px;
+$menuMobileMarginLeft: 2 * $menuStepNavigationMarginLeft + $innerContentWidth;
+
+$videoMargin: 15px;
+
+$actualitiesHeight: 90px;
+$userInfoHeight: 95px;
+
+$buttonCircleRadius: $menuTopItemHeight; //50px
+$blocPaddingX: 5px;
+$dropCardMargin: $blocPaddingX;
+
+$hamburgerWidth: $buttonCircleRadius / 3;
+$hamburgerLineHeight: 2px;
+$hamburgerHeight: $buttonCircleRadius / 3;
+$hamburgerLineSpacing: ($hamburgerHeight - 3 * $hamburgerLineHeight) / 2;
+
+$pieChartRadius: 150px; 
+$videoWidth: $innerContentWidth - $stepWidth - 2 * $blocPaddingX;
+
+$headerHeight: 320px;
+$headerContentHeight: 130px;
+$avatarWidth: 120px;
+$avatarHeight: 100%;
 
 /*------------------------------------*/
     /*CSS VARIABLES*/
 /*------------------------------------*/
 
-:root {
 
-
-  /****** GLOBAL **********/
-  --masterWidth: 1200px;
-  --innerContentWidth: 800px;
-  --innerContentPaddingX: calc((var(--masterWidth) - var(--innerContentWidth)) / 2);
-  --masterPaddingBottom: 400px;
-  --stepWidth: 90px;
-}

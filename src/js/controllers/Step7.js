@@ -16,6 +16,7 @@ import Step702 from './Step702';
 import ButtonPrimary from '../views/UI/ButtonPrimary';
 import BlocDescription from '../views/BlocDescription';
 import BlocQuiz from '../views/BlocQuiz';
+import { scrollIntoView as scrollItemIntoView } from '../transitions/transitionUtils';
 
 class Step7 extends React.Component {
   state = {
@@ -55,6 +56,10 @@ class Step7 extends React.Component {
 
     const isStep7 = this.props.match.path === '/step7';
 
+    if ((show_01 || show_02 || show_03) && showSynthese) {
+      scrollItemIntoView(this.synthese);
+    }
+
     return (
       <Fade classProps="step step7" in={isStep7}>
         <GlobalInfosContext.Consumer>
@@ -75,22 +80,26 @@ class Step7 extends React.Component {
                   {isStep7 && (
                     <div className="step7__synthese step__synthese bloc">
                       <BlocSpacer />
-                      {(show_01 || show_02 || show_03) && <span className="bloc__name">{step7.module_07.name}</span>}
+                      {(show_01 || show_02 || show_03) && (
+                        <span ref={syn => (this.synthese = syn)} className="bloc__name">
+                          {step7.module_07.name}
+                        </span>
+                      )}
                       <BlocDescription
                         in={show_01}
-                        scrollIntoView={showSynthese && show_01}
+                        // scrollIntoView={showSynthese && show_01}
                         modulType={step7.module_07.modulType}
                         description={step7.module_07.description_1}
                       />
                       <BlocDescription
                         in={show_02}
-                        scrollIntoView={showSynthese && show_02}
+                        // scrollIntoView={showSynthese && show_02}
                         modulType={step7.module_07.modulType}
                         description={step7.module_07.description_2}
                       />
                       <BlocDescription
                         in={show_03}
-                        scrollIntoView={showSynthese && show_03}
+                        // scrollIntoView={showSynthese && show_03}
                         modulType={step7.module_07.modulType}
                         description={step7.module_07.description_3}
                       />

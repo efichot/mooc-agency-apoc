@@ -2,9 +2,9 @@
 .step {
   @extend %flex-column-top-left;
   justify-content: space-between;
-  margin-left: var(--stepWidth);
+  margin-left: $stepWidth;
   &:last-child {
-    margin-bottom: var(--masterPaddingBottom);
+    margin-bottom: $masterPaddingBottom;
   }
 
   > * {

@@ -22,9 +22,8 @@ class DragCard extends React.Component {
   }, 200);
 
   handleDragStart = e => {
-    const dataToTransfer = `${this.props.content.cardTitle}+++${this.props.content.cardSubTitle}+++${
-      this.props.endPosition
-    }+++${this.props.content.type}+++${this.props.content.column}`;
+    const { content: { cardTitle, cardSubTitle, type, column }, endPosition, startPosition } = this.props;
+    const dataToTransfer = `${cardTitle}+++${cardSubTitle}+++${endPosition}+++${type}+++${column}+++${startPosition}`;
     e.dataTransfer.setData('drag-card', dataToTransfer);
     e.dataTransfer.effectAllowed = 'copy';
     e.dataTransfer.dropEffect = 'copy';
@@ -41,11 +40,11 @@ class DragCard extends React.Component {
   };
 
   render() {
-    const { type, content, id, styleProps } = this.props;
+    const { color, type, content, id, styleProps, classProps } = this.props;
 
     return (
       <div
-        className={`drag-card ${content.isDraggable ? 'is-draggable' : ''}`}
+        className={`drag-card ${classProps} ${content.isDraggable ? 'is-draggable' : ''}`}
         draggable={`${content.isDraggable}`}
         id={id}
         onDragStart={this.handleDragStart}
@@ -54,8 +53,8 @@ class DragCard extends React.Component {
         style={{
           ...styleProps,
         }}>
-        {type === 'bloc-drag-and-drop-1' && <CardContentType1 {...content} />}
-        {type === 'bloc-card-game-type-4' && <CardContentType3 {...content} />}
+        {type === 'bloc-drag-and-drop-1' && <CardContentType1 {...content} bgColor={color} />}
+        {type === 'bloc-card-game-type-4' && <CardContentType3 {...content} bgColor={color} />}
       </div>
     );
   }

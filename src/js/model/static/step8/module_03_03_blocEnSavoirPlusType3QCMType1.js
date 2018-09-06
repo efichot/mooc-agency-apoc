@@ -34,8 +34,9 @@ const questions = {
     {
       description: {
         __html: `
-        CHOIX 3<br />
-        Quel type de données économiques privilégier ?<br />
+        CHOIX 3
+
+        Quel type de données économiques privilégier ?
         Pour faire apparaître des exemples de données, cliquez sur les propositions ci-dessous.`,
       },
       answers: ['Quantitatives', 'Qualitatives'],
@@ -67,7 +68,7 @@ const questions = {
           },
         ],
       ],
-      width: 250,
+      width: 150,
     },
   ],
   moreQuestions: [
@@ -101,6 +102,10 @@ const module_03_03_blocEnSavoirPlusType3QCMType1 = {
     __html: `Le processus de gestion matérialise la façon dont est géré le fonds.
     Pour construire votre propre processus de gestion, il vous faut décider quels types de données utiliser et comment.
     Le schéma des processus de gestion s'activera en fonction des choix que vous ferez.`,
+  },
+  ecusson: {
+    background: process.env.REACT_APP_ACTION,
+    text: 'Gestion actions',
   },
   questions,
   descriptionWhenNoMoreQuestion: {
@@ -148,8 +153,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
   ],
   cards: [
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1.5,
       index: 1,
       style: {
@@ -173,8 +178,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       cardSubTitle: 'cf. Glossaire',
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1.5,
       index: 2,
       style: {
@@ -212,8 +217,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       visibleIf: 'always',
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1.5,
       index: 3,
       style: {
@@ -245,8 +250,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       cardSubTitle: 'cf. Glossaire',
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1.5,
       index: 4,
       style: {
@@ -273,8 +278,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       cardSubTitle: 'cf. Glossaire',
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1.5,
       index: 5,
       style: {
@@ -320,8 +325,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       visibleIf: 'always',
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1.5,
       index: 6,
       style: {
@@ -342,8 +347,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       cardSubTitle: 'cf. Glossaire',
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1.5,
       index: 7,
       style: {
@@ -364,8 +369,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       cardSubTitle: 'cf. Glossaire',
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1.5,
       index: 8,
       style: {
@@ -386,8 +391,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       cardSubTitle: 'cf. Glossaire',
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1.5,
       index: 9,
       style: {
@@ -479,8 +484,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       cardSubTitle: 'cf. Glossaire',
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1,
       index: 11,
       style: {
@@ -540,8 +545,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       cardSubTitle: 'cf. Glossaire',
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1,
       style: {
         gridColumnStart: 7,
@@ -595,8 +600,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       ],
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1,
       style: {
         gridColumnStart: 7,
@@ -688,8 +693,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       cardSubTitle: 'cf. Glossaire',
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1,
       index: 13,
       style: {
@@ -749,8 +754,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       cardSubTitle: 'cf. Glossaire',
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1,
       style: {
         gridColumnStart: 7,
@@ -804,8 +809,8 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
       ],
     },
     {
-      color: 'var(--white)',
-      hoverColor: 'var(--white)',
+      color: process.env.REACT_APP_WHITE,
+      hoverColor: process.env.REACT_APP_WHITE,
       height: 1,
       index: 14,
       style: {
@@ -910,7 +915,7 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
         justifyContent: 'center',
       },
       buttonStyle: {
-        color: 'var(--white)',
+        color: process.env.REACT_APP_WHITE,
         flexGrow: 1,
         margin: 0,
         padding: 0,
@@ -935,7 +940,7 @@ Pour découvrir les autres approches de gestion possibles dans un fonds actions,
         justifyContent: 'center',
       },
       buttonStyle: {
-        color: 'var(--white)',
+        color: process.env.REACT_APP_WHITE,
         flexGrow: 1,
         margin: 0,
         padding: 0,

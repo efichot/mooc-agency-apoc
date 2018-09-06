@@ -42,12 +42,25 @@ class BlocEnSavoirPlusType2 extends React.Component {
   };
 
   handleClick = answer => {
-    this.state.victoryMessage === victoryMessages.isVictory && this.props.gameIsFinished(this.props.modulType);
     this.setState({
       buttonAnswer: answer,
       victoryMessage: undefined,
       gameIsFinished: false,
     });
+  };
+
+  handleCloseClick = () => {
+    if (this.state.victoryMessage === victoryMessages.isVictory) {
+      this.props.gameIsFinished(this.props.modulType);
+      this.setState({
+        victoryMessage: undefined,
+      });
+    } else {
+      this.setState({
+        victoryMessage: undefined,
+        gameIsFinished: false,
+      });
+    }
   };
 
   handleValidate = e => {
@@ -121,7 +134,7 @@ class BlocEnSavoirPlusType2 extends React.Component {
         </div>
         <div className="bloc-en-savoir-plus-type-2__validate-victory">
           {victoryMessage && (
-            <PopupBlue onCloseClick={this.handleClick}>
+            <PopupBlue onCloseClick={this.handleCloseClick}>
               <span className="bloc-en-savoir-plus-type-2__victory-message">{victoryMessage}</span>
             </PopupBlue>
           )}

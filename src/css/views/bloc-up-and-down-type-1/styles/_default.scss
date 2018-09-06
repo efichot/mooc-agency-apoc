@@ -2,14 +2,17 @@
 
   .legend {
     text-transform: uppercase;
-    &__low {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      
-    }
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 30px;
+  }
+
+  .game {
+    margin-bottom: 50px;
   }
 
 
@@ -24,8 +27,8 @@
   &__button {
     width: 100%;
     min-height: 50px;
-    background-color: var(--blocUpAndDownButtonBg); 
-    border: 2px solid var(--blocUpAndDownButtonBorder);
+    background-color: $blocUpAndDownButtonBg; 
+    border: 2px solid $blocUpAndDownButtonBorder;
     border-radius: 25px;
     margin-bottom: 5px;
     font-size: 0.60rem;
@@ -34,9 +37,9 @@
     padding: 5px;
     @extend %flex-row-center-center;
     &.active {
-      background-color: var(--blocUpAndDownButtonBgActive);
+      background-color: $blocUpAndDownButtonBgActive;
       &.finished {
-        border-color: var(--blocUpAndDownButtonBorderFinished)
+        border-color: $blocUpAndDownButtonBorderFinished
       }
     }
   }
@@ -65,7 +68,19 @@
   }
 
 
-
+  .popup-blue {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 400px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 
   &__buttons {

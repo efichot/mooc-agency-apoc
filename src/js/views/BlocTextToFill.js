@@ -60,18 +60,19 @@ class BlocTextToFill extends React.Component {
             />
           </React.Fragment>
         )}
-        {secondText && (
-          <React.Fragment>
-            <BlocSpacer />
-            <TextToFill
-              in={showNextModule > 0}
-              scrollIntoView={showNextModule > 0}
-              title={title2}
-              textToFill={secondText}
-              gameIsFinished={this.handleTextFinished}
-            />
-          </React.Fragment>
-        )}
+        {secondText &&
+          showNextModule > 0 && (
+            <React.Fragment>
+              <BlocSpacer />
+              <TextToFill
+                in={showNextModule > 0}
+                scrollIntoView={showNextModule > 0}
+                title={title2}
+                textToFill={secondText}
+                gameIsFinished={this.handleTextFinished}
+              />
+            </React.Fragment>
+          )}
       </Fade>
     );
   };

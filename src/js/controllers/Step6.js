@@ -26,8 +26,9 @@ class Step6 extends React.Component {
     show_02: false,
     show_03: false,
     show_04: false,
+    activateDerives: false,
     showNextModule: 0,
-    showSynthese: false,
+    showSynthese: true,
     showQuiz: false,
     reset: false,
     selectedRow: 0,
@@ -41,18 +42,26 @@ class Step6 extends React.Component {
     this.setState({ selectedRow, showNextModule: 1 });
   };
 
-  handleShowNextModule = async module => {
-    await this.setState({ showNextModule: this.state.showNextModule + 1 });
-    if (this.state.showNextModule > 0) {
-      this.setState({ showSynthese: true });
-    }
+  handleShowNextModule = module => {
+    console.log('handleShowNextModule');
+    this.setState({
+      showNextModule: this.state.showNextModule + 1,
+      activateDerives: true,
+      showSynthese: true,
+    });
   };
 
   changeMarketToShow = marketToShow => {
     const stateCopy = { ...this.state };
 
     Object.keys(stateCopy).forEach(stateAction => {
-      stateAction === marketToShow ? (stateCopy[`${stateAction}`] = true) : (stateCopy[`${stateAction}`] = false);
+      if (stateAction === marketToShow) {
+        stateCopy[`${stateAction}`] = true;
+      } else if (stateAction === 'activateDerives') {
+        stateCopy[`${stateAction}`] = stateCopy.activateDerives;
+      } else {
+        stateCopy[`${stateAction}`] = false;
+      }
     });
     this.setState({
       ...stateCopy,
@@ -81,7 +90,17 @@ class Step6 extends React.Component {
   };
 
   render() {
-    const { show_01, show_02, show_03, show_04, showNextModule, showSynthese, showQuiz, selectedRow } = this.state;
+    const {
+      show_01,
+      show_02,
+      show_03,
+      show_04,
+      showNextModule,
+      showSynthese,
+      showQuiz,
+      selectedRow,
+      activateDerives,
+    } = this.state;
 
     /*const mainThread = !show_01 && !show_02 && !show_03 && !show_04;*/
 
@@ -106,6 +125,7 @@ class Step6 extends React.Component {
                     in={isStep6}
                     action={this.changeMarketToShow}
                     reset={this.state.reset}
+                    activateLastItem={activateDerives}
                   />
                   <BlocCardsType1
                     {...step6.module_03_01}
@@ -113,7 +133,7 @@ class Step6 extends React.Component {
                     scrollIntoView={show_01}
                     selectedRow={this.handleSelectedRow}
                   />
-                  <BlocDivider in={show_01 && stepInStep0} />
+                  <BlocDivider in={show_01} />
                   <BlocQCMType4
                     {...step6.module_03_02}
                     in={show_01}
@@ -122,14 +142,19 @@ class Step6 extends React.Component {
                     gameIsFinished={this.handleShowNextModule}
                   />
                   <BlocDivider in={show_01} />
-                  <BlocEnSavoirPlusType3 {...step6.module_03_03} in={show_01} scrollIntoView={show_01 && stepInStep1} />
+                  <BlocEnSavoirPlusType3
+                    {...step6.module_03_03}
+                    module="step6__module_03_03"
+                    in={show_01}
+                    scrollIntoView={show_01 && stepInStep1}
+                  />
                   <BlocCardsType1
                     {...step6.module_04_01}
                     in={show_02}
                     scrollIntoView={show_02}
                     selectedRow={this.handleSelectedRow}
                   />
-                  <BlocDivider in={show_02 && stepInStep0} />
+                  <BlocDivider in={show_02} />
                   <BlocQCMType4
                     {...step6.module_04_02}
                     in={show_02}
@@ -145,7 +170,7 @@ class Step6 extends React.Component {
                     scrollIntoView={show_03}
                     selectedRow={this.handleSelectedRow}
                   />
-                  <BlocDivider in={show_03 && stepInStep0} />
+                  <BlocDivider in={show_03} />
                   {selectedRow !== 2 ? (
                     <BlocQCMType4
                       {...step6.module_05_02}
@@ -166,11 +191,13 @@ class Step6 extends React.Component {
                   <BlocEnSavoirPlusType1 {...step6.module_05_04} in={show_03} scrollIntoView={show_03 && stepInStep1} />
                   <BlocVideo in={show_04} scrollIntoView={show_04} {...step6.module_06_01} />
                   <BlocDivider />
-                  <BlocEnSavoirPlusType3 {...step6.module_06_02} in={show_04} />
+                  <BlocEnSavoirPlusType3 {...step6.module_06_02} module="step6__module_06_02" in={show_04} />
                   {showSynthese && (
                     <div className="step6__synthese step__synthese bloc">
                       <BlocSpacer />
-                      <span className="bloc__name">{step6.module_07.name}</span>
+                      {(show_01 || show_02 || show_03 || show_04) && (
+                        <span className="bloc__name">{step6.module_07.name}</span>
+                      )}
                       <BlocDescription
                         in={showSynthese && show_01}
                         // scrollIntoView={showSynthese && show_01}
@@ -196,9 +223,10 @@ class Step6 extends React.Component {
                       />
                       <BlocSubMenu1
                         {...step6.module_02}
-                        in={showSynthese}
+                        in={showSynthese && (show_01 || show_02 || show_03 || show_04)}
                         action={this.changeMarketToShow}
                         noDescription
+                        activateLastItem={activateDerives}
                       />
                       <BlocSpacer />
                       <ButtonPrimary minWidth name={step6.module_07.button_1} onClick={this.handleShowQuiz} />

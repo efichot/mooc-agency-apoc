@@ -4,7 +4,7 @@ import { Transition } from 'react-transition-group';
 
 import BlocSpacer from '../views/BlocSpacer';
 
-import { duration } from './transitionUtils';
+import { duration, scrollIntoView } from './transitionUtils';
 
 const defaultStyle = {
   transition: `opacity ${duration}ms ease-in-out, color ${duration}ms ease-in-out`,
@@ -43,25 +43,15 @@ class Fade extends React.Component {
 
   componentDidMount() {
     if (this.state.scrolledIntoView) {
-      this.scrollIntoView();
+      scrollIntoView(this.module);
     }
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (!prevState.scrolledIntoView && this.state.scrolledIntoView) {
-      this.scrollIntoView();
+      scrollIntoView(this.module);
     }
   }
-
-  scrollIntoView = () => {
-    this.module !== undefined &&
-      this.module !== null &&
-      window.setTimeout(
-        () =>
-          window.scrollTo({ behavior: 'smooth', top: window.scrollY + this.module.getBoundingClientRect().top - 5 }),
-        1000,
-      );
-  };
 
   render() {
     const { classProps, margins, styleProps } = this.props;

@@ -12,6 +12,12 @@ const module_04_03_blocDragAndDropType1 = {
   chapter: 'Échelle de risque',
   duration: 4,
   title: 'Risque des fonds',
+  explication: {
+    title: 'Du moins au plus risqué',
+    description: {
+      __html: `Le FCPE (ou Fonds Commun de Placement d’Entreprise) SPIE BATIGNOLLES est investi en actions Spie Batignolles peu risquées dans le contexte décrit. La part des actions Heidelberg Cement, Lafarge, Pernod Ricard et Banca Monte Dei Paschi représente 10% du fonds BNP PARIBAS ACTIONS EUROPE dont le risque est donc diversifié sur un grand nombre de titres. Les actions Lafarge représentent par contre 25% du portefeuille de MONSIEUR MARTIN qui est donc concentré sur un titre risqué dans le contexte décrit.`,
+    },
+  },
   cards: [
     {
       color: 'white',

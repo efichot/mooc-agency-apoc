@@ -5,14 +5,15 @@ export default {
   type: types.column3.societes,
   firstCard: {
     answerNumber: 16,
-    subTitle: "Société de gestion d'actifs non cotée en Bourse",
+    subTitle: `Société de gestion d'actifs non cotée en Bourse`,
     list: [
       {
         __html: 'Gère  le fonds  HSBC Monétaire pour le compte de ses clients',
       },
       {
-        __html:
-          "Investit 100 millions d'€ en titres <em style='color: var(--monetaire)'>monétaires</em> émis par Crédit Agricole et Enel en mai 2009",
+        __html: `Investit 100 millions d'€ en titres <em style='color: ${
+          process.env.REACT_APP_MONETAIRE
+        }'>monétaires</em> émis par Crédit Agricole et Enel en mai 2009`,
       },
     ],
   },
@@ -27,7 +28,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Placement d'une émission en actions",
+        __html: `Placement d'une émission en actions`,
       },
       {
         __html: 'Montage de l’opération réservée aux salariés',
@@ -39,14 +40,15 @@ export default {
     headList1: 'Besoins',
     list1: [
       {
-        __html: "Investir les souscriptions de ses clients dans le fonds HSBC Monétaire, soit 100 millions d'€",
+        __html: `Investir les souscriptions de ses clients dans le fonds HSBC Monétaire, soit 100 millions d'€`,
       },
     ],
     headList2: 'Opérations',
     list2: [
       {
-        __html:
-          "Achat des titres <em style='color: var(--monetaire)'>monétaires</em> émis par Crédit Agricole et Enel en mai 2009",
+        __html: `Achat des titres <em style='color: ${
+          process.env.REACT_APP_MONETAIRE
+        }'>monétaires</em> émis par Crédit Agricole et Enel en mai 2009`,
       },
     ],
   },

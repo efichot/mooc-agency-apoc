@@ -12,8 +12,11 @@ export default {
         __html: 'Gère  les sommes destinées à la retraite additionnelle des fonctionnaires',
       },
       {
-        __html:
-          "Investit 800 millions d'€ en <em style='color: var(--obligation)'>obligations</em> à long et moyen terme émises par les Etats allemand et italien en janvier et février 2010, et en <em style='color: var(--obligation)'>obligations</em> émises par Banco Santander en octobre 2010",
+        __html: `Investit 800 millions d'€ en <em style='color: ${
+          process.env.REACT_APP_OBLIGATION
+        }'>obligations</em> à long et moyen terme émises par les Etats allemand et italien en janvier et février 2010, et en <em style='color: ${
+          process.env.REACT_APP_OBLIGATION
+        }'>obligations</em> émises par Banco Santander en octobre 2010`,
       },
     ],
   },
@@ -28,7 +31,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Achat d'<em style='color: var(--obligation)'>obligations</em> nouvelles",
+        __html: `Achat d'<em style='color: ${process.env.REACT_APP_OBLIGATION}'>obligations</em> nouvelles`,
       },
     ],
   },
@@ -43,11 +46,14 @@ export default {
     headList2: 'Opérations',
     list2: [
       {
-        __html:
-          "Achat d'<em style='color: var(--obligation)'>obligations</em> à 10 et 5 ans émises par les Etats allemand et italien en janvier et février 2010",
+        __html: `Achat d'<em style='color: ${
+          process.env.REACT_APP_OBLIGATION
+        }'>obligations</em> à 10 et 5 ans émises par les Etats allemand et italien en janvier et février 2010`,
       },
       {
-        __html: "Achat d'<em style='color: var(--obligation)'>obligations</em> Banco Santander émises en octobre 2010",
+        __html: `Achat d'<em style='color: ${
+          process.env.REACT_APP_OBLIGATION
+        }'>obligations</em> Banco Santander émises en octobre 2010`,
       },
     ],
   },

@@ -6,7 +6,7 @@
     text-transform: uppercase;
     width: 100%;
     margin: 10px 0;
-    height: 140px;
+    height: 50px;
 
     .popup-blue {
       text-transform: initial;
@@ -21,8 +21,8 @@
     width: 100%;
 
     .drop-cards-end.finished > * {
-      background-color: var(--blocUpAndDownButtonBgActive);
-      border: 2px solid var(--blocUpAndDownButtonBorderFinished);
+      background-color: $blocUpAndDownButtonBgActive;
+      border: 2px solid $blocUpAndDownButtonBorderFinished;
       box-shadow: none;
     }
     .drop-cards-start {
@@ -46,5 +46,14 @@
       flex-basis: 150px;
       margin-right: 50px;
     }
+  }
+
+  .explanation {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   }
 }

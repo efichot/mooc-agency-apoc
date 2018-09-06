@@ -171,7 +171,7 @@ const module_06_blocSchemaType1 = {
         style: {
           gridRow: '1 / 3',
           backgroundColor: 'rgba(128,128,128,1.00)',
-          color: 'var(--white)',
+          color: process.env.REACT_APP_WHITE,
           height: 20,
           width: 35,
           display: 'flex',
@@ -187,7 +187,7 @@ const module_06_blocSchemaType1 = {
         style: {
           gridRow: '4 / 6',
           backgroundColor: 'rgba(128,128,128,1.00)',
-          color: 'var(--white)',
+          color: process.env.REACT_APP_WHITE,
           height: 20,
           width: 35,
           display: 'flex',
@@ -211,7 +211,7 @@ const module_06_blocSchemaType1 = {
         style: {
           gridRow: 1,
           backgroundColor: 'rgba(255,92,49,1.00)',
-          color: 'var(--white)',
+          color: process.env.REACT_APP_WHITE,
         },
       },
       {
@@ -220,7 +220,7 @@ const module_06_blocSchemaType1 = {
         style: {
           gridRow: 2,
           backgroundColor: 'rgba(132,0,119,1.00)',
-          color: 'var(--white)',
+          color: process.env.REACT_APP_WHITE,
         },
       },
       {
@@ -229,7 +229,7 @@ const module_06_blocSchemaType1 = {
         style: {
           gridRow: 3,
           backgroundColor: 'rgba(0,154,61,1.00)',
-          color: 'var(--white)',
+          color: process.env.REACT_APP_WHITE,
         },
       },
       {
@@ -238,7 +238,7 @@ const module_06_blocSchemaType1 = {
         style: {
           gridRow: 4,
           backgroundColor: 'rgba(140,139,139,1.00)',
-          color: 'var(--white)',
+          color: process.env.REACT_APP_WHITE,
         },
       },
     ],

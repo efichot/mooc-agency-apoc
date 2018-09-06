@@ -17,7 +17,7 @@ class BlocSchemaType1 extends React.Component {
         <div
           className="bloc-schema-type-1__game game"
           style={{
-            ...grid,
+            ...grid, //FIXME
           }}>
           {/*COLUMN 1*/}
           <div

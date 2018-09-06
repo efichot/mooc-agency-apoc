@@ -1,8 +1,7 @@
 .menu-top {
-  height: var(--menuTopHeight);
-  width: var(--menuTopWidth);
-  // margin-left: calc(var(--stepWidth) * -1);
-  box-shadow: var(--boxShadowToBottom);
+  height: $menuTopHeight;
+  width: $menuTopWidth;
+  box-shadow: $boxShadowToBottom;
 
   display: flex;
   justify-content: center;
@@ -12,47 +11,64 @@
   z-index: 50;
 
   &__padding-top {
-    border-top-left-radius: var(--menuTopPaddingTop);
-    border-top-right-radius: var(--menuTopPaddingTop);
-    padding-top: var(--menuTopPaddingTop);
-    // margin-left: calc(var(--stepWidth) * -1);
-    width: var(--menuTopWidth);
-    background-color: var(--menuTopBgColor);
-    box-shadow: var(--boxShadowToBottom);
+    border-top-left-radius: $menuTopPaddingTop;
+    border-top-right-radius: $menuTopPaddingTop;
+    padding-top: $menuTopPaddingTop;
+    width: $menuTopWidth;
+    background-color: $menuTopBgColor;
+    box-shadow: $boxShadowToBottom;
     z-index: 51;
   }
 
   &__item {
     flex-grow: 1;
-    height: var(--menuTopItemHeight);
+    height: $menuTopItemHeight;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     
-    color: var(--menuTopItemColor);
+    color: $menuTopItemColor;
     text-transform: uppercase;
     font-weight: 200;
     &--title {
-      font-size: var(--defaultFontSize);
+      font-size: $defaultFontSize;
     }
     &--subtitle {
       font-size: 0.55rem;  
     }
     &-1 {
-      color: var(--menuTopItemHomeColor);
+      color: $menuTopItemHomeColor;
       font-size: 1.25rem;
       flex-basis: 90px;
       flex-grow: 0;
     }
   }
 
-  @for $i from 1 through 5 {
-    .menu-item-#{$i} {
-      background: var(--menuItem#{$i}BgColor); 
-      // background: -webkit-linear-gradient(to bottom, var(--menuItem#{$i}BgColorOut), var(--menuItem#{$i}BgColorIn) 25%, var(--menuItem#{$i}BgColorIn));
-      // background: linear-gradient(to bottom, var(--menuItem#{$i}BgColorOut), var(--menuItem#{$i}BgColorIn) 25%, var(--menuItem#{$i}BgColorIn));
-    }
+  .menu-item-1 {
+    background: $menuItem1BgColor; 
+    // background: -webkit-linear-gradient(to bottom, $menuItem1BgColorOut, $menuItem1BgColorIn 25%, $menuItem1BgColorIn);
+    // background: linear-gradient(to bottom, $menuItem1BgColorOut, $menuItem1BgColorIn 25%, $menuItem1BgColorIn);
+  }
+  .menu-item-2 {
+    background: $menuItem2BgColor; 
+    // background: -webkit-linear-gradient(to bottom, $menuItem2BgColorOut, $menuItem2BgColorIn 25%, $menuItem2BgColorIn);
+    // background: linear-gradient(to bottom, $menuItem2BgColorOut, $menuItem2BgColorIn 25%, $menuItem2BgColorIn);
+  }
+  .menu-item-3 {
+    background: $menuItem3BgColor; 
+    // background: -webkit-linear-gradient(to bottom, $menuItem3BgColorOut, $menuItem3BgColorIn 25%, $menuItem3BgColorIn);
+    // background: linear-gradient(to bottom, $menuItem3BgColorOut, $menuItem3BgColorIn 25%, $menuItem3BgColorIn);
+  }
+  .menu-item-4 {
+    background: $menuItem4BgColor; 
+    // background: -webkit-linear-gradient(to bottom, $menuItem4BgColorOut, $menuItem4BgColorIn 25%, $menuItem4BgColorIn);
+    // background: linear-gradient(to bottom, $menuItem4BgColorOut, $menuItem4BgColorIn 25%, $menuItem4BgColorIn);
+  }
+  .menu-item-5 {
+    background: $menuItem5BgColor; 
+    // background: -webkit-linear-gradient(to bottom, $menuItem5BgColorOut, $menuItem5BgColorIn 25%, $menuItem5BgColorIn);
+    // background: linear-gradient(to bottom, $menuItem5BgColorOut, $menuItem5BgColorIn 25%, $menuItem5BgColorIn);
   }
 }

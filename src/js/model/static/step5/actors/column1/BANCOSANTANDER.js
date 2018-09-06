@@ -8,11 +8,12 @@ export default {
     subTitle: 'Entreprise du secteur bancaire cotée en Bourse',
     list: [
       {
-        __html: "S’est fortement développée hors d'Espagne par croissance interne et externe à l’international",
+        __html: `S’est fortement développée hors d'Espagne par croissance interne et externe à l’international`,
       },
       {
-        __html:
-          "Procède en octobre 2010 à une émission d'<em style='color: var(--obligation)'>obligations</em>  de 1 milliard d'euros  dans le cadre de son activité de  banque commerciale auprès des entreprises et des particuliers",
+        __html: `Procède en octobre 2010 à une émission d'<em style='color: ${
+          process.env.REACT_APP_OBLIGATION
+        }'>obligations</em>  de 1 milliard d'euros  dans le cadre de son activité de  banque commerciale auprès des entreprises et des particuliers`,
       },
     ],
   },
@@ -27,7 +28,7 @@ export default {
     title2: 'Opérations',
     list2: [
       {
-        __html: "Émission d'<em style='color: var(--obligation)'>obligations</em>",
+        __html: `Émission d'<em style='color: ${process.env.REACT_APP_OBLIGATION}'>obligations</em>`,
       },
     ],
   },
@@ -42,7 +43,9 @@ export default {
     headList2: 'Opérations',
     list2: [
       {
-        __html: "Émission d'<em style='color: var(--obligation)'>obligations</em> de 1 milliard d'€ en octobre 2010",
+        __html: `Émission d'<em style='color: ${
+          process.env.REACT_APP_OBLIGATION
+        }'>obligations</em> de 1 milliard d'€ en octobre 2010`,
       },
     ],
   },

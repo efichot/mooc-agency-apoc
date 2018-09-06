@@ -15,6 +15,7 @@ import BlocDivider from '../views/BlocDivider';
 import BlocSpacer from '../views/BlocSpacer';
 import BlocQuiz from '../views/BlocQuiz';
 import ButtonPrimary from '../views/UI/ButtonPrimary';
+import moduleTypes from '../model/static/moduleTypes';
 
 class Step5 extends React.Component {
   state = {
@@ -27,9 +28,16 @@ class Step5 extends React.Component {
     this.props.tellAppIAmIntro(false);
   }
 
-  handleShowNextModule = e => {
-    console.log('test');
-    this.setState({ showNextModule: this.state.showNextModule + 1 });
+  handleShowNextModule = module => {
+    if (module === moduleTypes.blocCardGameType1) {
+      this.setState({ showNextModule: 1 });
+    } else if (module === moduleTypes.blocCardGameType2) {
+      this.setState({ showNextModule: 2 });
+    } else if (module === moduleTypes.blocCardGameType3) {
+      this.setState({ showNextModule: 3 });
+    } else if (module === moduleTypes.blocCardGameType4) {
+      this.setState({ showNextModule: 4 });
+    }
   };
 
   handleShowSynthese = () => {
@@ -48,9 +56,9 @@ class Step5 extends React.Component {
 
     const { showNextModule, /*showSynthese,*/ showQuiz } = this.state;
 
-    const stepInStep1 = showNextModule > 0;
-    const stepInStep2 = showNextModule > 1;
-    const stepInStep3 = showNextModule > 2;
+    const stepInStep1 = showNextModule === 1;
+    const stepInStep2 = showNextModule === 2;
+    const stepInStep3 = showNextModule === 3;
 
     return (
       <Fade classProps="step step5" in={isStep5}>

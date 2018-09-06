@@ -10,6 +10,7 @@ import PopupBlueInnerHtml from './UI/PopupBlueInnerHtml';
 import SelectQCM from './UI/SelectQCM';
 import Fade from '../transitions/Fade';
 import victoryMessages from '../model/static/popupBlueMessages';
+import { scrollIntoView as scrollItemIntoView } from '../transitions/transitionUtils';
 
 import arrowDown from '../../assets/img/icons/arrow-down.png';
 
@@ -17,7 +18,7 @@ class BlocQCMType3 extends React.Component {
   state = {
     hideQuestion: true,
     showQuestion: 1,
-    gameIsFinished: false,
+    gameIsFinished: undefined,
     victoryMessage: null,
     answers: {},
     correctAnswers: {},
@@ -59,37 +60,47 @@ class BlocQCMType3 extends React.Component {
   };
 
   handleQCMAnswer = (selectNumber, answer, correctAnswer) => {
-    this.setState({ victoryMessage: null });
+    this.setState({ victoryMessage: undefined, gameIsFinished: undefined });
     const answers = { ...this.state.answers };
     answers[selectNumber] = answer;
     this.setState({ answers });
   };
 
   handleHideExplanation = () => {
-    this.setState({ hideExplanation: true });
-    this.setState({ victoryMessage: null });
+    this.setState({
+      hideExplanation: true,
+      victoryMessage: undefined,
+      gameIsFinished: undefined,
+    });
   };
 
+  handleShowExplanation = () => {
+    this.setState({
+      hideExplanation: false,
+      victoryMessage: undefined,
+    });
+  };
   handleValidate = async e => {
     let correct = true;
     const noAnswer = Object.keys(this.state.answers).length <= 0;
     const answers = JSON.stringify(Object.values(this.state.answers).sort());
     const correctAnswers = JSON.stringify(Object.values(this.state.correctAnswers).sort());
-    console.log('answers, correctAnswers', answers, correctAnswers);
     if (answers !== correctAnswers || noAnswer) {
       correct = false;
     }
-    this.setState({ hideExplanation: false });
+    // this.setState({ hideExplanation: false });
     if (correct) {
       const victoryMessage = { __html: victoryMessages.isGoodAnswer };
-      this.setState({ victoryMessage });
-      this.setState({ gameIsFinished: true });
+      this.setState({
+        victoryMessage,
+        gameIsFinished: 'victory',
+      });
       // this.props.gameIsFinished(this.state.gameIsFinished);
     } else {
       const victoryMessage = {
         __html: victoryMessages.isDefeatHTML,
       };
-      this.setState({ victoryMessage });
+      this.setState({ victoryMessage, gameIsFinished: 'defeat' });
     }
   };
 
@@ -136,9 +147,12 @@ class BlocQCMType3 extends React.Component {
                   key={question.questionNumber}>
                   <div
                     className="button-groupe"
+                    style={{
+                      maxWidth: question.maxWidth,
+                    }}
                     onMouseEnter={() => this.showQuestion(question)}
                     onMouseLeave={() => this.hideQuestions(question)}>
-                    <ButtonPrimary name={question.title} />
+                    <ButtonPrimary name={{ __html: question.title }} />
                     {question.arrowFollowing && (
                       <div className="arrow-following" style={{ backgroundImage: `url(${arrowDown})` }} />
                     )}
@@ -177,8 +191,11 @@ class BlocQCMType3 extends React.Component {
               classProps="bloc-QCM-type-3__victory-message"
               description={victoryMessage}
               onCloseClick={() => {
-                victoryMessage.__html === victoryMessages.isGoodAnswer &&
-                  this.props.gameIsFinished(this.state.gameIsFinished);
+                if (victoryMessage.__html === victoryMessages.isGoodAnswer) {
+                  console.log('laklkaslk');
+                  this.props.gameIsFinished(modulType);
+                  this.setState({ hideExplanation: false });
+                }
                 this.setState({ victoryMessage: undefined });
               }}
             />
@@ -189,29 +206,37 @@ class BlocQCMType3 extends React.Component {
             onClick={this.handleValidate}
             classProps={`bloc-QCM-type-3__validate`}
           />
-          {!hideExplanation &&
-            !gameIsFinished && (
-              <ButtonPrimary
-                minWidth
-                name="cacher l'explication"
-                onClick={this.handleHideExplanation}
-                classProps={`bloc-QCM-type-3__explanations`}
-              />
-            )}
+          {gameIsFinished && (
+            <ButtonPrimary
+              minWidth
+              name={!hideExplanation ? "Cacher l'explication" : "Voir l'explication"}
+              onClick={() => (!hideExplanation ? this.handleHideExplanation() : this.handleShowExplanation())}
+              classProps={`bloc-QCM-type-2__explanations`}
+            />
+          )}
         </div>
-        <BlocSpacer />
-        {!hideExplanation && (
-          <React.Fragment>
-            <BlocDescription description={synthese.firstDescription} />
-            {gameIsFinished && (
-              <React.Fragment>
-                <BlocSpacer />
-                {synthese.title && <span className="bloc__name">{synthese.title}</span>}
-                {synthese.secondDescription && <BlocDescription description={synthese.secondDescription} />}
-              </React.Fragment>
-            )}
-          </React.Fragment>
-        )}
+        {gameIsFinished && !hideExplanation && <BlocSpacer />}
+        {gameIsFinished &&
+          !hideExplanation && (
+            <div
+              className="it-is-the-end"
+              ref={syn => {
+                this.synthese = syn;
+                if (gameIsFinished === 'victory') {
+                  scrollItemIntoView(syn);
+                }
+              }}>
+              <BlocDescription description={synthese.firstDescription} />
+              {gameIsFinished === 'victory' &&
+                synthese && (
+                  <React.Fragment>
+                    <BlocSpacer />
+                    {synthese.title && <span className="bloc__name">{synthese.title}</span>}
+                    {synthese.secondDescription && <BlocDescription description={synthese.secondDescription} />}
+                  </React.Fragment>
+                )}
+            </div>
+          )}
       </Fade>
     );
   };

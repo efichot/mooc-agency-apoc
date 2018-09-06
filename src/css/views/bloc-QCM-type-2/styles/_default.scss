@@ -26,8 +26,8 @@
 
         .button-primary {
           background-color: transparent !important;
-          color: var(--defaultTextColor);
-          font-size: 1rem;
+          color: $defaultTextColor;
+          font-size: 0.875rem;
           text-transform: unset;
           text-align: left;
           justify-content: flex-start;

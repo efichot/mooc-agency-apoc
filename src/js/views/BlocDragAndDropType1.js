@@ -10,6 +10,20 @@ import BlocSpacer from '../views/BlocSpacer';
 import BlocDescription from './BlocDescription';
 import Fade from '../transitions/Fade';
 import victoryMessages from '../model/static/popupBlueMessages';
+import { scrollIntoView as scrollItemIntoView } from '../transitions/transitionUtils';
+
+const blankCard = ({ startPosition, endPosition, isDraggable = false }) => ({
+  color: 'transparent',
+  startPosition,
+  endPosition,
+  content: {
+    isDraggable,
+    cardTitle: '',
+    cardSubTitle: '',
+    list: [],
+    legend: [],
+  },
+});
 
 class BlocDragAndDropType1 extends React.Component {
   state = {
@@ -18,11 +32,13 @@ class BlocDragAndDropType1 extends React.Component {
     victoryMessage: undefined,
     solutions: {},
     cardCounter: 0,
-    gameIsFinished: false,
+    gameIsFinished: undefined,
     showExplanation: false,
+    hiddenDragCards: {},
+    hideCardWhenDropped: true,
   };
 
-  renderDropCard = ({ dropStartOrEnd, dropPosition, dragCards, dropCardTitleStyles }) => {
+  renderDropCard = ({ dropStartOrEnd, dropPosition, dragPosition, dragCards, dropCardTitleStyles }) => {
     const dropCoordinatesAsString = `droppable-${dropStartOrEnd}-${dropPosition}`;
     let cardToShow;
 
@@ -40,6 +56,7 @@ class BlocDragAndDropType1 extends React.Component {
         reset={this.state.reset}
         startOrEnd={dropStartOrEnd}
         dragCard={this.handleSolutionChecking}
+        checkPositionInHere={false}
         dropCardTitleStyles={dropCardTitleStyles}>
         {cardToShow}
       </DropCard>
@@ -70,13 +87,20 @@ class BlocDragAndDropType1 extends React.Component {
     }
   };
 
-  handleSolutionChecking = (bool, position) => {
-    const cardInPositionStateCopy = this.state.cardInPosition;
-    cardInPositionStateCopy[`${position}`] = bool;
-    this.setState({ cardInPosition: cardInPositionStateCopy });
-    this.setState({ reset: false });
-    this.setState({ gameIsFinished: false });
-    this.setState({ victoryMessage: undefined });
+  handleSolutionChecking = (currentEndPosition, supposedEndPosition, startPosition) => {
+    console.log(currentEndPosition, supposedEndPosition, startPosition);
+    const { cardInPosition, hiddenDragCards, hideCardWhenDropped } = this.state;
+    cardInPosition[`${supposedEndPosition}`] = currentEndPosition === supposedEndPosition;
+    if (hideCardWhenDropped) {
+      hiddenDragCards[`${startPosition}`] = true;
+    }
+    this.setState({
+      hiddenDragCards,
+      cardInPosition,
+      reset: false,
+      gameIsFinished: undefined,
+      victoryMessage: undefined,
+    });
   };
 
   checkAnswers = () => {
@@ -88,23 +112,30 @@ class BlocDragAndDropType1 extends React.Component {
     }
     const falseAnswers = Object.keys(this.state.cardInPosition).filter(card => !this.state.cardInPosition[`${card}`]);
     if (falseAnswers.length === 0) {
-      this.setState({ victoryMessage: victoryMessages.isVictory });
-      this.setState({ gameIsFinished: true });
+      this.setState({
+        victoryMessage: victoryMessages.isVictory,
+        gameIsFinished: 'victory',
+      });
       // this.props.gameIsFinished(this.props.modulType);
       return;
     } else {
       this.setState({
         victoryMessage: victoryMessages.isDefeat,
+        gameIsFinished: 'defeat',
       });
       return;
     }
   };
 
   reset = () => {
-    this.setState({ reset: true });
-    this.setState({ victoryMessage: undefined });
-    this.setState({ cardInPosition: {} });
-    this.setState({ gameIsFinished: false });
+    this.setState({
+      reset: true,
+      victoryMessage: undefined,
+      cardInPosition: {},
+      gameIsFinished: undefined,
+      hiddenDragCards: {},
+      showExplanation: false,
+    });
   };
 
   componentDidMount() {
@@ -134,8 +165,23 @@ class BlocDragAndDropType1 extends React.Component {
       dropCardTitleStyles,
       explication,
     } = this.props;
-    const { victoryMessage, gameIsFinished, showExplanation } = this.state;
 
+    const { victoryMessage, gameIsFinished, showExplanation, hiddenDragCards } = this.state;
+
+    const dragCards = cards.map(card => {
+      if (hiddenDragCards[card.startPosition] || showExplanation) {
+        return blankCard({
+          startPosition: card.startPosition,
+          endPosition: card.endPosition,
+        });
+      } else {
+        return card;
+      }
+    });
+
+    const isVictory = gameIsFinished === 'victory' && victoryMessage === victoryMessages.isVictory;
+
+    console.log('showExplanation && isVictory', showExplanation && isVictory);
     return (
       <Fade
         classProps={`bloc bloc-drag-and-drop-1`}
@@ -148,13 +194,22 @@ class BlocDragAndDropType1 extends React.Component {
         <div className="bloc-drag-and-drop-1__cards game">
           <React.Fragment>
             <div className="drop-cards-start">
-              {cards.map((onlyForIndex, indexDrop) =>
+              {dragCards.map((dragCard, indexDrop) =>
                 this.renderDropCard({
                   dropStartOrEnd: 'start',
+                  dragPosition: dragCard.startPosition,
                   dropPosition: indexDrop + 1,
-                  dragCards: cards,
+                  dragCards,
                   dropCardTitleStyles,
                 }),
+              )}
+              {explication && (
+                <div className="explanation" style={{ visibility: showExplanation ? 'visible' : 'hidden' }}>
+                  <span ref={exp => (this.explication = exp)} className="bloc__name secondary">
+                    {explication.title}
+                  </span>
+                  <BlocDescription in description={explication.description} />
+                </div>
               )}
             </div>
             <div className="risk-scale">
@@ -162,9 +217,10 @@ class BlocDragAndDropType1 extends React.Component {
               {victoryMessage && (
                 <PopupBlue
                   onCloseClick={() => {
-                    if (victoryMessage === victoryMessages.isVictory) {
+                    if (isVictory) {
                       this.props.gameIsFinished(modulType);
                       this.setState({ showExplanation: true });
+                      scrollItemIntoView(this.explication);
                     }
                     this.setState({ victoryMessage: undefined });
                   }}>
@@ -173,10 +229,11 @@ class BlocDragAndDropType1 extends React.Component {
               )}
               <span className="risk-high">Plus de risque</span>
             </div>
-            <div className={`drop-cards-end${gameIsFinished ? ' finished' : ''}`}>
+            <div className={`drop-cards-end${isVictory ? ' finished' : ''}`}>
               {cards.filter(card => card.content.isDraggable).map((card, indexDrop) =>
                 this.renderDropCard({
                   dropStartOrEnd: 'end',
+                  dragPosition: card.startPosition,
                   dropPosition: indexDrop + 1,
                   dragCards: cards,
                   dropCardTitleStyles,
@@ -187,16 +244,25 @@ class BlocDragAndDropType1 extends React.Component {
         </div>
         <BlocSpacer />
         <div className="bloc-drag-and-drop-1__buttons">
+          {gameIsFinished === 'defeat' &&
+            !showExplanation && (
+              <ButtonPrimary
+                minWidth
+                name="Voir l'explication"
+                onClick={() => this.setState({ showExplanation: true })}
+              />
+            )}
+          {showExplanation &&
+            gameIsFinished !== 'victory' && (
+              <ButtonPrimary
+                minWidth
+                name="Revenir à l'exercice"
+                onClick={() => this.setState({ showExplanation: false })}
+              />
+            )}
           <ButtonPrimary minWidth name="Recommencer" onClick={this.reset} />
           <ButtonPrimary minWidth name="Valider" onClick={this.checkAnswers} />
         </div>
-        {showExplanation && (
-          <React.Fragment>
-            <BlocSpacer />
-            <span className="bloc__name">{explication.title}</span>
-            <BlocDescription description={explication.description} />
-          </React.Fragment>
-        )}
       </Fade>
     );
   }

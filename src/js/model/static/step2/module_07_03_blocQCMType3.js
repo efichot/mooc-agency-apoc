@@ -20,7 +20,7 @@ const module_07_03_blocQCMType3 = {
   questions: [
     {
       questionNumber: 1,
-      title: `Quelles années la performance de l’indice (marché obligataire euro crédit) est-elle négative ?`,
+      title: `Quelles années la performance de l’indice (marché obligataire euro crédit) est-elle négative&nbsp;?`,
       selects: [
         {
           selectNumber: 11,
@@ -118,7 +118,7 @@ const module_07_03_blocQCMType3 = {
     },
     {
       questionNumber: 2,
-      title: `Quelles sont les 3 années successives où la performance relative du fonds est négative ?`,
+      title: `Quelles sont les 3 années successives où la performance relative du fonds est négative&nbsp;?`,
       selects: [
         {
           selectNumber: 21,
@@ -262,7 +262,7 @@ const module_07_03_blocQCMType3 = {
     },
     {
       questionNumber: 3,
-      title: `Quelle année permet de rattraper cette sous-performance et de creuser l’écart par rapport à l’indice ?`,
+      title: `Quelle année permet de rattraper cette sous-performance et de creuser l’écart par rapport à l’indice&nbsp;?`,
       selects: [
         {
           selectNumber: 31,

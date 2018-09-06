@@ -8,15 +8,17 @@ export default {
     answerNumber: 18,
     list: [
       {
-        __html: "Sert d'intermédiaire pour une opération financière entre deux parties",
+        __html: `Sert d'intermédiaire pour une opération financière entre deux parties`,
       },
       {
-        __html:
-          "Procède aux transactions sur les titres <em style='color: var(--monetaire)'>monétaires</em> émis par Crédit Agricole et ENEL en mai 2009",
+        __html: `Procède aux transactions sur les titres <em style='color: ${
+          process.env.REACT_APP_MONETAIRE
+        }'>monétaires</em> émis par Crédit Agricole et ENEL en mai 2009`,
       },
       {
-        __html:
-          "Procède aux transactions sur les <em style='color: var(--obligation)'>obligations</em> émises par Carrefour en avril 2010",
+        __html: `Procède aux transactions sur les <em style='color: ${
+          process.env.REACT_APP_OBLIGATION
+        }'>obligations</em> émises par Carrefour en avril 2010`,
       },
     ],
   },
@@ -25,16 +27,16 @@ export default {
     title1: 'Besoins',
     list1: [
       {
-        __html: "Réaliser le placement de titres émis auprès d'investisseurs",
+        __html: `Réaliser le placement de titres émis auprès d'investisseurs`,
       },
     ],
     title2: 'Opérations',
     list2: [
       {
-        __html: "Transactions sur le marché <em style='color: var(--monetaire)'>monétaire</em>",
+        __html: `Transactions sur le marché <em style='color: ${process.env.REACT_APP_MONETAIRE}'>monétaire</em>`,
       },
       {
-        __html: "Transactions sur le marché <em style='color: var(--obligation)'>obligataire</em>",
+        __html: `Transactions sur le marché <em style='color: ${process.env.REACT_APP_OBLIGATION}'>obligataire</em>`,
       },
     ],
   },
@@ -44,21 +46,27 @@ export default {
     headList1: 'Besoins',
     list1: [
       {
-        __html:
-          "Placer les émissions <em style='color: var(--monetaire)'>monétaire</em> de Crédit Agricole et Enel auprès de HSBC Asset Management",
+        __html: `Placer les émissions <em style='color: ${
+          process.env.REACT_APP_MONETAIRE
+        }'>monétaire</em> de Crédit Agricole et Enel auprès de HSBC Asset Management`,
       },
       {
-        __html: "Placer l’émission <em style='color: var(--obligation)'>obligataire</em> de Carrefour auprès de Axa",
+        __html: `Placer l’émission <em style='color: ${
+          process.env.REACT_APP_OBLIGATION
+        }'>obligataire</em> de Carrefour auprès de Axa`,
       },
     ],
     headList2: 'Opérations',
     list2: [
       {
-        __html:
-          "Transactions sur les titres <em style='color: var(--monetaire)'>monétaires</em> émis par Crédit Agricole et Enel en mai 2009",
+        __html: `Transactions sur les titres <em style='color: ${
+          process.env.REACT_APP_MONETAIRE
+        }'>monétaires</em> émis par Crédit Agricole et Enel en mai 2009`,
       },
       {
-        __html: "Transaction sur les <em style='color: var(--obligation)'>obligations</em> émises par Carrefour ",
+        __html: `Transaction sur les <em style='color: ${
+          process.env.REACT_APP_OBLIGATION
+        }'>obligations</em> émises par Carrefour `,
       },
     ],
   },
