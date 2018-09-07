@@ -80,6 +80,7 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
       descriptionWhenNoMoreQuestion,
       showMoreQuestionsConditions,
       ecusson,
+      module,
     } = this.props;
 
     const {
@@ -127,7 +128,7 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
     return (
       <Fade
         in={this.props.in}
-        classProps={`bloc bloc-en-savoir-plus bloc-en-savoir-plus-type-3-qcm-type-1`}
+        classProps={`bloc bloc-en-savoir-plus bloc-en-savoir-plus-type-3-qcm-type-1 ${module}`}
         scrollIntoView={scrollIntoView}
         margins={this.props.margins}>
         {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
@@ -205,10 +206,12 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
         )}
         <div
           className="bloc-en-savoir-plus-type-3-qcm-type-1__cards game"
-          style={{
-            gridAutoRows: grid.gridAutoRows, //FIXME
-            gridTemplateColumns: grid.gridTemplateColumns, //FIXME
-          }}>
+          style={
+            {
+              // gridAutoRows: grid.gridAutoRows, // in CSS for MS
+              // gridTemplateColumns: grid.gridTemplateColumns, // in CSS for MS
+            }
+          }>
           {ecusson && (
             <div className="ecusson">
               <div
@@ -272,7 +275,7 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
           <PopupBlue
             classProps={`bloc-en-savoir-plus-type-3-qcm-type-1__cards--to-show grid-row-start-${
               grid.rows
-            }-end-${grid.rows + grid.popupRows} grid-column-start-1-end--1`}
+            }-end-${grid.rows + grid.popupRows}-gridgap grid-column-start-1-end-${grid.columns}-gridgap`}
             hidePopup={hideCard}
             noCross
             styleProps={
@@ -309,6 +312,7 @@ BlocEnSavoirPlusType3QCMType1.propTypes = {
   /***************** DATA ******************/
 
   modulType: PropTypes.string.isRequired,
+  module: PropTypes.string.isRequired,
   noChapter: PropTypes.bool,
   chapter: PropTypes.string.isRequired,
   duration: PropTypes.number,

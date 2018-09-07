@@ -3,8 +3,8 @@
   &__start {
     width: 100%;
     border-radius: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    @extend %displayGrid;
+    @include gridTemplateColumns(1fr 1fr 1fr 1fr 1fr);
     flex-wrap: wrap;
     background-color: $white;
 
@@ -32,8 +32,7 @@
   }
 
   &__grid {
-    display: grid;
-    display: -ms-grid;
+    @extend %displayGrid;
     width: 100%;
   }
 

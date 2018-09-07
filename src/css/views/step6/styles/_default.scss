@@ -10,11 +10,24 @@
   }
 
   .step6__module_03_03 {
+
     .popup-blue {
       // visibility: visible !important;
       top: 30px;
       bottom: unset !important;
     }
+
+    .bloc-en-savoir-plus-type-3__cards {
+      @include gridBlocEnSavoirPlusType3($columns: 3, $columnGap: 5px);
+    }
+  }
+
+  .step6__module_06_02 {
+   
+    .bloc-en-savoir-plus-type-3__cards {
+      @include gridBlocEnSavoirPlusType3($columns: 3, $columnGap: 5px);
+    }
+    
   }
 
 }

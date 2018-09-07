@@ -238,7 +238,9 @@ class BlocCardGameType2 extends React.Component {
           {game.map((question, questionIndex) => (
             <React.Fragment key={questionIndex}>
               <div
-                className={`grid-row-start-1 grid-column-start-${questionIndex * 4 + 1}-end-${questionIndex * 4 + 4}`}
+                className={`grid-row-start-1-gridgap grid-column-start-${questionIndex * 4 + 1}-end-${questionIndex *
+                  4 +
+                  4}-gridgap`}
                 style={
                   {
                     // gridRow: 1,

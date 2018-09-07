@@ -18,7 +18,7 @@
 
 
   &__grid {
-    display: grid;
+    @extend %displayGrid;
     width: 100%;
 
   }

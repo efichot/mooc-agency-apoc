@@ -91,11 +91,11 @@ const module_05_03_blocEnSavoirPlusType3QCMType1 = {
   duration: 2,
   title: 'Processus de gestion actions',
   grid: {
-    columns: 7,
-    rows: 11,
-    gridAutoRows: 37,
-    popupRows: 4,
-    gridTemplateColumns: '7fr 1fr 7fr 7fr 1fr 7fr 1fr',
+    columns: 7, //grid set-up in CSS
+    rows: 11, //grid set-up in CSS
+    gridAutoRows: 37, //grid set-up in CSS
+    popupRows: 4, //grid set-up in CSS
+    // gridTemplateColumns: '7fr 1fr 7fr 7fr 1fr 7fr 1fr', //grid set-up in CSS
   },
   ecusson: {
     background: `linear-gradient(to right, ${process.env.REACT_APP_ACTION}, ${process.env.REACT_APP_OBLIGATION}, ${

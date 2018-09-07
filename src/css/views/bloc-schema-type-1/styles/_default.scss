@@ -20,11 +20,11 @@
     margin-top: 50px;
     max-width: 100%;
     flex-grow: 0;
-    display: grid;
+    @extend %displayGrid;
   }
 
   .column1, .column3, .column5 {
-    display: grid;
+    @extend %displayGrid;
     width: 100%;
   }
 
@@ -37,7 +37,7 @@
     height: 310px;
     margin-top: 242px;
     > * {
-      grid-column: 1;
+      @include gridColumn(1);
     }
 
     .ou {
@@ -85,7 +85,7 @@
     background-repeat: no-repeat;
     background-size: 20px 40px;
     background-position: center 53%;
-    grid-column: 2;
+    @include gridColumn(2);
   }
 
   .arrow-column4 {
@@ -93,7 +93,7 @@
     background-repeat: no-repeat;
     background-size: 20px 40px;
     background-position: center 53%;
-    grid-column: 4;
+    @include gridColumn(4);
   }
 
   .button-primary {

@@ -13,10 +13,10 @@ const module_04_02_blocEnSavoirPlusType3QCMType1 = {
     text: 'Gestion de taux',
   },
   grid: {
-    columns: 5,
-    rows: 7,
-    gridAutoRows: 75,
-    popupRows: 7,
+    columns: 5, //grid set-up in CSS
+    rows: 7, //grid set-up in CSS
+    gridAutoRows: 75, //grid set-up in CSS
+    popupRows: 7, //grid set-up in CSS
   },
   firstDescription: {
     __html: `La gestion taux consiste à allouer le risque de votre fonds en fonction d’un certain nombre de paramètres.

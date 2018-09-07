@@ -87,9 +87,17 @@ class Step8 extends React.Component {
                     scrollIntoView={isStep8 && show_01}
                     {...step8.module_03.module_03_01}
                   />
-                  <BlocEnSavoirPlusType3 in={isStep8 && show_01} {...step8.module_03.module_03_02} />
+                  <BlocEnSavoirPlusType3
+                    module="step8__module_03_02"
+                    in={isStep8 && show_01}
+                    {...step8.module_03.module_03_02}
+                  />
                   <BlocDivider in={isStep8 && show_01} margins />
-                  <BlocEnSavoirPlusType3QCMType1 in={isStep8 && show_01} {...step8.module_03.module_03_03} />
+                  <BlocEnSavoirPlusType3QCMType1
+                    module="step8__module_03_03"
+                    in={isStep8 && show_01}
+                    {...step8.module_03.module_03_03}
+                  />
                   <BlocDivider in={isStep8 && show_01} margins />
                   <BlocEnSavoirPlusType1 in={isStep8 && show_01} {...step8.module_03.module_03_04} />
                   <BlocDescription
@@ -98,7 +106,11 @@ class Step8 extends React.Component {
                     scrollIntoView={isStep8 && show_02}
                     {...step8.module_04.module_04_01}
                   />
-                  <BlocEnSavoirPlusType3QCMType1 in={isStep8 && show_02} {...step8.module_04.module_04_02} />
+                  <BlocEnSavoirPlusType3QCMType1
+                    module="step8__module_04_02"
+                    in={isStep8 && show_02}
+                    {...step8.module_04.module_04_02}
+                  />
                   <BlocEnSavoirPlusType1 in={isStep8 && show_02} {...step8.module_04.module_04_03} />
                   <BlocDescription
                     padding={30}
@@ -107,7 +119,11 @@ class Step8 extends React.Component {
                     {...step8.module_05.module_05_01}
                   />
                   <BlocEnSavoirPlusType1 in={isStep8 && show_03} {...step8.module_05.module_05_02} />
-                  <BlocEnSavoirPlusType3QCMType1 in={isStep8 && show_03} {...step8.module_05.module_05_03} />
+                  <BlocEnSavoirPlusType3QCMType1
+                    module="step8__module_05_03"
+                    in={isStep8 && show_03}
+                    {...step8.module_05.module_05_03}
+                  />
                   <BlocDescription
                     padding={30}
                     in={isStep8 && show_04}

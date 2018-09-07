@@ -51,10 +51,7 @@
   }
   &__cards {
     width: 100%;
-    display: grid;
-    grid-template-columns: 7fr 1fr 6fr 1fr 7fr 1fr 7fr 1fr;
-    grid-column-gap: 5px;
-    grid-row-gap: 2px;
+    @extend %displayGrid;
     height: 100%;
 
     &--arrow {
@@ -114,7 +111,7 @@
 
   .ecusson {
     grid-row: 1 / 4;
-    grid-column: 1;
+    @include gridColumn(1);
     display: flex;
     flex-direction: column;
     justify-content: center;

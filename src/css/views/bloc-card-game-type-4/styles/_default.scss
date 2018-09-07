@@ -8,7 +8,7 @@
   &__game {
     // margin-left: -20px;
     max-width: 100%;
-    display: grid;
+    @extend %displayGrid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(3, 210px) 1px;
     grid-gap: 10px;
@@ -24,7 +24,7 @@
     }
 
     .types {
-      display: grid;
+      @extend %displayGrid;
       grid-template-rows: repeat(3, 1fr);
     }
 
@@ -74,7 +74,7 @@
 
   .popup-victory-container {
     grid-row: 1 / -1;
-    grid-column: 1;
+    @include gridColumn(1);
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;

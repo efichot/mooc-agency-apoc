@@ -30,7 +30,7 @@ class BlocEnSavoirPlusType3 extends React.Component {
       noChapter,
       cards,
       duration,
-      grid,
+      // grid,
       chapter,
       title,
       firstDescription,
@@ -51,9 +51,11 @@ class BlocEnSavoirPlusType3 extends React.Component {
         <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
         <div
           className="bloc-en-savoir-plus-type-3__cards game"
-          style={{
-            gridTemplateColumns: `repeat(${2 * grid.columns}, 1fr)`, //FIXME
-          }}>
+          style={
+            {
+              // gridTemplateColumns: `repeat(${2 * grid.columns}, 1fr)`, //FIXME
+            }
+          }>
           <React.Fragment>
             {cards.map((card, index) => {
               const hover = cardNumberShown === card.index && !hideCard;
@@ -125,10 +127,10 @@ BlocEnSavoirPlusType3.propTypes = {
   chapter: PropTypes.string.isRequired,
   duration: PropTypes.number,
   title: PropTypes.string.isRequired,
-  grid: PropTypes.shape({
-    rows: PropTypes.number.isRequired,
-    columns: PropTypes.number.isRequired,
-  }),
+  // grid: PropTypes.shape({
+  // rows: PropTypes.number.isRequired,
+  // columns: PropTypes.number.isRequired,
+  // }),
   firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
   cards: PropTypes.arrayOf(
     PropTypes.shape({

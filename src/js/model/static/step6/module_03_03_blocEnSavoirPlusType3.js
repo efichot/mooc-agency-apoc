@@ -8,8 +8,8 @@ const module_03_03_blocEnSavoirPlusType3 = {
   duration: 2,
   title: "Principales catégories d'actions",
   grid: {
-    columns: 3,
-    rows: 4,
+    // columns: 3, //in CSS
+    // rows: 4, //no use
   },
   firstDescription: {
     __html: 'Pour plus de détail, passez la souris sur les différents catégories.',

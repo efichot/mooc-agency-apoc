@@ -8,12 +8,9 @@ const module_03_02_blocEnSavoirPlusType3 = {
   duration: 2,
   title: 'Principaux indices de référence (ou benchmark en anglais) du marché des actions ',
   grid: {
-    columns: 4,
-    rows: 5,
+    // columns: 4, //in CSS
+    // rows: 5, //no use
   },
-  // firstDescription: {
-  //   __html: 'Pour plus de détail, passez la souris sur les différents catégories.',
-  // },
   cards: [
     {
       color: process.env.REACT_APP_ACTION_OPAQUE,

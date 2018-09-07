@@ -8,7 +8,7 @@
   &__game {
     // margin-left: -20px;
     max-width: 100%;
-    display: grid;
+    @extend %displayGrid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(3, 1fr) 1px;
     grid-gap: 10px;

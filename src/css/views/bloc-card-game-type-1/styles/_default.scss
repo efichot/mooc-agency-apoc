@@ -6,10 +6,9 @@
   &__game {
     // margin-left: -20px;
     max-width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    grid-gap: 10px;
+    @extend %displayGrid;
+    @include gridTemplateColumns((1fr 1fr 1fr), 10px);
+    @include gridTemplateRows(1fr 1fr 1fr, 10px);
   }
 
   .button-double-arrow {
@@ -40,17 +39,17 @@
   .popup-blue {
     position: absolute;
     z-index: 1000;
-    grid-row: 2;
+    @include gridRow(2);
     margin-top: 50px;
     max-width: 200px;
     &.popup-column1 {
-      grid-column: 2;
+      @include gridColumn(2);
     }
     &.popup-column2 {
-      grid-column: 1;
+      @include gridColumn(1);
     }
     &.popup-column3 {
-      grid-column: 2;
+      @include gridColumn(2);
     }
 
   }

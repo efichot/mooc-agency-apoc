@@ -1,0 +1,35 @@
+
+.step8 {
+
+  .step8__module_03_02 {
+    .bloc-en-savoir-plus-type-3 {
+      &__cards {
+        @include gridBlocEnSavoirPlusType3($columns: 4, $columnGap: 5px);
+      }
+    }
+  }
+
+  .step8__module_03_03 {
+    .bloc-en-savoir-plus-type-3-qcm-type-1__cards {
+      @include gridTemplateColumns(7fr 1fr 6fr 1fr 7fr 1fr 7fr 1fr, 5px);
+      @include gridTemplateRows(repeat(12, 50px), 2px);
+    }
+  }
+
+  .step8__module_04_02 {
+    .bloc-en-savoir-plus-type-3-qcm-type-1__cards {
+      @include gridTemplateColumns(7fr 1fr 6fr 1fr 7fr 1fr 7fr 1fr, 5px);
+      @include gridTemplateRows(repeat(7, 75px), 2px);
+    }
+  }
+
+  .step8__module_05_03 {
+    .bloc-en-savoir-plus-type-3-qcm-type-1__cards {
+      @include gridTemplateColumns(7fr 1fr 7fr 7fr 1fr 7fr 1fr, 5px);
+      @include gridTemplateRows(repeat(11, 37px), 2px);
+    }
+  }
+
+
+
+}

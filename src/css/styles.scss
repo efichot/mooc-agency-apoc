@@ -5,6 +5,7 @@
 @import "variables/fonts";
 @import "variables/lengths";
 @import "variables/zindexes";
+@import "grids";
 
 @import "UI/button-circle/styles";
 @import "UI/button-primary/styles";
@@ -59,13 +60,13 @@
 @import "views/step2/styles";
 @import "views/step3/styles";
 @import "views/step6/styles";
+@import "views/step8/styles";
 
 @import "controllers/introduction/styles";
 @import "controllers/step/styles";
 @import "controllers/step7/styles";
 
 @import "base";
-@import "grids";
 
 @import "views/header/styles";
 @import "views/menu-top/styles";

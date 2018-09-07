@@ -19,3 +19,9 @@
 ##Étape 8
 
 -> Bug d'afficheage : pas d'étape
+
+
+##COMPATIBILITÉ IE
+-> finir de rajouter -gridgap si nécessaire à toutes les classes
+-> finir de transformer les grid-row et grid-column
+-> modifier les styles dans le model static en les remplaçant par des classes
