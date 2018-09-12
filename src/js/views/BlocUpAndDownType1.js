@@ -99,14 +99,9 @@ class BlocUpAndDownType1 extends React.Component {
         {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
         <span className="bloc__name">{name}</span>
         <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
-        <div
-          className="bloc-up-and-down-type-1__grid game"
-          style={{
-            display: 'grid', //FIXME
-            gridTemplateColumns: `repeat(${cards.length}, 1fr 5px)`, //FIXME
-          }}>
+        <div className={`bloc-up-and-down-type-1__grid game grid-template-columns-upanddown-${cards.length}`}>
           <span
-            className={`legend grid-row-start-1 grid-column-start-1`}
+            className={`legend grid-column-start-1-gridgap grid-row-start-1-gridgap`}
             style={
               {
                 // gridColumn: 1,
@@ -125,9 +120,8 @@ class BlocUpAndDownType1 extends React.Component {
                         key={indexDrop}
                         className={`bloc-up-and-down-type-1__button${
                           indexDrop === positions[index + 1] ? ' active' : ''
-                        }${gameIsFinished ? ' finished' : ''} grid-row-start-${2 * index + 1} grid-column-start-${2 *
-                          indexDrop +
-                          2}`}
+                        }${gameIsFinished ? ' finished' : ''} grid-column-start-${2 * index +
+                          1}-gridgap grid-row-start-${2 * indexDrop + 2}-gridgap`}
                         style={
                           {
                             // gridColumn: `${2 * index + 1}`,
@@ -143,9 +137,8 @@ class BlocUpAndDownType1 extends React.Component {
                         <div
                           className={`bloc-up-and-down-type-1__button ${
                             indexDrop === positions[index + 1] ? 'active' : ''
-                          }${gameIsFinished ? ' finished' : ''} grid-row-start-${2 * index + 1} grid-column-start-${2 *
-                            indexDrop +
-                            2}`}
+                          }${gameIsFinished ? ' finished' : ''} grid-column-start-${2 * index +
+                            1}-gridgap grid-row-start-${2 * indexDrop + 2}-gridgap`}
                           style={
                             {
                               // gridColumn: `${2 * index + 1}`,
@@ -155,8 +148,8 @@ class BlocUpAndDownType1 extends React.Component {
                           {indexDrop === positions[index + 1] && <span>{card.content.cardTitle}</span>}
                         </div>
                         <div
-                          className={`bloc-up-and-down-type-1__arrows grid-row-start-${2 * index +
-                            1} grid-column-start-${2 * (indexDrop + 1) + 2}`}
+                          className={`bloc-up-and-down-type-1__arrows grid-column-start-${2 * index +
+                            1}-gridgap grid-row-start-${2 * (indexDrop + 1) + 2}-gridgap`}
                           key={indexDrop + 1}
                           style={
                             {
@@ -191,7 +184,7 @@ class BlocUpAndDownType1 extends React.Component {
             );
           })}
           <span
-            className={`legend grid-row-start-${2 * cards.length + 3} grid-column-start-1`}
+            className={`legend grid-row-start-${2 * cards.length + 3}-gridgap grid-column-start-1-gridgap`}
             style={
               {
                 // gridColumn: 1,
@@ -201,7 +194,8 @@ class BlocUpAndDownType1 extends React.Component {
             Moins de risque
           </span>
           <span
-            className={`legend grid-row-start-${2 * cards.length + 3} grid-column-start-${2 * cards.length - 1}`}
+            className={`legend grid-row-start-${2 * cards.length + 3}-gridgap grid-column-start-${2 * cards.length -
+              1}-gridgap`}
             style={
               {
                 // gridColumn: 2 * cards.length - 1,

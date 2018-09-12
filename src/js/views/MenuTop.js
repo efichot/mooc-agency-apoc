@@ -22,7 +22,10 @@ class MenuTop extends React.Component {
               );
             } else {
               return (
-                <Link to="#" key={i} className={`menu-top__item menu-top__item-${i + 1} menu-item menu-item-${i + 1}`}>
+                <Link
+                  to="#"
+                  key={i}
+                  className={`button-link menu-top__item menu-top__item-${i + 1} menu-item menu-item-${i + 1}`}>
                   <span className={`menu-top__item--title menu-item-title menu-item-${i + 1}-title`}>
                     {menuTop[`${menu}`].title}
                   </span>

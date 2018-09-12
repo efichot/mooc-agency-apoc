@@ -145,10 +145,10 @@ class Step3 extends React.Component {
                         noDescription
                       />
                     )}
-                    <Link to="/step4" className="button first">
+                    <Link to="/step4" className="first button-link">
                       <ButtonPrimary minWidth name={step3.module_07.button_1} enableClick />
                     </Link>
-                    <Link to="#" className="button">
+                    <Link to="#" className="button-link">
                       <ButtonPrimary minWidth name={step3.module_07.button_2} />
                     </Link>
                   </div>

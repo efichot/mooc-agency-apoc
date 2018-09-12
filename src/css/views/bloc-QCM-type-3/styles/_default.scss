@@ -6,6 +6,7 @@
     height: 100%;
     @extend %flex-row-center-center;
     justify-content: space-between;
+    max-width: 100%;
 
     &--to-hover{
       flex-grow: 1;
@@ -14,16 +15,21 @@
       flex-direction: column;      
       justify-content: space-between;
       align-items: space-between;
+      max-width: 100%;
+      width: 100%;
 
       &--question {
         display: flex;
         justify-content: flex-start; 
         align-items: center;
+        max-width: 100%;
+        width: 100%;
 
         .button-groupe {
           flex-grow: 1;
           flex-shrink: 1;
-          // max-width: 50%;
+          // max-width: 100%;
+          max-width: 55%;
         }
 
         .select-QCM-type-2 {
@@ -36,9 +42,11 @@
           background-color: transparent !important;
           color: $defaultTextColor;
           font-size: 0.875rem;
-          text-transform: unset;
+          text-transform: none;
           text-align: left;
           justify-content: flex-start;
+          max-width: 100%;
+          cursor: initial;
           // max-width: 75%;
         }
       }

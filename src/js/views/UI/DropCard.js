@@ -25,8 +25,13 @@ class DropCard extends React.Component {
   }
 
   handleDragOver = event => {
+    event.persist();
     this.setState({ isDraggingOver: true });
-    const isDragCard = contains(event.dataTransfer.types, 'drag-card');
+    const isDragCard =
+      contains(event.dataTransfer.types, 'text') ||
+      contains(event.dataTransfer.types, 'Text') ||
+      contains(event.dataTransfer.types, 'text/plain');
+    console.log('event', event.dataTransfer.types[0], isDragCard);
     const isEndDropCard = this.props.startOrEnd === 'end';
     if (isDragCard && isEndDropCard) {
       console.log('ta race');
@@ -40,7 +45,7 @@ class DropCard extends React.Component {
 
   handleDrop = async event => {
     this.setState({ isDraggingOver: false });
-    const data = event.dataTransfer.getData('drag-card');
+    const data = event.dataTransfer.getData('text');
     await this.setState({
       title: data.split('+++')[0],
       subtitle: data.split('+++')[1],

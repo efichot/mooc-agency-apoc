@@ -8,7 +8,7 @@ class DragCard extends React.Component {
   state = {
     isDragged: false,
     topWhileBeingDragged: null,
-    leftWhileBeingDragged: null
+    leftWhileBeingDragged: null,
   };
 
   throttledMouseMove = _.throttle(e => {
@@ -21,9 +21,9 @@ class DragCard extends React.Component {
 
   handleDragStart = e => {
     const dataToTransfer = `${this.props.content.name}`;
-    e.dataTransfer.setData('drag-card', dataToTransfer);
+    e.dataTransfer.setData('text', dataToTransfer);
     e.dataTransfer.effectAllowed = 'copy';
-    e.dataTransfer.dropEffect = 'copy';
+    // e.dataTransfer.dropEffect = 'copy';
     this.setState({ isDragged: true });
   };
 
@@ -46,11 +46,8 @@ class DragCard extends React.Component {
         id={id}
         onDragStart={this.handleDragStart}
         onDragEnd={this.handleDragEnd}
-        onDrag={this.handleDrag}
-      >
-        {type === 'bloc-drag-and-drop-2' && (
-          <CardContentType2 name={content.name} pieData={content.pieData} />
-        )}
+        onDrag={this.handleDrag}>
+        {type === 'bloc-drag-and-drop-2' && <CardContentType2 name={content.name} pieData={content.pieData} />}
       </div>
     );
   }
@@ -63,12 +60,12 @@ DragCard.propTypes = {
   startPosition: PropTypes.number.isRequired,
   endPosition: PropTypes.shape({
     row: PropTypes.number.isRequired,
-    column: PropTypes.number.isRequired
-  }).isRequired
+    column: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 DragCard.defaultProps = {
-  endPosition: undefined
+  endPosition: undefined,
 };
 
 export default DragCard;

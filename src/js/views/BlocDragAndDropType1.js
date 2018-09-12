@@ -88,7 +88,6 @@ class BlocDragAndDropType1 extends React.Component {
   };
 
   handleSolutionChecking = (currentEndPosition, supposedEndPosition, startPosition) => {
-    console.log(currentEndPosition, supposedEndPosition, startPosition);
     const { cardInPosition, hiddenDragCards, hideCardWhenDropped } = this.state;
     cardInPosition[`${supposedEndPosition}`] = currentEndPosition === supposedEndPosition;
     if (hideCardWhenDropped) {
@@ -181,7 +180,6 @@ class BlocDragAndDropType1 extends React.Component {
 
     const isVictory = gameIsFinished === 'victory' && victoryMessage === victoryMessages.isVictory;
 
-    console.log('showExplanation && isVictory', showExplanation && isVictory);
     return (
       <Fade
         classProps={`bloc bloc-drag-and-drop-1`}

@@ -9,7 +9,7 @@ import menuTop from '../model/static/menuTop';
 
 class MenuMobile extends React.Component {
   state = {
-    isVisible: false
+    isVisible: false,
   };
 
   handleClick = () => {
@@ -37,28 +37,19 @@ class MenuMobile extends React.Component {
             <Link
               to="/"
               key={i}
-              className={`menu-mobile__item menu-mobile__item-${i +
-                1} menu-item menu-item-${i + 1} ${
+              className={`button-link menu-mobile__item menu-mobile__item-${i + 1} menu-item menu-item-${i + 1} ${
                 this.state.isVisible ? 'active' : ''
-              }`}
-            >
+              }`}>
               <ButtonCircle
                 classProps={`menu-mobile__item--icon button-circle__${i + 1}`}
-                onClick={this.handleButtonClick}
-              >
+                onClick={this.handleButtonClick}>
                 <FontAwesomeIcon icon={menuTop[`${menu}`].icon} />
               </ButtonCircle>
               <div className="menu-mobile__item--description">
-                <span
-                  className={`menu-mobile__item--title menu-item-title menu-item-${i +
-                    1}-title`}
-                >
+                <span className={`menu-mobile__item--title menu-item-title menu-item-${i + 1}-title`}>
                   {menuTop[`${menu}`].title}
                 </span>
-                <span
-                  className={`menu-mobile__item--subtitle menu-item-subtitle menu-item-${i +
-                    1}-subtitle`}
-                >
+                <span className={`menu-mobile__item--subtitle menu-item-subtitle menu-item-${i + 1}-subtitle`}>
                   {menuTop[`${menu}`].subtitle}
                 </span>
               </div>

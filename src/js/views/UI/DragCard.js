@@ -24,9 +24,9 @@ class DragCard extends React.Component {
   handleDragStart = e => {
     const { content: { cardTitle, cardSubTitle, type, column }, endPosition, startPosition } = this.props;
     const dataToTransfer = `${cardTitle}+++${cardSubTitle}+++${endPosition}+++${type}+++${column}+++${startPosition}`;
-    e.dataTransfer.setData('drag-card', dataToTransfer);
+    e.dataTransfer.setData('text', dataToTransfer);
     e.dataTransfer.effectAllowed = 'copy';
-    e.dataTransfer.dropEffect = 'copy';
+    // e.dataTransfer.dropEffect = 'copy';
     this.setState({ isDragged: true });
   };
 

@@ -36,7 +36,7 @@ const ChapterPresentation = ({
         <span className="title">{name}</span>
         <p className="description">{description}</p>
         {button && (
-          <Link to={button.link}>
+          <Link to={button.link} className="button-link">
             <ButtonPrimary minWidth name={button.name} classProps={button.classes} enableClick />
           </Link>
         )}
@@ -74,6 +74,7 @@ ChapterPresentation.defaultProps = {
   classProps: '',
   description: '',
   button: undefined,
+  secondClass: '',
 };
 
 export default ChapterPresentation;

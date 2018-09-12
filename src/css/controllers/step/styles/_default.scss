@@ -7,6 +7,10 @@
     margin-bottom: $masterPaddingBottom;
   }
 
+  &.step4:last-child {
+    margin-bottom: 0;
+  }
+
   > * {
     width: 100%;
   }

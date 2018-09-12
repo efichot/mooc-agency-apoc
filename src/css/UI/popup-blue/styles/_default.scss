@@ -5,6 +5,11 @@
   background: $popupBgColor;
   color: $popupContentColor;
   font-size: 0.95rem;
+  max-width: 100%;
+
+  * {
+    max-width: 100%;
+  }
   // pointer-events: none;
   .cross {
     position: absolute;

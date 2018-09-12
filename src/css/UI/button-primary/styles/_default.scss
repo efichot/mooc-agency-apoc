@@ -11,6 +11,8 @@
   background: $buttonPrimaryDefaultColor;
   border-radius: 10px;
 
+  max-width: 100%;
+
   @extend %flex-column-center-center;
 
   &.min-width {
@@ -19,9 +21,18 @@
 
   span {
     margin-top: 1px;
+    max-width: 100%;
 
     > * {
       margin-top: 2px;
     }
   }
+}
+
+.button-link {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

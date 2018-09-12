@@ -109,77 +109,79 @@ class BlocCardGameType4 extends React.Component {
               />
             )}
             <div className="bloc-card-game-type-4__game game">
-              {Object.values(game).map((column, ind) => {
-                let index;
-                switch (column.title) {
-                  case 'Émetteurs':
-                    index = column1CurrentIndex;
-                    break;
-                  case 'Intermédiaires':
-                    index = column2CurrentIndex;
-                    break;
-                  case 'Investisseurs':
-                    index = column3CurrentIndex;
-                    break;
-                  default:
-                    index = 0;
-                    break;
-                }
-                return (
-                  <React.Fragment key={ind}>
-                    {index !== undefined && (
-                      <DragCard
-                        type={modulType}
-                        id={column.title}
-                        endPosition={0}
-                        classProps={`grid-row-start-${ind + 1} grid-column-start-1`}
-                        styleProps={
+              {Object.keys(game)
+                .map(key => game[key])
+                .map((column, ind) => {
+                  let index;
+                  switch (column.title) {
+                    case 'Émetteurs':
+                      index = column1CurrentIndex;
+                      break;
+                    case 'Intermédiaires':
+                      index = column2CurrentIndex;
+                      break;
+                    case 'Investisseurs':
+                      index = column3CurrentIndex;
+                      break;
+                    default:
+                      index = 0;
+                      break;
+                  }
+                  return (
+                    <React.Fragment key={ind}>
+                      {index !== undefined && (
+                        <DragCard
+                          type={modulType}
+                          id={column.title}
+                          endPosition={0}
+                          classProps={`grid-row-start-${ind + 1}-gridgap grid-column-start-1-gridgap`}
+                          styleProps={
+                            {
+                              // gridRow: ind + 1,
+                              // gridColumn: 1,
+                            }
+                          }
+                          content={{
+                            isDraggable: true,
+                            list: column.actors[index].list,
+                            cardTitle: column.actors[index].title,
+                            cardSubTitle: column.actors[index].subTitle,
+                            help: column.actors[index].help,
+                            type: column.actors[index].type,
+                            column: ind + 1,
+                          }}
+                        />
+                      )}
+                      <div
+                        className={`category grid-row-start-${ind + 1}-gridgap grid-column-start-2-gridgap`}
+                        style={
                           {
                             // gridRow: ind + 1,
-                            // gridColumn: 1,
+                            // gridColumn: 2,
                           }
-                        }
-                        content={{
-                          isDraggable: true,
-                          list: column.actors[index].list,
-                          cardTitle: column.actors[index].title,
-                          cardSubTitle: column.actors[index].subTitle,
-                          help: column.actors[index].help,
-                          type: column.actors[index].type,
-                          column: ind + 1,
-                        }}
-                      />
-                    )}
-                    <div
-                      className={`category grid-row-start-${ind + 1} grid-column-start-2`}
-                      style={
-                        {
-                          // gridRow: ind + 1,
-                          // gridColumn: 2,
-                        }
-                      }>
-                      {column.title}
-                    </div>
-                    <div
-                      className={`types grid-row-start-${ind + 1} grid-column-start-3`}
-                      style={
-                        {
-                          // gridRow: ind + 1,
-                          // gridColumn: 3,
-                        }
-                      }>
-                      {column.types.map(type => (
-                        <DropCardForGame
-                          key={type.type}
-                          type={type.type}
-                          startOrEnd="end"
-                          onDragCard={this.handleDragCard}
-                        />
-                      ))}
-                    </div>
-                  </React.Fragment>
-                );
-              })}
+                        }>
+                        {column.title}
+                      </div>
+                      <div
+                        className={`types grid-row-start-${ind + 1}-gridgap grid-column-start-3-gridgap`}
+                        style={
+                          {
+                            // gridRow: ind + 1,
+                            // gridColumn: 3,
+                          }
+                        }>
+                        {column.types.map(type => (
+                          <DropCardForGame
+                            key={type.type}
+                            type={type.type}
+                            startOrEnd="end"
+                            onDragCard={this.handleDragCard}
+                          />
+                        ))}
+                      </div>
+                    </React.Fragment>
+                  );
+                })}
               {victoryMessage && (
                 <div className="popup-victory-container">
                   <PopupBlue

@@ -38,7 +38,7 @@ const module_03_blocCardGameType2 = {
   duration: 3,
   title: 'Catégorie des acteurs des marchés financiers',
   styles: {
-    gridAutoColumns: 220,
+    gridAutoColumns: 226,
   },
   cards: {
     actorscolumn1,

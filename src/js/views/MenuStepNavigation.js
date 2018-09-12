@@ -29,7 +29,7 @@ class MenuStepNavigation extends React.Component {
                 <Link
                   key={stepNavigation[`${key}`].name}
                   to={`step${stepNavigation[`${key}`].stepLink}`}
-                  className={`menu-step-navigation__step`}>
+                  className="menu-step-navigation__step button-link">
                   <div className="menu-step-navigation__step--bullet">
                     <FontAwesomeIcon icon={['fas', 'check-circle']} />
                   </div>
@@ -48,7 +48,7 @@ class MenuStepNavigation extends React.Component {
               );
             })}
         </div>
-        <Link to="/">
+        <Link to="/" className="button-link">
           <ButtonPrimary
             classProps={`menu-step-navigation__button`}
             name={

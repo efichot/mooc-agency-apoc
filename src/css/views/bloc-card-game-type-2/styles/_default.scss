@@ -7,11 +7,10 @@
 
   &__game {
     // margin-left: -20px;
-    max-width: 680px;
+    max-width: 720px;
     @extend %displayGrid;
-    grid-auto-columns: 220px;
-    @include gridTemplateColumns(50px 1fr repeat(3, 40px), 10px);
-    grid-gap: 10px;
+    @include gridTemplateColumns(repeat(3 * 9, 226px), 10px);
+    @include gridTemplateRows(50px 1fr repeat(3, 40px), 10px);
     
   }
 

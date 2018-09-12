@@ -9,9 +9,9 @@ class CardContentType3 extends React.Component {
     const dataToTransfer = `${this.props.content.cardTitle}+++${this.props.content.cardSubTitle}+++${
       this.props.endPosition
     }`;
-    e.dataTransfer.setData('drag-card', dataToTransfer);
+    e.dataTransfer.setData('text', dataToTransfer);
     e.dataTransfer.effectAllowed = 'copy';
-    e.dataTransfer.dropEffect = 'copy';
+    // e.dataTransfer.dropEffect = 'copy';
     this.setState({ isDragged: true });
   };
 

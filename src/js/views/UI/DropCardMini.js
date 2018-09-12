@@ -25,7 +25,11 @@ class DropCardMini extends React.Component {
   }
 
   handleDragOver = event => {
-    const isDragCard = contains(event.dataTransfer.types, 'drag-card');
+    event.persist();
+    const isDragCard =
+      contains(event.dataTransfer.types, 'text') ||
+      contains(event.dataTransfer.types, 'Text') ||
+      contains(event.dataTransfer.types, 'text/plain');
     const isEndDropCard = this.props.startOrEnd === 'end';
     if (isDragCard && isEndDropCard) {
       event.preventDefault();
@@ -33,7 +37,7 @@ class DropCardMini extends React.Component {
   };
 
   handleDrop = async event => {
-    const data = event.dataTransfer.getData('drag-card');
+    const data = event.dataTransfer.getData('text');
     this.props.dragCard(data, this.props.endPosition);
     /*event.preventDefault();*/
   };

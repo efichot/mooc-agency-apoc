@@ -212,7 +212,7 @@ class BlocCardGameType1 extends React.Component {
               </PopupBlue>
             )}
           <div
-            className="card column-1 row-1 grid-row-start-1 grid-column-start-1"
+            className="card column-1 row-1 grid-row-start-1-gridgap grid-column-start-1-gridgap"
             style={
               {
                 //   gridRow: 1,
@@ -233,7 +233,7 @@ class BlocCardGameType1 extends React.Component {
             )}
           </div>
           <div
-            className="card column-1 row-2 grid-row-start-2 grid-column-start-1"
+            className="card column-1 row-2 grid-row-start-2-gridgap grid-column-start-1-gridgap"
             style={
               {
                 // gridRow: 2,
@@ -267,7 +267,7 @@ class BlocCardGameType1 extends React.Component {
             )}
           </div>
           <div
-            className="card column-1 row-3  grid-row-start-3 grid-column-start-1"
+            className="card column-1 row-3  grid-row-start-3-gridgap grid-column-start-1-gridgap"
             style={
               {
                 // gridRow: 3,
@@ -301,7 +301,7 @@ class BlocCardGameType1 extends React.Component {
               </PopupBlue>
             )}
           <div
-            className="card column-2 row-1  grid-row-start-1 grid-column-start-2"
+            className="card column-2 row-1  grid-row-start-1-gridgap grid-column-start-2-gridgap"
             style={
               {
                 // gridRow: 1,
@@ -322,7 +322,7 @@ class BlocCardGameType1 extends React.Component {
             )}
           </div>
           <div
-            className="card column-2 row-2 grid-row-start-2 grid-column-start-2"
+            className="card column-2 row-2 grid-row-start-2-gridgap grid-column-start-2-gridgap"
             style={
               {
                 // gridRow: 2,
@@ -356,7 +356,7 @@ class BlocCardGameType1 extends React.Component {
             )}
           </div>
           <div
-            className="card column-2 row-3 grid-row-start-3 grid-column-start-2"
+            className="card column-2 row-3 grid-row-start-3-gridgap grid-column-start-2-gridgap"
             style={
               {
                 // gridRow: 3,
@@ -390,7 +390,7 @@ class BlocCardGameType1 extends React.Component {
               </PopupBlue>
             )}
           <div
-            className="card column-3 row-1 grid-row-start-1 grid-column-start-3"
+            className="card column-3 row-1 grid-row-start-1-gridgap grid-column-start-3-gridgap"
             style={
               {
                 // gridRow: 1,
@@ -411,7 +411,7 @@ class BlocCardGameType1 extends React.Component {
             )}
           </div>
           <div
-            className="card column-3 row-2 grid-row-start-2 grid-column-start-3"
+            className="card column-3 row-2 grid-row-start-2-gridgap grid-column-start-3-gridgap"
             style={
               {
                 // gridRow: 2,
@@ -445,7 +445,7 @@ class BlocCardGameType1 extends React.Component {
             )}
           </div>
           <div
-            className="card column-3 row-3 grid-row-start-3 grid-column-start-3"
+            className="card column-3 row-3 grid-row-start-3-gridgap grid-column-start-3-gridgap"
             style={
               {
                 // gridRow: 3,

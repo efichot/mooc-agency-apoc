@@ -255,32 +255,32 @@ class BlocQuiz extends React.Component {
             <BlocSpacer />
             {step !== 8 &&
               step !== 4 && (
-                <Link to={`step${step + 1}`}>
+                <Link className="button-link" to={`step${step + 1}`}>
                   <ButtonPrimary minWidth name="Continuez votre formation" enableClick />
                 </Link>
               )}
             {step === 8 && (
               <React.Fragment>
-                <Link to="#">
+                <Link className="button-link" to="#">
                   <ButtonPrimary minWidth name="Terminer votre formation" enableClick />
                 </Link>
-                <Link to="#">
+                <a href="https://fr.surveymonkey.com/r/adpv2" target="_blank" rel="noopener noreferrer">
                   <ButtonPrimary minWidth name="Donner votre avis" enableClick />
-                </Link>
-                <Link to="#">
+                </a>
+                <Link className="button-link" to="#">
                   <ButtonPrimary minWidth name="Entrer sur le forum" enableClick />
                 </Link>
               </React.Fragment>
             )}
             {step === 4 && (
               <React.Fragment>
-                <Link to="step5">
+                <Link className="button-link" to="step5">
                   <ButtonPrimary minWidth name="Poursuivre vers comprendre les marchés" enableClick />
                 </Link>
-                <Link to="#">
+                <a href="https://fr.surveymonkey.com/r/adpv2" target="_blank" rel="noopener noreferrer">
                   <ButtonPrimary minWidth name="Donner votre avis" enableClick />
-                </Link>
-                <Link to="#">
+                </a>
+                <Link className="button-link" to="#">
                   <ButtonPrimary minWidth name="Entrer sur le forum" enableClick />
                 </Link>
               </React.Fragment>

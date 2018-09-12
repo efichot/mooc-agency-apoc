@@ -232,7 +232,6 @@ class BlocCardGameType2 extends React.Component {
           className="bloc-card-game-type-2__game game"
           style={{
             transform: `translateX(${-questionNumber * (styles.gridAutoColumns + 10) * 4}px)`,
-            gridAutoColumns: styles.gridAutoColumns,
             transition: `transform ${transitionDuration}ms ease-in-out`,
           }}>
           {game.map((question, questionIndex) => (

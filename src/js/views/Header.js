@@ -25,12 +25,12 @@ class Header extends React.Component {
                       <span>Bienvenue {context.state.userInfos.name}</span>
                     </div>
                     <div className="header__user--info deconnection">
-                      <Link to="#">
+                      <Link to="#" className="button-link">
                         <span>Se déconnecter</span>
                       </Link>
                     </div>
                     <div className="header__user--info cgu">
-                      <Link to="#">
+                      <Link to="#" className="button-link">
                         <span>CGU</span>
                       </Link>
                     </div>

@@ -19,6 +19,7 @@ class SelectQCM extends React.Component {
   };
 
   handleChange = option => {
+    console.log('handleChange');
     this.setState({ value: option.value });
     this.props.onChange(this.props.index, option.value, this.props.answer);
   };

@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class ButtonPrimary extends React.Component {
@@ -14,20 +13,7 @@ class ButtonPrimary extends React.Component {
   render() {
     const { id, classProps, color, name, value, borderColor, fontColor, styleProps, minWidth } = this.props;
 
-    return name.__html ? (
-      <div
-        id={id}
-        className={`button button-primary ${classProps} ${minWidth ? 'min-width' : ''}`}
-        onClick={this.handleClick}
-        style={{
-          background: color,
-          borderColor: borderColor,
-          color: fontColor,
-          ...styleProps,
-        }}
-        dangerouslySetInnerHTML={name}
-      />
-    ) : (
+    return (
       <div
         id={id}
         className={`button button-primary ${classProps} ${minWidth ? 'min-width' : ''}`}

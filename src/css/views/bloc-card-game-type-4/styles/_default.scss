@@ -9,9 +9,8 @@
     // margin-left: -20px;
     max-width: 100%;
     @extend %displayGrid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(3, 210px) 1px;
-    grid-gap: 10px;
+    @include gridTemplateColumns(repeat(3, 1fr), 10px);
+    @include gridTemplateRows(repeat(3, 240px) 1px, 10px);
 
     .category {
       justify-self: center;
@@ -25,7 +24,7 @@
 
     .types {
       @extend %displayGrid;
-      grid-template-rows: repeat(3, 1fr);
+      @include gridTemplateRows(repeat(3, 1fr), 10px);
     }
 
     .drop-card {
@@ -45,6 +44,8 @@
       flex-direction: column;
       align-content: center;
       justify-content: space-around;
+      padding-top: 10px;
+      padding-bottom: 5px;
 
       &__type {
         text-align: left;
@@ -73,7 +74,11 @@
   }
 
   .popup-victory-container {
-    grid-row: 1 / -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     @include gridColumn(1);
     display: flex;
     justify-content: flex-start;
@@ -81,8 +86,11 @@
   }
 
   .popup-explanation-container {
-    grid-row: 1 / -1;
-    grid-column: 1 / -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

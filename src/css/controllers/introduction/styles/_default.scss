@@ -37,6 +37,7 @@
 
     &__content {
       flex-grow: 1;
+      width: 638px;
       .title {
         font-weight: bold;
         text-transform: uppercase;
@@ -46,6 +47,7 @@
         text-size-adjust: 100%;
       }
       .content {
+        width: 598px;
         font-size: 0.85rem;
       }
     }
@@ -101,13 +103,18 @@
 
   &__chapter-presentation {
     display: flex;
-    justify-content: space-between;
-    align-items: space-between;
+    justify-content: flex-start;
+    padding-top: auto;
+    padding-bottom: auto;
+    // align-items: space-between;
     border: 1px solid $white;
     border-top-left-radius: $menuTopPaddingTop;
     border-bottom-left-radius: $menuTopPaddingTop;
     box-shadow: -2px 2px 10px rgba(0,0,0,0.2);
     background-color: $masterBgColor;
+    box-sizing: border-box;
+    max-width: 100%;
+    // border: 1px solid #000;
 
     .white-div {
       border-top-left-radius: $menuTopPaddingTop;
@@ -128,10 +135,13 @@
       justify-content: space-between;
       align-items: flex-start;
       max-width: 50%;
+      margin-left: 30px;
+      // border: 1px solid #000;
 
       > * {
         margin-bottom: 10px;
         margin-top: 10px;
+        max-width: 100%;
       }
       
       .title {
@@ -141,7 +151,15 @@
       }
 
       .description {
-
+        box-sizing: border-box;
+        max-width: 100%;
+      }
+      
+      .button-link {
+        justify-content: flex-start;
+      }
+      .button-primary {
+        width: 250px;
       }
     }
 

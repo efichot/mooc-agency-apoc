@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "/mooc-agency-apoc",
-  "repository": { 
-    "type" : "git",
-    "url" : "https://github.com/arnaudambro/mooc-agency-apoc"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arnaudambro/mooc-agency-apoc"
   },
   "dependencies": {
     "@fortawesome/fontawesome": "~1.1.4",
@@ -15,7 +15,9 @@
     "@fortawesome/react-fontawesome": "~0.0.17",
     "@vimeo/player": "~2.3.1",
     "ajv": "~6.3.0",
+    "array-includes": "^3.0.3",
     "dotenv": "~5.0.1",
+    "foreach": "^2.0.5",
     "husky": "~0.14.3",
     "jquery": "~3.3.1",
     "lint-staged": "~7.0.0",
@@ -38,6 +40,7 @@
     "react-svg-piechart": "~2.0.3",
     "react-timeout": "~1.1.1",
     "react-transition-group": "~2.2.1",
+    "smoothscroll-polyfill": "^0.4.3",
     "styled-components": "^3.2.6"
   },
   "lint-staged": {

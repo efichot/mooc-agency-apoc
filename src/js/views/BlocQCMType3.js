@@ -83,8 +83,16 @@ class BlocQCMType3 extends React.Component {
   handleValidate = async e => {
     let correct = true;
     const noAnswer = Object.keys(this.state.answers).length <= 0;
-    const answers = JSON.stringify(Object.values(this.state.answers).sort());
-    const correctAnswers = JSON.stringify(Object.values(this.state.correctAnswers).sort());
+    const answers = JSON.stringify(
+      Object.keys()
+        .map(key => this.state.answers[key])
+        .sort(),
+    );
+    const correctAnswers = JSON.stringify(
+      Object.keys()
+        .map(key => this.state.correctAnswers[key])
+        .sort(),
+    );
     if (answers !== correctAnswers || noAnswer) {
       correct = false;
     }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import includes from 'array-includes';
 
 import BlocHeader from '../views/BlocHeader';
 import BlocDescription from './BlocDescription';
@@ -38,7 +39,7 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
     const showErrorMessage = this.props.error
       .map(
         errorSet =>
-          errorSet.condition.map(condition => answers.includes(condition)).filter(isTrue => !isTrue).length === 0
+          errorSet.condition.map(condition => includes(answers, condition)).filter(isTrue => !isTrue).length === 0
             ? errorSet.errorMessage
             : undefined,
       )
@@ -98,7 +99,7 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
       showMoreQuestionsConditions
         .map(
           conditionSet =>
-            conditionSet.map(condition => answers.includes(condition)).filter(isTrue => !isTrue).length === 0,
+            conditionSet.map(condition => includes(answers, condition)).filter(isTrue => !isTrue).length === 0,
         )
         .filter(isTrue => isTrue).length > 0 &&
       currentQuestion >= questions.originalQuestions.length;
@@ -230,7 +231,7 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
               typeof card.visibleIf === 'object' &&
               card.visibleIf
                 .map(
-                  condition => condition.map(answer => answers.includes(answer)).filter(value => !value).length === 0,
+                  condition => condition.map(answer => includes(answers, answer)).filter(value => !value).length === 0,
                 )
                 .filter(isTrue => isTrue).length > 0;
             const alwaysVisible = card.visibleIf === 'always';

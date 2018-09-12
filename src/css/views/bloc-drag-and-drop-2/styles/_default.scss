@@ -43,7 +43,7 @@
     justify-content: center;
     align-items: center;
     &.grid-header {
-      font-family: 'Helvetica Neue LT Std 75 Bold';
+      font-family: $boldFontFamily;
       color: $headerColor;
     }
 

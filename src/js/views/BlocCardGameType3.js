@@ -46,14 +46,20 @@ class BlocCardGameType3 extends React.Component {
 
     let answersAreCorrect = true;
     if (
-      JSON.stringify(Object.values(column1CardsIndex).sort()) !==
-      JSON.stringify(correctAnswers.column1CardsIndex.sort())
+      JSON.stringify(
+        Object.keys(column1CardsIndex)
+          .map(key => column1CardsIndex[key])
+          .sort(),
+      ) !== JSON.stringify(correctAnswers.column1CardsIndex.sort())
     ) {
       answersAreCorrect = false;
     }
     if (
-      JSON.stringify(Object.values(column3CardsIndex).sort()) !==
-      JSON.stringify(correctAnswers.column3CardsIndex.sort())
+      JSON.stringify(
+        Object.keys(column3CardsIndex)
+          .map(key => column3CardsIndex[key])
+          .sort(),
+      ) !== JSON.stringify(correctAnswers.column3CardsIndex.sort())
     ) {
       answersAreCorrect = false;
     }
@@ -160,7 +166,7 @@ class BlocCardGameType3 extends React.Component {
             return (
               <div
                 key={key}
-                className={`card column-1 grid-row-start-${ind + 1} grid-column-start-1`}
+                className={`card column-1 grid-row-start-${ind + 1}-gridgap grid-column-start-1-gridgap`}
                 style={
                   {
                     // gridRow: ind + 1,
@@ -192,7 +198,7 @@ class BlocCardGameType3 extends React.Component {
             minWidth
             name="valider"
             onClick={this.handleValidate}
-            classProps={`button-validate grid-row-start-2 grid-column-start-2`}
+            classProps="button-validate grid-row-start-2-gridgap grid-column-start-2-gridgap"
             styleProps={
               {
                 // gridRow: 2,
@@ -202,7 +208,7 @@ class BlocCardGameType3 extends React.Component {
           />
           {victoryMessage && (
             <PopupBlue
-              classProps="popup grid-row-start-2 grid-column-start-2"
+              classProps="popup grid-row-start-2-gridgap grid-column-start-2-gridgap"
               onCloseClick={this.handleClosePopupBlue}
               column={1}
               styleProps={
@@ -219,7 +225,7 @@ class BlocCardGameType3 extends React.Component {
             return (
               <div
                 key={key}
-                className={`card column-1 grid-row-start-${ind + 1} grid-column-start-2`}
+                className={`card column-1 grid-row-start-${ind + 1}-gridgap grid-column-start-2-gridgap`}
                 style={
                   {
                     // gridRow: ind + 1,
@@ -243,7 +249,7 @@ class BlocCardGameType3 extends React.Component {
             return (
               <div
                 key={key}
-                className={`card column-1 grid-row-start-${ind + 1} grid-column-start-3`}
+                className={`card column-1 grid-row-start-${ind + 1}-gridgap grid-column-start-3-gridgap`}
                 style={
                   {
                     // gridRow: ind + 1,

@@ -1,7 +1,7 @@
 
 .bloc-quiz {
 
-  margin-bottom: 50vh;
+  margin-bottom: 400px;
   // margin-top: 20px;
 
   .chrono-question {
@@ -22,6 +22,7 @@
     > * {
       height: 50px;
       margin-bottom: 8px;
+      padding: 0 20px;
       &:not(:last-child) {
         margin-right: 8px;
       }

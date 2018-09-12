@@ -24,8 +24,12 @@ class DropCardForGame extends React.Component {
   }
 
   handleDragOver = event => {
+    event.persist();
     this.setState({ isDraggingOver: true });
-    const isDragCard = contains(event.dataTransfer.types, 'drag-card');
+    const isDragCard =
+      contains(event.dataTransfer.types, 'text') ||
+      contains(event.dataTransfer.types, 'Text') ||
+      contains(event.dataTransfer.types, 'text/plain');
     const isEndDropCard = this.props.startOrEnd === 'end';
     if (isDragCard && isEndDropCard) {
       event.preventDefault();
@@ -38,7 +42,7 @@ class DropCardForGame extends React.Component {
 
   handleDrop = async event => {
     this.setState({ isDraggingOver: false });
-    const data = event.dataTransfer.getData('drag-card');
+    const data = event.dataTransfer.getData('text');
     const dropType = this.props.type;
     const dragType = data.split('+++')[3];
     const answer = data.split('+++')[0];

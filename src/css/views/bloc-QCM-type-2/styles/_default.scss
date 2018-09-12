@@ -2,6 +2,7 @@
   width: 100%;
   &__questions {
     width: 100%;
+    max-width: 100%;
     height: 100%;
     @extend %flex-row-center-center;
     justify-content: space-between;
@@ -13,13 +14,18 @@
       flex-direction: column;      
       justify-content: space-between;
       align-items: space-between;
+      max-width: 100%;
+      width: 100%;
 
       &--question {
         display: flex;
         justify-content: space-between; 
         align-items: center;
+        max-width: 100%;
+        width: 100%;
 
         .button-groupe {
+          max-width: 100%;
           width: 80%;
           align-items: flex-start;
         }
@@ -28,10 +34,11 @@
           background-color: transparent !important;
           color: $defaultTextColor;
           font-size: 0.875rem;
-          text-transform: unset;
+          text-transform: none;
           text-align: left;
           justify-content: flex-start;
           align-items: flex-start;
+          cursor: initial;
           // max-width: 75%;
         }
       }
