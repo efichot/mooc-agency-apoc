@@ -6,8 +6,8 @@ const module_04_blocLink = {
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   modulType: moduleTypes.blocLink,
   noChapter: true,
-  linkName: 'Amundi label harmonie solidaire esr ',
-  link: pdf
+  linkName: 'ADP Diversifié dynamique',
+  link: pdf,
 };
 
 export default module_04_blocLink;

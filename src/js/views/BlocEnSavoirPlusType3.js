@@ -65,7 +65,7 @@ class BlocEnSavoirPlusType3 extends React.Component {
                     className={`button-groupe grid-row-start-${card.position.row} grid-column-start-${card.position
                       .column *
                       2 -
-                      1}`}
+                      1}-gridgap`}
                     onMouseEnter={() => this.cardNumberShown(card)}
                     onMouseLeave={() => this.hideCards(card)}
                     style={{
@@ -81,7 +81,7 @@ class BlocEnSavoirPlusType3 extends React.Component {
                   {card.arrowRight && (
                     <div
                       className={`arrow-right grid-row-start-${card.position.row} grid-column-start-${card.position
-                        .column * 2}`}
+                        .column * 2}-gridgap`}
                       style={{
                         // gridRow: card.position.row,
                         // gridColumn: card.position.column * 2,

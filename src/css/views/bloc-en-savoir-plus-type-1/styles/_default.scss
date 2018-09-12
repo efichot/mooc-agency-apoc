@@ -2,7 +2,7 @@
   width: 100%;
   &__cards {
     width: 100%;
-    @extend %flex-row-top-center;
+    @extend %flex-row-center-center;
     justify-content: space-between;
     height: 100%;
 

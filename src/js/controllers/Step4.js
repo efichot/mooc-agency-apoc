@@ -53,8 +53,10 @@ class Step4 extends React.Component {
                 <BlocLink in={stepInStep1} {...step4.module_06} />
                 <BlocLink in={stepInStep1} {...step4.module_07} />
                 <BlocLink in={stepInStep1} {...step4.module_08} />
+                {/*
                 <BlocLink in={stepInStep1} {...step4.module_09} />
                 <BlocLink in={stepInStep1} {...step4.module_10} />
+                */}
                 <BlocDragAndDropType2 in={isStep4} {...step4.module_11} gameIsFinished={this.handleGameIsFinished} />
                 <BlocQuiz in={isStep4} {...step4.module_12} />
               </React.Fragment>

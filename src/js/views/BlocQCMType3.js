@@ -193,6 +193,7 @@ class BlocQCMType3 extends React.Component {
             </PopupBlue>
           )}
         </div>
+        <BlocSpacer height={20} />
         <div className="bloc-QCM-type-3__validate-victory">
           {victoryMessage && (
             <PopupBlueInnerHtml

@@ -102,7 +102,12 @@ class Step5 extends React.Component {
                   {isStep5 && (
                     <div className="step5__synthese step__synthese bloc">
                       <BlocSpacer />
-                      <ButtonPrimary minWidth name={step5.module_07.button_1} onClick={this.handleShowQuiz} />
+                      <ButtonPrimary
+                        minWidth
+                        name={step5.module_07.button_1}
+                        onClick={this.handleShowQuiz}
+                        classProps="button-synthese"
+                      />
                       <Link to="#" className="button-link">
                         <ButtonPrimary minWidth name={step5.module_07.button_2} />
                       </Link>

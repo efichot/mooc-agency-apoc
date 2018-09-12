@@ -37,17 +37,20 @@ class DragCard extends React.Component {
   };
 
   render() {
-    const { type, content, id } = this.props;
-
+    const { type, content, id, styleProps } = this.props;
+    console.log('styleProps', styleProps);
     return (
       <div
         className={`drag-card ${content.isDraggable ? 'is-draggable' : ''}`}
         draggable={`${content.isDraggable}`}
         id={id}
+        style={{ ...styleProps }}
         onDragStart={this.handleDragStart}
         onDragEnd={this.handleDragEnd}
         onDrag={this.handleDrag}>
-        {type === 'bloc-drag-and-drop-2' && <CardContentType2 name={content.name} pieData={content.pieData} />}
+        {type === 'bloc-drag-and-drop-2' && (
+          <CardContentType2 name={content.name} pieData={content.pieData} background={content.background} />
+        )}
       </div>
     );
   }

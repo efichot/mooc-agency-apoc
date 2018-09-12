@@ -17,6 +17,7 @@ const module_04_blocQCMType2 = {
     En cas de doute, visionnez à nouveau la toute fin de la vidéo MODE D’EMPLOI DU DICI.
     Quel est le SRRI des fonds de type mixte ci-dessous&nbsp;?`,
   },
+  questionsHeight: 285,
   questions: [
     {
       questionNumber: 1,

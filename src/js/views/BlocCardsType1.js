@@ -43,17 +43,17 @@ class BlocCardsType1 extends React.Component {
         scrollIntoView={scrollIntoView}
         margins={this.props.margins}>
         {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
-        {title && <span className={`bloc__name ${secondary}`}>{title}</span>}
+        {title && <span className={`bloc__name ${secondary || ''}`}>{title}</span>}
         {firstDescription && (
           <BlocDescription modulType={modulType} classProps="bloc__second-description" description={firstDescription} />
         )}
         <BlocSpacer />
-        <div className="bloc-cards-type-1__cards game">
+        <div className={`bloc-cards-type-1__cards game grid-template-rows-cards-${cards.length}`}>
           {cards.map((cardset, rowIndex) =>
             cardset.map((card, colIndex) => (
               <div
                 key={colIndex}
-                className={`grid-row-start-${rowIndex + 1} grid-column-start-${colIndex + 1}`}
+                className={`grid-row-start-${rowIndex + 1}-gridgap grid-column-start-${colIndex + 1}-gridgap`}
                 // style={{ gridRow: rowIndex + 1, gridColumn: colIndex + 1 }}
                 onClick={() => this.handleCardClick(rowIndex)}
                 data-index={rowIndex}>

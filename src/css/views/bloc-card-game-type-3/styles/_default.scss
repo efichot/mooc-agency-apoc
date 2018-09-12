@@ -10,7 +10,7 @@
     max-width: 100%;
     @extend %displayGrid;
     @include gridTemplateColumns(repeat(3, 1fr), 10px);
-    @include gridTemplateRows(repeat(3, 1fr) 1px, 10px);
+    @include gridTemplateRows(1fr 1fr 1fr 1px, 10px);
   }
 
   .button-validate {

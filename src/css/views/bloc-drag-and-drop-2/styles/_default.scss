@@ -71,6 +71,9 @@
     width: 40px;
     margin-left: 5px;
     border-radius: 50%;
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
   }
 
   .drag-card {
@@ -97,8 +100,8 @@
   }
 
   &__legend {
-    grid-row: span 2 / -2;
-    grid-column: span 2 / -1;
+    // grid-row: span 2 / -2;
+    // grid-column: span 2 / -1;
     // width: 100%;
   
     display: flex;
@@ -154,6 +157,10 @@
       flex-basis: 150px;
       margin-right: 50px;
       margin-bottom: 50px;
+
+      &:last-child {
+        margin-right: 15px;
+      }
     }
   }
 }

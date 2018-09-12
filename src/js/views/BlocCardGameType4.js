@@ -170,12 +170,13 @@ class BlocCardGameType4 extends React.Component {
                             // gridColumn: 3,
                           }
                         }>
-                        {column.types.map(type => (
+                        {column.types.map((type, i) => (
                           <DropCardForGame
                             key={type.type}
                             type={type.type}
                             startOrEnd="end"
                             onDragCard={this.handleDragCard}
+                            classProps={`grid-row-start-${i + 1}-gridgap`}
                           />
                         ))}
                       </div>

@@ -6,8 +6,8 @@ const module_06_blocLink = {
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   modulType: moduleTypes.blocLink,
   noChapter: true,
-  linkName: 'Cpr es croissance ',
-  link: pdf
+  linkName: 'ADP actionnariat salarié',
+  link: pdf,
 };
 
 export default module_06_blocLink;

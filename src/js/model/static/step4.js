@@ -6,8 +6,8 @@ import module_05_blocLink from './step4/module_05_blocLink';
 import module_06_blocLink from './step4/module_06_blocLink';
 import module_07_blocLink from './step4/module_07_blocLink';
 import module_08_blocLink from './step4/module_08_blocLink';
-import module_09_blocLink from './step4/module_09_blocLink';
-import module_10_blocLink from './step4/module_10_blocLink';
+// import module_09_blocLink from './step4/module_09_blocLink';
+// import module_10_blocLink from './step4/module_10_blocLink';
 import module_11_blocDragAndDropType2 from './step4/module_11_blocDragAndDropType2';
 import module_12_blocQuiz from './step4/module_12_blocQuiz';
 
@@ -22,10 +22,10 @@ const step4 = {
   module_06: module_06_blocLink,
   module_07: module_07_blocLink,
   module_08: module_08_blocLink,
-  module_09: module_09_blocLink,
-  module_10: module_10_blocLink,
+  // module_09: module_09_blocLink,
+  // module_10: module_10_blocLink,
   module_11: module_11_blocDragAndDropType2,
-  module_12: module_12_blocQuiz
+  module_12: module_12_blocQuiz,
 };
 
 export default step4;

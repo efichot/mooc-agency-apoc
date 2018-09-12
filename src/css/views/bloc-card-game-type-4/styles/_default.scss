@@ -10,7 +10,7 @@
     max-width: 100%;
     @extend %displayGrid;
     @include gridTemplateColumns(repeat(3, 1fr), 10px);
-    @include gridTemplateRows(repeat(3, 240px) 1px, 10px);
+    @include gridTemplateRows(240px 240px 240px 1px, 10px);
 
     .category {
       justify-self: center;
@@ -25,10 +25,11 @@
     .types {
       @extend %displayGrid;
       @include gridTemplateRows(repeat(3, 1fr), 10px);
+      height: 100%;
     }
 
     .drop-card {
-      width: 100%;
+      width: 220px;
       flex-grow: 1;
       flex-shrink: 0;
       color: $buttonQCMType1Color;
@@ -50,12 +51,14 @@
       &__type {
         text-align: left;
         width: 100%;
+        max-width: 100%;
         margin-left: 10px;
       }
 
       &__answer {
         font-size: 0.8rem;
         color: $black;
+        max-width: 100%;
         text-align: center;
       }
 

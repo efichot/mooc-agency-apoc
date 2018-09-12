@@ -6,7 +6,7 @@ const module_08_blocLink = {
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   modulType: moduleTypes.blocLink,
   noChapter: true,
-  linkName: 'Groupe adp peps',
+  linkName: 'Amundi Trésorerie ESR',
   link: pdf,
 };
 

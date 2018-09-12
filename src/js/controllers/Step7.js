@@ -110,7 +110,12 @@ class Step7 extends React.Component {
                         noDescription
                       />
                       <BlocSpacer />
-                      <ButtonPrimary minWidth name={step7.module_07.button_1} onClick={this.handleShowQuiz} />
+                      <ButtonPrimary
+                        minWidth
+                        name={step7.module_07.button_1}
+                        onClick={this.handleShowQuiz}
+                        classProps="button-synthese"
+                      />
                       <Link to="#" className="button-link">
                         <ButtonPrimary minWidth name={step7.module_07.button_2} />
                       </Link>

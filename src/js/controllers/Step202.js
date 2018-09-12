@@ -20,12 +20,16 @@ class Step2_02 extends React.Component {
     }
   };
 
+  handleShowLinks = () => {
+    this.setState({ showNextModule: this.state.showNextModule + 1, showLinks: !this.state.showLinks });
+  };
+
   render() {
     const step2 = this.props.context.module_08;
 
     // const stepInStep0 = this.props.in && this.state.showNextModule > 0;
     // const stepInStep1 = this.props.in && this.state.showNextModule > 1;
-    const stepInStep2 = this.props.in && this.state.showNextModule > 2;
+    // const stepInStep2 = this.props.in && this.state.showNextModule > 2;
 
     return (
       <React.Fragment>
@@ -53,10 +57,10 @@ class Step2_02 extends React.Component {
           in={this.props.in}
           // scrollIntoView={stepInStep1}
           {...step2.module_08_06}
-          onClick={this.handleShowNextModule}
+          onClick={this.handleShowLinks}
         />
-        <BlocLink in={this.props.in} scrollIntoView={stepInStep2} {...step2.module_08_07} />
-        <BlocLink in={this.props.in} {...step2.module_08_08} />
+        <BlocLink in={this.state.showLinks} scrollIntoView={this.state.showLinks} {...step2.module_08_07} />
+        <BlocLink in={this.state.showLinks} {...step2.module_08_08} />
       </React.Fragment>
     );
   }

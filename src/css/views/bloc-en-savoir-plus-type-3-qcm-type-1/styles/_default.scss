@@ -99,6 +99,11 @@
     }
   }
 
+  .button-groupe .button-primary {
+    min-height: 0;
+    height: auto;
+  }
+
   .question-and-answers {
     display: flex;
     width: 100%;

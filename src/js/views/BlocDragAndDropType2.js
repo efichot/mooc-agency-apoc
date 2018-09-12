@@ -26,7 +26,7 @@ class BlocDragAndDropType2 extends React.Component {
     gridRows: this.props.grid.rows.length,
   };
 
-  renderDropCard = (dropStartOrEnd, startPosition = 0, endPosition, dragCards) => {
+  renderDropCard = (dropStartOrEnd, startPosition = 0, endPosition, dragCards, styleProps) => {
     const dropCoordinatesAsString = `droppable-${dropStartOrEnd}-${endPosition.row}-${endPosition.column}`;
 
     return (
@@ -38,13 +38,13 @@ class BlocDragAndDropType2 extends React.Component {
         startOrEnd={dropStartOrEnd}
         dragCard={this.handlePositionDragcard}>
         {Object.keys(dragCards).map(dragCard =>
-          this.renderDragCard(dragCards[dragCard], dropStartOrEnd, endPosition, startPosition),
+          this.renderDragCard(dragCards[dragCard], dropStartOrEnd, endPosition, startPosition, styleProps),
         )}
       </DropCardMini>
     );
   };
 
-  renderDragCard = (dragCard, dropStartOrEnd, dropEndPosition, dropStartPosition) => {
+  renderDragCard = (dragCard, dropStartOrEnd, dropEndPosition, dropStartPosition, styleProps) => {
     const dragCoordinatesAsString = `dragable-${dragCard.endPosition.row}-${dragCard.endPosition.column}`;
 
     const showEndCard =
@@ -65,6 +65,7 @@ class BlocDragAndDropType2 extends React.Component {
           key={dragCoordinatesAsString}
           id={dragCoordinatesAsString}
           content={dragCard}
+          styleProps={styleProps}
           type={'bloc-drag-and-drop-2'}
           startPosition={dragCard.startPosition || 0}
           endPosition={dragCard.endPosition}
@@ -214,7 +215,7 @@ class BlocDragAndDropType2 extends React.Component {
 
     const gridTemplateColumns = grid.columns.map(c => '1fr ').reduce((a, b) => `${a}${b}`); //FIXME
     // const gridTemplateRows = grid.rows.map(c => '1fr ').reduce((a, b) => `${a}${b}`);
-    const gridTemplateRows = '60px 60px 60px 20px 60px 60px 20px 60px 60px 20px';
+    const gridTemplateRows = grid.templateRows;
 
     const gridTemplate = {
       gridTemplateColumns,
@@ -228,7 +229,7 @@ class BlocDragAndDropType2 extends React.Component {
             key={`${headerRow}${headerCol}`}
             className={`grid-cell ${
               col === 0 || row === grid.rows.length - 1 ? 'grid-header' : ''
-            } grid-row-start-${row + 1}-end-${row + 1} grid-column-start-${col + 1}-end${col + 1}`}
+            } grid-row-start-${row + 1}-end-${row + 1} grid-column-start-${col + 1}-end-${col + 1}`}
             style={
               {
                 // gridRowStart: row + 1,
@@ -241,7 +242,13 @@ class BlocDragAndDropType2 extends React.Component {
             {row === grid.rows.length - 1 && headerCol}
             {cards.filter(card => card.isDraggable).map((card, indexDrop) => {
               if (card.endPosition.column === col + 1 && card.endPosition.row === row + 1) {
-                return this.renderDropCard('end', card.startPosition, card.endPosition, dragCards);
+                return this.renderDropCard(
+                  'end',
+                  card.startPosition,
+                  card.endPosition,
+                  dragCards,
+                  card.droppedCardStyle,
+                );
               } else {
                 return null;
               }
@@ -263,8 +270,10 @@ class BlocDragAndDropType2 extends React.Component {
         <div className="bloc-drag-and-drop-2__start game">
           <div className="icon-draggable" />
           {cards
-            .filter(card => card.isDraggable)
-            .map((card, indexDrop) => this.renderDropCard('start', card.startPosition, card.endPosition, dragCards))}
+            .filter(card => card.startPosition)
+            .map((card, indexDrop) =>
+              this.renderDropCard('start', card.startPosition, card.endPosition, dragCards, card.dragCardStyle),
+            )}
         </div>
         <BlocSpacer height={20} />
         <span className="bloc-drag-and-drop-2__axis vertical">{verticalAxis}</span>
@@ -272,7 +281,9 @@ class BlocDragAndDropType2 extends React.Component {
         <div className="bloc-drag-and-drop-2__grid" style={gridTemplate}>
           {cells}
           {legend && (
-            <ul className="bloc-drag-and-drop-2__legend">
+            <ul
+              className={`bloc-drag-and-drop-2__legend grid-column-start-${grid.columns.length - 1}-end-${grid.columns
+                .length + 1} grid-row-start-${grid.rows.length - 2}-end-${grid.rows.length}`}>
               {legend.map(item => {
                 return (
                   <li key={item.legendText}>

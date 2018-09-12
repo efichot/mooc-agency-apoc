@@ -6,8 +6,8 @@ const module_05_blocLink = {
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   modulType: moduleTypes.blocLink,
   noChapter: true,
-  linkName: 'Amundi label monétaire esr',
-  link: pdf
+  linkName: 'Amundi label actions solidaire ESR',
+  link: pdf,
 };
 
 export default module_05_blocLink;

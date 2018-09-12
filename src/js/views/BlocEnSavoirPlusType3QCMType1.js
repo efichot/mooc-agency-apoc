@@ -214,7 +214,7 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
             }
           }>
           {ecusson && (
-            <div className="ecusson">
+            <div className="ecusson grid-row-start-1-end-4-gridgap">
               <div
                 className="ecusson__cercle"
                 style={{
@@ -238,7 +238,17 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
             if (card.cardTitle) {
               return (
                 <div
-                  className="button-groupe"
+                  className={`button-groupe ${
+                    card.style
+                      ? `grid-row-start-${card.style.gridRowStart}-end-${
+                          card.style.gridRowEnd
+                        }-gridgap grid-column-start-${card.style.gridColumnStart}-end-${
+                          card.style.gridColumnEnd
+                        }-gridgap`
+                      : ''
+                  } ${card.style.alignSelf ? `align-self-${card.style.alignSelf}` : ''} ${
+                    card.style.justifySelf ? `justify-self-${card.style.justifySelf}` : ''
+                  }`}
                   onMouseEnter={() => this.handleShowCard(card)}
                   onMouseLeave={() => this.handleHideCards(card)}
                   style={{
@@ -263,7 +273,17 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
               return (
                 <div
                   key={index}
-                  className="bloc-en-savoir-plus-type-3-qcm-type-1__cards--arrow"
+                  className={`bloc-en-savoir-plus-type-3-qcm-type-1__cards--arrow ${
+                    card.style
+                      ? `grid-row-start-${card.style.gridRowStart}-end-${
+                          card.style.gridRowEnd
+                        }-gridgap grid-column-start-${card.style.gridColumnStart}-end-${
+                          card.style.gridColumnEnd
+                        }-gridgap`
+                      : ''
+                  } ${card.style.alignSelf ? `align-self-${card.style.alignSelf}` : ''} ${
+                    card.style.justifySelf ? `justify-self-${card.style.justifySelf}` : ''
+                  }`}
                   style={{
                     ...card.style,
                     backgroundImage: showAll || showThis || alwaysVisible ? `url(${card.arrow})` : '',

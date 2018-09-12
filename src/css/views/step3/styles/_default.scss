@@ -6,7 +6,10 @@
       border-radius: 50%;
       position: relative;
       span {
-        margin-top: 275px;
+        position: absolute;
+        top: 190px;
+        left: 0;
+        right: 0;
         color: $defaultTextColor;
       }
     }

@@ -255,32 +255,40 @@ class BlocQuiz extends React.Component {
             <BlocSpacer />
             {step !== 8 &&
               step !== 4 && (
-                <Link className="button-link" to={`step${step + 1}`}>
+                <Link className="button-link button-end" to={`step${step + 1}`}>
                   <ButtonPrimary minWidth name="Continuez votre formation" enableClick />
                 </Link>
               )}
             {step === 8 && (
               <React.Fragment>
-                <Link className="button-link" to="#">
+                <Link className="button-link button-end" to="#">
                   <ButtonPrimary minWidth name="Terminer votre formation" enableClick />
                 </Link>
-                <a href="https://fr.surveymonkey.com/r/adpv2" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://fr.surveymonkey.com/r/adpv2"
+                  className="button-end"
+                  target="_blank"
+                  rel="noopener noreferrer">
                   <ButtonPrimary minWidth name="Donner votre avis" enableClick />
                 </a>
-                <Link className="button-link" to="#">
+                <Link className="button-link button-end" to="#">
                   <ButtonPrimary minWidth name="Entrer sur le forum" enableClick />
                 </Link>
               </React.Fragment>
             )}
             {step === 4 && (
               <React.Fragment>
-                <Link className="button-link" to="step5">
+                <Link className="button-link button-end" to="step5">
                   <ButtonPrimary minWidth name="Poursuivre vers comprendre les marchés" enableClick />
                 </Link>
-                <a href="https://fr.surveymonkey.com/r/adpv2" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://fr.surveymonkey.com/r/adpv2"
+                  className="button-end"
+                  target="_blank"
+                  rel="noopener noreferrer">
                   <ButtonPrimary minWidth name="Donner votre avis" enableClick />
                 </a>
-                <Link className="button-link" to="#">
+                <Link className="button-link button-end" to="#">
                   <ButtonPrimary minWidth name="Entrer sur le forum" enableClick />
                 </Link>
               </React.Fragment>

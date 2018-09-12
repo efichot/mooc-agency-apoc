@@ -9,6 +9,7 @@ import ButtonPrimary from './UI/ButtonPrimary';
 import PopupBlue from './UI/PopupBlue';
 import Fade from '../transitions/Fade';
 import victoryMessages from '../model/static/popupBlueMessages';
+import { scrollIntoView } from '../transitions/transitionUtils';
 
 class BlocQCMType4 extends React.Component {
   state = {
@@ -75,11 +76,7 @@ class BlocQCMType4 extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.in && prevProps.selectedRow !== this.props.selectedRow) {
-      console.log('scroll');
-      window.setTimeout(
-        () => window.scrollTo({ behavior: 'smooth', top: window.scrollY + this.top.getBoundingClientRect().top - 50 }),
-        1000,
-      );
+      scrollIntoView(this.top);
     }
   }
 

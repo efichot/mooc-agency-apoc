@@ -215,8 +215,6 @@ class BlocCardGameType2 extends React.Component {
     const column2Card = game[questionNumber].column2 && cards.actorscolumn2[column2currentIndex - 1];
     const column3Card = game[questionNumber].column3 && cards.actorscolumn3[column3currentIndex - 1];
 
-    console.log('column2Card', column2Card);
-
     return (
       <Fade
         classProps="bloc-card-game-type-2 bloc"
@@ -267,7 +265,8 @@ class BlocCardGameType2 extends React.Component {
               {question.column1 && (
                 <React.Fragment>
                   <div
-                    className={`card column-1 row-1 grid-row-start-2 grid-column-start-${questionIndex * 4 + 1}`}
+                    className={`card column-1 row-1 grid-row-start-2-gridgap grid-column-start-${questionIndex * 4 +
+                      1}-gridgap`}
                     style={
                       {
                         // gridRow: 2,
@@ -301,7 +300,7 @@ class BlocCardGameType2 extends React.Component {
                           step.column === 'column1' &&
                           victoryMessage && (
                             <PopupBlue
-                              classProps="popup-column1"
+                              classProps="popup-column1 grid-row-start-3-gridgap grid-column-start-2-gridgap"
                               onCloseClick={this.handleClosePopupBlue}
                               column={1}
                               styleProps={{
@@ -317,7 +316,7 @@ class BlocCardGameType2 extends React.Component {
                             name={choice}
                             classProps={`button-QCM-type-1${column1Choices && column1Choices[choice] ? ' active' : ''}${
                               column1IsFinished || victoryMessage === victoryMessages.isGoodAnswer ? ' finished' : ''
-                            } grid-row-start-${i + 3} grid-column-start-${questionIndex * 4 + 1}`}
+                            } grid-row-start-${i + 3}-gridgap grid-column-start-${questionIndex * 4 + 1}-gridgap`}
                             onClick={this.handleChoiceClick}
                             answer={{ column: 1, choice }}
                             styleProps={{
@@ -333,7 +332,8 @@ class BlocCardGameType2 extends React.Component {
                           minWidth
                           name="valider"
                           onClick={this.handleValidate}
-                          classProps={`button-validate grid-row-start-6 grid-column-start-${questionIndex * 4 + 1}`}
+                          classProps={`button-validate grid-row-start-6-gridgap grid-column-start-${questionIndex * 4 +
+                            1}-gridgap`}
                           styleProps={{
                             // gridRow: 6,
                             // gridColumn: questionIndex * 4 + 1,
@@ -352,7 +352,9 @@ class BlocCardGameType2 extends React.Component {
               {question.column1 &&
                 question.column1.popup && (
                   <PopupBlue
-                    classProps={`popup-column1-explanation grid-column-start-${questionIndex * 4 + 1}`}
+                    classProps={`popup-column1-explanation grid-row-start-6-gridgap grid-column-start-${questionIndex *
+                      4 +
+                      1}-gridgap`}
                     hidePopup={!column1ShowExplanation}
                     onCloseClick={() => this.setState({ column1ShowExplanation: false })}
                     styleProps={
@@ -380,7 +382,8 @@ class BlocCardGameType2 extends React.Component {
               {question.column2 && (
                 <React.Fragment>
                   <div
-                    className={`card column-2 row-1 grid-row-start-2 grid-column-start-${questionIndex * 4 + 2}`}
+                    className={`card column-2 row-1 grid-row-start-2-gridgap grid-column-start-${questionIndex * 4 +
+                      2}-gridgap`}
                     style={
                       {
                         // gridRow: 2,
@@ -414,7 +417,7 @@ class BlocCardGameType2 extends React.Component {
                           step.column === 'column2' &&
                           victoryMessage && (
                             <PopupBlue
-                              classProps="popup-column2"
+                              classProps="popup-column2 grid-row-start-3-gridgap grid-column-start-1-gridgap"
                               onCloseClick={this.handleClosePopupBlue}
                               column={2}
                               styleProps={{
@@ -430,7 +433,7 @@ class BlocCardGameType2 extends React.Component {
                             name={choice}
                             classProps={`button-QCM-type-1${column2Choices && column2Choices[choice] ? ' active' : ''}${
                               column2IsFinished || victoryMessage === victoryMessages.isGoodAnswer ? ' finished' : ''
-                            } grid-row-start-${i + 3} grid-column-start-${questionIndex * 4 + 2}`}
+                            } grid-row-start-${i + 3}-gridgap grid-column-start-${questionIndex * 4 + 2}-gridgap`}
                             onClick={this.handleChoiceClick}
                             answer={{ column: 2, choice }}
                             styleProps={{
@@ -446,7 +449,8 @@ class BlocCardGameType2 extends React.Component {
                           minWidth
                           name="valider"
                           onClick={this.handleValidate}
-                          classProps={`button-validate grid-row-start-6 grid-column-start-${questionIndex * 4 + 2}`}
+                          classProps={`button-validate grid-row-start-6-gridgap grid-column-start-${questionIndex * 4 +
+                            2}-gridgap`}
                           styleProps={{
                             // gridRow: 6,
                             // gridColumn: questionIndex * 4 + 2,
@@ -465,7 +469,9 @@ class BlocCardGameType2 extends React.Component {
               {question.column2 &&
                 question.column2.popup && (
                   <PopupBlue
-                    classProps={`popup-column2-explanation grid-column-start-${questionIndex * 4 + 2}`}
+                    classProps={`popup-column2-explanation grid-row-start-6-gridgap grid-row-start-6-gridgap grid-column-start-${questionIndex *
+                      4 +
+                      2}-gridgap`}
                     hidePopup={!column2ShowExplanation}
                     onCloseClick={() => this.setState({ column2ShowExplanation: false })}
                     styleProps={
@@ -493,7 +499,8 @@ class BlocCardGameType2 extends React.Component {
               {question.column3 && (
                 <React.Fragment>
                   <div
-                    className={`card column-3 row-1 grid-row-start-2 grid-column-start-${questionIndex * 4 + 3}`}
+                    className={`card column-3 row-1 grid-row-start-2-gridgap grid-column-start-${questionIndex * 4 +
+                      3}-gridgap`}
                     style={
                       {
                         // gridRow: 2,
@@ -527,7 +534,7 @@ class BlocCardGameType2 extends React.Component {
                           step.column === 'column3' &&
                           victoryMessage && (
                             <PopupBlue
-                              classProps="popup-column3"
+                              classProps="popup-column3 grid-row-start-3-gridgap grid-column-start-2-gridgap"
                               onCloseClick={this.handleClosePopupBlue}
                               column={3}
                               styleProps={{
@@ -543,7 +550,7 @@ class BlocCardGameType2 extends React.Component {
                             name={choice}
                             classProps={`button-QCM-type-1${column3Choices && column3Choices[choice] ? ' active' : ''}${
                               column3IsFinished || victoryMessage === victoryMessages.isGoodAnswer ? ' finished' : ''
-                            } grid-row-start-${i + 3} grid-column-start-${questionIndex * 4 + 3}`}
+                            } grid-row-start-${i + 3}-gridgap grid-column-start-${questionIndex * 4 + 3}-gridgap`}
                             onClick={this.handleChoiceClick}
                             answer={{ column: 3, choice }}
                             styleProps={{
@@ -559,7 +566,8 @@ class BlocCardGameType2 extends React.Component {
                           minWidth
                           name="valider"
                           onClick={this.handleValidate}
-                          classProps={`button-validate grid-row-start-6 grid-column-start-${questionIndex * 4 + 3}`}
+                          classProps={`button-validate grid-row-start-6-gridgap grid-column-start-${questionIndex * 4 +
+                            3}-gridgap`}
                           styleProps={{
                             // gridRow: 6,
                             // gridColumn: questionIndex * 4 + 3,
@@ -578,7 +586,9 @@ class BlocCardGameType2 extends React.Component {
               {question.column3 &&
                 question.column3.popup && (
                   <PopupBlue
-                    classProps={`popup-column3-explanation grid-column-start-${questionIndex * 4 + 3}`}
+                    classProps={`popup-column3-explanation grid-row-start-6-gridgap grid-column-start-${questionIndex *
+                      4 +
+                      3}-gridgap`}
                     hidePopup={!column3ShowExplanation}
                     onCloseClick={() => this.setState({ column3ShowExplanation: false })}
                     styleProps={

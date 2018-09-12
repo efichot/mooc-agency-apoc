@@ -36,10 +36,13 @@
           font-size: 0.875rem;
           text-transform: none;
           text-align: left;
-          justify-content: flex-start;
+          justify-content: center;
           align-items: flex-start;
-          cursor: initial;
-          // max-width: 75%;
+          cursor: default;
+
+          span {
+            max-width: 350px;
+          }
         }
       }
     }

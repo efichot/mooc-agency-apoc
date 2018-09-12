@@ -32,22 +32,22 @@
     }
 
     .grid-row-start-#{$i}-end-#{$j}-gridgap {
-      -ms-grid-row: #{$i};
-      -ms-grid-row-span: (#{($j * 2 - 1) - ($i * 2 - 1))});
+      -ms-grid-row: $adjustedToGap;
+      -ms-grid-row-span: #{($j * 2 - 1) - ($i * 2 - 1)};
       grid-row-start: #{$i};
       grid-row-end: #{$j};
     }
 
     .grid-column-start-#{$i}-end-#{$j} {
       -ms-grid-column: #{$i};
-      -ms-grid-column-span: #{$j} - #{$i};
+      -ms-grid-column-span: #{$j - $i};
       grid-column-start: #{$i};
       grid-column-end: #{$j};
     }
 
     .grid-column-start-#{$i}-end-#{$j}-gridgap {
-      -ms-grid-column: #{$i};
-      -ms-grid-column-span: (#{($j * 2 - 1) - ($i * 2 - 1))});
+      -ms-grid-column: $adjustedToGap;
+      -ms-grid-column-span: #{($j * 2 - 1) - ($i * 2 - 1)};
       grid-column-start: #{$i};
       grid-column-end: #{$j};
     }
@@ -71,7 +71,7 @@
 
   @for $i from 1 through $columnsNumber {
     @if ($i == $columnsNumber) {
-      $newGridTemplate: append($newGridTemplate, nth($gridTemplate, $i));
+      $newGridTemplate: append($newGridTemplate, nth($gridTemplate, $i) $gridGap);
     } @else {
       $newGridTemplate: append($newGridTemplate, nth($gridTemplate, $i) $gridGap);
     }
@@ -134,9 +134,35 @@
   align-self: $value;
 }
 
+.align-self-end {
+  @include alignSelf(end)
+}
+
+.align-self-start {
+  @include alignSelf(start)
+}
+
+.align-self-center {
+  @include alignSelf(center)
+}
+
+.justify-self-end {
+  @include justifySelf(end)
+}
+
+.justify-self-start {
+  @include justifySelf(start)
+}
+
+.justify-self-center {
+  @include justifySelf(center)
+}
+
 @for $i from 1 through 40 {
   .grid-template-columns-upanddown-#{$i} {
-
     @include gridTemplateColumns(repeat($i, 1fr 5px))
+  }
+  .grid-template-rows-cards-#{$i} {
+    @include gridTemplateRows(repeat($i, 100px), 10px)
   }
 }

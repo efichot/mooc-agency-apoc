@@ -1,7 +1,7 @@
 
 @mixin gridBlocEnSavoirPlusType3($columns: 0, $rows: 0, $columnGap: 0, $rowGap: 0) {
   @if ($columns != 0) {
-    @include gridTemplateColumns(repeat(2 * $columns, 1fr), $columnGap);
+    @include gridTemplateColumns(200px 30px 200px 30px 200px 30px, $columnGap);
   }
   @if ($rows != 0) {
     @include gridTemplateRows(repeat($rows, 1fr), $rowGap);

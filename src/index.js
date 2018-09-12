@@ -10,7 +10,7 @@ import smoothscroll from 'smoothscroll-polyfill';
 /*------------------------------------*/
 
 smoothscroll.polyfill();
-
+/* eslint-disable*/
 if (!NodeList.prototype.forEach) {
   /*console.log('ça ne marche pas');*/
   NodeList.prototype.forEach = function(fn, scope) {
@@ -86,6 +86,7 @@ if (!Array.prototype.includes) {
     },
   });
 }
+/* eslint-disable*/
 
 ReactDOM.render(<App />, document.getElementById('root'));
 // registerServiceWorker();

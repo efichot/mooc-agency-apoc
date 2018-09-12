@@ -227,7 +227,7 @@ class BlocDragAndDropType1 extends React.Component {
               )}
               <span className="risk-high">Plus de risque</span>
             </div>
-            <div className={`drop-cards-end${isVictory ? ' finished' : ''}`}>
+            <div className={`drop-cards-end${gameIsFinished === 'victory' ? ' finished' : ''}`}>
               {cards.filter(card => card.content.isDraggable).map((card, indexDrop) =>
                 this.renderDropCard({
                   dropStartOrEnd: 'end',

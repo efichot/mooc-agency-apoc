@@ -1,4 +1,5 @@
 import moduleTypes from '../moduleTypes';
+import dropCard6 from '../../../../assets/img/step4/dropCard6.png';
 
 const module_11_blocDragAndDropType2 = {
   /*position: 6,*/
@@ -14,7 +15,8 @@ const module_11_blocDragAndDropType2 = {
   title: 'Risque et durée des fonds de votre plan',
   grid: {
     columns: ['', 1, 2, 3, 4, 5, 6, 7],
-    rows: ['+ de 8 ans', '8 ans', '+ de 5 ans', '5 ans', '4 ans', '+ de 3 ans', '3 ans', '1 an', '6 mois', '3 mois'],
+    rows: ['', '5 ans et plus', '', '4 ans', '', '3 ans', '1 an', '6 mois', ''],
+    templateRows: '55px 55px 80px 55px 55px 55px 55px 80px 55px',
   },
   legend: [
     {
@@ -44,15 +46,20 @@ const module_11_blocDragAndDropType2 = {
     {
       startPosition: 1,
       isDraggable: true,
-      endPosition: {
-        row: 1,
-        column: 6,
+      droppedCardStyle: {
+        flexDirection: 'column',
+        textAlign: 'center',
+        justifyContent: 'space-around',
       },
-      name: `Amundi label harmonie solidaire ESR`,
+      endPosition: {
+        row: 3,
+        column: 4,
+      },
+      name: `ADP Diversifié prudent`,
       pieData: [
         {
           name: 'obligataires',
-          value: 8.33,
+          value: 0,
           color: process.env.REACT_APP_OBLIGATION,
         },
         {
@@ -62,7 +69,7 @@ const module_11_blocDragAndDropType2 = {
         },
         {
           name: 'actions',
-          value: 16.67,
+          value: 25,
           color: process.env.REACT_APP_ACTION,
         },
         {
@@ -80,15 +87,20 @@ const module_11_blocDragAndDropType2 = {
     {
       startPosition: 2,
       isDraggable: true,
+      droppedCardStyle: {
+        flexDirection: 'column',
+        textAlign: 'center',
+        justifyContent: 'space-around',
+      },
       endPosition: {
         row: 3,
-        column: 7,
+        column: 5,
       },
-      name: `Amundi label équilibre solidaire ESR`,
+      name: `ADP Diversifié dynamique`,
       pieData: [
         {
           name: 'obligataires',
-          value: 10,
+          value: 0,
           color: process.env.REACT_APP_OBLIGATION,
         },
         {
@@ -98,7 +110,7 @@ const module_11_blocDragAndDropType2 = {
         },
         {
           name: 'actions',
-          value: 45,
+          value: 67,
           color: process.env.REACT_APP_ACTION,
         },
         {
@@ -108,7 +120,7 @@ const module_11_blocDragAndDropType2 = {
         },
         {
           name: 'titres solidaires',
-          value: 45,
+          value: 33,
           color: process.env.REACT_APP_TITRESOLIDAIRE,
         },
       ],
@@ -116,11 +128,16 @@ const module_11_blocDragAndDropType2 = {
     {
       startPosition: 3,
       isDraggable: true,
+      droppedCardStyle: {
+        flexDirection: 'column',
+        textAlign: 'center',
+        justifyContent: 'space-around',
+      },
       endPosition: {
         row: 3,
-        column: 5,
+        column: 6,
       },
-      name: `Amundi convictions ESR`,
+      name: `Amundi label actions solidaire ESR`,
       pieData: [
         {
           name: 'obligataires',
@@ -134,7 +151,7 @@ const module_11_blocDragAndDropType2 = {
         },
         {
           name: 'actions',
-          value: 83.33,
+          value: 90,
           color: process.env.REACT_APP_ACTION,
         },
         {
@@ -144,7 +161,7 @@ const module_11_blocDragAndDropType2 = {
         },
         {
           name: 'titres solidaires',
-          value: 16.67,
+          value: 10,
           color: process.env.REACT_APP_TITRESOLIDAIRE,
         },
       ],
@@ -152,118 +169,16 @@ const module_11_blocDragAndDropType2 = {
     {
       startPosition: 4,
       isDraggable: true,
-      endPosition: {
-        row: 5,
-        column: 4,
+      droppedCardStyle: {
+        flexDirection: 'column',
+        textAlign: 'center',
+        justifyContent: 'space-around',
       },
-      name: `Expertise Europe Optima`,
-      pieData: [
-        {
-          name: 'obligataires',
-          value: 0,
-          color: process.env.REACT_APP_OBLIGATION,
-        },
-        {
-          name: 'monétaires',
-          value: 0,
-          color: process.env.REACT_APP_MONETAIRE,
-        },
-        {
-          name: 'actions',
-          value: 75,
-          color: process.env.REACT_APP_ACTION,
-        },
-        {
-          name: `titres de l'entreprise`,
-          value: 0,
-          color: process.env.REACT_APP_TITRE,
-        },
-        {
-          name: 'titres solidaires',
-          value: 25,
-          color: process.env.REACT_APP_TITRESOLIDAIRE,
-        },
-      ],
-    },
-    {
-      startPosition: 5,
-      isDraggable: true,
       endPosition: {
-        row: 5,
-        column: 6,
-      },
-      name: `CPR ES Croissance`,
-      pieData: [
-        {
-          name: 'obligataires',
-          value: 0,
-          color: process.env.REACT_APP_OBLIGATION,
-        },
-        {
-          name: 'monétaires',
-          value: 0,
-          color: process.env.REACT_APP_MONETAIRE,
-        },
-        {
-          name: 'actions',
-          value: 50,
-          color: process.env.REACT_APP_ACTION,
-        },
-        {
-          name: `titres de l'entreprise`,
-          value: 0,
-          color: process.env.REACT_APP_TITRE,
-        },
-        {
-          name: 'titres solidaires',
-          value: 50,
-          color: process.env.REACT_APP_TITRESOLIDAIRE,
-        },
-      ],
-    },
-    {
-      startPosition: 6,
-      isDraggable: true,
-      endPosition: {
-        row: 6,
-        column: 6,
-      },
-      name: `Amundi Label Monétaire ESR`,
-      pieData: [
-        {
-          name: 'obligataires',
-          value: 0,
-          color: process.env.REACT_APP_OBLIGATION,
-        },
-        {
-          name: 'monétaires',
-          value: 100,
-          color: process.env.REACT_APP_MONETAIRE,
-        },
-        {
-          name: 'actions',
-          value: 0,
-          color: process.env.REACT_APP_ACTION,
-        },
-        {
-          name: `titres de l'entreprise`,
-          value: 0,
-          color: process.env.REACT_APP_TITRE,
-        },
-        {
-          name: 'titres solidaires',
-          value: 0,
-          color: process.env.REACT_APP_TITRESOLIDAIRE,
-        },
-      ],
-    },
-    {
-      isDraggable: true,
-      endPosition: {
-        row: 2,
+        row: 3,
         column: 7,
       },
-      name: `Groupe adp PEPS`,
+      name: `ADP actionnariat salarié`,
       pieData: [
         {
           name: 'obligataires',
@@ -283,6 +198,46 @@ const module_11_blocDragAndDropType2 = {
         {
           name: `titres de l'entreprise`,
           value: 100,
+          color: process.env.REACT_APP_TITRE,
+        },
+        {
+          name: 'titres solidaires',
+          value: 0,
+          color: process.env.REACT_APP_TITRESOLIDAIRE,
+        },
+      ],
+    },
+    {
+      isDraggable: true,
+      droppedCardStyle: {
+        flexDirection: 'column',
+        textAlign: 'center',
+        justifyContent: 'space-around',
+      },
+      endPosition: {
+        row: 3,
+        column: 8,
+      },
+      name: `ADP Obligations`,
+      pieData: [
+        {
+          name: 'obligataires',
+          value: 33,
+          color: process.env.REACT_APP_OBLIGATION,
+        },
+        {
+          name: 'monétaires',
+          value: 0,
+          color: process.env.REACT_APP_MONETAIRE,
+        },
+        {
+          name: 'actions',
+          value: 0,
+          color: process.env.REACT_APP_ACTION,
+        },
+        {
+          name: `titres de l'entreprise`,
+          value: 66,
           color: process.env.REACT_APP_TITRE,
         },
         {
@@ -298,34 +253,13 @@ const module_11_blocDragAndDropType2 = {
         row: 8,
         column: 2,
       },
-      name: `Amundi 3 mois ESR`,
-      pieData: [
-        {
-          name: 'obligataires',
-          value: 0,
-          color: process.env.REACT_APP_OBLIGATION,
-        },
-        {
-          name: 'monétaires',
-          value: 0,
-          color: process.env.REACT_APP_MONETAIRE,
-        },
-        {
-          name: 'actions',
-          value: 0,
-          color: process.env.REACT_APP_ACTION,
-        },
-        {
-          name: `titres de l'entreprise`,
-          value: 100,
-          color: process.env.REACT_APP_TITRE,
-        },
-        {
-          name: 'titres solidaires',
-          value: 0,
-          color: process.env.REACT_APP_TITRESOLIDAIRE,
-        },
-      ],
+      droppedCardStyle: {
+        flexDirection: 'column',
+        textAlign: 'center',
+        justifyContent: 'space-around',
+      },
+      name: `Amundi Trésorerie ESR`,
+      background: dropCard6,
     },
   ],
 };

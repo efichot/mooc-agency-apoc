@@ -8,12 +8,12 @@ class CardContentType2 extends React.Component {
   /*anyFunction = (argument) => {}*/
 
   render() {
-    const { name, pieData } = this.props;
+    const { name, pieData, background } = this.props;
 
     return (
       <React.Fragment>
-        <div className="pie-chart-mini">
-          <PieChart data={pieData} viewBoxSize={40} />
+        <div className="pie-chart-mini" style={{ backgroundImage: background && `url(${background})` }}>
+          {pieData && <PieChart data={pieData} viewBoxSize={40} />}
         </div>
         <span className="name">{name}</span>
       </React.Fragment>
@@ -27,9 +27,9 @@ CardContentType2.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       value: PropTypes.number.isRequired,
-      color: PropTypes.string.isRequired
-    })
-  ).isRequired
+      color: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 CardContentType2.defaultProps = {};

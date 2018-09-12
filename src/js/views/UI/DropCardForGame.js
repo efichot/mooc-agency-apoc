@@ -54,13 +54,13 @@ class DropCardForGame extends React.Component {
   };
 
   render() {
-    const { startOrEnd, type } = this.props;
+    const { startOrEnd, type, classProps } = this.props;
 
     const { isDraggingOver, answer } = this.state;
 
     return (
       <div
-        className={`drop-card ${isDraggingOver ? 'dragging-over' : ''}`}
+        className={`drop-card ${classProps} ${isDraggingOver ? 'dragging-over' : ''}`}
         onDragOver={this.handleDragOver}
         onDragLeave={this.handleDragExit}
         onDrop={this.handleDrop}>
@@ -73,6 +73,7 @@ class DropCardForGame extends React.Component {
 
 DropCardForGame.propTypes = {
   id: PropTypes.string,
+  classProps: PropTypes.string,
   type: PropTypes.string.isRequired,
   reset: PropTypes.bool,
   startOrEnd: PropTypes.string,
@@ -81,6 +82,7 @@ DropCardForGame.propTypes = {
 
 DropCardForGame.defaultProps = {
   id: '',
+  classProps: '',
   reset: false,
   startOrEnd: '',
 };

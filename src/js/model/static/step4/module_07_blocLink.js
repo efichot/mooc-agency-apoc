@@ -6,8 +6,8 @@ const module_07_blocLink = {
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   modulType: moduleTypes.blocLink,
   noChapter: true,
-  linkName: 'Expertise europe optima',
-  link: pdf
+  linkName: 'ADP Obligations',
+  link: pdf,
 };
 
 export default module_07_blocLink;

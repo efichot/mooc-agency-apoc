@@ -113,6 +113,7 @@ class BlocQCMType2 extends React.Component {
       synthese,
       classSelect,
       scrollIntoView,
+      questionsHeight,
     } = this.props;
 
     const { hideQuestion, showQuestion, gameIsFinished, victoryMessage, hideExplanation } = this.state;
@@ -126,7 +127,7 @@ class BlocQCMType2 extends React.Component {
         {!noChapter && <BlocHeader type="horloge" duration={duration} name={chapter} />}
         <span className="bloc__name">{title}</span>
         <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
-        <div className="bloc-QCM-type-2__questions game">
+        <div className="bloc-QCM-type-2__questions game" style={{ height: questionsHeight }}>
           <div
             className="bloc-QCM-type-2__questions--to-hover"
             style={{

@@ -4,6 +4,10 @@
   flex-grow: 1;
   height: 40px;
 
+  &__input {
+    overflow: hidden;
+  }
+
   &__control {
     border-radius: 20px !important;
   }
