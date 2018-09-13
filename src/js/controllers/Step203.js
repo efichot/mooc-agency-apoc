@@ -13,15 +13,16 @@ class Step2_03 extends React.Component {
   };
 
   handleShowNextModule = module => {
-    console.log('handleShowNextModule 203');
-    this.setState({ showNextModule: this.state.showNextModule + 1 });
-    if (this.state.showNextModule > 1) {
+    if (module === moduleTypes.blocQCMType2) {
+      this.setState({ showNextModule: 1 });
+    } else if (module === moduleTypes.blocQCMType3) {
+      this.setState({ showNextModule: 2 });
       this.props.endOfModules(true);
     }
   };
 
   handleShowLinks = () => {
-    this.setState({ showNextModule: this.state.showNextModule + 1, showLinks: !this.state.showLinks });
+    this.setState({ showLinks: !this.state.showLinks });
   };
 
   render() {

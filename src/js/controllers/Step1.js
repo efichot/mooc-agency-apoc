@@ -1,5 +1,4 @@
 import React from 'react';
-/*import PropTypes from 'prop-types';*/
 import { Link } from 'react-router-dom';
 
 import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
@@ -48,7 +47,6 @@ class Step1 extends React.Component {
   };
 
   handleGetPieChartData = (module, data) => {
-    console.log('module', module);
     const actions = data.filter(item => item.name === 'actions')[0];
     /*const obligations = data.filter(item => item.name === 'obligations')[0]*/
     const monetary = data.filter(item => item.name === 'monétaire')[0];
@@ -160,9 +158,5 @@ class Step1 extends React.Component {
     );
   }
 }
-
-Step1.propTypes = {};
-
-Step1.defaultProps = {};
 
 export default Step1;

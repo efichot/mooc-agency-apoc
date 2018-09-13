@@ -80,7 +80,7 @@ class BlocCardGameType1 extends React.Component {
   };
 
   handleColumn3Card1Click = () => {
-    console.log('this.state.step', this.state.step);
+    // console.log('this.state.step', this.state.step);
     if (this.state.step !== 'column3card1') {
       return;
     }
@@ -93,35 +93,35 @@ class BlocCardGameType1 extends React.Component {
   handleCard2Click = (plusorminus, column) => {
     const indexName = `${column}card2currentIndex`;
     const index = this.state[indexName];
-    console.log(plusorminus, column, indexName, index);
+    // console.log(plusorminus, column, indexName, index);
 
     if (plusorminus === 'plus') {
       if (index === this.state[`${column}SecondCards`].length - 1) {
-        console.log(1);
+        // console.log(1);
         return;
       } else if (index === undefined) {
-        console.log(2);
+        // console.log(2);
         this.setState({ [indexName]: 1 });
       } else {
-        console.log(3);
+        // console.log(3);
         this.setState({ [indexName]: index + 1 });
       }
     } else {
       if (index === 0) {
-        console.log(4);
+        // console.log(4);
         return;
       } else if (index === undefined) {
-        console.log(5);
+        // console.log(5);
         this.setState({ [indexName]: this.state[`${column}SecondCards`].length - 1 });
       } else {
-        console.log(6);
+        // console.log(6);
         this.setState({ [indexName]: index - 1 });
       }
     }
   };
 
   handleCard2ButtonClick = (indexForAnswer, column) => {
-    console.log('indexForAnswer, column', indexForAnswer, column);
+    // console.log('indexForAnswer, column', indexForAnswer, column);
     const indexName = `${column}card2currentIndex`;
     const index = this.state[indexName];
     const correctAnswer = this.state[`${column}`][indexForAnswer].firstCard.answerNumber;
@@ -132,7 +132,7 @@ class BlocCardGameType1 extends React.Component {
       column === 'column1' && this.setState({ column1card3: true, step: 'column3card1' });
       column === 'column3' && this.setState({ column3card3: true, step: 'column2card1' });
       if (column === 'column2') {
-        console.log('column2');
+        // console.log('column2');
         this.setState({ column2card3: true });
       }
     } else {

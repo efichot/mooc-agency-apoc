@@ -50,7 +50,7 @@ class BlocPieChartPlay extends React.Component {
       .reduce((total, data) => total + data.value, 0);
 
     if (percent === 100) {
-      console.log('game is finito');
+      // console.log('game is finito');
       this.props.gameIsFinished(e !== undefined ? this.props.modulType : undefined, this.state.pieData);
     } else {
       this.props.gameIsFinished(undefined, this.state.pieData);

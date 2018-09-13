@@ -23,9 +23,8 @@ class Step3 extends React.Component {
     show_02: false,
     show_03: false,
     show_04: false,
-    /*showNextModule: 0,*/
-    showSynthese: false,
     showQuiz: false,
+    showSynthese: false,
     reset: false,
   };
 
@@ -33,26 +32,21 @@ class Step3 extends React.Component {
     this.props.tellAppIAmIntro(false);
   }
 
-  handleShowNextModule = async module => {
-    await this.setState({ showNextModule: this.state.showNextModule + 1 });
-    if (this.state.showNextModule > 2) {
-      this.setState({ showSynthese: true });
-    }
-  };
-
   changeMarketToShow = marketToShow => {
     const stateCopy = { ...this.state };
 
     Object.keys(stateCopy).forEach(stateAction => {
       stateAction === marketToShow ? (stateCopy[`${stateAction}`] = true) : (stateCopy[`${stateAction}`] = false);
     });
-    this.setState(stateCopy);
-    this.setState({ reset: true });
+
+    this.setState({ ...stateCopy, reset: true });
   };
 
   handleShowSynthese = bool => {
-    this.setState({ showSynthese: true });
-    this.setState({ reset: false });
+    this.setState({
+      showSynthese: true,
+      reset: false,
+    });
   };
 
   handleShowQuiz = e => {
@@ -68,8 +62,8 @@ class Step3 extends React.Component {
       show_02,
       show_03,
       show_04,
-      showSynthese,
       showQuiz,
+      showSynthese,
       /*showNextModule*/
     } = this.state;
 

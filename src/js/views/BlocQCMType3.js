@@ -201,7 +201,7 @@ class BlocQCMType3 extends React.Component {
               description={victoryMessage}
               onCloseClick={() => {
                 if (victoryMessage.__html === victoryMessages.isGoodAnswer) {
-                  console.log('laklkaslk');
+                  // console.log('laklkaslk');
                   this.props.gameIsFinished(modulType);
                   this.setState({ hideExplanation: false });
                 }

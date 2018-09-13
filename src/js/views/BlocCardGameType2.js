@@ -134,7 +134,7 @@ class BlocCardGameType2 extends React.Component {
       if (game[questionNumber].steps.indexOf(`column${column}`) === game[questionNumber].steps.length - 1) {
         /*end of game*/
         if (questionNumber === game.length - 1) {
-          console.log('end of game');
+          // console.log('end of game');
           this.setState(
             {
               /*end of game*/
@@ -144,7 +144,7 @@ class BlocCardGameType2 extends React.Component {
             this.props.gameIsFinished(this.props.modulType),
           );
         } else {
-          console.log('next step');
+          // console.log('next step');
           this.setState({
             /*next step*/
             victoryMessage: undefined,
@@ -162,7 +162,7 @@ class BlocCardGameType2 extends React.Component {
           });
         }
       } else {
-        console.log('next question');
+        // console.log('next question');
         this.setState({
           /*next question*/
           victoryMessage: undefined,

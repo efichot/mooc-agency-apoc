@@ -24,22 +24,22 @@ class DropCardMini extends React.Component {
     return prevState;
   }
 
-  handleDragOver = event => {
-    event.persist();
+  handleDragOver = e => {
+    e.persist();
     const isDragCard =
-      contains(event.dataTransfer.types, 'text') ||
-      contains(event.dataTransfer.types, 'Text') ||
-      contains(event.dataTransfer.types, 'text/plain');
+      contains(e.dataTransfer.types, 'text') ||
+      contains(e.dataTransfer.types, 'Text') ||
+      contains(e.dataTransfer.types, 'text/plain');
     const isEndDropCard = this.props.startOrEnd === 'end';
     if (isDragCard && isEndDropCard) {
-      event.preventDefault();
+      e.preventDefault();
     }
   };
 
-  handleDrop = async event => {
-    const data = event.dataTransfer.getData('text');
+  handleDrop = async e => {
+    const data = e.dataTransfer.getData('text');
     this.props.dragCard(data, this.props.endPosition);
-    /*event.preventDefault();*/
+    e.preventDefault(); //prevent Firefox to load an inexisting URL
   };
 
   render() {

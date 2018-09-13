@@ -356,7 +356,8 @@ BlocDragAndDropType2.propTypes = {
           value: PropTypes.number.isRequired,
           color: PropTypes.string.isRequired,
         }),
-      ).isRequired,
+      ),
+      background: PropTypes.string,
     }).isRequired,
   ).isRequired,
 };

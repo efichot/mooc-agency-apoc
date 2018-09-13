@@ -6,16 +6,18 @@ import BlocQCMType1 from '../views/BlocQCMType1';
 import BlocVideo from '../views/BlocVideo';
 import BlocDivider from '../views/BlocDivider';
 import Fade from '../transitions/Fade';
-// import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+import moduleTypes from '../model/static/moduleTypes';
 
 class Step7_03 extends React.Component {
   state = {
     showNextModule: 0,
   };
 
-  handleShowNextModule = () => {
-    this.setState({ showNextModule: this.state.showNextModule + 1 });
-    this.props.endOfModules(true);
+  handleShowNextModule = module => {
+    if (module === moduleTypes.blocQCMType1) {
+      this.setState({ showNextModule: 1 });
+      this.props.endOfModules(true);
+    }
   };
 
   render() {

@@ -13,7 +13,7 @@ class BlocCardsType1 extends React.Component {
   };
 
   handleCardClick = rowIndex => {
-    console.log('has been called');
+    // console.log('has been called');
     const selectedRow = {
       selectedRow: rowIndex,
     };

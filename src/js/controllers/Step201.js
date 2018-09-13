@@ -14,14 +14,18 @@ class Step2_01 extends React.Component {
   };
 
   handleShowNextModule = module => {
-    this.setState({ showNextModule: this.state.showNextModule + 1 });
-    if (this.state.showNextModule > 2) {
+    if (module === `${moduleTypes.blocQCMType2}-1`) {
+      this.setState({ showNextModule: 1 });
+    } else if (module === moduleTypes.blocQCMType3) {
+      this.setState({ showNextModule: 2 });
+    } else if (module === `${moduleTypes.blocQCMType2}-2`) {
+      this.setState({ showNextModule: 3 });
       this.props.endOfModules(true);
     }
   };
 
   handleShowLinks = () => {
-    this.setState({ showNextModule: this.state.showNextModule + 1, showLinks: !this.state.showLinks });
+    this.setState({ showLinks: !this.state.showLinks });
   };
 
   render() {

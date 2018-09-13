@@ -24,7 +24,7 @@ class BlocEnSavoirPlusType3QCMType1 extends React.Component {
   };
 
   handleClosePopupBlue = () => {
-    console.log('handleClosePopupBlue');
+    // console.log('handleClosePopupBlue');
     this.setState({ showErrorMessage: false });
   };
 
@@ -339,7 +339,7 @@ BlocEnSavoirPlusType3QCMType1.propTypes = {
   duration: PropTypes.number,
   title: PropTypes.string.isRequired,
   ecusson: PropTypes.shape({
-    backgroundColor: PropTypes.string.isRequired,
+    background: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
   }),
   grid: PropTypes.shape({

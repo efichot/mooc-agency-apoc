@@ -24,18 +24,17 @@ class DropCard extends React.Component {
     return prevState;
   }
 
-  handleDragOver = event => {
-    event.persist();
+  handleDragOver = e => {
+    e.persist();
+    e.preventDefault();
     this.setState({ isDraggingOver: true });
     const isDragCard =
-      contains(event.dataTransfer.types, 'text') ||
-      contains(event.dataTransfer.types, 'Text') ||
-      contains(event.dataTransfer.types, 'text/plain');
-    console.log('event', event.dataTransfer.types[0], isDragCard);
+      contains(e.dataTransfer.types, 'text') ||
+      contains(e.dataTransfer.types, 'Text') ||
+      contains(e.dataTransfer.types, 'text/plain');
     const isEndDropCard = this.props.startOrEnd === 'end';
     if (isDragCard && isEndDropCard) {
-      console.log('ta race');
-      event.preventDefault();
+      e.preventDefault();
     }
   };
 
@@ -43,9 +42,10 @@ class DropCard extends React.Component {
     this.setState({ isDraggingOver: false });
   };
 
-  handleDrop = async event => {
+  handleDrop = async e => {
     this.setState({ isDraggingOver: false });
-    const data = event.dataTransfer.getData('text');
+    const data = e.dataTransfer.getData('text');
+    e.preventDefault(); //prevent Firefox to load an inexisting URL
     await this.setState({
       title: data.split('+++')[0],
       subtitle: data.split('+++')[1],
@@ -64,7 +64,7 @@ class DropCard extends React.Component {
       /*check correct position in parent */
       dragCard(currentEndPosition, supposedEndPosition, startPosition);
     }
-    /*event.preventDefault();*/
+    /*e.preventDefault();*/
   };
 
   render() {

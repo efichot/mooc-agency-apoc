@@ -45,7 +45,6 @@ class Step2 extends React.Component {
   };
 
   changeMarketToShow = marketToShow => {
-    console.log('changeMarketToShow');
     this.setState({
       show_01: false,
       show_02: false,
@@ -56,12 +55,10 @@ class Step2 extends React.Component {
   };
 
   handleShowSynthese = bool => {
-    console.log('handleShowSynthese');
     this.setState({ showSynthese: bool });
   };
 
   handleShowQuiz = e => {
-    console.log('handleShowQuiz');
     Object.keys(this.state).forEach(key => {
       this.setState({ [key]: false });
     });

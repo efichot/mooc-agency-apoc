@@ -23,16 +23,16 @@ class DropCardForGame extends React.Component {
     return prevState;
   }
 
-  handleDragOver = event => {
-    event.persist();
+  handleDragOver = e => {
+    e.persist();
     this.setState({ isDraggingOver: true });
     const isDragCard =
-      contains(event.dataTransfer.types, 'text') ||
-      contains(event.dataTransfer.types, 'Text') ||
-      contains(event.dataTransfer.types, 'text/plain');
+      contains(e.dataTransfer.types, 'text') ||
+      contains(e.dataTransfer.types, 'Text') ||
+      contains(e.dataTransfer.types, 'text/plain');
     const isEndDropCard = this.props.startOrEnd === 'end';
     if (isDragCard && isEndDropCard) {
-      event.preventDefault();
+      e.preventDefault();
     }
   };
 
@@ -40,9 +40,9 @@ class DropCardForGame extends React.Component {
     this.setState({ isDraggingOver: false });
   };
 
-  handleDrop = async event => {
+  handleDrop = async e => {
     this.setState({ isDraggingOver: false });
-    const data = event.dataTransfer.getData('text');
+    const data = e.dataTransfer.getData('text');
     const dropType = this.props.type;
     const dragType = data.split('+++')[3];
     const answer = data.split('+++')[0];
@@ -51,6 +51,7 @@ class DropCardForGame extends React.Component {
       this.setState({ answer });
     }
     this.props.onDragCard({ dropType, dragType, answer, column });
+    e.preventDefault(); //pre Firefox to load an inexisting URL
   };
 
   render() {

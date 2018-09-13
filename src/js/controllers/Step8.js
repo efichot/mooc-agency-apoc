@@ -24,20 +24,12 @@ class Step8 extends React.Component {
     show_03: false,
     show_04: false,
     showNextModule: 0,
-    showSynthese: false,
     showQuiz: false,
   };
 
   componentDidMount() {
     this.props.tellAppIAmIntro(false);
   }
-
-  handleShowNextModule = async module => {
-    await this.setState({ showNextModule: this.state.showNextModule + 1 });
-    if (this.state.showNextModule > 2) {
-      this.setState({ showSynthese: true });
-    }
-  };
 
   changeMarketToShow = marketToShow => {
     const stateCopy = { ...this.state };
@@ -48,10 +40,6 @@ class Step8 extends React.Component {
     this.setState(stateCopy);
   };
 
-  handleShowSynthese = bool => {
-    this.setState({ showSynthese: bool });
-  };
-
   handleShowQuiz = e => {
     Object.keys(this.state).forEach(key => {
       this.setState({ [key]: false });
@@ -60,7 +48,7 @@ class Step8 extends React.Component {
   };
 
   render() {
-    const { show_01, show_02, show_03, show_04, /*showNextModule,*/ showSynthese, showQuiz } = this.state;
+    const { show_01, show_02, show_03, show_04, /*showNextModule,*/ showQuiz } = this.state;
 
     /*const mainThread = !show_01 && !show_02 && !show_03 && !show_04;*/
 
@@ -130,33 +118,28 @@ class Step8 extends React.Component {
                     scrollIntoView={isStep8 && show_04}
                     {...step8.module_06.module_06_01}
                   />
-                  {(showSynthese || show_01 || show_02 || show_03 || show_04) && (
+                  {(show_01 || show_02 || show_03 || show_04) && (
                     <div className="step8__synthese step__synthese bloc">
                       <BlocSpacer />
-                      <span className="bloc__name">{step8.module_07.name}</span>
+                      {(show_01 || show_02 || show_03) && <span className="bloc__name">{step8.module_07.name}</span>}
                       <BlocDescription
-                        in={showSynthese || show_01 || show_02 || show_03 || show_04}
+                        in={show_01}
                         modulType={step8.module_07.modulType}
                         description={step8.module_07.description_1}
                       />
                       <BlocDescription
-                        in={showSynthese && show_02}
+                        in={show_02}
                         modulType={step8.module_07.modulType}
                         description={step8.module_07.description_2}
                       />
                       <BlocDescription
-                        in={showSynthese && show_03}
+                        in={show_03}
                         modulType={step8.module_07.modulType}
                         description={step8.module_07.description_3}
                       />
-                      <BlocDescription
-                        in={showSynthese && show_04}
-                        modulType={step8.module_07.modulType}
-                        description={step8.module_07.description_4}
-                      />
                       <BlocSubMenu2
                         {...step8.module_02}
-                        in={showSynthese || show_01 || show_02 || show_03 || show_04}
+                        in={show_01 || show_02 || show_03}
                         action={this.changeMarketToShow}
                         noDescription
                       />

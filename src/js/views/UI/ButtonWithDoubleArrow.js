@@ -12,7 +12,7 @@ class ButtonWithDoubleArrow extends React.Component {
   };
 
   handleButtonClick = answer => {
-    console.log('answer', answer);
+    // console.log('answer', answer);
     this.props.onButtonClick(answer, this.props.attachedName);
   };
 

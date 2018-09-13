@@ -188,12 +188,8 @@ class TextToFill extends React.Component {
               classProps="bloc-text-to-fill__victory-message"
               description={victoryMessage}
               onCloseClick={() => {
-                console.log('victoryMessage.__html', victoryMessage.__html);
-                console.log('victoryMessages.isVictory', victoryMessages.isVictory);
-                console.log(
-                  'victoryMessage === victoryMessages.isVictory',
-                  victoryMessage === victoryMessages.isVictory,
-                );
+                // console.log('victoryMessage.__html', victoryMessage.__html);
+                // console.log('victoryMessages.isVictory', victoryMessages.isVictory);
                 if (victoryMessage.__html === victoryMessages.isVictory) {
                   this.props.gameIsFinished(true);
                 }

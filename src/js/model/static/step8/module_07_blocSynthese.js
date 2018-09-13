@@ -6,16 +6,13 @@ const module_07_blocSynthese = {
   modulType: moduleTypes.blocSynthese,
   name: 'Synthèse',
   description_1: {
-    __html: `Retrouvez la fiche de synthèse de l’étape 8 « Approches de gestion actions » dans la bibliothèque.`,
+    __html: 'Retrouvez la fiche de synthèse de l’étape 8 « Approches de gestion actions » dans la bibliothèque.',
   },
   description_2: {
-    __html: `Retrouvez la fiche de synthèse de l’étape 8 « Approches de gestion taux » dans la bibliothèque.`,
+    __html: 'Retrouvez la fiche de synthèse de l’étape 8 « Approches de gestion taux » dans la bibliothèque.',
   },
   description_3: {
-    __html: `Retrouvez la fiche de synthèse « Principes du Marché Monétaire » dans la bibliothèque.`,
-  },
-  description_4: {
-    __html: `Retrouvez la fiche de synthèse « Principes du Marché des Dérivés » dans la bibliothèque.`,
+    __html: 'Retrouvez la fiche de synthèse de l’étape 8 « Approches de gestion diversifiée » dans la bibliothèque.',
   },
   button_1: "Poursuivre vers le quiz de fin d'étape",
   button_2: 'Entrer sur le forum',

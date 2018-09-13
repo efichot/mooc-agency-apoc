@@ -4,25 +4,23 @@ import PropTypes from 'prop-types';
 import BlocQCMType2 from '../views/BlocQCMType2';
 import BlocLink from '../views/BlocLink';
 import BlocSpacer from '../views/BlocSpacer';
-// import moduleTypes from '../model/static/moduleTypes';
+import moduleTypes from '../model/static/moduleTypes';
 
 class Step2_04 extends React.Component {
   state = {
     showNextModule: 0,
   };
 
-  handleShowNextModule = () => {
-    console.log('handleShowNextModule 204');
-    this.setState({ showNextModule: this.state.showNextModule + 1 });
-    // if (this.state.showNextModule = 0) {
-    this.props.endOfModules(true);
-    // }
+  handleShowNextModule = module => {
+    if (module === moduleTypes.blocQCMType2) {
+      this.setState({ showNextModule: 1 });
+      this.props.endOfModules(true);
+    }
   };
 
   handleShowLinks = () => {
-    this.setState({ showNextModule: this.state.showNextModule + 1, showLinks: !this.state.showLinks });
+    this.setState({ showLinks: !this.state.showLinks });
   };
-
   render() {
     const step2 = this.props.context.module_10;
 

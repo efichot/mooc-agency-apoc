@@ -4,8 +4,6 @@ import PieChart from 'react-svg-piechart';
 
 class CardContentType2 extends React.Component {
   state = {};
-  /*anyRef = React.createRef()*/
-  /*anyFunction = (argument) => {}*/
 
   render() {
     const { name, pieData, background } = this.props;
@@ -29,7 +27,8 @@ CardContentType2.propTypes = {
       value: PropTypes.number.isRequired,
       color: PropTypes.string.isRequired,
     }),
-  ).isRequired,
+  ),
+  background: PropTypes.string,
 };
 
 CardContentType2.defaultProps = {};

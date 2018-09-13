@@ -120,7 +120,7 @@ class BlocQuiz extends React.Component {
   };
 
   handleStoreTime = ({ remainingTime, currentQuestionIndex }) => {
-    console.log('handleStoreTime', remainingTime);
+    // console.log('handleStoreTime', remainingTime);
     this.setState({
       remainingTime,
     });

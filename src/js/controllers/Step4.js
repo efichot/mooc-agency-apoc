@@ -14,28 +14,25 @@ import BlocDragAndDropType2 from '../views/BlocDragAndDropType2';
 
 class Step4 extends React.Component {
   state = {
-    showNextModule: 0,
+    showLinks: false,
   };
 
   componentDidMount() {
     this.props.tellAppIAmIntro(false);
   }
 
-  handleShowNextModule = e => {
-    this.setState({ showNextModule: this.state.showNextModule + 1 });
+  handleShowLinks = e => {
+    this.setState({ showLinks: !this.state.showLinks });
   };
 
   handleGameIsFinished = () => {
-    this.setState({ showNextModule: this.state.showNextModule + 1 });
+    return;
   };
 
   render() {
     const isStep4 = this.props.match.path === '/step4';
 
-    const { showNextModule } = this.state;
-
-    const stepInStep1 = showNextModule > 0;
-    // const stepInStep2 = showNextModule > 1;
+    const { showLinks } = this.state;
 
     return (
       <Fade classProps="step step4" in={isStep4}>
@@ -46,16 +43,16 @@ class Step4 extends React.Component {
               <React.Fragment>
                 <BlocStep step={step4.linkStep} />
                 <BlocStepTopContent step={step4} in={isStep4} scrollIntoView={isStep4} />
-                <BlocLink in={isStep4} {...step4.module_02} onClick={this.handleShowNextModule} />
-                <BlocLink in={stepInStep1} scrollIntoView={stepInStep1} {...step4.module_03} />
-                <BlocLink in={stepInStep1} {...step4.module_04} />
-                <BlocLink in={stepInStep1} {...step4.module_05} />
-                <BlocLink in={stepInStep1} {...step4.module_06} />
-                <BlocLink in={stepInStep1} {...step4.module_07} />
-                <BlocLink in={stepInStep1} {...step4.module_08} />
+                <BlocLink in={isStep4} {...step4.module_02} onClick={this.handleShowLinks} />
+                <BlocLink in={showLinks} scrollIntoView={showLinks} {...step4.module_03} />
+                <BlocLink in={showLinks} {...step4.module_04} />
+                <BlocLink in={showLinks} {...step4.module_05} />
+                <BlocLink in={showLinks} {...step4.module_06} />
+                <BlocLink in={showLinks} {...step4.module_07} />
+                <BlocLink in={showLinks} {...step4.module_08} />
                 {/*
-                <BlocLink in={stepInStep1} {...step4.module_09} />
-                <BlocLink in={stepInStep1} {...step4.module_10} />
+                <BlocLink in={showLinks} {...step4.module_09} />
+                <BlocLink in={showLinks} {...step4.module_10} />
                 */}
                 <BlocDragAndDropType2 in={isStep4} {...step4.module_11} gameIsFinished={this.handleGameIsFinished} />
                 <BlocQuiz in={isStep4} {...step4.module_12} />

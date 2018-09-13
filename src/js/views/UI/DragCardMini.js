@@ -38,7 +38,6 @@ class DragCard extends React.Component {
 
   render() {
     const { type, content, id, styleProps } = this.props;
-    console.log('styleProps', styleProps);
     return (
       <div
         className={`drag-card ${content.isDraggable ? 'is-draggable' : ''}`}

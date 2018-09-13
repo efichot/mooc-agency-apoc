@@ -19,6 +19,7 @@ import BlocEnSavoirPlusType3 from '../views/BlocEnSavoirPlusType3';
 import BlocEnSavoirPlusType1 from '../views/BlocEnSavoirPlusType1';
 import BlocDescription from '../views/BlocDescription';
 import ButtonPrimary from '../views/UI/ButtonPrimary';
+import moduleTypes from '../model/static/moduleTypes';
 
 class Step6 extends React.Component {
   state = {
@@ -43,12 +44,15 @@ class Step6 extends React.Component {
   };
 
   handleShowNextModule = module => {
-    console.log('handleShowNextModule');
-    this.setState({
-      showNextModule: this.state.showNextModule + 1,
-      activateDerives: true,
-      showSynthese: true,
-    });
+    if (module === moduleTypes.blocQCMType4) {
+      this.setState({
+        showNextModule: 2,
+        showSynthese: true,
+      });
+      if (!this.state.activateDerives) {
+        this.setState({ activateDerives: true });
+      }
+    }
   };
 
   changeMarketToShow = marketToShow => {
@@ -78,8 +82,10 @@ class Step6 extends React.Component {
   };
 
   handleShowSynthese = bool => {
-    this.setState({ showSynthese: bool });
-    this.setState({ reset: false });
+    this.setState({
+      showSynthese: bool,
+      reset: false,
+    });
   };
 
   handleShowQuiz = e => {

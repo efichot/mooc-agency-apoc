@@ -86,8 +86,7 @@ class BlocQCMType1 extends React.Component {
           {this.state.victoryMessage && (
             <PopupBlue
               onCloseClick={() => {
-                this.state.victoryMessage === victoryMessages.isGoodAnswer &&
-                  this.props.gameIsFinished(this.state.gameIsFinished);
+                this.state.victoryMessage === victoryMessages.isGoodAnswer && this.props.gameIsFinished(modulType);
                 this.setState({ victoryMessage: undefined });
               }}>
               <span className="">{this.state.victoryMessage}</span>
