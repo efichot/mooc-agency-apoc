@@ -23,6 +23,9 @@ const BlocLink = ({
   scrollIntoView,
   onClick,
   margins,
+  spacer,
+  spacerBottom,
+  spacerTop,
   ...otherProps
 }) => {
   let linkButton;
@@ -58,9 +61,9 @@ const BlocLink = ({
       {secondDescription && (
         <BlocDescription modulType={modulType} classProps="bloc__second-description" description={secondDescription} />
       )}
-      <BlocSpacer />
+      <BlocSpacer height={spacer || spacerTop} />
       {linkButton}
-      <BlocSpacer />
+      <BlocSpacer height={spacer || spacerBottom} />
     </Fade>
   );
 };
@@ -81,6 +84,9 @@ BlocLink.propTypes = {
   firstDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
   secondDescription: PropTypes.shape({ __html: PropTypes.string.isRequired }),
   buttonName: PropTypes.string,
+  spacer: PropTypes.number,
+  spacerTop: PropTypes.number,
+  spacerBottom: PropTypes.number,
 };
 
 BlocLink.defaultProps = {
@@ -96,6 +102,9 @@ BlocLink.defaultProps = {
   linkName: undefined,
   iconType: 'horloge',
   buttonName: 'Télécharger',
+  spacer: undefined,
+  spacerTop: undefined,
+  spacerBottom: undefined,
 };
 
 export default BlocLink;

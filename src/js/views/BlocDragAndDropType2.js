@@ -96,8 +96,13 @@ class BlocDragAndDropType2 extends React.Component {
     const cardInPositionStateCopy = this.state.cardInPosition;
     const { solutions, dragCards } = this.state;
 
-    const inRow = solutions[dragCardName].row === dragCards[dragCardName].endPosition.row;
-    const inColumn = solutions[dragCardName].column === dragCards[dragCardName].endPosition.column;
+    const inRow = solutions[dragCardName].rows
+      ? solutions[dragCardName].rows.includes(dragCards[dragCardName].endPosition.row)
+      : solutions[dragCardName].row === dragCards[dragCardName].endPosition.row;
+
+    const inColumn = solutions[dragCardName].columns
+      ? solutions[dragCardName].columns.includes(dragCards[dragCardName].endPosition.column)
+      : solutions[dragCardName].column === dragCards[dragCardName].endPosition.column;
 
     if (inRow && inColumn) {
       cardInPositionStateCopy[dragCardName] = true;
@@ -225,22 +230,59 @@ class BlocDragAndDropType2 extends React.Component {
 
     const cells = grid.rows.map((headerRow, row) => {
       return grid.columns.map((headerCol, col) => {
+        const borders = {};
+        const firstColumn = col === 0;
+        const lastLine = row === grid.rows.length - 1;
+        let gridRow = `grid-row-start-${row + 1}-end-${row + 1}`;
+        let gridColumn = `grid-column-start-${col + 1}-end-${col + 1}`;
+        let gridHeader = firstColumn || lastLine ? 'grid-header' : '';
+        let headerContentRow = firstColumn && headerRow;
+        let headerContentCol = lastLine && headerCol;
+
+        if (col < grid.columns.length - 1) {
+          if (grid.columns[col] === grid.columns[col + 1]) {
+            borders.borderRight = `none`;
+            if (lastLine) {
+              gridColumn = `grid-column-start-${col + 1}-end-${col + 3}`;
+            }
+          }
+        }
+        if (col > 0) {
+          if (grid.columns[col] === grid.columns[col - 1]) {
+            borders.borderLeft = `none`;
+            if (lastLine) {
+              headerContentCol = undefined;
+              gridHeader = 'grid-header';
+            }
+          }
+        }
+        if (row < grid.rows.length - 1) {
+          if (grid.rows[row] === grid.rows[row + 1]) {
+            borders.borderBottom = `none`;
+            if (firstColumn) {
+              gridRow = `grid-row-start-${row + 1}-end-${row + 3}`;
+            }
+          }
+        }
+        if (row > 0) {
+          if (grid.rows[row] === grid.rows[row - 1]) {
+            borders.borderTop = `none`;
+            if (firstColumn) {
+              headerContentRow = undefined;
+              gridHeader = 'grid-header';
+            }
+          }
+        }
+
         return (
           <div
             key={`${headerRow}${headerCol}`}
-            className={`grid-cell ${
-              col === 0 || row === grid.rows.length - 1 ? 'grid-header' : ''
-            } grid-row-start-${row + 1}-end-${row + 1} grid-column-start-${col + 1}-end-${col + 1}`}
-            style={
-              {
-                // gridRowStart: row + 1,
-                // gridRowEnd: row + 1,
-                // gridColumnStart: col + 1,
-                // gridColumnEnd: col + 1,
-              }
-            }>
-            {col === 0 && headerRow}
-            {row === grid.rows.length - 1 && headerCol}
+            className={`grid-cell ${gridHeader} ${gridRow} ${gridColumn}`}
+            style={{
+              ...borders,
+            }}>
+            {headerContentRow}
+            {headerContentCol}
             {cards.filter(card => card.isDraggable).map((card, indexDrop) => {
               if (card.endPosition.column === col + 1 && card.endPosition.row === row + 1) {
                 return this.renderDropCard(

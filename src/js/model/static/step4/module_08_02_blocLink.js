@@ -1,13 +1,13 @@
 import moduleTypes from '../moduleTypes';
-import pdf from '../../../../assets/img/step4/module_03_blocLink.pdf';
+import pdf from '../../../../assets/img/step4/module_08_02_blocLink.pdf';
 
-const module_03_blocLink = {
+const module_08_02_blocLink = {
   /*position: 5,*/
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   modulType: moduleTypes.blocLink,
   noChapter: true,
-  linkName: 'ADP Diversifié prudent',
   link: pdf,
+  buttonName: 'DICI',
 };
 
-export default module_03_blocLink;
+export default module_08_02_blocLink;

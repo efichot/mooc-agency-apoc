@@ -93,7 +93,7 @@ const module_12_blocQuiz = {
           correctAnswer: false,
         },
         {
-          content: 'B - Celui de créanciere',
+          content: 'B - Celui de créancier',
           correctAnswer: true,
         },
         {

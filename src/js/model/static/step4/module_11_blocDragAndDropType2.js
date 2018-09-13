@@ -14,9 +14,9 @@ const module_11_blocDragAndDropType2 = {
   duration: 5,
   title: 'Risque et durée des fonds de votre plan',
   grid: {
-    columns: ['', 1, 2, 3, 4, 5, 6, 7],
-    rows: ['', '5 ans et plus', '', '4 ans', '', '3 ans', '1 an', '6 mois', ''],
-    templateRows: '55px 55px 80px 55px 55px 55px 55px 80px 55px',
+    columns: ['', 1, 2, 3, 4, 5, 5, 6, 7],
+    rows: ['', '5 ans', '4 ans', '', '3 ans', '1 an', '6 mois', ''],
+    templateRows: '55px 80px 55px 55px 55px 55px 80px 55px',
   },
   legend: [
     {
@@ -52,7 +52,7 @@ const module_11_blocDragAndDropType2 = {
         justifyContent: 'space-around',
       },
       endPosition: {
-        row: 3,
+        row: 2,
         column: 4,
       },
       name: `ADP Diversifié prudent`,
@@ -93,14 +93,15 @@ const module_11_blocDragAndDropType2 = {
         justifyContent: 'space-around',
       },
       endPosition: {
-        row: 3,
-        column: 5,
+        row: 2,
+        column: 6,
+        columns: [6, 7],
       },
       name: `ADP Diversifié dynamique`,
       pieData: [
         {
           name: 'obligataires',
-          value: 0,
+          value: 33,
           color: process.env.REACT_APP_OBLIGATION,
         },
         {
@@ -120,7 +121,7 @@ const module_11_blocDragAndDropType2 = {
         },
         {
           name: 'titres solidaires',
-          value: 33,
+          value: 0,
           color: process.env.REACT_APP_TITRESOLIDAIRE,
         },
       ],
@@ -134,8 +135,9 @@ const module_11_blocDragAndDropType2 = {
         justifyContent: 'space-around',
       },
       endPosition: {
-        row: 3,
-        column: 6,
+        row: 2,
+        column: 7,
+        columns: [6, 7],
       },
       name: `Amundi label actions solidaire ESR`,
       pieData: [
@@ -175,8 +177,8 @@ const module_11_blocDragAndDropType2 = {
         justifyContent: 'space-around',
       },
       endPosition: {
-        row: 3,
-        column: 7,
+        row: 2,
+        column: 8,
       },
       name: `ADP actionnariat salarié`,
       pieData: [
@@ -215,8 +217,8 @@ const module_11_blocDragAndDropType2 = {
         justifyContent: 'space-around',
       },
       endPosition: {
-        row: 3,
-        column: 8,
+        row: 2,
+        column: 9,
       },
       name: `ADP Obligations`,
       pieData: [
@@ -250,7 +252,7 @@ const module_11_blocDragAndDropType2 = {
     {
       isDraggable: true,
       endPosition: {
-        row: 8,
+        row: 7,
         column: 2,
       },
       droppedCardStyle: {
