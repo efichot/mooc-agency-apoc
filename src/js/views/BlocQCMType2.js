@@ -134,9 +134,6 @@ class BlocQCMType2 extends React.Component {
               height: `${questions.length * 50}px`,
             }}>
             {questions.map((question, index) => {
-              /*const hover = 
-                this.state.showQuestion === question.startPosition &&
-                !this.state.hideQuestion;*/
               return (
                 <div
                   className={`bloc-QCM-type-2__questions--to-hover--question ${classSelect}`}

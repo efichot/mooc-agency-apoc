@@ -43,7 +43,7 @@ class DropCardMini extends React.Component {
   };
 
   render() {
-    const { startOrEnd } = this.props;
+    const { startOrEnd, classProps } = this.props;
 
     return (
       <React.Fragment>
@@ -57,7 +57,10 @@ class DropCardMini extends React.Component {
           </div>
         )}
         {startOrEnd === 'start' && (
-          <div className="drop-card drop-card-empty" onDragOver={this.handleDragOver} onDrop={this.handleDrop}>
+          <div
+            className={`drop-card drop-card-empty ${classProps}`}
+            onDragOver={this.handleDragOver}
+            onDrop={this.handleDrop}>
             {this.props.children}
           </div>
         )}
@@ -74,6 +77,7 @@ DropCardMini.propTypes = {
   }).isRequired,
   reset: PropTypes.bool,
   startOrEnd: PropTypes.string,
+  classProps: PropTypes.string,
   dragCard: PropTypes.func.isRequired,
 };
 
@@ -81,6 +85,7 @@ DropCardMini.defaultProps = {
   id: '',
   reset: false,
   startOrEnd: '',
+  classProps: '',
 };
 
 export default DropCardMini;

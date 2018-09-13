@@ -25,6 +25,22 @@
         max-width: 100%;
         width: 100%;
 
+        .line-1 {
+          display: flex;
+          justify-content: flex-between;
+          align-items: center;
+          max-width: 100%;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        .line-2 {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          max-width: 100%;
+          width: 100%;          
+        }
+
         .button-groupe {
           flex-grow: 1;
           flex-shrink: 1;

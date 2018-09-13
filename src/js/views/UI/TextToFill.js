@@ -131,7 +131,7 @@ class TextToFill extends React.Component {
     const { gameIsFinished, victoryMessage, checkValidated, reset, showAnswers, highlightUnchecked } = this.state;
 
     return (
-      <Fade in={this.props.in} scrollIntoView={scrollIntoView}>
+      <Fade in={this.props.in} scrollIntoView={scrollIntoView} classProps="bloc-text-to-fill__text--container">
         {title && <span className="bloc__name">{title}</span>}
         <div className="bloc-text-to-fill__text">
           {textToFill.map(text => {

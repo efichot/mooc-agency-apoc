@@ -146,39 +146,89 @@ class BlocQCMType3 extends React.Component {
               height: `${questions.length * lineHeight}px`,
             }}>
             {questions.map((question, index) => {
-              /*const hover = 
-                this.state.showQuestion === question.startPosition &&
-                !this.state.hideQuestion;*/
-              return (
-                <div
-                  className={`bloc-QCM-type-3__questions--to-hover--question ${classSelect}`}
-                  key={question.questionNumber}>
+              if (questions.selects && question.selects.length <= 3) {
+                return (
                   <div
-                    className="button-groupe"
-                    style={{
-                      maxWidth: question.maxWidth,
-                    }}
-                    onMouseEnter={() => this.showQuestion(question)}
-                    onMouseLeave={() => this.hideQuestions(question)}>
-                    <ButtonPrimary name={{ __html: question.title }} />
-                    {question.arrowFollowing && (
-                      <div className="arrow-following" style={{ backgroundImage: `url(${arrowDown})` }} />
-                    )}
+                    className={`bloc-QCM-type-3__questions--to-hover--question ${classSelect}`}
+                    key={question.questionNumber}>
+                    <div
+                      className="button-groupe"
+                      style={{
+                        maxWidth: question.maxWidth,
+                      }}
+                      onMouseEnter={() => this.showQuestion(question)}
+                      onMouseLeave={() => this.hideQuestions(question)}>
+                      <ButtonPrimary name={{ __html: question.title }} />
+                      {question.arrowFollowing && (
+                        <div className="arrow-following" style={{ backgroundImage: `url(${arrowDown})` }} />
+                      )}
+                    </div>
+                    {question.selects &&
+                      question.selects.map((select, i) => (
+                        <SelectQCM
+                          key={select.selectNumber}
+                          options={select.choices}
+                          classProps={`select-QCM-type-2`}
+                          onChange={this.handleQCMAnswer}
+                          index={select.selectNumber}
+                          placeholder="?"
+                          answer={select.answer}
+                        />
+                      ))}
                   </div>
-                  {question.selects &&
-                    question.selects.map((select, i) => (
-                      <SelectQCM
-                        key={select.selectNumber}
-                        options={select.choices}
-                        classProps={`select-QCM-type-2`}
-                        onChange={this.handleQCMAnswer}
-                        index={select.selectNumber}
-                        placeholder="?"
-                        answer={select.answer}
-                      />
-                    ))}
-                </div>
-              );
+                );
+              } else {
+                return (
+                  <div
+                    className={`bloc-QCM-type-3__questions--to-hover--question ${classSelect}`}
+                    key={question.questionNumber}>
+                    <div className="line-1">
+                      <div
+                        className="button-groupe"
+                        style={{
+                          maxWidth: question.maxWidth,
+                        }}
+                        onMouseEnter={() => this.showQuestion(question)}
+                        onMouseLeave={() => this.hideQuestions(question)}>
+                        <ButtonPrimary name={{ __html: question.title }} />
+                        {question.arrowFollowing && (
+                          <div className="arrow-following" style={{ backgroundImage: `url(${arrowDown})` }} />
+                        )}
+                      </div>
+                      {question.selects &&
+                        question.selects
+                          .filter((q, i) => i < 2)
+                          .map((select, i) => (
+                            <SelectQCM
+                              key={select.selectNumber}
+                              options={select.choices}
+                              classProps={`select-QCM-type-2`}
+                              onChange={this.handleQCMAnswer}
+                              index={select.selectNumber}
+                              placeholder="?"
+                              answer={select.answer}
+                            />
+                          ))}
+                    </div>
+                    <div className="line-2">
+                      {question.selects &&
+                        question.selects
+                          .filter((q, i) => i >= 2)
+                          .map((select, i) => (
+                            <SelectQCM
+                              key={select.selectNumber}
+                              options={select.choices}
+                              classProps={`select-QCM-type-2`}
+                              onChange={this.handleQCMAnswer}
+                              index={select.selectNumber}
+                              placeholder="?"
+                              answer={select.answer}
+                            />
+                          ))}
+                    </div>
+                  </div>
+                );
+              }
             })}
           </div>
           {!noPopup && (

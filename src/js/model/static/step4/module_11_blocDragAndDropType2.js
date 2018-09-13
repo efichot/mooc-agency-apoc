@@ -59,7 +59,7 @@ const module_11_blocDragAndDropType2 = {
       pieData: [
         {
           name: 'obligataires',
-          value: 0,
+          value: 75,
           color: process.env.REACT_APP_OBLIGATION,
         },
         {
@@ -79,7 +79,7 @@ const module_11_blocDragAndDropType2 = {
         },
         {
           name: 'titres solidaires',
-          value: 75,
+          value: 0,
           color: process.env.REACT_APP_TITRESOLIDAIRE,
         },
       ],
@@ -222,12 +222,12 @@ const module_11_blocDragAndDropType2 = {
       pieData: [
         {
           name: 'obligataires',
-          value: 33,
+          value: 0,
           color: process.env.REACT_APP_OBLIGATION,
         },
         {
           name: 'monétaires',
-          value: 0,
+          value: 33,
           color: process.env.REACT_APP_MONETAIRE,
         },
         {

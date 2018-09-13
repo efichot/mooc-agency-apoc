@@ -34,6 +34,7 @@ class BlocDragAndDropType2 extends React.Component {
         id={dropCoordinatesAsString}
         key={dropCoordinatesAsString}
         endPosition={endPosition}
+        classProps={`grid-column-start-${startPosition + 1}`}
         reset={this.state.reset}
         startOrEnd={dropStartOrEnd}
         dragCard={this.handlePositionDragcard}>
@@ -213,14 +214,14 @@ class BlocDragAndDropType2 extends React.Component {
       dragCards,
     } = this.state;
 
-    const gridTemplateColumns = grid.columns.map(c => '1fr ').reduce((a, b) => `${a}${b}`); //FIXME
+    /*    const gridTemplateColumns = grid.columns.map(c => '1fr ').reduce((a, b) => `${a}${b}`); //FIXME
     // const gridTemplateRows = grid.rows.map(c => '1fr ').reduce((a, b) => `${a}${b}`);
     const gridTemplateRows = grid.templateRows;
 
     const gridTemplate = {
       gridTemplateColumns,
       gridTemplateRows,
-    };
+    };*/
 
     const cells = grid.rows.map((headerRow, row) => {
       return grid.columns.map((headerCol, col) => {
@@ -268,7 +269,7 @@ class BlocDragAndDropType2 extends React.Component {
         <span className="bloc__name">{title}</span>
         <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
         <div className="bloc-drag-and-drop-2__start game">
-          <div className="icon-draggable" />
+          <div className="icon-draggable grid-column-start-1" />
           {cards
             .filter(card => card.startPosition)
             .map((card, indexDrop) =>
@@ -278,7 +279,7 @@ class BlocDragAndDropType2 extends React.Component {
         <BlocSpacer height={20} />
         <span className="bloc-drag-and-drop-2__axis vertical">{verticalAxis}</span>
         <BlocSpacer height={20} />
-        <div className="bloc-drag-and-drop-2__grid" style={gridTemplate}>
+        <div className={`bloc-drag-and-drop-2__grid`}>
           {cells}
           {legend && (
             <ul
