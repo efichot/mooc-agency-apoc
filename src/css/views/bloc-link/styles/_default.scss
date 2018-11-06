@@ -19,7 +19,11 @@
     text-transform: uppercase;
 
     .bloc-link__link-name {
-      width: 300px;
+		width: 300px;
+		color: #00a1de;
+		font-weight: bold;
+		text-transform: capitalize;
+		font-size: 14px;
     }
 
     .bloc-link__link {

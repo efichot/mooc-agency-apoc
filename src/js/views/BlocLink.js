@@ -34,9 +34,8 @@ const BlocLink = ({
     if (linkName) {
       linkButton = (
         <div className="bloc-link__group-link">
-          {linkName && <span className="bloc-link__link-name">{linkName}</span>}
           <a className="bloc-link__link" href={link} target="_blank" rel="noopener noreferrer">
-            <ButtonPrimary minWidth name={buttonName} enableClick />
+            {linkName && <span className="bloc-link__link-name">{linkName}</span>}
           </a>
         </div>
       );
