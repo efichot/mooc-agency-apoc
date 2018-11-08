@@ -17,47 +17,50 @@ Pour cet exercice d’entraînement, vos réponses ne sont pas prises en compte 
     {
       questionNumber: 1,
       question: {
-        __html: `1 - Qu’est-ce qu’une action&nbsp;?`,
+        __html: `1 - Vous projetez de débloquer votre épargne dans l’année. Quelle attitude adopte&nbsp;?`,
       },
       answers: [
         {
-          content: 'Une fraction de capital',
+          content: 'Sécuriser votre épargne en arbitrant vers le fonds Amundi Trésorerie ESR',
           correctAnswer: true,
         },
         {
-          content: 'B - Une fraction de dette',
+          content: 'B -  Laisser votre épargne sur le fonds Amundi Label Actions Solidaire',
           correctAnswer: false,
         },
         {
-          content: 'C - Aucun des deux',
+          content:
+            'C - Diversifier votre épargne entre le fonds ADP Diversifié Prudent et le fonds ADP Diversifié Dynamique',
           correctAnswer: false,
         },
       ],
       explication: {
-        __html: `Toute action représente une part du capital d’une entreprise; c’est un titre de propriété et non une dette.`,
+        __html: `La répartition de votre épargne dépend de votre profil d’investisseur et de votre horizon de placement. Puisque vous avez besoin de liquidités à brève échéance, la sécurisation de votre épargne est préférable afin d’éviter d’avoir à vendre au plus mauvais moment, en cas de baisse brutale des marchés financiers. Mieux vaut donc investir dans un fonds de risque 1 comme Amundi Trésorerie ESR.`,
       },
     },
     {
       questionNumber: 2,
       question: {
-        __html: `2 - Qu’implique obligatoirement le titre action&nbsp;?`,
+        __html: `2 -  Vous souhaitez donner du sens à votre investissement financier en soutenant des acteurs qui ont une mission d’utilité sociale. Quel fonds choisir&nbsp;?`,
       },
       answers: [
         {
-          content: 'A -  Voter à l’Assemblée Générale des actionnaires',
+          content: 'A -    ADP Diversifié Prudent',
           correctAnswer: false,
         },
         {
-          content: 'B - Verser un dividende',
-          correctAnswer: false,
-        },
-        {
-          content: 'C - Aucune obligation',
+          content: 'B - Amundi Label Actions Solidaire ESR',
           correctAnswer: true,
+        },
+        {
+          content: 'C - Aucun des fonds proposés',
+          correctAnswer: false,
         },
       ],
       explication: {
-        __html: `Toute action est assortie d’un droit financier (le dividende) et d’un droit politique (le droit de vote), mais d’aucune obligation: l’actionnaire peut ne pas voter et l’Assemblée Générale des actionnaires peut décider que le dividende de l’année sera nul.`,
+        __html: `5 à 10% du fonds Amundi Label Actions Solidaire ESR sont investis dans les entreprises de l’économie sociale et solidaire dont l’objet principal est le soutien aux personnes fragilisées, la lutte contre les exclusions et les inégalités, l’éducation, le lien social, le développement durable, la transition énergétique ou la solidarité internationale (loi n°2014-856 du 31 juillet 2014).
+		Le solde, soit 90 à 95% du fonds, est investi en actions d’entreprises financièrement performantes mais aussi socialement responsables, c’est-à-dire respectueuses de l’environnement, des hommes et des règles de bonne gouvernance.
+		Le fait que le fonds soit essentiellement investi en actions explique que son risque soit de 5.`,
       },
     },
     {
@@ -67,181 +70,192 @@ Pour cet exercice d’entraînement, vos réponses ne sont pas prises en compte 
       },
       answers: [
         {
-          content: 'A - Une action qui vaut deux fois plus cher',
+          content: 'A -  Les perspectives de croissance du Groupe ADP sont irréalistes',
           correctAnswer: false,
         },
         {
-          content: 'B - Une action réservée à l’actionnaire majoritaire ',
-          correctAnswer: false,
-        },
-        {
-          content: 'C - Une action qui donne deux voix à l’Assemblée Générale',
+          content: 'B -  La performance du fonds ADP Actionnariat Salarié dépend d’un seul titre ',
           correctAnswer: true,
+        },
+        {
+          content: 'C - Les titres solidaires détenus par Amundi Label Actions Solidaire ESR réduisent le risque',
+          correctAnswer: false,
         },
       ],
       explication: {
-        __html: `L’action à droit de vote double donne à son détenteur un poids double dans les décisions votées en Assemblée Générale des actionnaires. Depuis la loi Florange du 29 mars 2014, ce droit est attribué d’office aux actionnaires des entreprises françaises cotées qui détiennent leurs actions depuis au moins deux ans, sauf si une décision contraire est adoptée par l’Assemblée Générale ou si les statuts prévoient déjà l’octroi de ce droit en faveur des actionnaires détenant leurs actions depuis une période déterminée.`,
+        __html: `Le fonds ADP Actionnariat Salarié est investi exclusivement en actions du Groupe ADP. Contrairement au fonds Amundi Label Actions Solidaire ESR dont les investissements sont répartis sur des actions de nombreuses entreprises, son risque est plus concentré. Cela ne signifie pas que ADP Actionnariat Salarié sera moins performant que Amundi Label Actions Solidaire ESR ; ce ne sera le cas que si la performance du Groupe ADP se révèle inférieure à celle des entreprises dont les titres sont détenus par Amundi Label Actions Solidaire ESR.
+		Quant aux titres solidaires détenus à hauteur de 5 à 10% par ce fonds, ils ne réduisent pas le risque car, étant non cotés, ils peuvent être difficiles à vendre. Ils ne bénéficient pas de la liquidité assurée par la multiplicité des investisseurs présents sur les marchés cotés.
+		`,
       },
     },
     {
       questionNumber: 4,
       question: {
-        __html: `4 - Quel statut a le détenteur d’une obligation vis-à-vis de l’émetteur&nbsp;?`,
+        __html: `4 - Vous souhaitez investir dans les titres de votre entreprise. Quelles raisons pourraient vous inciter à choisir le fonds ADP Obligations&nbsp;?`,
       },
       answers: [
         {
-          content: 'A - Celui de propriétaire',
+          content: 'A - Vous êtes déjà investi dans le fonds ADP Actionnariat Salarié',
           correctAnswer: false,
         },
         {
-          content: 'B - Celui de créancier',
+          content: 'B - Vous souhaitez une valorisation régulière de votre investissement',
+          correctAnswer: false,
+        },
+        {
+          content: 'C -  Les deux',
           correctAnswer: true,
-        },
-        {
-          content: 'C - Celui de prestataire',
-          correctAnswer: false,
         },
       ],
       explication: {
-        __html: `Toute obligation représente une part de dette émise par une entreprise, une entité du secteur public ou un État ; c’est donc un titre de créance et non un titre de propriété ou une prestation de service.`,
+        __html: `Le fonds ADP Obligations vous permet de diversifier vos investissements dans les titres de votre entreprise, mais contrairement au fonds ADP Actionnariat Salarié, il ne donne pas droit à l’abondement de votre entreprise.
+À travers ADP Actionnariat Salarié, vous êtes investi en actions cotées de votre entreprise et donc exposé aux fluctuations des marchés actions : en période de forte croissance des marchés, vous pouvez gagner beaucoup, mais en cas de retournement et si vous devez vendre, vous pouvez perdre autant.
+À travers ADP Obligations, vous êtes investi en obligations non cotées du Groupe ADP et votre épargne sera annuellement valorisée au minimum entre 0,47 et 1,42% en fonction de la part de titres monétaires dans le fonds (1 à 2 tiers selon les souscriptions), et dans l’hypothèse où le rendement du marché monétaire reste à son niveau bas actuel de -0,35% et où votre entreprise ne fait pas faillite.`,
       },
     },
     {
       questionNumber: 5,
       question: {
-        __html: `5 - Quelle(s) obligation(s) doit remplir l’émetteur d’une obligation&nbsp;?`,
+        __html: `5 - Vous pensez investir sur le marché obligataire grâce au fonds ADP Diversifié Prudent. Quel élément pourrait vous en dissuader&nbsp;?`,
       },
       answers: [
         {
-          content: 'A - Rémunérer son détenteur ',
-          correctAnswer: false,
+          content: 'A - Des anticipations de hausse brutale des taux d’intérêt ',
+          correctAnswer: true,
         },
         {
-          content: 'B - Rembourser son détenteur',
+          content: 'B -  Le fait que les obligations détenues dans ce fonds soient non cotées',
           correctAnswer: false,
         },
         {
           content: 'C - Les deux',
-          correctAnswer: true,
+          correctAnswer: false,
         },
       ],
       explication: {
-        __html: `L’obligation est un titre de créance assorti d’une double obligation de rémunérer en versant un revenu et de rembourser le nominal à l’échéance.`,
+        __html: `Le fonds ADP Diversifié Prudent est majoritairement investi en obligations cotées. Il est donc sensible aux mouvements des taux d’intérêt. Leur hausse brutale rendrait le rendement des obligations détenues par le fonds comparativement moins intéressant que celui des nouvelles obligations émises sur le marché. Cela provoquerait une baisse de la valeur des obligations détenues et donc de la valeur du fonds.
+ADP Diversifié Prudent est un fonds dédié aux salariés du Groupe ADP, mais ce n’est pas un fonds en titres de l’entreprise comme ADP Obligations qui, lui, est investi en obligations non cotées du Groupe ADP.
+`,
       },
     },
     {
       questionNumber: 6,
       question: {
-        __html: `6 - Qu’est-ce qu’une obligation à taux variable&nbsp;?`,
+        __html: `6 - Vous avez lu que les rendements du marché monétaire sont négatifs en 2017. Pourquoi les performances du fonds Amundi Trésorerie ESR le sont-elles beaucoup moins&nbsp;?`,
       },
       answers: [
         {
-          content: 'A - Une obligation dont le prix varie',
+          content: 'A - Le gérant ne respecte pas l’objectif du fonds',
           correctAnswer: false,
         },
         {
-          content: 'B - Une obligation dont le coupon varie',
+          content: 'B - Amundi Trésorerie ESR n’est pas un fonds monétaire',
           correctAnswer: true,
         },
         {
-          content: 'C - Une obligation dont l’échéance varie',
+          content: 'C - C’est impossible, il doit y avoir une erreur',
           correctAnswer: false,
         },
       ],
       explication: {
-        __html: `L’obligation à taux variable est un titre de créance dont la rémunération (ou coupon) matérialisée par  un taux d’intérêt varie le plus souvent par rapport à un taux d’emprunt d’État ou de marché obligataire. Comme toute obligation, elle a une échéance fixée à l’émission et peut s’échanger à un prix qui varie en fonction des taux du marché et du risque de l’émetteur.`,
+        __html: `Amundi Trésorerie ESR est un fonds obligataire dont l’objectif est de surperformer l’indice du marché monétaire, l’EONIA, tout en gardant un risque très faible (soit moins de 0,5% annualisé) par rapport à cet indice. Il peut donc investir dans des fonds monétaires mais aussi dans des fonds obligataires investis dans des obligations dont l’échéance est courte, offrant ainsi une forte visibilité et donc un risque faible. En 2017 le rendement un peu plus élevé de ces fonds obligataires a permis de compenser en partie la performance négative du marché monétaire sans pour autant modifier le risque de 1 du fonds et sa durée minimum de placement de 6 mois.`,
       },
     },
     {
       questionNumber: 7,
       question: {
-        __html: `7 - Qu’est-ce qui différencie une action d’une obligation&nbsp;?`,
+        __html: `7 - Au moment d’investir, vous hésitez entre le fonds ADP Diversifié Prudent et le fonds ADP Diversifié Dynamique qui ont la même durée minimum de placement recommandée mais des niveaux de risque respectifs de 3 et de 5. À partir de quels éléments décider&nbsp;?`,
       },
       answers: [
         {
-          content: 'A -  Une action n’a jamais d’échéance',
+          content: 'A -  Votre propension naturelle à prendre ou ne pas prendre de risque',
+          correctAnswer: false,
+        },
+        {
+          content: 'B - Votre propre horizon de placement',
+          correctAnswer: false,
+        },
+        {
+          content: 'C -  Les deux',
           correctAnswer: true,
-        },
-        {
-          content: 'B - Une obligation ne peut pas s’échanger',
-          correctAnswer: false,
-        },
-        {
-          content: 'C - Une action ne rémunère pas son détenteur',
-          correctAnswer: false,
         },
       ],
       explication: {
-        __html: `Toute action est un titre de propriété; elle peut être cédée à un autre investisseur, voire rachetée par son émetteur à un prix qui va dépendre de celui du marché, mais en aucun cas remboursée; elle n’a pas d’échéance mais donne droit à une rémunération, le dividende qui est fixé à l’Assemblée Générale Annuelle des actionnaires. À l’opposé l’obligation est un titre de créance assortie d’une échéance et d’une rémunération fixées à son émission; elle peut néanmoins être échangée entre investisseurs jusqu’à sa date de remboursement.`,
+        __html: `Si vous avez une durée maximale de placement de 5 ans, votre choix va dépendre de votre profil personnel et de la perte maximale potentielle que vous seriez prêt à assumer, sachant que ADP Diversifié Dynamique est en moyenne 3,5 fois plus exposé aux actifs risqués que sont les actions, que ADP Diversifié Prudent.
+Si votre horizon de placement est plus long, vous pouvez accroître en proportion votre exposition aux actions qui sont aussi les actifs les plus performants à long terme, en répartissant par exemple vos investissements entre ADP Diversifié Dynamique et ADP Diversifié Prudent.
+`,
       },
     },
     {
       questionNumber: 8,
       question: {
-        __html: `8 - Qu’est-ce qui différencie un titre monétaire -ou titre de créance négociable (TCN)- d’une obligation&nbsp;?`,
+        __html: `8 - Vous souhaitez investir 30% en produits de taux (monétaire et obligataire) et 70% en actions. Quelle proposition privilégier&nbsp;?`,
       },
       answers: [
         {
-          content: 'A -  Le TCN doit être remboursé à l’échéance',
+          content: 'A -  30% en Amundi Trésorerie ESR et 70% en ADP Diversifié Dynamique',
           correctAnswer: false,
         },
         {
-          content: 'B - L’obligation distribue un revenu',
+          content: 'B - 30% en ADP Diversifié Prudent et 70% en Amundi Label Actions Solidaire ESR',
           correctAnswer: false,
         },
         {
-          content: 'C - La durée du TCN se compte en mois, celle de l’obligation en années',
+          content: 'C - 100% en ADP Diversifié Dynamique',
           correctAnswer: true,
         },
       ],
       explication: {
-        __html: `TCN et obligation ont en commun la double obligation de rémunérer et de rembourser à l’échéance. Ce sont des titres de créance dont la seule différence est la durée: celle du TCN se compte en mois, celle de l’obligation en années.`,
+        __html: `ADP Diversifié Dynamique présente à lui seul la répartition souhaitée en moyenne entre les différents actifs. Y rajouter 30% en Amundi Trésorerie ESR reviendrait à investir au total 49% en produits de taux.
+ADP Diversifié Prudent est en moyenne investi à 20 % en monétaire, 60 % en obligations et  20 % en actions, et le fonds Amundi Label Actions Solidaire ESR entre 90 à 95% en actions et 5 à 10 % en titres solidaires. La répartition proposée ne permet donc pas de réaliser l’investissement souhaité.
+ 
+`,
       },
     },
     {
       questionNumber: 9,
       question: {
-        __html: `9 - Dans quel cas le Titre de créance négociable (TCN) et l’obligation ne sont pas remboursés&nbsp;?`,
+        __html: `9 - Vous souhaitez investir pour 5 ans maximum. Combien de fonds du dispositif d’ADP ne correspondent pas à cet horizon &nbsp;?`,
       },
       answers: [
         {
-          content: 'A - Résultat déficitaire de l’émetteur',
+          content: 'A - 5',
           correctAnswer: false,
         },
         {
-          content: 'B - Faillite de l’émetteur',
+          content: 'B - 1',
+          correctAnswer: false,
+        },
+        {
+          content: 'C - 0s',
           correctAnswer: true,
-        },
-        {
-          content: 'C - Aucun, TCN et obligation sont toujours remboursés',
-          correctAnswer: false,
         },
       ],
       explication: {
-        __html: `La faillite est le seul cas dans lequel l’émetteur de TCN ou d’obligations est dans l’incapacité d’honorer son obligation de remboursement. Un résultat déficitaire ne remet pas en cause le fonctionnement de l’entité vis-à-vis de ses créanciers; il peut par contre conduire l’Assemblée Générale des actionnaires à voter un dividende nul pour les détenteurs d’actions.`,
+        __html: `Tous les fonds proposés par le dispositif d’ADP sont compatibles avec une durée d’investissement de 5 ans maximum. Toutefois la durée de placement recommandée du fonds Amundi Trésorerie ESR est de 6 mois. En investissant dans ce fonds, vous ne prenez pas de risque mais vous ne faites pas non plus fructifier votre épargne. Dans ce contexte vous pourriez investir une partie de votre épargne dans d’autres fonds, quitte à la réinvestir dans Amundi Trésorerie ESR quand le moment de mobiliser cette épargne se rapprochera.`,
       },
     },
     {
       questionNumber: 10,
       question: {
-        __html: `10 - A quoi sert un produit dérivé&nbsp;?`,
+        __html: `10 - Vous avez lu que la reprise économique allait s’accélérer en zone euro dans un contexte global de croissance mondiale. Quel fonds du dispositif du dispositif d’ADP peut permettre de prendre en compte cette situatio&nbsp;?`,
       },
       answers: [
         {
-          content: 'A - Gérer les risques liés aux fluctuations de valeur de l’actif concerné',
+          content: 'A - ADP Diversifié Prudent',
           correctAnswer: false,
         },
         {
-          content: 'B - Prendre des  positions à l’achat ou à la vente avec une mise de fonds limitée',
-          correctAnswer: false,
-        },
-        {
-          content: 'C - Les deux',
+          content: 'B -  ADP Diversifié Dynamique',
           correctAnswer: true,
+        },
+        {
+          content: 'C -  ADP Obligations',
+          correctAnswer: false,
         },
       ],
       explication: {
-        __html: `Les produits dérivés ont une double fonction: celle de gérer les risques associés aux fluctuations de cours, de taux ou de prix de nombreux actifs, mais aussi celle de prendre des positions à l’achat ou à la vente avec une mise de fonds limitée.`,
+        __html: `ADP Diversifié Dynamique est le fonds le plus exposé (70% en moyenne) aux actions qui constituent l’actif le plus porteur dans les périodes où une accélération de la croissance est anticipée. Il est en outre investi, comme l’indique son indice de référence, pour une partie importante en zone euro (40% STOXX 50), mais aussi aux États-Unis (17% S&P500), au Japon (8% MSCI Japon) et sur les marchés émergents (5% MSCI Emerging Markets).`,
       },
     },
   ],
