@@ -25,7 +25,7 @@ const module_09_blocDragAndDropType1 = {
     },
   },
   dropCardTitleStyles: {
-    fontSize: '1rem',
+    fontSize: '0.85rem',
     marginTop: 7,
   },
   cards: [
