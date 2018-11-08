@@ -11,7 +11,7 @@ const module_02_blocSubmenu1 = {
     {
       position: 1,
       type: 'ButtonPrimary',
-      name: 'Fond Actions',
+      name: 'Fonds Actions',
       color: process.env.REACT_APP_ACTION,
       action: 'show_01',
     },
