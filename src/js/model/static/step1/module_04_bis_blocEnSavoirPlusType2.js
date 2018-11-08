@@ -40,7 +40,7 @@ const module_04_bis_blocEnSavoirPlusType2 = {
       arrowFollowing: false,
       cardTitle: 'Fonds Monétaire',
       cardContent: {
-        __html: `<div><span class='card-title'>FONDS MONÉTAIRE</span></br><span class='card-subtitle'>Cf. Glossaire</span></br></br>Pour être classifié « fonds monétaire » par l’AMF, il faut être constitué quasi exclusivement de titres monétaires. L’AMF classifie les fonds monétaires en fonction de la durée des titres qui les composent, ce qui ne permet de fait qu'une faible proportion d'obligations de durée courte, et bien sûr aucune action. L’AMF distingue le fonds monétaire court terme (durée maximale des titres détenus de 397 jours) et le fonds monétaire (durée maximale des titres détenus de 2 ans).</div>`,
+        __html: `<div><span class='card-title'>FONDS MONÉTAIRE</span></br><span class='card-subtitle'>Cf. Glossaire</span></br></br>Composé d’actions, d’obligations et de titres monétaires, il n’est ni un fonds actions, ni un fonds obligataire, ni un fonds monétaire, ni un fonds en titres de l’entreprise).</br>La classification « fonds diversifié » à laquelle il appartenait, a été supprimée par l’AMF à compter du 1ier janvier 2018.</div>`,
       },
       cardSubTitle: `cf. Glossaire`,
     },
@@ -62,7 +62,7 @@ const module_04_bis_blocEnSavoirPlusType2 = {
       arrowFollowing: false,
       cardTitle: 'Fonds de type mixte',
       cardContent: {
-        __html: `<div><span class='card-title'>FONDS DE TYPE MIXTE</span></br><span class='card-subtitle'>Cf. Glossaire</span></br></br>Composé d’actions, d’obligations et de titres monétaires, il n’est ni un fonds actions, ni un fonds obligataire, ni un fonds monétaire, ni un fonds en titres de l’entreprise).</br>La classification « fonds diversifié » à laquelle il appartenait, a été supprimée par l’AMF à compter du 1ier janvier 2018.</div>`,
+        __html: `<div><span class='card-title'>FONDS DE TYPE MIXTE</span></br><span class='card-subtitle'>Cf. Glossaire</span></br></br>Pour être classifié « fonds monétaire » par l’AMF, il faut être constitué quasi exclusivement de titres monétaires. L’AMF classifie les fonds monétaires en fonction de la durée des titres qui les composent, ce qui ne permet de fait qu'une faible proportion d'obligations de durée courte, et bien sûr aucune action. L’AMF distingue le fonds monétaire court terme (durée maximale des titres détenus de 397 jours) et le fonds monétaire (durée maximale des titres détenus de 2 ans).</div>`,
       },
       cardSubTitle: `cf. Glossaire`,
     },
