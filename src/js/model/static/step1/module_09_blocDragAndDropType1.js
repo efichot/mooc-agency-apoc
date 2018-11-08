@@ -9,7 +9,7 @@ const module_09_blocDragAndDropType1 = {
   modulType: moduleTypes.blocDragAndDrop1,
   /*linkWithBlocSubMenu1ButtonPosition: 1,*/
   firstDescription: {
-    __html: `Classez sur l’axe horizontal, «&nbsp;de moins à plus de risque&nbsp;», les fonds ci-dessous à l’aide du bouton  <div class="button-in-description" style="background-image: url(${button_finger})"></div> et en fonction de l’évolution plus ou moins régulière de leur performance, puis validez.`,
+    __html: `Comment repérer le risque d’un fonds ?</br>Classez sur l’axe horizontal, «&nbsp;de moins à plus de risque&nbsp;», les fonds ci-dessous à l’aide du bouton  <div class="button-in-description" style="background-image: url(${button_finger})"></div> et en fonction de l’évolution plus ou moins régulière de leur performance, puis validez.`,
   },
   noChapter: false,
   chapter: 'Échelle de risque',

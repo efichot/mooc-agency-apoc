@@ -101,8 +101,6 @@ class BlocEnSavoirPlusType2 extends React.Component {
         <span className="bloc__name">{title}</span>
         <BlocDescription modulType={modulType} classProps="bloc__first-description" description={firstDescription} />
         <div className="bloc-en-savoir-plus-type-2__cards game" style={{ height: 326 + 'px' }}>
-          {' '}
-          //modifDaivis
           <div className="bloc-en-savoir-plus-type-2__cards--to-hover">
             {cards.map((card, index) => {
               return (
