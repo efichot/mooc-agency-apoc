@@ -5,12 +5,8 @@ import Fade from '../transitions/Fade';
 class BlocStep extends React.Component {
   render() {
     return (
-      <Fade
-        in={this.props.in}
-        classProps={`bloc bloc-step`}
-        margins={this.props.margins}
-      >
-        <span className="step-title">Étape</span>
+      <Fade in={this.props.in} classProps={`bloc bloc-step`} margins={this.props.margins}>
+        <span className="step-title">Module</span>
         <span>{this.props.step}</span>
       </Fade>
     );
@@ -20,12 +16,12 @@ class BlocStep extends React.Component {
 BlocStep.propTypes = {
   in: PropTypes.bool,
   margins: PropTypes.bool,
-  step: PropTypes.number.isRequired
+  step: PropTypes.number.isRequired,
 };
 
 BlocStep.defaultProps = {
   in: true,
-  margins: true
+  margins: true,
 };
 
 export default BlocStep;
