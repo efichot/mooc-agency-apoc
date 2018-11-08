@@ -14,7 +14,7 @@ const module_11_blocSynthese = {
 -       pour placer de l’argent et choisir un fonds, il faut d’abord se poser trois questions : pour quel projet et quand aura-t-on besoin de cet argent ? quel montant est-on prêt à perdre pour gagner plus ?</br>
 	Retrouvez les liens des simulateurs et les fiches de synthèse de l'étape 1 sur les «&nbsp;Fonds&nbsp;» dans la bibliothèque.`,
   },
-  button_1: "Poursuivre vers le quiz de fin d'étape",
+  button_1: 'POURSUIVRE VERS LE QUIZ FINAL DU MODULE',
   button_2: 'Entrer sur le forum',
 };
 
