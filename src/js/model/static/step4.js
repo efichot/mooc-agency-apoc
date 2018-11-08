@@ -19,7 +19,7 @@ import module_12_blocQuiz from './step4/module_12_blocQuiz';
 
 const step4 = {
   linkStep: 4,
-  title: 'Fons de votre plan',
+  title: 'Fonds de votre plan',
   module_01: module_01_blocVideo,
   module_02: module_02_blocLink,
   module_03_01: module_03_01_blocLink,
