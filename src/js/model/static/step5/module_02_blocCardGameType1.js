@@ -8,7 +8,7 @@ const module_02_blocCardGameType1 = {
   modulType: moduleTypes.blocCardGameType1,
   firstDescription: {
     __html: `Ce jeu se déroule en deux temps à partir de cas réels: 
-    1. Découvrez ce que fait l'acteur dont vous tirez la casre;
+    1. Découvrez ce que fait l'acteur dont vous tirez la carte;
     2. Trouvez la carte « Besoins et Opérations » qui correspond au cas de cet acteur en faisant défiler les cartes grâce aux boutons  <div class="button-in-description left" style="background-image: url(${button_up_left})"></div><div class="button-in-description right" style="background-image: url(${button_down_right})"></div>.`,
   },
   /*noChapter: false,*/
