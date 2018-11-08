@@ -5,9 +5,9 @@ const module_11_blocDragAndDropType2 = {
   /*position: 6,*/
   modulType: moduleTypes.blocDragAndDrop2,
   firstDescription: {
-    __html: `Pour vous aider, les fonds proposés dans le PEG sont d’ores et déjà positionnés sur le schéma en fonction de leur risque et de leur durée de placement recommandée.
+    __html: `Glissez les cinq fonds ci-dessous, ADP ACTIONNARIAT SALARIÉ, ADP DIVERSIFIÉ DYNAMIQUE, ADP DIVERSIFIÉ PRUDENT, AMUNDI LABEL ACTIONS SOLIDAIRE ESR, à leur place sur le schéma RISQUE/DURÉE à l’aide de leurs DICI et/ou fiches de reporting.
 
-    fonction de leur risque et de leur durée de placement recommandée. Glissez à présent les fonds ci-dessous à leur place sur le schéma RISQUE/DURÉE à l’aide de leurs DICI et/ou fiches de reporting.`,
+	Un nouveau fonds, ADP OBLIGATIONS, vous est proposé depuis le 15 mars 2018. Il est constitué d’obligations non cotées émises par votre entreprise et de titres monétaires. Son risque principal est donc que le Groupe ADP fasse faillite et ne puisse pas rembourser ses obligations ; sa durée minimale de placement recommandée est de 5 ans.`,
   },
   /*noChapter: false,*/
   chapter: 'Schéma des fonds ',
