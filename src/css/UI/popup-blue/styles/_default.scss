@@ -1,8 +1,7 @@
 .popup-blue {
   @extend %flex-column-top-left;
   border-radius: 20px;
-  padding: 30px;
-  min-height: 75px;
+  padding: 20px;
   background: $popupBgColor;
   color: $popupContentColor;
   font-size: 0.95rem;
