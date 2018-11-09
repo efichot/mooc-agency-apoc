@@ -1,7 +1,7 @@
 .popup-blue {
   @extend %flex-column-top-left;
   border-radius: 20px;
-  padding: 30px;
+  padding: 60px;
   min-height: 75px;
   background: $popupBgColor;
   color: $popupContentColor;
@@ -21,7 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     cursor: pointer;
     pointer-events: initial;
   }
