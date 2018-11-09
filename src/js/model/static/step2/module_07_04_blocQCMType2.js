@@ -127,7 +127,9 @@ const module_07_04_blocQCMType2 = {
   ],
   synthese: {
     firstDescription: {
-      __html: `Le fonds monétaire est investi à hauteur de près de 75% en titres d'une durée (ou maturité) supérieure à 90 jours, tandis que le fonds monétaire court terme l’est à hauteur de près de 60% en titres d'une durée (ou maturité) inférieure à 90 jours (cf. répartition par maturité en page 2 de la fiche de reporting). La capacité du fonds monétaire à pouvoir en partie s’investir en titres obligataires lui permet de dégager une performance positive à un moment où le taux des titres monétaires est en territoire négatif (cf. indice de référence Eonia). Sa performance ne devient négative qu’à partir du dernier mois, alors que celles du fonds monétaire court terme et de l’indice le sont déjà depuis un an.`,
+      __html: `La capacité du fonds monétaire (B) à pouvoir en partie s’investir en titres obligataires lui permet de dégager une performance positive à un moment où le taux d’intérêt des titres monétaires est négatif (cf. indice de référence EONIA). Sa performance ne devient négative qu’à partir du dernier mois, alors que celles du fonds monétaire court terme (A) et de l’indice le sont déjà depuis un an.
+Le fonds monétaire (B) est investi à hauteur de près de 75% en titres d'une durée (ou maturité) supérieure à 90 jours, tandis que le fonds monétaire court terme (A) l’est à hauteur de près de 60% en titres d'une durée (ou maturité) inférieure à 90 jours (cf. répartition par maturité en page 2 de la fiche de reporting à télécharger ci-dessous).
+`,
     },
   },
 };
