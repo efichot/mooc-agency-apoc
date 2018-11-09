@@ -25,7 +25,7 @@ const module_07_04_blocQCMType2 = {
   questions: [
     {
       questionNumber: 1,
-      title: `Depuis quand la performance absolue est-elle négative pour...`,
+      title: `Depuis quand la performance absolue est-elle négative pour ?`,
       answer: 'no-question',
     },
     {
@@ -57,7 +57,7 @@ const module_07_04_blocQCMType2 = {
     },
     {
       questionNumber: 3,
-      title: `Le fonds monétaire (B)`,
+      title: `Le fonds monétaire (B)&nbsp;?`,
       choices: [
         {
           value: '1 mois',
@@ -111,7 +111,7 @@ const module_07_04_blocQCMType2 = {
     },
     {
       questionNumber: 5,
-      title: `Comment s’explique la différence de performance en faveur du fonds monétaire&nbsp;?`,
+      title: `Comment s’explique la différence de performance en faveur du fonds monétaire (B)&nbsp;?`,
       choices: [
         {
           value: "Par l'indice de référence",
