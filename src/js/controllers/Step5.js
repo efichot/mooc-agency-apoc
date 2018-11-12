@@ -3,18 +3,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+import { DataContext } from '../model/DataProvider';
 import Fade from '../transitions/Fade';
-import BlocStep from '../views/BlocStep';
-import BlocStepTopContent from '../views/BlocStepTopContent';
-import BlocCardGameType1 from '../views/BlocCardGameType1';
-import BlocCardGameType2 from '../views/BlocCardGameType2';
-import BlocCardGameType3 from '../views/BlocCardGameType3';
-import BlocCardGameType4 from '../views/BlocCardGameType4';
-import BlocDivider from '../views/BlocDivider';
-import BlocSpacer from '../views/BlocSpacer';
-import BlocQuiz from '../views/BlocQuiz';
-import ButtonPrimary from '../views/UI/ButtonPrimary';
+import BlocStep from '../components/BlocStep';
+import BlocStepTopContent from '../components/BlocStepTopContent';
+import BlocCardGameType1 from '../components/BlocCardGameType1';
+import BlocCardGameType2 from '../components/BlocCardGameType2';
+import BlocCardGameType3 from '../components/BlocCardGameType3';
+import BlocCardGameType4 from '../components/BlocCardGameType4';
+import BlocDivider from '../components/BlocDivider';
+import BlocSpacer from '../components/BlocSpacer';
+import BlocQuiz from '../components/BlocQuiz';
+import ButtonPrimary from '../components/UI/ButtonPrimary';
 import moduleTypes from '../model/static/moduleTypes';
 
 class Step5 extends React.Component {
@@ -62,7 +62,7 @@ class Step5 extends React.Component {
 
     return (
       <Fade classProps="step step5" in={isStep5}>
-        <GlobalInfosContext.Consumer>
+        <DataContext.Consumer>
           {context => {
             const step5 = context.state.step5;
             if (!showQuiz) {
@@ -123,7 +123,7 @@ class Step5 extends React.Component {
               );
             }
           }}
-        </GlobalInfosContext.Consumer>
+        </DataContext.Consumer>
       </Fade>
     );
   }

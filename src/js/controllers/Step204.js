@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import BlocQCMType2 from '../views/BlocQCMType2';
-import BlocLink from '../views/BlocLink';
-import BlocSpacer from '../views/BlocSpacer';
+import BlocQCMType2 from '../components/BlocQCMType2';
+import BlocLink from '../components/BlocLink';
+import BlocSpacer from '../components/BlocSpacer';
 import moduleTypes from '../model/static/moduleTypes';
 
 class Step2_04 extends React.Component {

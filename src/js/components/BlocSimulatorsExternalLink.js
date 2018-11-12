@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import BlocHeader from './BlocHeader';
 import BlocSpacer from './BlocSpacer';
 import BlocDescription from './BlocDescription';
-import ButtonPrimary from '../views/UI/ButtonPrimary';
+import ButtonPrimary from '../components/UI/ButtonPrimary';
 import Fade from '../transitions/Fade';
 
 class BlocSimulatorsExternalLink extends React.Component {

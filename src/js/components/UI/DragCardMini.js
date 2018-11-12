@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CardContentType1 from './CardContentType1';
-import CardContentType3 from './CardContentType3';
-// import CardContentType2 from './CardContentType2';
+import CardContentType2 from './CardContentType2';
 import _ from 'lodash';
-// import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+// import { DataContext } from '../model/DataProvider';
 
 class DragCard extends React.Component {
   state = {
@@ -22,8 +20,7 @@ class DragCard extends React.Component {
   }, 200);
 
   handleDragStart = e => {
-    const { content: { cardTitle, cardSubTitle, type, column }, endPosition, startPosition } = this.props;
-    const dataToTransfer = `${cardTitle}+++${cardSubTitle}+++${endPosition}+++${type}+++${column}+++${startPosition}`;
+    const dataToTransfer = `${this.props.content.name}`;
     e.dataTransfer.setData('text', dataToTransfer);
     e.dataTransfer.effectAllowed = 'copy';
     // e.dataTransfer.dropEffect = 'copy';
@@ -40,21 +37,19 @@ class DragCard extends React.Component {
   };
 
   render() {
-    const { color, type, content, id, styleProps, classProps } = this.props;
-
+    const { type, content, id, styleProps } = this.props;
     return (
       <div
-        className={`drag-card ${classProps} ${content.isDraggable ? 'is-draggable' : ''}`}
+        className={`drag-card ${content.isDraggable ? 'is-draggable' : ''}`}
         draggable={`${content.isDraggable}`}
         id={id}
+        style={{ ...styleProps }}
         onDragStart={this.handleDragStart}
         onDragEnd={this.handleDragEnd}
-        onDrag={this.handleDrag}
-        style={{
-          ...styleProps,
-        }}>
-        {type === 'bloc-drag-and-drop-1' && <CardContentType1 {...content} bgColor={color} />}
-        {type === 'bloc-card-game-type-4' && <CardContentType3 {...content} bgColor={color} />}
+        onDrag={this.handleDrag}>
+        {type === 'bloc-drag-and-drop-2' && (
+          <CardContentType2 name={content.name} pieData={content.pieData} background={content.background} />
+        )}
       </div>
     );
   }
@@ -64,7 +59,11 @@ DragCard.propTypes = {
   id: PropTypes.string.isRequired,
   content: PropTypes.object.isRequired,
   type: PropTypes.string.isRequired,
-  endPosition: PropTypes.number,
+  startPosition: PropTypes.number.isRequired,
+  endPosition: PropTypes.shape({
+    row: PropTypes.number.isRequired,
+    column: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 DragCard.defaultProps = {

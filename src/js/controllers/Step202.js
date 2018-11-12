@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import BlocVideo from '../views/BlocVideo';
-import BlocLink from '../views/BlocLink';
-import BlocText from '../views/BlocText';
-import BlocQCMType3 from '../views/BlocQCMType3';
-import BlocDivider from '../views/BlocDivider';
+import BlocVideo from '../components/BlocVideo';
+import BlocLink from '../components/BlocLink';
+import BlocText from '../components/BlocText';
+import BlocQCMType3 from '../components/BlocQCMType3';
+import BlocDivider from '../components/BlocDivider';
 import moduleTypes from '../model/static/moduleTypes';
 
 class Step2_02 extends React.Component {

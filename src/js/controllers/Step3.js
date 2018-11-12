@@ -4,18 +4,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+import { DataContext } from '../model/DataProvider';
 import Fade from '../transitions/Fade';
-import BlocStep from '../views/BlocStep';
-import BlocStepTopContent from '../views/BlocStepTopContent';
-import BlocTextToFill from '../views/BlocTextToFill';
-import BlocText from '../views/BlocText';
-import BlocLink from '../views/BlocLink';
-import BlocQuiz from '../views/BlocQuiz';
-import BlocDivider from '../views/BlocDivider';
-import BlocSpacer from '../views/BlocSpacer';
-import BlocSubMenu1 from '../views/BlocSubMenu1';
-import ButtonPrimary from '../views/UI/ButtonPrimary';
+import BlocStep from '../components/BlocStep';
+import BlocStepTopContent from '../components/BlocStepTopContent';
+import BlocTextToFill from '../components/BlocTextToFill';
+import BlocText from '../components/BlocText';
+import BlocLink from '../components/BlocLink';
+import BlocQuiz from '../components/BlocQuiz';
+import BlocDivider from '../components/BlocDivider';
+import BlocSpacer from '../components/BlocSpacer';
+import BlocSubMenu1 from '../components/BlocSubMenu1';
+import ButtonPrimary from '../components/UI/ButtonPrimary';
 
 class Step3 extends React.Component {
   state = {
@@ -77,7 +77,7 @@ class Step3 extends React.Component {
 
     return (
       <Fade classProps="step step3" in={isStep3}>
-        <GlobalInfosContext.Consumer>
+        <DataContext.Consumer>
           {context => {
             const step3 = context.state.step3;
             if (!showQuiz) {
@@ -160,7 +160,7 @@ class Step3 extends React.Component {
               );
             }
           }}
-        </GlobalInfosContext.Consumer>
+        </DataContext.Consumer>
       </Fade>
     );
   }

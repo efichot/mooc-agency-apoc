@@ -5,7 +5,7 @@ import ButtonCircle from './ButtonCircle';
 
 class HamburgerMenu extends React.Component {
   state = {
-    active: false
+    active: false,
   };
 
   handleClick = e => {
@@ -15,10 +15,7 @@ class HamburgerMenu extends React.Component {
 
   render() {
     return (
-      <ButtonCircle
-        classProps="hamburger-menu-container"
-        onClick={this.handleClick}
-      >
+      <ButtonCircle classProps="hamburger-menu-container" onClick={this.handleClick}>
         <div className={`hamburger-menu${this.state.active ? ' active' : ''}`}>
           <span className="span" />
           <span className="span" />
@@ -31,7 +28,7 @@ class HamburgerMenu extends React.Component {
 }
 
 HamburgerMenu.propTypes = {
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 HamburgerMenu.defaultProps = {};

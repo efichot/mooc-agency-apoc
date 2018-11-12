@@ -3,21 +3,21 @@
 import React from 'react';
 /*import PropTypes from 'prop-types';*/
 
-import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
-import BlocStepTopContent from '../views/BlocStepTopContent';
+import { DataContext } from '../model/DataProvider';
+import BlocStepTopContent from '../components/BlocStepTopContent';
 import Fade from '../transitions/Fade';
 
 class Step2 extends React.Component {
   state = {
     showNextModule: 0,
     showSynthese: false,
-    showQuiz: false
+    showQuiz: false,
   };
 
   render() {
     return (
       <Fade classProps="step step2" in>
-        <GlobalInfosContext.Consumer>
+        <DataContext.Consumer>
           {context => {
             const step2 = context.state.step2;
             if (!showQuiz) {
@@ -35,7 +35,7 @@ class Step2 extends React.Component {
               );
             }
           }}
-        </GlobalInfosContext.Consumer>
+        </DataContext.Consumer>
       </Fade>
     );
   }

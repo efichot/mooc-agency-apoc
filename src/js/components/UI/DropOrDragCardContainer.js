@@ -7,12 +7,7 @@ class DropOrDragCardContainer extends React.Component {
   state = {};
 
   render() {
-    const {
-      dragStartOrEnd,
-      dragPosition,
-      connectDropTarget,
-      isOver
-    } = this.props;
+    const { dragStartOrEnd, dragPosition, connectDropTarget, isOver } = this.props;
 
     return (
       <div className="drop-card__container">
@@ -26,7 +21,7 @@ DropOrDragCardContainer.propTypes = {
   dragStartOrEnd: PropTypes.number.isRequired,
   dragPosition: PropTypes.number.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
-  isOver: PropTypes.bool.isRequired
+  isOver: PropTypes.bool.isRequired,
 };
 
 DropOrDragCardContainer.defaultProps = {};

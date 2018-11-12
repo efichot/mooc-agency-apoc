@@ -21,11 +21,11 @@ class ButtonCircle extends React.Component {
 
 ButtonCircle.propTypes = {
   classProps: PropTypes.string,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 ButtonCircle.defaultProps = {
-  classProps: ''
+  classProps: '',
 };
 
 export default ButtonCircle;

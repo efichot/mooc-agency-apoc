@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+import { DataContext } from '../model/DataProvider';
 
 class UserGameInfos extends React.Component {
   state = {};
@@ -11,7 +11,7 @@ class UserGameInfos extends React.Component {
 
     return (
       <div className={`${classProps}__user-game-infos user-game-infos`}>
-        <GlobalInfosContext.Consumer>
+        <DataContext.Consumer>
           {context => (
             <React.Fragment>
               {big && <div className="white-div" />}
@@ -53,7 +53,7 @@ class UserGameInfos extends React.Component {
               )}
             </React.Fragment>
           )}
-        </GlobalInfosContext.Consumer>
+        </DataContext.Consumer>
       </div>
     );
   }

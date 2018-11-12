@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import PopupBlue from './UI/PopupBlue';
 import ButtonPrimary from './UI/ButtonPrimary';
-import BlocHeader from '../views/BlocHeader';
+import BlocHeader from '../components/BlocHeader';
 import BlocDescription from './BlocDescription';
 import Fade from '../transitions/Fade';
 import victoryMessages from '../model/static/popupBlueMessages';

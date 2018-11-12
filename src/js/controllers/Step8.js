@@ -3,19 +3,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
-import BlocStepTopContent from '../views/BlocStepTopContent';
+import { DataContext } from '../model/DataProvider';
+import BlocStepTopContent from '../components/BlocStepTopContent';
 import Fade from '../transitions/Fade';
-import BlocStep from '../views/BlocStep';
-import ButtonPrimary from '../views/UI/ButtonPrimary';
-import BlocSpacer from '../views/BlocSpacer';
-import BlocQuiz from '../views/BlocQuiz';
-import BlocSubMenu2 from '../views/BlocSubMenu2';
-import BlocDescription from '../views/BlocDescription';
-import BlocEnSavoirPlusType3 from '../views/BlocEnSavoirPlusType3';
-import BlocEnSavoirPlusType3QCMType1 from '../views/BlocEnSavoirPlusType3QCMType1';
-import BlocEnSavoirPlusType1 from '../views/BlocEnSavoirPlusType1';
-import BlocDivider from '../views/BlocDivider';
+import BlocStep from '../components/BlocStep';
+import ButtonPrimary from '../components/UI/ButtonPrimary';
+import BlocSpacer from '../components/BlocSpacer';
+import BlocQuiz from '../components/BlocQuiz';
+import BlocSubMenu2 from '../components/BlocSubMenu2';
+import BlocDescription from '../components/BlocDescription';
+import BlocEnSavoirPlusType3 from '../components/BlocEnSavoirPlusType3';
+import BlocEnSavoirPlusType3QCMType1 from '../components/BlocEnSavoirPlusType3QCMType1';
+import BlocEnSavoirPlusType1 from '../components/BlocEnSavoirPlusType1';
+import BlocDivider from '../components/BlocDivider';
 
 class Step8 extends React.Component {
   state = {
@@ -60,7 +60,7 @@ class Step8 extends React.Component {
 
     return (
       <Fade classProps="step step8" in={isStep8}>
-        <GlobalInfosContext.Consumer>
+        <DataContext.Consumer>
           {context => {
             const step8 = context.state.step8;
             if (!showQuiz) {
@@ -167,7 +167,7 @@ class Step8 extends React.Component {
               );
             }
           }}
-        </GlobalInfosContext.Consumer>
+        </DataContext.Consumer>
       </Fade>
     );
   }

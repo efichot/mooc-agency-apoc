@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import UserGameInfos from '../views/UserGameInfos';
-import ChapterPresentation from '../views/ChapterPresentation';
-import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+import UserGameInfos from '../components/UserGameInfos';
+import ChapterPresentation from '../components/ChapterPresentation';
+import { DataContext } from '../model/DataProvider';
 import Fade from '../transitions/Fade';
 
 class Introduction extends React.Component {
@@ -30,7 +30,7 @@ class Introduction extends React.Component {
           </div>
         </div>
 
-        <GlobalInfosContext.Consumer>
+        <DataContext.Consumer>
           {context => {
             return (
               <React.Fragment>
@@ -67,7 +67,7 @@ class Introduction extends React.Component {
               </React.Fragment>
             );
           }}
-        </GlobalInfosContext.Consumer>
+        </DataContext.Consumer>
       </Fade>
     );
   }

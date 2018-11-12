@@ -2,20 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+import { DataContext } from '../model/DataProvider';
 import Fade from '../transitions/Fade';
-import BlocStep from '../views/BlocStep';
-import BlocStepTopContent from '../views/BlocStepTopContent';
-import BlocVideo from '../views/BlocVideo';
-import BlocDivider from '../views/BlocDivider';
-import BlocSpacer from '../views/BlocSpacer';
-import BlocSubMenu1 from '../views/BlocSubMenu1';
+import BlocStep from '../components/BlocStep';
+import BlocStepTopContent from '../components/BlocStepTopContent';
+import BlocVideo from '../components/BlocVideo';
+import BlocDivider from '../components/BlocDivider';
+import BlocSpacer from '../components/BlocSpacer';
+import BlocSubMenu1 from '../components/BlocSubMenu1';
 import Step703 from './Step703';
 import Step701 from './Step701';
 import Step702 from './Step702';
-import ButtonPrimary from '../views/UI/ButtonPrimary';
-import BlocDescription from '../views/BlocDescription';
-import BlocQuiz from '../views/BlocQuiz';
+import ButtonPrimary from '../components/UI/ButtonPrimary';
+import BlocDescription from '../components/BlocDescription';
+import BlocQuiz from '../components/BlocQuiz';
 import { scrollIntoView as scrollItemIntoView } from '../transitions/transitionUtils';
 
 class Step7 extends React.Component {
@@ -62,7 +62,7 @@ class Step7 extends React.Component {
 
     return (
       <Fade classProps="step step7" in={isStep7}>
-        <GlobalInfosContext.Consumer>
+        <DataContext.Consumer>
           {context => {
             const step7 = context.state.step7;
             if (!showQuiz) {
@@ -135,7 +135,7 @@ class Step7 extends React.Component {
               );
             }
           }}
-        </GlobalInfosContext.Consumer>
+        </DataContext.Consumer>
       </Fade>
     );
   }

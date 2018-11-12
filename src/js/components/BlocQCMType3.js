@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import BlocHeader from '../views/BlocHeader';
+import BlocHeader from '../components/BlocHeader';
 import BlocDescription from './BlocDescription';
 import BlocSpacer from './BlocSpacer';
 import ButtonPrimary from './UI/ButtonPrimary';
@@ -59,11 +59,16 @@ class BlocQCMType3 extends React.Component {
     });
   };
 
-  handleQCMAnswer = (selectNumber, answer, correctAnswer) => {
+  handleQCMAnswer = (selectNumber, answer) => {
     this.setState({ victoryMessage: undefined, gameIsFinished: undefined });
-    const answers = { ...this.state.answers };
-    answers[selectNumber] = answer;
-    this.setState({ answers });
+    this.setState(({ answers }) => ({
+      victoryMessage: undefined,
+      gameIsFinished: undefined,
+      answers: {
+        ...answers,
+        [selectNumber]: answer,
+      },
+    }));
   };
 
   handleHideExplanation = () => {
@@ -80,20 +85,32 @@ class BlocQCMType3 extends React.Component {
       victoryMessage: undefined,
     });
   };
+
   handleValidate = async e => {
     let correct = true;
-    const noAnswer = Object.keys(this.state.answers).length <= 0;
-    const answers = JSON.stringify(
-      Object.keys()
-        .map(key => this.state.answers[key])
-        .sort(),
-    );
-    const correctAnswers = JSON.stringify(
-      Object.keys()
-        .map(key => this.state.correctAnswers[key])
-        .sort(),
-    );
-    if (answers !== correctAnswers || noAnswer) {
+    const notEnoughAnswer = Object.keys(this.state.answers).length < Object.keys(this.state.correctAnswers).length;
+    if (notEnoughAnswer) {
+      this.setState({ victoryMessage: victoryMessages.textNotFilled });
+      return;
+    }
+
+    //Target: compare answers and correct answers
+    const answers = this.props.questions.map(q => []); // build an array of arrays, where we will fill the answers
+    Object.keys(this.state.answers).forEach(key => {
+      const index = parseInt(key[0], 10) - 1;
+      answers[index].push(this.state.answers[key]); //get the array of answer needed (array 2 for question 2, etc.) and push the answer
+      answers[index].sort(); // sort the answer, so that we can compare answers and correct answers
+    });
+
+    // same for correct answers
+    const correctAnswers = this.props.questions.map(q => []);
+    Object.keys(this.state.correctAnswers).forEach(key => {
+      const index = parseInt(key[0], 10) - 1;
+      correctAnswers[index].push(this.state.correctAnswers[key]);
+      correctAnswers[index].sort();
+    });
+
+    if (JSON.stringify(answers) !== JSON.stringify(correctAnswers)) {
       correct = false;
     }
     // this.setState({ hideExplanation: false });
@@ -129,7 +146,6 @@ class BlocQCMType3 extends React.Component {
     } = this.props;
 
     const { hideQuestion, showQuestion, gameIsFinished, victoryMessage, hideExplanation } = this.state;
-
     return (
       <Fade
         in={this.props.in}
@@ -145,8 +161,8 @@ class BlocQCMType3 extends React.Component {
             style={{
               height: `${questions.length * lineHeight}px`,
             }}>
-            {questions.map((question, index) => {
-              if (questions.selects && question.selects.length <= 3) {
+            {questions.map(question => {
+              if (question.selects && question.selects.length <= 3) {
                 return (
                   <div
                     className={`bloc-QCM-type-3__questions--to-hover--question ${classSelect}`}

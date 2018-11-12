@@ -19,13 +19,13 @@ class BlocDivider extends React.Component {
 BlocDivider.propTypes = {
   in: PropTypes.bool,
   noMarginTop: PropTypes.bool,
-  noMarginBottom: PropTypes.bool
+  noMarginBottom: PropTypes.bool,
 };
 
 BlocDivider.defaultProps = {
   in: false,
   noMarginTop: false,
-  noMarginBottom: false
+  noMarginBottom: false,
 };
 
 export default BlocDivider;

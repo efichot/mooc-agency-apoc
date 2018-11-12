@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/*import BlocDivider from '../views/BlocDivider';*/
-import BlocLink from '../views/BlocLink';
-import BlocQCMType2 from '../views/BlocQCMType2';
-import BlocQCMType3 from '../views/BlocQCMType3';
+/*import BlocDivider from '../components/BlocDivider';*/
+import BlocLink from '../components/BlocLink';
+import BlocQCMType2 from '../components/BlocQCMType2';
+import BlocQCMType3 from '../components/BlocQCMType3';
 import moduleTypes from '../model/static/moduleTypes';
 
 class Step2_03 extends React.Component {

@@ -4,21 +4,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+import { DataContext } from '../model/DataProvider';
 import Fade from '../transitions/Fade';
-import BlocStep from '../views/BlocStep';
-import BlocVideo from '../views/BlocVideo';
-import BlocStepTopContent from '../views/BlocStepTopContent';
-import BlocQuiz from '../views/BlocQuiz';
-import BlocDivider from '../views/BlocDivider';
-import BlocSpacer from '../views/BlocSpacer';
-import BlocSubMenu1 from '../views/BlocSubMenu1';
-import BlocCardsType1 from '../views/BlocCardsType1';
-import BlocQCMType4 from '../views/BlocQCMType4';
-import BlocEnSavoirPlusType3 from '../views/BlocEnSavoirPlusType3';
-import BlocEnSavoirPlusType1 from '../views/BlocEnSavoirPlusType1';
-import BlocDescription from '../views/BlocDescription';
-import ButtonPrimary from '../views/UI/ButtonPrimary';
+import BlocStep from '../components/BlocStep';
+import BlocVideo from '../components/BlocVideo';
+import BlocStepTopContent from '../components/BlocStepTopContent';
+import BlocQuiz from '../components/BlocQuiz';
+import BlocDivider from '../components/BlocDivider';
+import BlocSpacer from '../components/BlocSpacer';
+import BlocSubMenu1 from '../components/BlocSubMenu1';
+import BlocCardsType1 from '../components/BlocCardsType1';
+import BlocQCMType4 from '../components/BlocQCMType4';
+import BlocEnSavoirPlusType3 from '../components/BlocEnSavoirPlusType3';
+import BlocEnSavoirPlusType1 from '../components/BlocEnSavoirPlusType1';
+import BlocDescription from '../components/BlocDescription';
+import ButtonPrimary from '../components/UI/ButtonPrimary';
 import moduleTypes from '../model/static/moduleTypes';
 
 class Step6 extends React.Component {
@@ -118,7 +118,7 @@ class Step6 extends React.Component {
 
     return (
       <Fade classProps="step step6" in={isStep6}>
-        <GlobalInfosContext.Consumer>
+        <DataContext.Consumer>
           {context => {
             const step6 = context.state.step6;
             if (!showQuiz) {
@@ -258,7 +258,7 @@ class Step6 extends React.Component {
               );
             }
           }}
-        </GlobalInfosContext.Consumer>
+        </DataContext.Consumer>
       </Fade>
     );
   }

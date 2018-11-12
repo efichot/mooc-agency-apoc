@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import BlocTitle from '../views/BlocTitle';
-import BlocVideo from '../views/BlocVideo';
+import BlocTitle from '../components/BlocTitle';
+import BlocVideo from '../components/BlocVideo';
 import Fade from '../transitions/Fade';
 
 class BlocStepTopContent extends React.Component {
@@ -14,8 +14,7 @@ class BlocStepTopContent extends React.Component {
         classProps="bloc-step-top-content"
         in={this.props.in}
         scrollIntoView={scrollIntoView}
-        margins={this.props.margins}
-      >
+        margins={this.props.margins}>
         {!videoInIframe && <BlocTitle title={step.title} margins />}
         {!videoInIframe && <BlocVideo in {...step.module_01} />}
       </Fade>
@@ -27,13 +26,13 @@ BlocStepTopContent.propTypes = {
   in: PropTypes.bool,
   scrollIntoView: PropTypes.bool,
   step: PropTypes.object.isRequired,
-  videoInIframe: PropTypes.bool
+  videoInIframe: PropTypes.bool,
 };
 
 BlocStepTopContent.defaultProps = {
   in: false,
   scrollIntoView: false,
-  videoInIframe: false
+  videoInIframe: false,
 };
 
 export default BlocStepTopContent;

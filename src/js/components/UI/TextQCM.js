@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 
 class TextQCM extends React.Component {
   state = {
-    choice: undefined
+    choice: undefined,
   };
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.reset) {
       return {
         ...prevState,
-        choice: undefined
+        choice: undefined,
       };
     } else if (nextProps.showAnswers) {
       return {
         ...prevState,
-        choice: nextProps.answer
+        choice: nextProps.answer,
       };
     }
     return prevState;
@@ -27,20 +27,11 @@ class TextQCM extends React.Component {
   };
 
   render() {
-    const {
-      choices,
-      checkValidated,
-      answer,
-      highlightUnchecked,
-      gameIsFinished
-    } = this.props;
+    const { choices, checkValidated, answer, highlightUnchecked, gameIsFinished } = this.props;
 
-    const correct =
-      (checkValidated || gameIsFinished) && answer === this.state.choice;
-    const validateClass =
-      checkValidated || gameIsFinished ? (correct ? ' good' : ' bad') : '';
-    const highlightClass =
-      highlightUnchecked && !this.state.choice ? ' to-check' : '';
+    const correct = (checkValidated || gameIsFinished) && answer === this.state.choice;
+    const validateClass = checkValidated || gameIsFinished ? (correct ? ' good' : ' bad') : '';
+    const highlightClass = highlightUnchecked && !this.state.choice ? ' to-check' : '';
 
     return (
       <React.Fragment>
@@ -49,12 +40,7 @@ class TextQCM extends React.Component {
           const checkedClass = checked ? ' checked' : '';
           const classes = `${checkedClass}${validateClass}${highlightClass}`;
           return (
-            <span
-              key={choice}
-              className="text-to-select"
-              onClick={this.handleClick}
-              data-value={choice}
-            >
+            <span key={choice} className="text-to-select" onClick={this.handleClick} data-value={choice}>
               <div className={`checkbox ${classes}`} data-value={choice} />
               {choice}
             </span>
@@ -73,12 +59,12 @@ TextQCM.propTypes = {
   onClick: PropTypes.func,
   reset: PropTypes.bool.isRequired,
   showAnswers: PropTypes.bool.isRequired,
-  checkValidated: PropTypes.bool.isRequired
+  checkValidated: PropTypes.bool.isRequired,
 };
 
 TextQCM.defaultProps = {
   onClick: undefined,
-  checkAnswer: false
+  checkAnswer: false,
 };
 
 export default TextQCM;

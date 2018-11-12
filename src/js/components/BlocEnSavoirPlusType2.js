@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import BlocHeader from '../views/BlocHeader';
-import BlocSpacer from '../views/BlocSpacer';
+import BlocHeader from '../components/BlocHeader';
+import BlocSpacer from '../components/BlocSpacer';
 import BlocDescription from './BlocDescription';
 import ButtonPrimary from './UI/ButtonPrimary';
 import PopupBlue from './UI/PopupBlue';

@@ -8,15 +8,10 @@ class PopupBlueInnerHtml extends React.Component {
     const { description, classProps, hidePopup, noCross } = this.props;
 
     if (description.__html) {
-      description.__html = description.__html
-        .replace(/\r\n/g, '<br />')
-        .replace(/[\r\n]/g, '<br />');
+      description.__html = description.__html.replace(/\r\n/g, '<br />').replace(/[\r\n]/g, '<br />');
 
       return (
-        <div
-          className={`${classProps} popup-blue`}
-          style={{ opacity: hidePopup ? 0 : 1 }}
-        >
+        <div className={`${classProps} popup-blue`} style={{ opacity: hidePopup ? 0 : 1 }}>
           {!noCross && (
             <span className="cross" onClick={() => this.props.onCloseClick()}>
               X
@@ -27,10 +22,7 @@ class PopupBlueInnerHtml extends React.Component {
       );
     } else {
       return (
-        <div
-          className={`${classProps} popup-blue`}
-          style={{ opacity: hidePopup ? 0 : 1 }}
-        >
+        <div className={`${classProps} popup-blue`} style={{ opacity: hidePopup ? 0 : 1 }}>
           {description.replace(/\r\n/g, '<br />').replace(/[\r\n]/g, '<br />')}
         </div>
       );
@@ -42,13 +34,13 @@ PopupBlueInnerHtml.propTypes = {
   hidePopup: PropTypes.bool,
   noCross: PropTypes.bool,
   classProps: PropTypes.string,
-  description: PropTypes.object.isRequired
+  description: PropTypes.object.isRequired,
 };
 
 PopupBlueInnerHtml.defaultProps = {
   hidePopup: false,
   noCross: false,
-  classProps: ''
+  classProps: '',
 };
 
 export default PopupBlueInnerHtml;

@@ -2,7 +2,7 @@ import React from 'react';
 /*import PropTypes from 'prop-types';*/
 import { Link } from 'react-router-dom';
 
-import { GlobalInfosContext } from '../model/react-context/GlobalInfosProvider';
+import { DataContext } from '../model/DataProvider';
 
 class Header extends React.Component {
   state = {};
@@ -10,7 +10,7 @@ class Header extends React.Component {
   render() {
     return (
       <div className="header">
-        <GlobalInfosContext.Consumer>
+        <DataContext.Consumer>
           {context => (
             <React.Fragment>
               <div className="header__top">
@@ -39,7 +39,7 @@ class Header extends React.Component {
               </div>
             </React.Fragment>
           )}
-        </GlobalInfosContext.Consumer>
+        </DataContext.Consumer>
       </div>
     );
   }

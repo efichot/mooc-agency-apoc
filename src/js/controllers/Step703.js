@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BlocDescription from '../views/BlocDescription';
-import BlocEnSavoirPlusType1 from '../views/BlocEnSavoirPlusType1';
-import BlocQCMType1 from '../views/BlocQCMType1';
-import BlocVideo from '../views/BlocVideo';
-import BlocDivider from '../views/BlocDivider';
+import BlocDescription from '../components/BlocDescription';
+import BlocEnSavoirPlusType1 from '../components/BlocEnSavoirPlusType1';
+import BlocQCMType1 from '../components/BlocQCMType1';
+import BlocVideo from '../components/BlocVideo';
+import BlocDivider from '../components/BlocDivider';
 import Fade from '../transitions/Fade';
 import moduleTypes from '../model/static/moduleTypes';
 

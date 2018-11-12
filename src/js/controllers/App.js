@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import { GlobalInfosProvider } from '../model/react-context/GlobalInfosProvider';
-import Header from '../views/Header';
-import MenuMobile from '../views/MenuMobile';
-import MenuStepNavigation from '../views/MenuStepNavigation';
-import MenuTop from '../views/MenuTop';
+import { DataProvider } from '../model/DataProvider';
+import Header from '../components/Header';
+import MenuMobile from '../components/MenuMobile';
+import MenuStepNavigation from '../components/MenuStepNavigation';
+import MenuTop from '../components/MenuTop';
 import Introduction from './Introduction';
 import Step1 from './Step1';
 import Step2 from './Step2';
@@ -41,7 +41,7 @@ class App extends React.Component {
     const { isIntro, showPart1 } = this.state;
 
     return (
-      <GlobalInfosProvider>
+      <DataProvider>
         <Helmet>
           <title>APOC Serious Game</title>
         </Helmet>
@@ -71,7 +71,7 @@ class App extends React.Component {
             </div>
           </Fade>
         </BrowserRouter>
-      </GlobalInfosProvider>
+      </DataProvider>
     );
   }
 }
