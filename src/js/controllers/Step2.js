@@ -25,7 +25,7 @@ import moduleTypes from '../model/static/moduleTypes';
 
 class Step2 extends React.Component {
   state = {
-    show_01: true,
+    show_01: false,
     show_02: false,
     show_03: false,
     show_04: false,
