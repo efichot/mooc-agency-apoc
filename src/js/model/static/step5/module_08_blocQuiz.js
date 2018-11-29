@@ -9,7 +9,7 @@ const module_08_blocQuiz = {
   noChapter: false,
   duration: 5,
   description: {
-    __html: `Pour chacune des dix questions proposées, sélectionnez la bonne réponse à l’aide des DICI et/ou fiches de reporting. 
+    __html: `Pour chacune des dix questions proposées, sélectionnez la bonne réponse à l’aide des DICI et/ou fiches de reporting.
     Pour cet exercice d’entraînement, vos réponses ne sont pas prises en compte dans le calcul de vos score et classement.`,
   },
   questions: [
@@ -20,15 +20,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - 0',
+          content: ' 0',
           correctAnswer: false,
         },
         {
-          content: 'B - 2',
+          content: '  2',
           correctAnswer: true,
         },
         {
-          content: 'C - 7',
+          content: ' 7',
           correctAnswer: false,
         },
       ],
@@ -43,15 +43,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Amundi Convictions ESR',
+          content: ' Amundi Convictions ESR',
           correctAnswer: false,
         },
         {
-          content: 'B - CPR ES Croissance',
+          content: '  CPR ES Croissance',
           correctAnswer: false,
         },
         {
-          content: 'C - Expertise Europe Optima',
+          content: ' Expertise Europe Optima',
           correctAnswer: true,
         },
       ],
@@ -66,16 +66,16 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Sécuriser votre épargne en arbitrant vers le fonds monétaire Amundi 3 mois ESR',
+          content: ' Sécuriser votre épargne en arbitrant vers le fonds monétaire Amundi 3 mois ESR',
           correctAnswer: true,
         },
         {
-          content: 'B - Laisser votre épargne sur le fonds actions Groupe Sodexo PEPS',
+          content: '  Laisser votre épargne sur le fonds actions Groupe Sodexo PEPS',
           correctAnswer: false,
         },
         {
           content:
-            'C - Diversifier votre épargne entre le fonds Amundi Label Équilibre Solidaire ESR et le fonds Groupe Sodexo PEPS',
+            ' Diversifier votre épargne entre le fonds Amundi Label Équilibre Solidaire ESR et le fonds Groupe Sodexo PEPS',
           correctAnswer: false,
         },
       ],
@@ -90,15 +90,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Amundi 3 mois ESR',
+          content: ' Amundi 3 mois ESR',
           correctAnswer: false,
         },
         {
-          content: 'B - Amundi Label Équilibre Solidaire ESR',
+          content: '  Amundi Label Équilibre Solidaire ESR',
           correctAnswer: true,
         },
         {
-          content: 'C - Aucun des deux',
+          content: ' Aucun des deux',
           correctAnswer: false,
         },
       ],
@@ -113,15 +113,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Les perspectives de croissance du Groupe Sodexo sont surestimées',
+          content: ' Les perspectives de croissance du Groupe Sodexo sont surestimées',
           correctAnswer: false,
         },
         {
-          content: 'B - La performance du fonds Groupe Sodexo PEPS dépend d’un seul titre',
+          content: '  La performance du fonds Groupe Sodexo PEPS dépend d’un seul titre',
           correctAnswer: true,
         },
         {
-          content: 'C - Les titres non cotés détenus par Amundi Convictions ESR réduisent le risque',
+          content: ' Les titres non cotés détenus par Amundi Convictions ESR réduisent le risque',
           correctAnswer: false,
         },
       ],
@@ -137,15 +137,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Votre propension naturelle à prendre ou ne pas prendre de risque',
+          content: ' Votre propension naturelle à prendre ou ne pas prendre de risque',
           correctAnswer: false,
         },
         {
-          content: 'B - Votre propre horizon de placement ',
+          content: '  Votre propre horizon de placement ',
           correctAnswer: false,
         },
         {
-          content: 'C - Les deux',
+          content: ' Les deux',
           correctAnswer: true,
         },
       ],
@@ -160,15 +160,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Expertise Europe Optima',
+          content: ' Expertise Europe Optima',
           correctAnswer: false,
         },
         {
-          content: 'B - CPR ES Croissance',
+          content: '  CPR ES Croissance',
           correctAnswer: false,
         },
         {
-          content: 'C - Amundi Convictions ESR ',
+          content: ' Amundi Convictions ESR ',
           correctAnswer: true,
         },
       ],
@@ -183,15 +183,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Des anticipations de hausse brutale des taux d’intérêt',
+          content: ' Des anticipations de hausse brutale des taux d’intérêt',
           correctAnswer: true,
         },
         {
-          content: 'B - Le fait que les obligations détenues dans ce fonds soient non cotées',
+          content: '  Le fait que les obligations détenues dans ce fonds soient non cotées',
           correctAnswer: false,
         },
         {
-          content: 'C - Les deux',
+          content: ' Les deux',
           correctAnswer: false,
         },
       ],
@@ -206,15 +206,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Le gérant ne respecte pas l’objectif de ces fonds',
+          content: ' Le gérant ne respecte pas l’objectif de ces fonds',
           correctAnswer: false,
         },
         {
-          content: 'B - Leur gestion est de mauvaise qualité',
+          content: '  Leur gestion est de mauvaise qualité',
           correctAnswer: false,
         },
         {
-          content: 'C - Leur performance reflète celle du marché monétaire',
+          content: ' Leur performance reflète celle du marché monétaire',
           correctAnswer: true,
         },
       ],
@@ -229,15 +229,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - 50% en Amundi Label Monétaire ESR et 50% en Amundi Label Harmonie Solidaire ESR',
+          content: ' 50% en Amundi Label Monétaire ESR et 50% en Amundi Label Harmonie Solidaire ESR',
           correctAnswer: false,
         },
         {
-          content: 'B - 100% en Amundi Convictions',
+          content: '  100% en Amundi Convictions',
           correctAnswer: false,
         },
         {
-          content: 'C - 100% en CPR ES Croissance',
+          content: ' 100% en CPR ES Croissance',
           correctAnswer: true,
         },
       ],

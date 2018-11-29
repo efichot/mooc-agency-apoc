@@ -11,7 +11,7 @@ class BlocStepTopContent extends React.Component {
 
     return (
       <Fade
-        classProps="bloc-step-top-content"
+        classProps="bloc-step-top-content margin-fade"
         in={this.props.in}
         scrollIntoView={scrollIntoView}
         margins={this.props.margins}>

@@ -1,11 +1,12 @@
 import moduleTypes from '../moduleTypes';
 
 const module_08_blocQuiz = {
-  /*position: 6.2,*/
+  /* position: 6.2, */
   modulType: moduleTypes.blocQuiz,
-  name: `Évaluation de l'étape 8`,
+  name: `Évaluation du module 8`,
   step: 8,
   chapter: 'Quiz',
+  noMargin: true,
   noChapter: false,
   duration: 5,
   description: {
@@ -21,15 +22,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Le marché primaire',
+          content: ' Le marché primaire',
           correctAnswer: true,
         },
         {
-          content: 'B - Le marché secondaire',
+          content: '  Le marché secondaire',
           correctAnswer: false,
         },
         {
-          content: 'C - Le marché de gré à gré',
+          content: ' Le marché de gré à gré',
           correctAnswer: false,
         },
       ],
@@ -44,15 +45,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A -  Le marché parallèle',
+          content: '  Le marché parallèle',
           correctAnswer: false,
         },
         {
-          content: 'B - Le marché secondaires',
+          content: '  Le marché secondaires',
           correctAnswer: false,
         },
         {
-          content: 'C - Le marché de gré à gré',
+          content: ' Le marché de gré à gré',
           correctAnswer: true,
         },
       ],
@@ -67,15 +68,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Le marché des titres cotés  ',
+          content: ' Le marché des titres cotés  ',
           correctAnswer: true,
         },
         {
-          content: 'B - Le marché des titres non cotés',
+          content: '  Le marché des titres non cotés',
           correctAnswer: false,
         },
         {
-          content: 'C - Le marché des titres cotés et non cotés',
+          content: ' Le marché des titres cotés et non cotés',
           correctAnswer: false,
         },
       ],
@@ -90,15 +91,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - L’Autorité des Marchés Financiers ',
+          content: ' L’Autorité des Marchés Financiers ',
           correctAnswer: true,
         },
         {
-          content: 'B - La Banque de France',
+          content: '  La Banque de France',
           correctAnswer: false,
         },
         {
-          content: 'C - L’Autorité de Contrôle Prudentiel et de Résolution',
+          content: ' L’Autorité de Contrôle Prudentiel et de Résolution',
           correctAnswer: false,
         },
       ],
@@ -113,15 +114,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Les émetteurs ',
+          content: ' Les émetteurs ',
           correctAnswer: false,
         },
         {
-          content: 'B - Les intermédiaires',
+          content: '  Les intermédiaires',
           correctAnswer: false,
         },
         {
-          content: 'C - Les investisseurs ',
+          content: ' Les investisseurs ',
           correctAnswer: true,
         },
       ],
@@ -136,15 +137,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Les banques ',
+          content: ' Les banques ',
           correctAnswer: false,
         },
         {
-          content: 'B - Les États',
+          content: '  Les États',
           correctAnswer: true,
         },
         {
-          content: 'C - Les entreprisesolatilité',
+          content: ' Les entreprisesolatilité',
           correctAnswer: false,
         },
       ],
@@ -159,15 +160,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A -  La protection de l’épargne investie dans les produits financiers',
+          content: '  La protection de l’épargne investie dans les produits financiers',
           correctAnswer: false,
         },
         {
-          content: 'B - L’information des investisseurs',
+          content: '  L’information des investisseurs',
           correctAnswer: false,
         },
         {
-          content: 'C - Le bon fonctionnement des marchés financiers',
+          content: ' Le bon fonctionnement des marchés financiers',
           correctAnswer: true,
         },
       ],
@@ -182,15 +183,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Placer ses propres capitaux',
+          content: ' Placer ses propres capitaux',
           correctAnswer: false,
         },
         {
-          content: 'B - Gérer  pour compte de tiers',
+          content: '  Gérer  pour compte de tiers',
           correctAnswer: true,
         },
         {
-          content: 'C - Assurer les échanges entre émetteurs et investisseurs',
+          content: ' Assurer les échanges entre émetteurs et investisseurs',
           correctAnswer: false,
         },
       ],
@@ -205,15 +206,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Le marché interbancaire',
+          content: ' Le marché interbancaire',
           correctAnswer: true,
         },
         {
-          content: 'B - Le marché obligataire',
+          content: '  Le marché obligataire',
           correctAnswer: false,
         },
         {
-          content: 'C - Le marché secondaire',
+          content: ' Le marché secondaire',
           correctAnswer: false,
         },
       ],
@@ -228,15 +229,15 @@ const module_08_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Les États et les collectivités ',
+          content: ' Les États et les collectivités ',
           correctAnswer: false,
         },
         {
-          content: 'B - Les banques et les assureurs',
+          content: '  Les banques et les assureurs',
           correctAnswer: true,
         },
         {
-          content: 'C - Les courtiers',
+          content: ' Les courtiers',
           correctAnswer: false,
         },
       ],

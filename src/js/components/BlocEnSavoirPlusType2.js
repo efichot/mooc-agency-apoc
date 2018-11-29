@@ -126,7 +126,7 @@ class BlocEnSavoirPlusType2 extends React.Component {
             })}
           </div>
           <PopupBlueInnerHtml
-            classProps="bloc-en-savoir-plus-type-2__cards--to-show"
+            classProps="bloc-en-savoir-plus-type-2__cards--to-show marginRight2"
             hidePopup={hideCard}
             description={cards[showCard - 1].cardContent}
             noCross
@@ -134,7 +134,7 @@ class BlocEnSavoirPlusType2 extends React.Component {
         </div>
         <div className="bloc-en-savoir-plus-type-2__validate-victory">
           {victoryMessage && (
-            <PopupBlue onCloseClick={this.handleCloseClick}>
+            <PopupBlue onCloseClick={this.handleCloseClick} classProps="marginRight">
               <span className="bloc-en-savoir-plus-type-2__victory-message">{victoryMessage}</span>
             </PopupBlue>
           )}
@@ -157,7 +157,7 @@ class BlocEnSavoirPlusType2 extends React.Component {
 BlocEnSavoirPlusType2.propTypes = {
   in: PropTypes.bool,
 
-  /***************** DATA ******************/
+  /** *************** DATA ******************/
 
   answer: PropTypes.string,
   modulType: PropTypes.string.isRequired,
@@ -183,7 +183,7 @@ BlocEnSavoirPlusType2.defaultProps = {
   in: false,
   scrollIntoView: false,
   answer: '',
-  /***************** DATA ******************/
+  /** *************** DATA ******************/
 
   noChapter: false,
   duration: 0,

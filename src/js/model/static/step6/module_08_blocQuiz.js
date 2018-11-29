@@ -1,13 +1,14 @@
 import moduleTypes from '../moduleTypes';
 
 const module_08_blocQuiz = {
-  /*position: 6.2,*/
+  /* position: 6.2, */
   modulType: moduleTypes.blocQuiz,
-  name: `Évaluation de l'étape 6`,
+  name: `Évaluation du module 6`,
   step: 6,
   chapter: 'Quiz',
   noChapter: false,
   duration: 5,
+  noMargin: true,
   description: {
     __html: `Répondez aux dix questions suivantes dans le temps imparti.
 Votre score est déterminé par le nombre de bonnes réponses.
@@ -21,15 +22,15 @@ Seul votre classement dépend de votre rapidité à bien répondre.`,
       },
       answers: [
         {
-          content: 'A - 0',
+          content: ' 0',
           correctAnswer: false,
         },
         {
-          content: 'B - 2',
+          content: '  2',
           correctAnswer: true,
         },
         {
-          content: 'C - 7',
+          content: ' 7',
           correctAnswer: false,
         },
       ],
@@ -44,15 +45,15 @@ Seul votre classement dépend de votre rapidité à bien répondre.`,
       },
       answers: [
         {
-          content: 'A - Amundi Convictions ESR',
+          content: ' Amundi Convictions ESR',
           correctAnswer: false,
         },
         {
-          content: 'B - CPR ES Croissance',
+          content: '  CPR ES Croissance',
           correctAnswer: false,
         },
         {
-          content: 'C - Expertise Europe Optima',
+          content: ' Expertise Europe Optima',
           correctAnswer: true,
         },
       ],
@@ -67,16 +68,16 @@ Seul votre classement dépend de votre rapidité à bien répondre.`,
       },
       answers: [
         {
-          content: 'A - Sécuriser votre épargne en arbitrant vers le fonds monétaire Amundi 3 mois ESR',
+          content: ' Sécuriser votre épargne en arbitrant vers le fonds monétaire Amundi 3 mois ESR',
           correctAnswer: true,
         },
         {
-          content: ' B -  Laisser votre épargne sur le fonds actions Groupe ADP PEPS',
+          content: '    Laisser votre épargne sur le fonds actions Groupe ADP PEPS',
           correctAnswer: false,
         },
         {
           content:
-            'C - Diversifier votre épargne entre le fonds Amundi Label Équilibre Solidaire ESR et le fonds Groupe ADP',
+            ' Diversifier votre épargne entre le fonds Amundi Label Équilibre Solidaire ESR et le fonds Groupe ADP',
           correctAnswer: false,
         },
       ],
@@ -91,15 +92,15 @@ Seul votre classement dépend de votre rapidité à bien répondre.`,
       },
       answers: [
         {
-          content: 'A - Amundi 3 mois ESR',
+          content: ' Amundi 3 mois ESR',
           correctAnswer: false,
         },
         {
-          content: 'B - Amundi Label Équilibre Solidaire ESR',
+          content: '  Amundi Label Équilibre Solidaire ESR',
           correctAnswer: true,
         },
         {
-          content: 'C - Aucun des deux',
+          content: ' Aucun des deux',
           correctAnswer: false,
         },
       ],
@@ -115,15 +116,15 @@ Le solde, soit 90 à 95% du fonds, est investi en actions d’entreprises social
       },
       answers: [
         {
-          content: 'A - Les perspectives de croissance du Groupe ADP sont surestimées',
+          content: ' Les perspectives de croissance du Groupe ADP sont surestimées',
           correctAnswer: false,
         },
         {
-          content: 'B - La performance du fonds Groupe ADP PEPS dépend d’un seul titre',
+          content: '  La performance du fonds Groupe ADP PEPS dépend d’un seul titre',
           correctAnswer: true,
         },
         {
-          content: 'C - Les titres non cotés détenus par Amundi Convictions ESR réduisent le risque',
+          content: ' Les titres non cotés détenus par Amundi Convictions ESR réduisent le risque',
           correctAnswer: false,
         },
       ],
@@ -139,15 +140,15 @@ Quant aux titres non cotés détenus à hauteur de 0 à 30% par Amundi Convictio
       },
       answers: [
         {
-          content: 'A - Votre propension naturelle à prendre ou ne pas prendre de risque',
+          content: ' Votre propension naturelle à prendre ou ne pas prendre de risque',
           correctAnswer: false,
         },
         {
-          content: 'B - Votre propre horizon de placement ',
+          content: '  Votre propre horizon de placement ',
           correctAnswer: false,
         },
         {
-          content: 'C - Les deux',
+          content: ' Les deux',
           correctAnswer: true,
         },
       ],
@@ -163,15 +164,15 @@ En revanche, si votre durée de placement est plus réduite car vous partez proc
       },
       answers: [
         {
-          content: 'A - Expertise Europe Optima',
+          content: ' Expertise Europe Optima',
           correctAnswer: false,
         },
         {
-          content: 'B - CPR ES Croissance',
+          content: '  CPR ES Croissance',
           correctAnswer: false,
         },
         {
-          content: 'C - Amundi Convictions ESR ',
+          content: ' Amundi Convictions ESR ',
           correctAnswer: true,
         },
       ],
@@ -187,15 +188,15 @@ CPR ES Croissance investit lui aussi au niveau mondial mais sans thème particul
       },
       answers: [
         {
-          content: 'A - Des anticipations de hausse brutale des taux d’intérêt ',
+          content: ' Des anticipations de hausse brutale des taux d’intérêt ',
           correctAnswer: true,
         },
         {
-          content: 'B - Le fait que les obligations détenues dans ce fonds soient non cotées',
+          content: '  Le fait que les obligations détenues dans ce fonds soient non cotées',
           correctAnswer: false,
         },
         {
-          content: 'C - Les deux',
+          content: ' Les deux',
           correctAnswer: false,
         },
       ],
@@ -233,15 +234,15 @@ CPR ES Croissance investit lui aussi au niveau mondial mais sans thème particul
       },
       answers: [
         {
-          content: 'A - 50% en Amundi Label Monétaire ESR et 50% en Amundi Label Harmonie Solidaire ESR',
+          content: ' 50% en Amundi Label Monétaire ESR et 50% en Amundi Label Harmonie Solidaire ESR',
           correctAnswer: false,
         },
         {
-          content: 'B - 100% en Amundi Convictions',
+          content: '  100% en Amundi Convictions',
           correctAnswer: false,
         },
         {
-          content: 'C - 100% en CPR ES Croissance',
+          content: ' 100% en CPR ES Croissance',
           correctAnswer: true,
         },
       ],

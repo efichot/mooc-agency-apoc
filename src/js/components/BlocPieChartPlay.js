@@ -124,7 +124,10 @@ class BlocPieChartPlay extends React.Component {
             onClick={this.handleValidateClick}
             classProps={`bloc-pie-chart-play__validate`}
           />
-          <PopupBlue hidePopup={hidePopup} onCloseClick={() => this.setState({ hidePopup: true })}>
+          <PopupBlue
+            hidePopup={hidePopup}
+            classProps="marginRight"
+            onCloseClick={() => this.setState({ hidePopup: true })}>
             <span className="card-title">{victoryMessages.pieChartUnCompleted}</span>
           </PopupBlue>
         </div>
@@ -138,7 +141,7 @@ BlocPieChartPlay.propTypes = {
   module: PropTypes.string,
   gameIsFinished: PropTypes.func,
 
-  /***************** DATA ******************/
+  /** *************** DATA ******************/
 
   modulType: PropTypes.string.isRequired,
   noChapter: PropTypes.bool,

@@ -61,8 +61,12 @@ class Fade extends React.Component {
         {state => {
           return (
             <div
-              className={classProps ? classProps : ''}
-              style={{ ...defaultStyle, ...transitionStyles[state], ...styleProps }}
+              className={classProps || ''}
+              style={{
+                ...defaultStyle,
+                ...transitionStyles[state],
+                ...styleProps,
+              }}
               ref={module => (this.module = module)}>
               {margins && <BlocSpacer />}
               {this.props.children}

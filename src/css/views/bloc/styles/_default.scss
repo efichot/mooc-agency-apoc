@@ -1,10 +1,12 @@
 
+
 .bloc {
   @extend %flex-column-top-left;
-  width: 100%;
   padding-left: $blocPaddingX;
   padding-right: $blocPaddingX;
-  
+  margin-left: 30px;
+  width: calc(100% - 30px) !important;
+
   font-size: 0.875rem;
 
   &__name {
@@ -15,9 +17,39 @@
     padding-left: 5px;
     padding-right: 85px;
     font-family: $boldFontFamily;
-    
+
     &.secondary {
-      color: $blocSubnameColor;    
+      color: $blocSubnameColor;
+    }
+  }
+
+  .game {
+    margin-top: 50px;
+    max-width: 100%;
+    flex-grow: 0;
+    // margin-bottom: 50px;
+  }
+}
+
+.bloc2 {
+  @extend %flex-column-top-left;
+  width: 100%;
+  padding-left: $blocPaddingX;
+  padding-right: $blocPaddingX;
+
+  font-size: 0.875rem;
+
+  &__name {
+    color: $blocNameColor;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding-left: 5px;
+    padding-right: 85px;
+    font-family: $boldFontFamily;
+
+    &.secondary {
+      color: $blocSubnameColor;
     }
   }
 

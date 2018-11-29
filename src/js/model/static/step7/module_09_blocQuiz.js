@@ -1,12 +1,13 @@
 import moduleTypes from '../moduleTypes';
 
 const module_09_blocQuiz = {
-  /*position: 6.2,*/
+  /* position: 6.2, */
   modulType: moduleTypes.blocQuiz,
-  name: `Évaluation de l'étape 7`,
+  name: `Évaluation du module 7`,
   step: 7,
   chapter: 'Quiz',
   noChapter: false,
+  noMargin: true,
   duration: 5,
   description: {
     __html: `Répondez aux dix questions suivantes dans le temps imparti.
@@ -21,15 +22,15 @@ const module_09_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - À sa sous-performance',
+          content: ' À sa sous-performance',
           correctAnswer: false,
         },
         {
-          content: 'B - À son rendement bas',
+          content: '  À son rendement bas',
           correctAnswer: true,
         },
         {
-          content: 'C - À sa volatilité',
+          content: ' À sa volatilité',
           correctAnswer: false,
         },
       ],
@@ -44,15 +45,15 @@ const module_09_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - La construction',
+          content: ' La construction',
           correctAnswer: true,
         },
         {
-          content: 'B - Le luxe',
+          content: '  Le luxe',
           correctAnswer: false,
         },
         {
-          content: 'C - L’agro-alimentaire',
+          content: ' L’agro-alimentaire',
           correctAnswer: false,
         },
       ],
@@ -67,15 +68,15 @@ const module_09_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - La capacité de remboursement à court terme des émetteurs',
+          content: ' La capacité de remboursement à court terme des émetteurs',
           correctAnswer: false,
         },
         {
-          content: 'B - La capacité de remboursement à moyen et long terme des émetteurs',
+          content: '  La capacité de remboursement à moyen et long terme des émetteurs',
           correctAnswer: true,
         },
         {
-          content: 'C - Les deux',
+          content: ' Les deux',
           correctAnswer: false,
         },
       ],
@@ -90,15 +91,15 @@ const module_09_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - L’obligation à 5 ans',
+          content: ' L’obligation à 5 ans',
           correctAnswer: false,
         },
         {
-          content: 'B - L’obligation à 20 ans',
+          content: '  L’obligation à 20 ans',
           correctAnswer: false,
         },
         {
-          content: 'C - L’obligation à 10 ans',
+          content: ' L’obligation à 10 ans',
           correctAnswer: true,
         },
       ],
@@ -113,15 +114,15 @@ const module_09_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Il offre une bonne rémunération',
+          content: ' Il offre une bonne rémunération',
           correctAnswer: false,
         },
         {
-          content: 'B - Les échéances sont courtes',
+          content: '  Les échéances sont courtes',
           correctAnswer: true,
         },
         {
-          content: 'C - Il n’y a pas de risque de change',
+          content: ' Il n’y a pas de risque de change',
           correctAnswer: false,
         },
       ],
@@ -136,15 +137,15 @@ const module_09_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Il diversifie ses placements',
+          content: ' Il diversifie ses placements',
           correctAnswer: true,
         },
         {
-          content: 'B - Il achète moins de titres',
+          content: '  Il achète moins de titres',
           correctAnswer: false,
         },
         {
-          content: 'C - Il vend des titres',
+          content: ' Il vend des titres',
           correctAnswer: false,
         },
       ],
@@ -159,15 +160,15 @@ const module_09_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Des arbitrages intersectoriels',
+          content: ' Des arbitrages intersectoriels',
           correctAnswer: false,
         },
         {
-          content: 'B - Des arbitrages intra-sectoriels',
+          content: '  Des arbitrages intra-sectoriels',
           correctAnswer: false,
         },
         {
-          content: 'C - Les deux',
+          content: ' Les deux',
           correctAnswer: true,
         },
       ],
@@ -182,15 +183,15 @@ const module_09_blocQuiz = {
       },
       answers: [
         {
-          content: 'A -  Le risque que les taux d’intérêt s’envolent',
+          content: '  Le risque que les taux d’intérêt s’envolent',
           correctAnswer: false,
         },
         {
-          content: 'B - Le risque que l’émetteur fasse des pertes',
+          content: '  Le risque que l’émetteur fasse des pertes',
           correctAnswer: false,
         },
         {
-          content: 'C - Le risque que l’émetteur fasse faillite',
+          content: ' Le risque que l’émetteur fasse faillite',
           correctAnswer: true,
         },
       ],
@@ -205,15 +206,15 @@ const module_09_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Il baisse',
+          content: ' Il baisse',
           correctAnswer: true,
         },
         {
-          content: 'B - Il monte',
+          content: '  Il monte',
           correctAnswer: false,
         },
         {
-          content: 'C - Il ne bouge pas',
+          content: ' Il ne bouge pas',
           correctAnswer: false,
         },
       ],
@@ -228,15 +229,15 @@ const module_09_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Que l’émetteur est risqué',
+          content: ' Que l’émetteur est risqué',
           correctAnswer: true,
         },
         {
-          content: 'B - Que l’émetteur est peu endetté',
+          content: '  Que l’émetteur est peu endetté',
           correctAnswer: false,
         },
         {
-          content: 'C - Que l’émetteur est profitable',
+          content: ' Que l’émetteur est profitable',
           correctAnswer: false,
         },
       ],

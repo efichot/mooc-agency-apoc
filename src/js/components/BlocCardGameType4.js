@@ -37,14 +37,20 @@ class BlocCardGameType4 extends React.Component {
       column1IsFinished === true &&
       column2IsFinished === true &&
       column3IsFinished === true &&
-      JSON.stringify({ column1IsFinished, column2IsFinished, column3IsFinished }) !==
+      JSON.stringify({
+        column1IsFinished,
+        column2IsFinished,
+        column3IsFinished,
+      }) !==
         JSON.stringify({
           column1IsFinished: prevcolumn1IsFinished,
           column2IsFinished: prevcolumn2IsFinished,
           column3IsFinished: prevcolumn3IsFinished,
         })
     ) {
-      this.setState({ victoryMessage: victoryMessages.isGoodAnswerDragAndDropStep5 });
+      this.setState({
+        victoryMessage: victoryMessages.isGoodAnswerDragAndDropStep5,
+      });
       // this.props.gameIsFinished();
     }
   }

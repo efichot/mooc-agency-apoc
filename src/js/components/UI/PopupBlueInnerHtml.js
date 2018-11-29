@@ -9,7 +9,6 @@ class PopupBlueInnerHtml extends React.Component {
 
     if (description.__html) {
       description.__html = description.__html.replace(/\r\n/g, '<br />').replace(/[\r\n]/g, '<br />');
-
       return (
         <div className={`${classProps} popup-blue`} style={{ opacity: hidePopup ? 0 : 1 }}>
           {!noCross && (

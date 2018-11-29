@@ -1,13 +1,14 @@
 import moduleTypes from '../moduleTypes';
 
 const module_13_blocQuiz = {
-  /*position: 6.2,*/
+  /* position: 6.2, */
   modulType: moduleTypes.blocQuiz,
-  name: `Évaluation de l'étape 2`,
+  name: `Évaluation du module 2`,
   step: 2,
   chapter: 'Quiz',
   noChapter: false,
   duration: 5,
+  noMargin: true,
   description: {
     __html: `Répondez aux dix questions suivantes dans le temps imparti.
     Votre score est déterminé par le nombre de bonnes réponses.
@@ -21,15 +22,15 @@ const module_13_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Vérifier si la gestion du fonds atteint les objectifs fixés',
+          content: ' Vérifier si la gestion du fonds atteint les objectifs fixés',
           correctAnswer: false,
         },
         {
-          content: 'B - Comparer les fonds au niveau européen ',
+          content: '  Comparer les fonds au niveau européen ',
           correctAnswer: false,
         },
         {
-          content: 'C - Les deux',
+          content: ' Les deux',
           correctAnswer: true,
         },
       ],
@@ -44,15 +45,15 @@ const module_13_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Sa performance',
+          content: ' Sa performance',
           correctAnswer: false,
         },
         {
-          content: 'B - Son risque',
+          content: '  Son risque',
           correctAnswer: false,
         },
         {
-          content: 'C - Son niveau de risque et de rendement',
+          content: ' Son niveau de risque et de rendement',
           correctAnswer: true,
         },
       ],
@@ -68,15 +69,15 @@ const module_13_blocQuiz = {
       },
       answers: [
         {
-          content: 'A -  La valeur de son investissement a augmenté',
+          content: '  La valeur de son investissement a augmenté',
           correctAnswer: true,
         },
         {
-          content: 'B - La valeur de son investissement a baissé',
+          content: '  La valeur de son investissement a baissé',
           correctAnswer: false,
         },
         {
-          content: 'C - La valeur de son investissement est supérieure à celle de l’indice de référence',
+          content: ' La valeur de son investissement est supérieure à celle de l’indice de référence',
           correctAnswer: false,
         },
       ],
@@ -91,15 +92,15 @@ const module_13_blocQuiz = {
       },
       answers: [
         {
-          content: 'A -  La valeur de son investissement a augmenté',
+          content: '  La valeur de son investissement a augmenté',
           correctAnswer: false,
         },
         {
-          content: 'B - La valeur de son investissement a baissé',
+          content: '  La valeur de son investissement a baissé',
           correctAnswer: false,
         },
         {
-          content: 'C - La valeur de son investissement est supérieure à celle de l’indice de référence',
+          content: ' La valeur de son investissement est supérieure à celle de l’indice de référence',
           correctAnswer: true,
         },
       ],
@@ -114,15 +115,15 @@ const module_13_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Une position plus importante dans le fonds que dans l’indice',
+          content: ' Une position plus importante dans le fonds que dans l’indice',
           correctAnswer: true,
         },
         {
-          content: 'B - Une position plus importante dans l’indice que dans le fonds',
+          content: '  Une position plus importante dans l’indice que dans le fonds',
           correctAnswer: false,
         },
         {
-          content: 'C - La position la plus importante du fonds',
+          content: ' La position la plus importante du fonds',
           correctAnswer: false,
         },
       ],
@@ -137,15 +138,15 @@ const module_13_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Sa durée',
+          content: ' Sa durée',
           correctAnswer: true,
         },
         {
-          content: "B - Sa date d'émission",
+          content: "  Sa date d'émission",
           correctAnswer: false,
         },
         {
-          content: 'C - Sa date de remboursement',
+          content: ' Sa date de remboursement',
           correctAnswer: false,
         },
       ],
@@ -160,15 +161,15 @@ const module_13_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Son cours monte de 3%',
+          content: ' Son cours monte de 3%',
           correctAnswer: false,
         },
         {
-          content: 'A - Son cours baisse de 3%',
+          content: ' Son cours baisse de 3%',
           correctAnswer: true,
         },
         {
-          content: "C - Cela n'a aucun effet",
+          content: " Cela n'a aucun effet",
           correctAnswer: false,
         },
       ],
@@ -183,15 +184,15 @@ const module_13_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - La marge d’erreur du gérant du fonds',
+          content: ' La marge d’erreur du gérant du fonds',
           correctAnswer: false,
         },
         {
-          content: 'B - L’écart de performance entre le fonds et son indice',
+          content: '  L’écart de performance entre le fonds et son indice',
           correctAnswer: true,
         },
         {
-          content: 'C - La sous-performance du fonds',
+          content: ' La sous-performance du fonds',
           correctAnswer: false,
         },
       ],
@@ -206,15 +207,15 @@ const module_13_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - La performance du fonds ',
+          content: ' La performance du fonds ',
           correctAnswer: false,
         },
         {
-          content: 'B -  Le risque du fonds',
+          content: '   Le risque du fonds',
           correctAnswer: false,
         },
         {
-          content: 'C - La capacité du gérant à ajouter de la performance en prenant du risque ',
+          content: ' La capacité du gérant à ajouter de la performance en prenant du risque ',
           correctAnswer: true,
         },
       ],
@@ -229,15 +230,15 @@ const module_13_blocQuiz = {
       },
       answers: [
         {
-          content: 'A -  La façon de mesurer la performance',
+          content: '  La façon de mesurer la performance',
           correctAnswer: false,
         },
         {
-          content: 'B - La façon de mesurer le risque',
+          content: '  La façon de mesurer le risque',
           correctAnswer: false,
         },
         {
-          content: 'C - Les deux',
+          content: ' Les deux',
           correctAnswer: true,
         },
       ],

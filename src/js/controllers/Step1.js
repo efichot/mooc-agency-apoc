@@ -48,7 +48,7 @@ class Step1 extends React.Component {
 
   handleGetPieChartData = (module, data) => {
     const actions = data.filter(item => item.name === 'actions')[0];
-    /*const obligations = data.filter(item => item.name === 'obligations')[0]*/
+    /* const obligations = data.filter(item => item.name === 'obligations')[0] */
     const monetary = data.filter(item => item.name === 'monétaire')[0];
     const company = data.filter(item => item.name === "Titres de l'entreprise")[0];
     if (actions.value >= 60) {
@@ -79,7 +79,7 @@ class Step1 extends React.Component {
   };
 
   render() {
-    const { /*showSynthese,*/ showQuiz, showNextModule } = this.state;
+    const { /* showSynthese, */ showQuiz, showNextModule } = this.state;
 
     const isStep1 = this.props.match.path === '/step1';
 
@@ -118,7 +118,7 @@ class Step1 extends React.Component {
                   <BlocDivider in={isStep1} />
                   <BlocDragAndDropType1 in={isStep1} {...step1.module_09} gameIsFinished={this.handleShowNextModule} />
                   <BlocDivider in={isStep1} />
-                  <BlocVideo in={isStep1} /*scrollIntoView={stepInStep2} */ {...step1.module_10} />
+                  <BlocVideo in={isStep1} /* scrollIntoView={stepInStep2} */ {...step1.module_10} />
                   {isStep1 && (
                     <div className="step1__synthese step__synthese bloc">
                       <BlocSpacer />

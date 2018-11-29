@@ -25,12 +25,12 @@ Pour cet exercice d’entraînement, vos réponses ne sont pas prises en compte 
           correctAnswer: true,
         },
         {
-          content: 'B -  Laisser votre épargne sur le fonds Amundi Label Actions Solidaire',
+          content: '   Laisser votre épargne sur le fonds Amundi Label Actions Solidaire',
           correctAnswer: false,
         },
         {
           content:
-            'C - Diversifier votre épargne entre le fonds ADP Diversifié Prudent et le fonds ADP Diversifié Dynamique',
+            ' Diversifier votre épargne entre le fonds ADP Diversifié Prudent et le fonds ADP Diversifié Dynamique',
           correctAnswer: false,
         },
       ],
@@ -45,15 +45,15 @@ Pour cet exercice d’entraînement, vos réponses ne sont pas prises en compte 
       },
       answers: [
         {
-          content: 'A -    ADP Diversifié Prudent',
+          content: '    ADP Diversifié Prudent',
           correctAnswer: false,
         },
         {
-          content: 'B - Amundi Label Actions Solidaire ESR',
+          content: '  Amundi Label Actions Solidaire ESR',
           correctAnswer: true,
         },
         {
-          content: 'C - Aucun des fonds proposés',
+          content: ' Aucun des fonds proposés',
           correctAnswer: false,
         },
       ],
@@ -70,15 +70,15 @@ Pour cet exercice d’entraînement, vos réponses ne sont pas prises en compte 
       },
       answers: [
         {
-          content: 'A -  Les perspectives de croissance du Groupe ADP sont irréalistes',
+          content: '  Les perspectives de croissance du Groupe ADP sont irréalistes',
           correctAnswer: false,
         },
         {
-          content: 'B -  La performance du fonds ADP Actionnariat Salarié dépend d’un seul titre ',
+          content: '   La performance du fonds ADP Actionnariat Salarié dépend d’un seul titre ',
           correctAnswer: true,
         },
         {
-          content: 'C - Les titres solidaires détenus par Amundi Label Actions Solidaire ESR réduisent le risque',
+          content: ' Les titres solidaires détenus par Amundi Label Actions Solidaire ESR réduisent le risque',
           correctAnswer: false,
         },
       ],
@@ -95,15 +95,15 @@ Pour cet exercice d’entraînement, vos réponses ne sont pas prises en compte 
       },
       answers: [
         {
-          content: 'A - Vous êtes déjà investi dans le fonds ADP Actionnariat Salarié',
+          content: ' Vous êtes déjà investi dans le fonds ADP Actionnariat Salarié',
           correctAnswer: false,
         },
         {
-          content: 'B - Vous souhaitez une valorisation régulière de votre investissement',
+          content: '  Vous souhaitez une valorisation régulière de votre investissement',
           correctAnswer: false,
         },
         {
-          content: 'C -  Les deux',
+          content: '  Les deux',
           correctAnswer: true,
         },
       ],
@@ -120,15 +120,15 @@ Pour cet exercice d’entraînement, vos réponses ne sont pas prises en compte 
       },
       answers: [
         {
-          content: 'A - Des anticipations de hausse brutale des taux d’intérêt ',
+          content: ' Des anticipations de hausse brutale des taux d’intérêt ',
           correctAnswer: true,
         },
         {
-          content: 'B -  Le fait que les obligations détenues dans ce fonds soient non cotées',
+          content: '   Le fait que les obligations détenues dans ce fonds soient non cotées',
           correctAnswer: false,
         },
         {
-          content: 'C - Les deux',
+          content: ' Les deux',
           correctAnswer: false,
         },
       ],
@@ -145,15 +145,15 @@ ADP Diversifié Prudent est un fonds dédié aux salariés du Groupe ADP, mais c
       },
       answers: [
         {
-          content: 'A - Le gérant ne respecte pas l’objectif du fonds',
+          content: ' Le gérant ne respecte pas l’objectif du fonds',
           correctAnswer: false,
         },
         {
-          content: 'B - Amundi Trésorerie ESR n’est pas un fonds monétaire',
+          content: '  Amundi Trésorerie ESR n’est pas un fonds monétaire',
           correctAnswer: true,
         },
         {
-          content: 'C - C’est impossible, il doit y avoir une erreur',
+          content: ' C’est impossible, il doit y avoir une erreur',
           correctAnswer: false,
         },
       ],
@@ -168,15 +168,15 @@ ADP Diversifié Prudent est un fonds dédié aux salariés du Groupe ADP, mais c
       },
       answers: [
         {
-          content: 'A -  Votre propension naturelle à prendre ou ne pas prendre de risque',
+          content: '  Votre propension naturelle à prendre ou ne pas prendre de risque',
           correctAnswer: false,
         },
         {
-          content: 'B - Votre propre horizon de placement',
+          content: '  Votre propre horizon de placement',
           correctAnswer: false,
         },
         {
-          content: 'C -  Les deux',
+          content: '  Les deux',
           correctAnswer: true,
         },
       ],
@@ -193,22 +193,22 @@ Si votre horizon de placement est plus long, vous pouvez accroître en proportio
       },
       answers: [
         {
-          content: 'A -  30% en Amundi Trésorerie ESR et 70% en ADP Diversifié Dynamique',
+          content: '  30% en Amundi Trésorerie ESR et 70% en ADP Diversifié Dynamique',
           correctAnswer: false,
         },
         {
-          content: 'B - 30% en ADP Diversifié Prudent et 70% en Amundi Label Actions Solidaire ESR',
+          content: '  30% en ADP Diversifié Prudent et 70% en Amundi Label Actions Solidaire ESR',
           correctAnswer: false,
         },
         {
-          content: 'C - 100% en ADP Diversifié Dynamique',
+          content: ' 100% en ADP Diversifié Dynamique',
           correctAnswer: true,
         },
       ],
       explication: {
         __html: `ADP Diversifié Dynamique présente à lui seul la répartition souhaitée en moyenne entre les différents actifs. Y rajouter 30% en Amundi Trésorerie ESR reviendrait à investir au total 49% en produits de taux.
 ADP Diversifié Prudent est en moyenne investi à 20 % en monétaire, 60 % en obligations et  20 % en actions, et le fonds Amundi Label Actions Solidaire ESR entre 90 à 95% en actions et 5 à 10 % en titres solidaires. La répartition proposée ne permet donc pas de réaliser l’investissement souhaité.
- 
+
 `,
       },
     },
@@ -219,15 +219,15 @@ ADP Diversifié Prudent est en moyenne investi à 20 % en monétaire, 60 % en ob
       },
       answers: [
         {
-          content: 'A - 5',
+          content: ' 5',
           correctAnswer: false,
         },
         {
-          content: 'B - 1',
+          content: '  1',
           correctAnswer: false,
         },
         {
-          content: 'C - 0s',
+          content: ' 0s',
           correctAnswer: true,
         },
       ],
@@ -242,15 +242,15 @@ ADP Diversifié Prudent est en moyenne investi à 20 % en monétaire, 60 % en ob
       },
       answers: [
         {
-          content: 'A - ADP Diversifié Prudent',
+          content: ' ADP Diversifié Prudent',
           correctAnswer: false,
         },
         {
-          content: 'B -  ADP Diversifié Dynamique',
+          content: '   ADP Diversifié Dynamique',
           correctAnswer: true,
         },
         {
-          content: 'C -  ADP Obligations',
+          content: '  ADP Obligations',
           correctAnswer: false,
         },
       ],

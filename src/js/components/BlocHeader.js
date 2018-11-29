@@ -14,7 +14,7 @@ class BlocHeader extends React.Component {
     const minutesAndSeconds = Math.ceil(duration * 100) / 100;
     const minutes = Math.floor(minutesAndSeconds);
     const seconds = Math.round((minutesAndSeconds - minutes) * 60);
-    const durationToShow = seconds !== 0 ? `${minutes} min ${seconds} sec` : `${minutes} min`;
+    const durationToShow = seconds !== 0 ? `${minutes} min ${seconds} s` : `${minutes} min`;
 
     const picType = type === 'video' ? video : type === 'horloge' ? horloge : type === 'chrono' ? chrono : '';
     const name = type === 'video' ? 'Vidéo' : nameProp;
@@ -23,7 +23,9 @@ class BlocHeader extends React.Component {
       <Fade in={this.props.in} classProps=" bloc-header" margins={margins}>
         <div className="bloc-header__picture" style={{ backgroundImage: `url(${picType})` }} />
         <div className="bloc-header__infos">
-          <span className="bloc-header__infos--name">{name}</span>
+          <span className="bloc-header__infos--name" style={{ fontSize: '0.875rem' }}>
+            {name}
+          </span>
           <span className="bloc-header__infos--duration">Durée: {durationToShow}</span>
         </div>
       </Fade>
@@ -36,7 +38,7 @@ BlocHeader.propTypes = {
   type: PropTypes.string.isRequired,
   duration: PropTypes.number,
   name: PropTypes.string,
-  /*modulType: PropTypes.string.isRequired,*/
+  /* modulType: PropTypes.string.isRequired, */
 };
 
 BlocHeader.defaultProps = {

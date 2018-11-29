@@ -1,10 +1,11 @@
 import moduleTypes from '../moduleTypes';
 
 const module_12_blocQuiz = {
-  /*position: 6.2,*/
+  /* position: 6.2, */
   modulType: moduleTypes.blocQuiz,
-  name: `Évaluation de l'étape 1`,
+  name: `Évaluation du module 1`,
   step: 1,
+  noMargin: true,
   chapter: 'Quiz',
   noChapter: false,
   duration: 5,
@@ -21,15 +22,15 @@ const module_12_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Le degré de risque qu’il est prêt à prendre',
+          content: ' Le degré de risque qu’il est prêt à prendre',
           correctAnswer: false,
         },
         {
-          content: 'B - Son horizon de placement  ',
+          content: '  Son horizon de placement  ',
           correctAnswer: false,
         },
         {
-          content: 'C - Les deux',
+          content: ' Les deux',
           correctAnswer: true,
         },
       ],
@@ -44,15 +45,15 @@ const module_12_blocQuiz = {
       },
       answers: [
         {
-          content: `A -  Ne pas perdre d'argent`,
+          content: `  Ne pas perdre d'argent`,
           correctAnswer: false,
         },
         {
-          content: `B - Amortir la baisse d'un des marchés`,
+          content: `  Amortir la baisse d'un des marchés`,
           correctAnswer: true,
         },
         {
-          content: 'C - Réduire ses frais',
+          content: ' Réduire ses frais',
           correctAnswer: false,
         },
       ],
@@ -67,15 +68,15 @@ const module_12_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Leurs performances sont moins ‎volatiles',
+          content: ' Leurs performances sont moins ‎volatiles',
           correctAnswer: false,
         },
         {
-          content: `B - Sauf cas de faillite, le détenteur d'obligations est rémunéré et remboursé`,
+          content: `  Sauf cas de faillite, le détenteur d'obligations est rémunéré et remboursé`,
           correctAnswer: false,
         },
         {
-          content: 'C - Les deux',
+          content: ' Les deux',
           correctAnswer: true,
         },
       ],
@@ -90,15 +91,15 @@ const module_12_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Leur performance est toujours positive',
+          content: ' Leur performance est toujours positive',
           correctAnswer: false,
         },
         {
-          content: `B - La durée des titres détenus est courte`,
+          content: `  La durée des titres détenus est courte`,
           correctAnswer: true,
         },
         {
-          content: 'C - Leur rendement est garanti',
+          content: ' Leur rendement est garanti',
           correctAnswer: false,
         },
       ],
@@ -113,15 +114,15 @@ const module_12_blocQuiz = {
       },
       answers: [
         {
-          content: 'A -  D’actions de l’entreprise',
+          content: '  D’actions de l’entreprise',
           correctAnswer: false,
         },
         {
-          content: `B - D’obligations de l’entreprise`,
+          content: `  D’obligations de l’entreprise`,
           correctAnswer: false,
         },
         {
-          content: 'C - Les deux sont possibles',
+          content: ' Les deux sont possibles',
           correctAnswer: true,
         },
       ],
@@ -136,15 +137,15 @@ const module_12_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Il est moins diversifié ',
+          content: ' Il est moins diversifié ',
           correctAnswer: true,
         },
         {
-          content: `B - Il est moins performant `,
+          content: `  Il est moins performant `,
           correctAnswer: false,
         },
         {
-          content: 'C - L’horizon de placement est plus lointain',
+          content: ' L’horizon de placement est plus lointain',
           correctAnswer: false,
         },
       ],
@@ -159,15 +160,15 @@ const module_12_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - La volatilité de sa performance ',
+          content: ' La volatilité de sa performance ',
           correctAnswer: true,
         },
         {
-          content: `B - Sa performance négative `,
+          content: `  Sa performance négative `,
           correctAnswer: false,
         },
         {
-          content: 'C - Les deux',
+          content: ' Les deux',
           correctAnswer: false,
         },
       ],
@@ -182,15 +183,15 @@ const module_12_blocQuiz = {
       },
       answers: [
         {
-          content: 'A -  Des actions du fonds',
+          content: '  Des actions du fonds',
           correctAnswer: false,
         },
         {
-          content: `B - Des parts du fonds`,
+          content: `  Des parts du fonds`,
           correctAnswer: true,
         },
         {
-          content: 'C - Des droits de vote',
+          content: ' Des droits de vote',
           correctAnswer: false,
         },
       ],
@@ -205,20 +206,20 @@ const module_12_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - FCPE dédié',
+          content: ' FCPE dédié',
           correctAnswer: false,
         },
         {
-          content: `B - FCPE multi-entreprises`,
+          content: `  FCPE multi-entreprises`,
           correctAnswer: true,
         },
         {
-          content: 'C - FCPE inter-entreprises',
+          content: ' FCPE inter-entreprises',
           correctAnswer: false,
         },
       ],
       explication: {
-        __html: `Il s’agit d’un FCPE multi-entreprises. 
+        __html: `Il s’agit d’un FCPE multi-entreprises.
 		A contrario le FCPE dédié est réservé aux salariés d’entreprises qui appartiennent à un même groupe. Il implique généralement des montants collectés 		suffisamment importants pour justifier des coûts et une gouvernance spécifiques. Si le qualificatif d’inter-entreprises n’est pas utilisé pour les 		FCPE, il l’est en revanche pour les dispositifs -ou plans- d’épargne salariale auxquels plusieurs entreprises de groupes différents peuvent adhérer.`,
       },
     },
@@ -229,15 +230,15 @@ const module_12_blocQuiz = {
       },
       answers: [
         {
-          content: 'A - Investir dans des organismes solidaires',
+          content: ' Investir dans des organismes solidaires',
           correctAnswer: true,
         },
         {
-          content: `B - Financer exclusivement des associations`,
+          content: `  Financer exclusivement des associations`,
           correctAnswer: false,
         },
         {
-          content: 'C - Investir dans des entreprises aux pratiques responsables',
+          content: ' Investir dans des entreprises aux pratiques responsables',
           correctAnswer: false,
         },
       ],
