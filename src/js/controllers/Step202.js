@@ -11,6 +11,19 @@ import moduleTypes from '../model/static/moduleTypes';
 class Step2_02 extends React.Component {
   state = {
     showNextModule: 0,
+    stepFinish: false,
+    bloc1: false,
+    bloc2: false,
+  };
+
+  handleFinishBloc = bloc => {
+    this.setState({ [bloc]: true }, () => {
+      const { bloc1, bloc2 } = this.state;
+      if (bloc1 && bloc2) {
+        this.setState({ stepFinish: true });
+        this.props.stepFinish(this.props.step);
+      }
+    });
   };
 
   handleShowNextModule = module => {
@@ -45,6 +58,8 @@ class Step2_02 extends React.Component {
           {...step2.module_08_04}
           modulType={`${moduleTypes.blocQCMType3}-1`}
           gameIsFinished={this.handleShowNextModule}
+          handleFinishBloc={this.handleFinishBloc}
+          bloc="bloc1"
         />
         <BlocQCMType3
           in={this.props.in}
@@ -53,6 +68,8 @@ class Step2_02 extends React.Component {
           {...step2.module_08_05}
           modulType={`${moduleTypes.blocQCMType3}-2`}
           gameIsFinished={this.handleShowNextModule}
+          handleFinishBloc={this.handleFinishBloc}
+          bloc="bloc2"
         />
         <BlocLink
           in={this.props.in}

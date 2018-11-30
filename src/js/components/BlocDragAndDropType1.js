@@ -214,6 +214,7 @@ class BlocDragAndDropType1 extends React.Component {
               <span className="risk-low">Moins de risque</span>
               {victoryMessage && (
                 <PopupBlue
+                  classProps="upper"
                   onCloseClick={() => {
                     if (isVictory) {
                       this.props.gameIsFinished(modulType);

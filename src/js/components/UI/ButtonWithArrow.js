@@ -22,7 +22,10 @@ class ButtonWithArrow extends React.Component {
         />
         <div
           className={`${classOrigin}__arrow`}
-          style={{ backgroundImage: `url(${button_arrow_right})`, visibility: activate ? 'visible' : 'hidden' }}
+          style={{
+            backgroundImage: `url(${button_arrow_right})`,
+            visibility: activate ? 'visible' : 'hidden',
+          }}
           onClick={() => onClick(button.action)}
         />
       </div>

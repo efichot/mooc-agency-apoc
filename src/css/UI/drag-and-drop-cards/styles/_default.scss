@@ -19,14 +19,18 @@
     }
 
 }
-
+.card-content__type-1  {
+  border-radius: 0px !important;
+}
+.drag-card {
+  width: 90%;
+}
 .drop-cards-start {
 
   @extend %flex-row-top-center;
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
-  flex-wrap: wrap;
   width: 100%;
   .drop-card {
     width: ($innerContentWidth - $stepWidth - 5 * $dropCardMargin) / 3;
@@ -68,7 +72,7 @@
   @extend %flex-row-center-center;
 
   &.dragging-over {
-    background: rgba(168,254,254,1.00) !important;
+    border: 5px solid $buttonQCMType1ActivBorderColor;
   }
 }
 

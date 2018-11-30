@@ -94,11 +94,11 @@ class BlocQCMType3 extends React.Component {
       return;
     }
 
-    //Target: compare answers and correct answers
+    // Target: compare answers and correct answers
     const answers = this.props.questions.map(q => []); // build an array of arrays, where we will fill the answers
     Object.keys(this.state.answers).forEach(key => {
       const index = parseInt(key[0], 10) - 1;
-      answers[index].push(this.state.answers[key]); //get the array of answer needed (array 2 for question 2, etc.) and push the answer
+      answers[index].push(this.state.answers[key]); // get the array of answer needed (array 2 for question 2, etc.) and push the answer
       answers[index].sort(); // sort the answer, so that we can compare answers and correct answers
     });
 
@@ -120,6 +120,7 @@ class BlocQCMType3 extends React.Component {
         victoryMessage,
         gameIsFinished: 'victory',
       });
+      this.props.handleFinishBloc && this.props.bloc && this.props.handleFinishBloc(this.props.bloc);
       // this.props.gameIsFinished(this.state.gameIsFinished);
     } else {
       const victoryMessage = {
@@ -263,7 +264,7 @@ class BlocQCMType3 extends React.Component {
         <div className="bloc-QCM-type-3__validate-victory">
           {victoryMessage && (
             <PopupBlueInnerHtml
-              classProps="bloc-QCM-type-3__victory-message"
+              classProps=" rightSide"
               description={victoryMessage}
               onCloseClick={() => {
                 if (victoryMessage.__html === victoryMessages.isGoodAnswer) {
@@ -279,14 +280,14 @@ class BlocQCMType3 extends React.Component {
             minWidth
             name="valider"
             onClick={this.handleValidate}
-            classProps={`bloc-QCM-type-3__validate`}
+            classProps={`bloc-QCM-type-3__validate leftSide`}
           />
           {gameIsFinished && (
             <ButtonPrimary
               minWidth
-              name={!hideExplanation ? "Cacher l'explication" : "Voir l'explication"}
+              name={!hideExplanation ? "Revenir à l'exercice" : "Voir l'explication"}
               onClick={() => (!hideExplanation ? this.handleHideExplanation() : this.handleShowExplanation())}
-              classProps={`bloc-QCM-type-2__explanations`}
+              classProps={`bloc-QCM-type-2__explanations leftSide`}
             />
           )}
         </div>
@@ -321,7 +322,7 @@ BlocQCMType3.propTypes = {
   in: PropTypes.bool,
   classSelect: PropTypes.string,
 
-  /***************** DATA ******************/
+  /** *************** DATA ******************/
 
   modulType: PropTypes.string.isRequired,
   noChapter: PropTypes.bool,
@@ -365,7 +366,7 @@ BlocQCMType3.defaultProps = {
   scrollIntoView: false,
   classSelect: '',
 
-  /***************** DATA ******************/
+  /** *************** DATA ******************/
   firstDescription: {
     __html: ``,
   },

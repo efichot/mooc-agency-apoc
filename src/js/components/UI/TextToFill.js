@@ -26,7 +26,6 @@ class TextToFill extends React.Component {
       const answers = {};
       nextProps.textToFill.forEach(text => {
         if (!text.toFill) {
-          return;
         } else {
           answers[text.position] = null;
         }
@@ -44,7 +43,6 @@ class TextToFill extends React.Component {
     const answers = {};
     this.props.textToFill.forEach(text => {
       if (!text.toFill) {
-        return;
       } else {
         correctAnswers[text.position] = text.answer;
         answers[text.position] = null;
@@ -92,6 +90,7 @@ class TextToFill extends React.Component {
       this.setState({ highlightUnchecked: true });
     } else if (this.state.filledCorrectly) {
       const victoryMessage = { __html: victoryMessages.isVictory };
+      this.props.stepFinish && this.props.step && this.props.stepFinish(this.props.step);
       this.setState({ victoryMessage });
       this.setState({ checkValidated: true });
       this.setState({ highlightUnchecked: false });
@@ -127,7 +126,6 @@ class TextToFill extends React.Component {
 
   render() {
     const { textToFill, title, scrollIntoView } = this.props;
-
     const { gameIsFinished, victoryMessage, checkValidated, reset, showAnswers, highlightUnchecked } = this.state;
 
     return (
@@ -228,9 +226,7 @@ TextToFill.propTypes = {
 TextToFill.defaultProps = {
   in: false,
   scrollIntoView: false,
-  gameIsFinished: () => {
-    return;
-  },
+  gameIsFinished: () => {},
   title: undefined,
 };
 

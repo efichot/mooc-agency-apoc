@@ -16,7 +16,7 @@ class ButtonPrimary extends React.Component {
     return (
       <div
         id={id}
-        className={`button button-primary ${classProps} ${minWidth ? 'min-width' : ''}`}
+        className={`button button-primary ${classProps} ${minWidth ? 'min-width' : ''} ${name}`}
         onClick={this.handleClick}
         style={{
           background: color,

@@ -7,6 +7,17 @@
   position: relative;
 }
 
+.select-QCM-type-2__control:focus-within {
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 0 0 1px #fff !important;
+}
+
+.select-QCM-type-2__control:hover {
+  outline: none !important;
+  box-shadow: 0 0 0 1px #fff !important;
+}
+
 a {
   text-decoration: none;
   color: inherit;

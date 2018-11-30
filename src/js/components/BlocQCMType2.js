@@ -91,6 +91,7 @@ class BlocQCMType2 extends React.Component {
         victoryMessage,
         gameIsFinished: 'victory',
       });
+      this.props.handleFinishBloc && this.props.bloc && this.props.handleFinishBloc(this.props.bloc);
       // this.props.gameIsFinished(this.state.gameIsFinished);
     } else {
       const victoryMessage = {
@@ -175,7 +176,7 @@ class BlocQCMType2 extends React.Component {
         <div className="bloc-QCM-type-2__validate-victory">
           {victoryMessage && (
             <PopupBlueInnerHtml
-              classProps="bloc-QCM-type-2__victory-message"
+              classProps="bloc-QCM-type-2__victory-message rightSide"
               description={victoryMessage}
               onCloseClick={() => {
                 if (victoryMessage.__html === victoryMessages.isGoodAnswer) {
@@ -195,9 +196,9 @@ class BlocQCMType2 extends React.Component {
           {gameIsFinished && (
             <ButtonPrimary
               minWidth
-              name={!hideExplanation ? "Cacher l'explication" : "Voir l'explication"}
+              name={!hideExplanation ? "Revenir à l'exercice" : "Voir l'explication"}
               onClick={() => (!hideExplanation ? this.handleHideExplanation() : this.handleShowExplanation())}
-              classProps={`bloc-QCM-type-2__explanations`}
+              classProps={`bloc-QCM-type-2__explanations leftSide`}
             />
           )}
         </div>
@@ -232,7 +233,7 @@ BlocQCMType2.propTypes = {
   in: PropTypes.bool,
   classSelect: PropTypes.string,
 
-  /***************** DATA ******************/
+  /** *************** DATA ******************/
 
   modulType: PropTypes.string.isRequired,
   noChapter: PropTypes.bool,
@@ -270,7 +271,7 @@ BlocQCMType2.defaultProps = {
   scrollIntoView: false,
   classSelect: '',
 
-  /***************** DATA ******************/
+  /** *************** DATA ******************/
   firstDescription: {
     __html: ``,
   },

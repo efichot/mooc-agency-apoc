@@ -1,4 +1,4 @@
-/******* TODO *********/
+/** ***** TODO *********/
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -26,6 +26,29 @@ class Step3 extends React.Component {
     showQuiz: false,
     showSynthese: false,
     reset: false,
+    step1: false,
+    step2: false,
+    step3: false,
+    step4: false,
+  };
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.state.step1) {
+      document.getElementsByClassName('Actions')[0].style.background = 'darkgray';
+      document.getElementsByClassName('Actions')[1].style.background = 'darkgray';
+    }
+    if (this.state.step2) {
+      document.getElementsByClassName('Obligataires')[0].style.background = 'darkgray';
+      document.getElementsByClassName('Obligataires')[1].style.background = 'darkgray';
+    }
+    if (this.state.step3) {
+      document.getElementsByClassName('Monétaires')[0].style.background = 'darkgray';
+      document.getElementsByClassName('Monétaires')[1].style.background = 'darkgray';
+    }
+    if (this.state.step4) {
+      document.getElementsByClassName('mixte')[0].style.background = 'darkgray';
+      document.getElementsByClassName('mixte')[1].style.background = 'darkgray';
+    }
   };
 
   componentDidMount() {
@@ -56,6 +79,10 @@ class Step3 extends React.Component {
     this.setState({ showQuiz: true });
   };
 
+  stepFinish = step => {
+    this.setState({ [step]: true });
+  };
+
   render() {
     const {
       show_01,
@@ -64,16 +91,16 @@ class Step3 extends React.Component {
       show_04,
       showQuiz,
       showSynthese,
-      /*showNextModule*/
+      /* showNextModule */
     } = this.state;
 
-    /*const mainThread = !show_01 && !show_02 && !show_03 && !show_04;*/
+    /* const mainThread = !show_01 && !show_02 && !show_03 && !show_04; */
 
     const isStep3 = this.props.match.path === '/step3';
 
-    /*const stepInStep0 = showNextModule > 0;*/
-    /*const stepInStep1 = showNextModule > 1;
-    const stepInStep3 = showNextModule > 2;*/
+    /* const stepInStep0 = showNextModule > 0; */
+    /* const stepInStep1 = showNextModule > 1;
+    const stepInStep3 = showNextModule > 2; */
 
     return (
       <Fade classProps="step step3" in={isStep3}>
@@ -99,6 +126,8 @@ class Step3 extends React.Component {
                       {...step3.module_03.module_03_02}
                       gameIsFinished={this.handleShowSynthese}
                       reset={this.state.reset}
+                      stepFinish={this.stepFinish}
+                      step="step1"
                     />
                   )}
                   {show_02 && <BlocLink in={show_02} scrollIntoView={show_02} {...step3.module_04.module_04_01} />}
@@ -109,6 +138,8 @@ class Step3 extends React.Component {
                       {...step3.module_04.module_04_02}
                       gameIsFinished={this.handleShowSynthese}
                       reset={this.state.reset}
+                      stepFinish={this.stepFinish}
+                      step="step2"
                     />
                   )}
                   {show_03 && <BlocLink in={show_03} scrollIntoView={show_03} {...step3.module_05.module_05_01} />}
@@ -118,6 +149,8 @@ class Step3 extends React.Component {
                       {...step3.module_05.module_05_02}
                       gameIsFinished={this.handleShowSynthese}
                       reset={this.state.reset}
+                      stepFinish={this.stepFinish}
+                      step="step3"
                     />
                   )}
                   {show_04 && <BlocLink in={show_04} scrollIntoView={show_04} {...step3.module_06.module_06_01} />}
@@ -127,6 +160,8 @@ class Step3 extends React.Component {
                       {...step3.module_06.module_06_02}
                       gameIsFinished={this.handleShowSynthese}
                       reset={this.state.reset}
+                      stepFinish={this.stepFinish}
+                      step="step4"
                     />
                   )}
                   <div className="step3__synthese step__synthese bloc">

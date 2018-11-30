@@ -85,7 +85,7 @@ class Chrono extends React.Component {
             },
             {
               value: grey,
-              color: remaining <= 5 ? '#F00' : 'rgba(125,129,131,1.00)',
+              color: 'rgba(125,129,131,1.00)',
             },
           ]}
           viewBoxSize={40}
@@ -93,7 +93,7 @@ class Chrono extends React.Component {
         <span
           className="time"
           style={{
-            color: remaining <= 5 ? '#F00' : 'rgba(125,129,131,1.00)',
+            color: 'rgba(125,129,131,1.00)',
             fontWeight: remaining <= 5 ? 'bold' : '',
           }}>
           {remaining}
@@ -118,9 +118,7 @@ Chrono.defaultProps = {
   reset: false,
   totalDuration: 10,
   currentQuestionIndex: undefined,
-  timeRemaining: () => {
-    return;
-  },
+  timeRemaining: () => {},
 };
 
 export default Chrono;

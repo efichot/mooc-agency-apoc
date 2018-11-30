@@ -45,7 +45,7 @@ class DropCard extends React.Component {
   handleDrop = async e => {
     this.setState({ isDraggingOver: false });
     const data = e.dataTransfer.getData('text');
-    e.preventDefault(); //prevent Firefox to load an inexisting URL
+    e.preventDefault(); // prevent Firefox to load an inexisting URL
     await this.setState({
       title: data.split('+++')[0],
       subtitle: data.split('+++')[1],
@@ -57,20 +57,20 @@ class DropCard extends React.Component {
     const currentEndPosition = parseInt(data.split('+++')[2], 10);
     const startPosition = parseInt(data.split('+++')[5], 10);
 
-    /*check correct position here */
+    /* check correct position here */
     if (checkPositionInHere) {
       dragCard(currentEndPosition === supposedEndPosition, supposedEndPosition);
     } else {
-      /*check correct position in parent */
+      /* check correct position in parent */
       dragCard(currentEndPosition, supposedEndPosition, startPosition);
     }
-    /*e.preventDefault();*/
+    /* e.preventDefault(); */
   };
 
   render() {
     const { startOrEnd, dropCardTitleStyles } = this.props;
 
-    const { title, /*subtitle,*/ isDraggingOver } = this.state;
+    const { title, /* subtitle, */ isDraggingOver } = this.state;
 
     return (
       <div
@@ -84,7 +84,7 @@ class DropCard extends React.Component {
               {title}
             </span>
           )}
-        {/*startOrEnd === 'end' && subtitle && subtitle !== 'undefined' && <span className="subtitle">{subtitle}</span>*/}
+        {/* startOrEnd === 'end' && subtitle && subtitle !== 'undefined' && <span className="subtitle">{subtitle}</span> */}
         {this.props.children}
       </div>
     );

@@ -1,6 +1,6 @@
 const stepNavigation = {
   toggleParts: {
-    part1: 'Investir mon épargne',
+    part1: 'Placer votre épargne',
     part2: 'Comprendre les marchés',
     visible: false,
   },
@@ -8,7 +8,7 @@ const stepNavigation = {
     part: 'all',
     name: 'introduction',
     secondClass: 'intro',
-    description: `Frédéric Dubois vous présente ce parcours inédit créé pour les salariés du Groupe ADP. Cliquez sur la vidéo. 
+    description: `Frédéric Dubois vous présente ce parcours inédit créé pour les salariés du Groupe ADP. Cliquez sur la vidéo.
 Attention à ne pas utiliser les flèches « page précédente » et « suivante » du navigateur !`,
     visible: true,
     videoUrl: 'https://player.vimeo.com/video/259824721',

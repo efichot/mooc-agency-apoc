@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/*import BlocDivider from '../components/BlocDivider';*/
+/* import BlocDivider from '../components/BlocDivider'; */
 import BlocLink from '../components/BlocLink';
 import BlocQCMType2 from '../components/BlocQCMType2';
 import BlocQCMType3 from '../components/BlocQCMType3';
@@ -10,6 +10,19 @@ import moduleTypes from '../model/static/moduleTypes';
 class Step2_03 extends React.Component {
   state = {
     showNextModule: 0,
+    stepFinish: false,
+    bloc1: false,
+    bloc2: false,
+  };
+
+  handleFinishBloc = bloc => {
+    this.setState({ [bloc]: true }, () => {
+      const { bloc1, bloc2 } = this.state;
+      if (bloc1 && bloc2) {
+        this.setState({ stepFinish: true });
+        this.props.stepFinish(this.props.step);
+      }
+    });
   };
 
   handleShowNextModule = module => {
@@ -34,7 +47,7 @@ class Step2_03 extends React.Component {
 
     return (
       <React.Fragment>
-        {/*<BlocDivider in={this.props.in} />*/}
+        {/* <BlocDivider in={this.props.in} /> */}
         <BlocLink in={this.props.in} scrollIntoView={this.props.in} {...step2.module_09_01} />
         <BlocQCMType2
           margins
@@ -42,8 +55,10 @@ class Step2_03 extends React.Component {
           {...step2.module_09_02}
           gameIsFinished={this.handleShowNextModule}
           modulType={`${moduleTypes.blocQCMType2}`}
+          handleFinishBloc={this.handleFinishBloc}
+          bloc="bloc1"
         />
-        {/*<BlocDivider in={stepInStep0} />*/}
+        {/* <BlocDivider in={stepInStep0} /> */}
         <BlocQCMType3
           margins
           in={this.props.in}
@@ -52,6 +67,8 @@ class Step2_03 extends React.Component {
           classSelect="step2-module_09_03"
           modulType={`${moduleTypes.blocQCMType3}`}
           gameIsFinished={this.handleShowNextModule}
+          handleFinishBloc={this.handleFinishBloc}
+          bloc="bloc2"
         />
         <BlocLink
           in={this.props.in}

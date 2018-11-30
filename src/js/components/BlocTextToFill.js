@@ -57,6 +57,8 @@ class BlocTextToFill extends React.Component {
               in={this.props.in}
               textToFill={firstText}
               gameIsFinished={() => this.handleTextFinished(false)}
+              stepFinish={this.props.stepFinish}
+              step={this.props.step}
             />
           </React.Fragment>
         )}
@@ -70,6 +72,8 @@ class BlocTextToFill extends React.Component {
                 title={title2}
                 textToFill={secondText}
                 gameIsFinished={this.handleTextFinished}
+                stepFinish={this.props.stepFinish}
+                step={this.props.step}
               />
             </React.Fragment>
           )}
@@ -81,7 +85,7 @@ class BlocTextToFill extends React.Component {
 BlocTextToFill.propTypes = {
   in: PropTypes.bool,
 
-  /********* DATA ********/
+  /** ******* DATA ********/
 
   modulType: PropTypes.string.isRequired,
   noChapter: PropTypes.bool,
@@ -126,7 +130,7 @@ BlocTextToFill.propTypes = {
 BlocTextToFill.defaultProps = {
   in: false,
 
-  /********* DATA ********/
+  /** ******* DATA ********/
 
   noChapter: false,
   iconType: 'horloge',

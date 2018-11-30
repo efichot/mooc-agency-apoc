@@ -52,7 +52,7 @@ BlocSubMenu1.propTypes = {
   in: PropTypes.bool,
   action: PropTypes.func.isRequired,
   activateLastItem: PropTypes.bool,
-  /***************** DATA ******************/
+  /** *************** DATA ******************/
 
   modulType: PropTypes.string.isRequired,
   description: PropTypes.shape({ __html: PropTypes.string.isRequired }),

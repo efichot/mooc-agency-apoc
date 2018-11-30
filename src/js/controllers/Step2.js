@@ -1,4 +1,4 @@
-/******* TODO *********/
+/** ***** TODO *********/
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -32,6 +32,25 @@ class Step2 extends React.Component {
     showNextModule: 0,
     showSynthese: false,
     showQuiz: false,
+    step1: false,
+    step2: false,
+    step3: false,
+    step4: false,
+  };
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.state.step1) {
+      document.getElementsByClassName('Performance')[0].style.backgroundColor = 'darkgray';
+    }
+    if (this.state.step2) {
+      document.getElementsByClassName('Exposition')[0].style.backgroundColor = 'darkgray';
+    }
+    if (this.state.step3) {
+      document.getElementsByClassName('Risque')[0].style.backgroundColor = 'darkgray';
+    }
+    if (this.state.step4) {
+      document.getElementsByClassName('Garantie')[0].style.backgroundColor = 'darkgray';
+    }
   };
 
   componentDidMount() {
@@ -65,16 +84,20 @@ class Step2 extends React.Component {
     this.setState({ showQuiz: true });
   };
 
+  stepFinish = step => {
+    this.setState({ [step]: true });
+  };
+
   render() {
-    const { show_01, show_02, show_03, show_04, showSynthese, showQuiz /*showNextModule*/ } = this.state;
+    const { show_01, show_02, show_03, show_04, showSynthese, showQuiz /* showNextModule */ } = this.state;
 
     // const mainThread = !show_01 && !show_02 && !show_03 && !show_04;
 
     const isStep2 = this.props.match.path === '/step2';
 
     // const stepInStep0 = showNextModule === 1;
-    /*const stepInStep1 = showNextModule > 1;
-    const stepInStep2 = showNextModule > 2;*/
+    /* const stepInStep1 = showNextModule > 1;
+    const stepInStep2 = showNextModule > 2; */
 
     return (
       <Fade classProps="step step2" in={isStep2} component="Step2">
@@ -88,21 +111,21 @@ class Step2 extends React.Component {
                   <BlocStepTopContent
                     in={isStep2}
                     scrollIntoView={isStep2}
-                    step={step2} /*videoInIframe={!mainThread}*/
+                    step={step2} /* videoInIframe={!mainThread} */
                   />
-                  <BlocDivider in={isStep2 /* && mainThread*/} />
-                  <BlocEnSavoirPlusType1 in={isStep2 /* && mainThread*/} {...step2.module_02} />
-                  <BlocDivider in={isStep2 /* && mainThread*/} noMarginTop />
-                  <BlocVideo in={isStep2 /* && mainThread*/} {...step2.module_03} />
-                  <BlocDivider in={isStep2 /* && mainThread*/} />
+                  <BlocDivider in={isStep2 /* && mainThread */} />
+                  <BlocEnSavoirPlusType1 in={isStep2 /* && mainThread */} {...step2.module_02} />
+                  <BlocDivider in={isStep2 /* && mainThread */} noMarginTop />
+                  <BlocVideo in={isStep2 /* && mainThread */} {...step2.module_03} />
+                  <BlocDivider in={isStep2 /* && mainThread */} />
                   <BlocQCMType2
-                    in={isStep2 /* && mainThread*/}
+                    in={isStep2 /* && mainThread */}
                     {...step2.module_04}
                     gameIsFinished={this.handleShowNextModule}
                   />
-                  <BlocDivider in={isStep2 /* && mainThread*/} />
+                  <BlocDivider in={isStep2 /* && mainThread */} />
                   <BlocVideo
-                    in={isStep2 /* && mainThread*/}
+                    in={isStep2 /* && mainThread */}
                     // in={stepInStep0 && mainThread}
                     // scrollIntoView={stepInStep0}
                     {...step2.module_05}
@@ -110,15 +133,39 @@ class Step2 extends React.Component {
                   <BlocSpacer />
                   <BlocSubMenu1
                     {...step2.module_06}
-                    in={isStep2 /* && mainThread*/}
+                    in={isStep2 /* && mainThread */}
                     // in={stepInStep0 && mainThread}
                     action={this.changeMarketToShow}
                   />
                   <BlocSpacer />
-                  <Step201 in={show_01} context={step2} endOfModules={this.handleShowSynthese} />
-                  <Step202 in={show_02} context={step2} endOfModules={this.handleShowSynthese} />
-                  <Step203 in={show_03} context={step2} endOfModules={this.handleShowSynthese} />
-                  <Step204 in={show_04} context={step2} endOfModules={this.handleShowSynthese} />
+                  <Step201
+                    in={show_01}
+                    context={step2}
+                    endOfModules={this.handleShowSynthese}
+                    stepFinish={this.stepFinish}
+                    step="step1"
+                  />
+                  <Step202
+                    in={show_02}
+                    context={step2}
+                    endOfModules={this.handleShowSynthese}
+                    stepFinish={this.stepFinish}
+                    step="step2"
+                  />
+                  <Step203
+                    in={show_03}
+                    context={step2}
+                    endOfModules={this.handleShowSynthese}
+                    stepFinish={this.stepFinish}
+                    step="step3"
+                  />
+                  <Step204
+                    in={show_04}
+                    context={step2}
+                    endOfModules={this.handleShowSynthese}
+                    stepFinish={this.stepFinish}
+                    step="step4"
+                  />
 
                   {(showSynthese || show_01 || show_02 || show_03 || show_04) && (
                     <div className="step2__synthese step__synthese bloc">
