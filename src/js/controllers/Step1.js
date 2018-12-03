@@ -105,7 +105,7 @@ class Step1 extends React.Component {
                   <BlocEnSavoirPlusType2
                     in={isStep1}
                     scrollIntoView={stepInStep0}
-                    margins
+                    // margins
                     answer={this.state.fund}
                     {...step1.module_04_bis}
                     gameIsFinished={this.handleShowNextModule}

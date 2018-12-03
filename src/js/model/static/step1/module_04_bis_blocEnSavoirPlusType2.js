@@ -2,13 +2,14 @@ import moduleTypes from '../moduleTypes';
 
 const module_04_bis_blocEnSavoirPlusType2 = {
   modulType: moduleTypes.blocEnSavoirPlusType2,
-  /*linkWithBlocSubMenu1ButtonPosition: 2,*/
+  /* linkWithBlocSubMenu1ButtonPosition: 2, */
   noChapter: true,
-  /*chapter: 'En savoir plus',*/
-  /*duration: 2,*/
+  /* chapter: 'En savoir plus', */
+  /* duration: 2, */
   title: ``,
   firstDescription: {
-    __html: `À votre avis, à quelle catégorie appartient le fonds que vous avez composé&nbsp;? Sélectionnez la bonne réponse et validez.`,
+    __html: `L’Autorité des Marchés Financiers (AMF) classifie les fonds en fonction de leur composition.
+    À votre avis, à quelle catégorie appartient le fonds que vous avez composé&nbsp;? Sélectionnez la bonne réponse et validez.`,
   },
   cards: [
     {
@@ -18,7 +19,7 @@ const module_04_bis_blocEnSavoirPlusType2 = {
       arrowFollowing: false,
       cardTitle: 'Fonds Actions',
       cardContent: {
-        __html: `<div><span class='card-title'>FONDS ACTIONS</span></br><span class='card-subtitle'>Cf. Glossaire</span></br></br>Pour être classifié « fonds actions » par l’AMF, il faut être composé d’au moins 60% d’actions, le solde pouvant être indifféremment constitué d’obligations ou de titres monétaires.</br>Cette classification est rendue optionnelle à compter du 1ier janvier 2018.</div>`,
+        __html: `<div><span class='card-title'>FONDS ACTIONS</span></br><span class='card-subtitle'>Cf. Glossaire</span></br></br>Pour être classifié « fonds actions » par l’AMF, il faut être composé d’au moins 60% d’actions, le solde pouvant être indifféremment constitué d’obligations ou de titres monétaires.</div>`,
       },
       cardSubTitle: `cf. Glossaire`,
     },
@@ -29,7 +30,7 @@ const module_04_bis_blocEnSavoirPlusType2 = {
       arrowFollowing: false,
       cardTitle: 'Fonds Obligataire',
       cardContent: {
-        __html: `<div><span class='card-title'>FONDS OBLIGATAIRE</span></br><span class='card-subtitle'>Cf. Glossaire</span></br></br> Pour être classifié « fonds obligataire » par l’AMF, il faut être composé d’au plus 10% d’actions, le solde pouvant être indifféremment constitué d’obligations ou de titres monétaires.</br>Cette classification est rendue optionnelle à compter du 1ier janvier 2018.</br></div>`,
+        __html: `<div><span class='card-title'>FONDS OBLIGATAIRE</span></br><span class='card-subtitle'>Cf. Glossaire</span></br></br> Pour être classifié « fonds obligataire » par l’AMF, il faut être composé d’au plus 10% d’actions, le solde pouvant être indifféremment constitué d’obligations ou de titres monétaires.</div>`,
       },
       cardSubTitle: `cf. Glossaire`,
     },
@@ -51,7 +52,7 @@ const module_04_bis_blocEnSavoirPlusType2 = {
       arrowFollowing: false,
       cardTitle: "Fonds en titres de l'entreprise",
       cardContent: {
-        __html: `<div><span class='card-title'>FONDS EN TITRES DE L'ENTREPRISE</span></br><span class='card-subtitle'>Cf. Glossaire</span></br></br>Pour être classifié « fonds en titres de </br>l’entreprise » par l’AMF, il faut être composé d’au plus un tiers en titres de l’entreprise (fonds diversifié en titres de l’entreprise) ou d’au moins un tiers en titres de l’entreprise (fonds d’actionnariat salarié), le solde pouvant être indifféremment constitué d’actions, d’obligations ou de monétaire.</div>`,
+        __html: `<div><span class='card-title'>FONDS DE TYPE MIXTE</span></br><span class='card-subtitle'>Cf. Glossaire</span></br></br>Pour être classifié « fonds monétaire » par l’AMF, il faut être constitué quasi exclusivement de titres monétaires. L’AMF classifie les fonds monétaires en fonction de la durée des titres qui les composent, ce qui ne permet de fait qu'une faible proportion d'obligations de durée courte, et bien sûr aucune action. L’AMF distingue le fonds monétaire court terme (durée maximale des titres détenus de 397 jours) et le fonds monétaire (durée maximale des titres détenus de 2 ans).</div>`,
       },
       cardSubTitle: `cf. Glossaire`,
     },
@@ -62,13 +63,13 @@ const module_04_bis_blocEnSavoirPlusType2 = {
       arrowFollowing: false,
       cardTitle: 'Fonds de type mixte',
       cardContent: {
-        __html: `<div><span class='card-title'>FONDS DE TYPE MIXTE</span></br><span class='card-subtitle'>Cf. Glossaire</span></br></br>Pour être classifié « fonds monétaire » par l’AMF, il faut être constitué quasi exclusivement de titres monétaires. L’AMF classifie les fonds monétaires en fonction de la durée des titres qui les composent, ce qui ne permet de fait qu'une faible proportion d'obligations de durée courte, et bien sûr aucune action. L’AMF distingue le fonds monétaire court terme (durée maximale des titres détenus de 397 jours) et le fonds monétaire (durée maximale des titres détenus de 2 ans).</div>`,
+        __html: `<div><span class='card-title'>FONDS EN TITRES DE L'ENTREPRISE</span></br><span class='card-subtitle'>Cf. Glossaire</span></br></br>Pour être classifié « fonds en titres de </br>l’entreprise » par l’AMF, il faut être composé d’au plus un tiers en titres de l’entreprise (fonds diversifié en titres de l’entreprise) ou d’au moins un tiers en titres de l’entreprise (fonds d’actionnariat salarié), le solde pouvant être indifféremment constitué d’actions, d’obligations ou de monétaire.</div>`,
       },
       cardSubTitle: `cf. Glossaire`,
     },
   ],
   secondDescription: {
-    __html: `L’AMF classifie les fonds à partir de la classe d’actifs la plus risquée présente dans le fonds, excepté pour les fonds monétaires qui sont définis par rapport à la durée des titres qui les composent. 
+    __html: `L’AMF classifie les fonds à partir de la classe d’actifs la plus risquée présente dans le fonds, excepté pour les fonds monétaires qui sont définis par rapport à la durée des titres qui les composent.
 À compter du 1er janvier 2018, les classifications « fonds actions » et « fonds obligataire » deviennent optionnelles.`,
   },
 };

@@ -24,7 +24,26 @@ class ButtonPrimary extends React.Component {
           color: fontColor,
           ...styleProps,
         }}>
-        {name.__html ? <span dangerouslySetInnerHTML={name} /> : <span>{name}</span>}
+        {name.__html ? (
+          <span dangerouslySetInnerHTML={name} />
+        ) : (
+          <span
+            style={{
+              fontWeight:
+                name === 'actions' ||
+                name === 'obligations' ||
+                name === 'monétaire' ||
+                name === "Titres de l'entreprise" ||
+                name === 'Entrer sur le marché actions' ||
+                name === 'Entrer sur le marché obligataire' ||
+                name === 'Entrer sur le marché monétaire' ||
+                name === 'Entrer sur le marché des dérivés'
+                  ? 'bold'
+                  : '',
+            }}>
+            {name}
+          </span>
+        )}
         {value !== undefined && <span>{value}</span>}
       </div>
     );

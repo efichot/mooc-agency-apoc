@@ -115,6 +115,7 @@ class BlocQCMType2 extends React.Component {
       classSelect,
       scrollIntoView,
       questionsHeight,
+      step2,
     } = this.props;
 
     const { hideQuestion, showQuestion, gameIsFinished, victoryMessage, hideExplanation } = this.state;
@@ -142,7 +143,8 @@ class BlocQCMType2 extends React.Component {
                   <div
                     className="button-groupe"
                     onMouseEnter={() => this.showQuestion(question)}
-                    onMouseLeave={() => this.hideQuestions(question)}>
+                    onMouseLeave={() => this.hideQuestions(question)}
+                    style={{ marginRight: step2 ? '450px' : '' }}>
                     <ButtonPrimary name={{ __html: question.title }} />
                     {question.arrowFollowing && (
                       <div className="arrow-following" style={{ backgroundImage: `url(${arrowDown})` }} />
@@ -162,8 +164,13 @@ class BlocQCMType2 extends React.Component {
             })}
           </div>
           {!noPopup && (
-            <PopupBlue classProps="bloc-QCM-type-2__questions--to-show" hidePopup={hideQuestion} noCross>
-              <span className="question-title">{!hideQuestion && questions[showQuestion - 1].title}</span>
+            <PopupBlue
+              classProps={`bloc-QCM-type-2__questions--to-show ${step2 ? 'middlePopUp' : ''}`}
+              hidePopup={hideQuestion}
+              noCross>
+              <span className="question-title">
+                {!hideQuestion && questions[showQuestion - 1].title.replace('&nbsp;', ' ')}
+              </span>
               {!hideQuestion &&
                 (questions[showQuestion - 1].description.__html ? (
                   <p className="question-content" dangerouslySetInnerHTML={questions[showQuestion - 1].description} />

@@ -121,6 +121,7 @@ class Step2 extends React.Component {
                   <BlocQCMType2
                     in={isStep2 /* && mainThread */}
                     {...step2.module_04}
+                    step2
                     gameIsFinished={this.handleShowNextModule}
                   />
                   <BlocDivider in={isStep2 /* && mainThread */} />

@@ -116,8 +116,7 @@ class BlocPieChartPlay extends React.Component {
             );
           })}
         </div>
-        <BlocSpacer />
-        <div className="bloc-pie-chart-play__validate-victory">
+        <div className="bloc-pie-chart-play__validate-victory" style={{ marginTop: '10px' }}>
           <ButtonPrimary
             minWidth
             name="valider"

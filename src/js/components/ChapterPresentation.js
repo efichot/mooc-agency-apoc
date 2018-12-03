@@ -28,7 +28,7 @@ const ChapterPresentation = ({
         {step && (
           <React.Fragment>
             <span className="step-title" style={{ color: 'black' }}>
-              Étape
+              Module
             </span>
             <span style={{ color: 'black' }}>{step}</span>
           </React.Fragment>

@@ -7,10 +7,10 @@ const module_02_blocSimulator = {
   noChapter: false,
   chapter: `simulateurs`,
   duration: 5,
-  name: `Profils d'investisseur`,
+  name: `Profils d'épargnant`,
   firstDescription: {
-    __html: `Déterminez votre profil d’investisseur en répondant aux questions proposées dans le simulateur ci-dessous.
-    À la fin de la simulation, pensez à refermer la fenêtre ouverte pour revenir au parcours&nbsp;!`,
+    __html: `Déterminez votre profil d’épargnant en répondant aux questions proposées dans le simulateur ci-dessous.
+    À la fin de la simulation, pensez à refermer la fenêtre ouverte pour revenir au module&nbsp;!`,
   },
   backgroundImage,
   backgroundColor: 'rgba(255,255,255,1.00)',

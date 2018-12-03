@@ -9,8 +9,8 @@ const module_04_blocQCMType2 = {
   duration: 2,
   title: `Srri et objectifs d'investissement`,
   firstDescription: {
-    __html: `Quatre fonds constitués de plusieurs actifs (actions, obligations, titres monétaires) vous sont proposés. Affectez à chacun le niveau de risque et de rendement (SRRI) qui lui correspond à l’aide du bouton  <div class="button-in-description" style="background-image: url(${button_down_right})"></div> et en fonction de plusieurs paramètres&nbsp;: 
-    - la proportion d’actions indiquée rend-elle le fonds plus ou moins risqué&nbsp;? 
+    __html: `Pour vous entraîner à utiliser ces données, quatre fonds composés de plusieurs actifs (actions, obligations, titres monétaires) vous sont proposés. Affectez à chacun le niveau de risque et de rendement (SRRI) qui lui correspond à l’aide du bouton  <div class="button-in-description" style="background-image: url(${button_down_right})"></div> et en fonction de plusieurs paramètres&nbsp;:
+    - la proportion d’actions indiquée rend-elle le fonds plus ou moins risqué&nbsp;?
     - l’objectif d’investissement vise-t-il à encadrer ou limiter le risque du fonds&nbsp;?
 
     Pour plus de détail sur l’objectif d’investissement, passez la souris sur les fonds concernés, sélectionnez la réponse puis validez.
@@ -21,7 +21,7 @@ const module_04_blocQCMType2 = {
   questions: [
     {
       questionNumber: 1,
-      title: `Fonds A`,
+      title: `Fonds&nbsp;A`,
       description: `Réaliser une performance supérieure à son indice de référence constitué de 50% d’actions européennes (MSCI Europe) et 50% d’obligations d’État (Barclays Euro Aggregate Treasury 1-7 years)`,
       choices: [
         {
@@ -45,7 +45,7 @@ const module_04_blocQCMType2 = {
     },
     {
       questionNumber: 2,
-      title: `Fonds B`,
+      title: `Fonds&nbsp;B`,
       description: `Rechercher la valorisation du capital par une gestion où la part des actions peut passer de 0 à 120%, et celle des obligations et titres monétaires de 0 à 100%`,
       choices: [
         {
@@ -69,8 +69,8 @@ const module_04_blocQCMType2 = {
     },
     {
       questionNumber: 3,
-      title: `Fonds C`,
-      description: `Réaliser une performance annualisée de 5% sur 5 ans au-delà de l’indice monétaire (EONIA capitalisé) où la part des actions peut passer de 0 à 100% comme celle des obligations et titres monétaires`,
+      title: `Fonds&nbsp;C`,
+      description: `Réaliser une performance annualisée sur 5 ans de 5% au-delà de l’indice monétaire (EONIA) par une gestion où la part des actions peut passer de 0 à 100% comme celle des obligations et titres monétaires`,
       choices: [
         {
           value: 3,
@@ -93,8 +93,8 @@ const module_04_blocQCMType2 = {
     },
     {
       questionNumber: 4,
-      title: `Fonds D`,
-      description: `Préserver à tout moment le capital à hauteur de 90% de la plus élevée des valeurs de part du fonds constatées`,
+      title: `Fonds&nbsp;D`,
+      description: `Préserver à tout moment le capital à hauteur de 90% de la plus élevée des valeurs constatées pour une part du fonds`,
       choices: [
         {
           value: 3,
